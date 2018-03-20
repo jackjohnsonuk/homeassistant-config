@@ -69,29 +69,6 @@
 
 
 
-- platform: bayesian
-  name: Watching TV in the Living Room
-  prior: 0.3  # 60% chance that somebody is at home at any given moment
-  probability_threshold: 0.90
-  observations:
-    # Somebody at home -> Very likely at least one household member is at home
-    - entity_id: group.family
-      platform: state
-      to_state: 'home'
-      prob_given_true: 0.99
-      prob_given_false: 0.40
-    # Somebody at home -> likely that at least one indoor light is turned on
-    - entity_id: media_player.living_room_fire_tv
-      platform: state
-      to_state: 'playing'
-      prob_given_true: 0.90
-      prob_given_false: 0.1
-    # Somebody at home -> Very Likely motion will be detected
-#    - entity_id: media_player.living_room_tv
-#      platform: state
-#      to_state: 'on'
-#      prob_given_true: 0.90
-#      prob_given_false: 0.2
 
 
 - platform: bayesian
@@ -182,6 +159,30 @@
       prob_given_false: 0.01
     # Somebody at home -> likely that at least one indoor light is turned on
     - entity_id: input_boolean.bedroom_idle
+      platform: state
+      to_state: 'off'
+      prob_given_true: 0.30
+      prob_given_false: 0.20
+
+- platform: bayesian
+  name: someone watching tv livingroom
+  prior: 0.1  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.70
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: group.family
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.90
+      prob_given_false: 0.10
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: media_player.living_room_tv
+      platform: state
+      to_state: 'playing'
+      prob_given_true: 0.99
+      prob_given_false: 0.01
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: input_boolean.living_room_idle
       platform: state
       to_state: 'off'
       prob_given_true: 0.30
