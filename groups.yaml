@@ -1,0 +1,454 @@
+#################################################################
+## Headered Groups
+#################################################################
+
+      #################################################################
+      ## Main View
+      #################################################################
+
+default_view:
+  name: Home
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.circulation_light
+    - climate.kitchen
+#    - script.owntracks_update
+    - group.time_travel_card
+    - group.weather_card
+    - camera.driveway
+    - media_player.shed_speaker
+    - group.motion
+    - group.family
+    - vacuum.xiaomi_vacuum_cleaner
+    - group.bins
+    - sensor.stats_mean
+
+      #################################################################
+      ## Kitchen
+      #################################################################
+
+Kitchen:
+  name: Kitchen
+  view: yes
+  icon: mdi:pot-mix
+  entities:
+    - media_player.kitchen
+    - media_player.kitchen_speaker
+    - camera.kitchen
+#    - camera.kitchen2
+    - group.Kitchen_motion_sensor
+
+      #################################################################
+      ## Living Room
+      #################################################################
+
+Living_Room:
+  name: Living Room
+  view: yes
+  icon: mdi:sofa
+  entities:
+    - group.Living_room_lights
+    - media_player.living_room_speaker
+    - media_player.living_room_fire_tv
+    - group.living_room_tv
+    - camera.lounge
+    - group.living_room_motion
+    - switch.living_room_scentsy
+
+      #################################################################
+      ## Front Room
+      #################################################################
+
+Front_Room:
+  name: Front Room
+  view: yes
+  icon: mdi:television
+  entities:
+    - group.Front_room_lights
+    - media_player.front_room_speaker
+    - group.Front_Room_Scentsy
+    - media_player.front_room_tv
+
+      #################################################################
+      ## Master Bedroom
+      #################################################################
+
+Bedroom:
+  name: Bedroom
+  view: yes
+  icon: mdi:hotel
+  entities:
+    - group.bedroom_lights
+    - media_player.bedroom_fire_tv
+    - media_player.master_bedroom
+    - media_player.bedroom_speaker
+    - switch.bedroom_scentsy
+    - group.Dressing_Room
+    - group.bedroom_tv
+    - group.group_bedside_lights
+    - group.Bedroom_motion_sensor
+
+      #################################################################
+      ## 3D Printer
+      #################################################################
+
+3D Printing:
+  name: 3D Printing
+  view: yes
+  icon: mdi:printer-3d
+  entities:
+    - group.3D_Printing
+
+      #################################################################
+      ## Links
+      #################################################################
+
+Links:
+  name: Links
+  view: yes
+  icon: mdi:link
+  entities:
+    - weblink.octoprint
+    - weblink.plex
+    - weblink.radarr
+    - weblink.sonarr
+    - weblink.sabnzbd
+    - weblink.router
+    - weblink.repo
+
+      #################################################################
+      ## Settings
+      #################################################################
+
+Settings:
+  name: Settings
+  view: yes
+  icon: mdi:settings
+  entities:
+    - group.internet
+    - switch.camera_record
+    - group.server_status
+    - group.cctv_status
+    - group.google_status
+    - group.tv_status
+    - group.misc_status
+
+
+#################################################################
+## Cards
+#################################################################
+
+      #################################################################
+      ## Speedtest
+      #################################################################
+
+Internet:
+  name: Internet
+  entities:
+   - sensor.speedtest_download
+   - sensor.speedtest_upload
+   - sensor.speedtest_ping
+
+      #################################################################
+      ## House Hold Motion Detector Cards
+      #################################################################
+
+Motion:
+  name: Motion
+  entities:
+   - sensor.motion_under_stairs
+   - sensor.motion_stairs
+   - sensor.motion_indoor_camera_living_room
+   - sensor.motion_dressing_room
+   - sensor.motion_indoor_camera_kitchen
+   - sensor.motion_bedroom
+#   - sensor.motion_indoor_camera_kitchen2
+
+      #################################################################
+      ## Living Room Motion Detector Cards
+      #################################################################
+
+living_room_motion:
+  name: Living Room Motion
+  entities:
+   - sensor.motion_under_stairs
+   - sensor.motion_indoor_camera_living_room
+
+
+
+      #################################################################
+      ## Family
+      #################################################################
+
+family:
+  name: Family
+  entities:
+   - device_tracker.jack_jack
+   - device_tracker.lara_lara
+
+      #################################################################
+      ## Bedside Light Card
+      #################################################################
+
+#group_bedside_lights:
+#  name: Bedside Lights
+#  entities:
+#    - light.jack_bedside_light
+#    - light.lara_bedside_light
+
+      #################################################################
+      ## Bedroom Light Card
+      #################################################################
+
+Bedroom_lights:
+  name: Bedroom Lights
+  entities:
+    - light.bedroom_main_light
+    - light.bedside_lights
+
+      #################################################################
+      ## Bins
+      #################################################################
+
+bins:
+  name: Bins
+  entities:
+    - sensor.rubbish_pickup_day
+    - sensor.recycling_pickup_day
+
+      #################################################################
+      ## Circulation Light Card
+      #################################################################
+
+circulation_light:
+  name: Circulation Lights
+  entities:
+    - light.hallway_light
+    - group.group_pantry_lights
+
+      #################################################################
+      ## Front Room Light Card
+      #################################################################
+
+Front_room_lights:
+  name: Front Room Lights
+  entities:
+    - light.front_room_main_light
+
+      #################################################################
+      ## Front Room Light Card
+      #################################################################
+
+group_bedside_lights:
+  name: Bedside Lights
+  entities:
+    - light.jack_bedside_light
+    - light.lara_bedside_light
+
+
+      #################################################################
+      ## Living Room Light Card
+      #################################################################
+
+Living_room_lights:
+  name: Living Room Lights
+  entities:
+    - light.living_room_lamp
+    - light.living_room_main_light
+    - light.living_room_side_lights
+
+
+
+      #################################################################
+      ## Pantry Light Card and Subcard
+      #################################################################
+
+Group_Pantry_lights:
+  name: Pantry Lights
+  entities:
+    - light.pantry_light_1
+    - light.pantry_light_2
+    - light.pantry_light_3
+    - light.pantry_light_4
+
+      #################################################################
+      ## Dressing Room Light Card
+      #################################################################
+
+Dressing_Room:
+  name: Dressing Room Lights
+  entities:
+    - light.dressing_room
+
+      #################################################################
+      ## Outside Christmas Light Card
+      #################################################################
+
+Front_Room_Scentsy:
+  name: Front Room Scentsy
+  entities:
+    - switch.smart_plug_3
+
+
+      #################################################################
+      ## Christmas Tree Light Card
+      #################################################################
+
+Christmas_tree:
+  name: Christmas Tree Lights
+  entities:
+    - switch.smart_plug_2
+    - switch.smart_plug_3
+
+      #################################################################
+      ## Christmas Card
+      #################################################################
+
+Christmas:
+  name: Christmas
+  entities:
+    - group.Christmas_lights
+    - group.Christmas_tree
+
+      #################################################################
+      ## Living Room Motion Sensor Card
+      #################################################################
+
+Living_Room_motion_sensor:
+  name: Living Room Motion Sensor
+  entities:
+   - sensor.motion_indoor_camera_lounge
+
+      #################################################################
+      ## Kitchen Motion Sensor Card
+      #################################################################
+
+Kitchen_motion_sensor:
+  name: Kitchen Motion Sensor
+  entities:
+    - sensor.motion_indoor_camera_kitchen
+#    - sensor.motion_indoor_camera_kitchen2
+
+      #################################################################
+      ## Bedroom Motion Sensor Card
+      #################################################################
+
+Bedroom_motion_sensor:
+  name: Bedroom Motion Sensor
+  entities:
+   - sensor.motion_bedroom
+   - sensor.motion_dressing_room
+
+      #################################################################
+      ## 3D Printing Card
+      #################################################################
+
+3D_Printing:
+  name: 3D Printing
+  entities:
+    - camera.octoprint
+    - sensor.octoprint_actual_tool0_temp
+    - sensor.octoprint_actual_bed_temp
+    - sensor.octoprint_current_state
+    - sensor.octoprint_job_percentage
+    - binary_sensor.octoprint_printing
+    - binary_sensor.octoprint_printing_error
+
+      #################################################################
+      ## Travel Time Card
+      #################################################################
+
+time_travel_card:
+  name: Time To Destination
+  entities:
+    - sensor.jack_home_to_work
+
+      #################################################################
+      ## Weather Card
+      #################################################################
+
+weather_card:
+  name: Weather
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature
+
+      #################################################################
+      ## Bedroom TV
+      #################################################################
+
+bedroom_tv:
+  name: Bedroom TV
+  control: hidden
+  entities:
+    - script.upstairs_tv_power
+    - script.upstairs_tv_up
+    - script.upstairs_tv_down
+
+      #################################################################
+      ## Living Room TV
+      #################################################################
+
+living_room_tv:
+  name: Living Room TV
+  control: hidden
+  entities:
+    - script.living_room_tv_power
+    - script.living_room_tv_up
+    - script.living_room_tv_down
+
+      #################################################################
+      ## Status
+      #################################################################
+
+tv_status:
+  name: TV Status
+  control: hidden
+  entities:
+    - sensor.status_bedroom_rf
+    - sensor.status_fire_tv_1
+    - sensor.status_fire_tv_2
+    - sensor.status_fire_tv_3
+    - sensor.status_tv_living_room
+
+cctv_status:
+  name: TV Status
+  control: hidden
+  entities:
+    - sensor.status_hikvision_1
+    - sensor.status_hikvision_2
+    - sensor.status_hikvision_3
+    - sensor.status_nest_camera
+
+server_status:
+  name: Server Status
+  control: hidden
+  entities:
+    - sensor.status_router_master
+    - sensor.status_router_kitchen
+    - sensor.status_network_extender
+    - sensor.status_media_server
+    - sensor.status_philips_hue_hub
+    - sensor.status_smart_thing_hub
+
+
+google_status:
+  name: Google Home Status
+  control: hidden
+  entities:
+    - sensor.status_google_home_bedroom
+    - sensor.status_google_home_front_room
+    - sensor.status_google_home_kitchen
+    - sensor.status_google_home_living_room
+
+misc_status:
+  name: Misc Status
+  control: hidden
+  entities:
+    - sensor.status_jack_laptop
+    - sensor.status_nest_thermostat
+    - sensor.status_ps4
+    - sensor.status_scentsy_sonoff
+    - sensor.status_sonos_bedroom
+    - sensor.status_xiaomi_vacuum

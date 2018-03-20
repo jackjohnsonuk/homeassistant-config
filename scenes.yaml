@@ -1,0 +1,89 @@
+#################################################################
+## Bedroom Scenes
+#################################################################
+
+      #################################################################
+      ## Media related scenes
+      #################################################################
+
+  - name: bedroom normal
+    entities:
+        light.jack_bedside_light:
+            state: on
+            transition: 2
+            brightness: 200
+            xy_color: [ 0.4448, 0.4066 ]
+        light.lara_bedside_light:
+            state: on
+            transition: 2
+            brightness: 200
+            xy_color: [ 0.4448, 0.4066 ]
+
+  - name: bedroom dim
+    entities:
+        light.jack_bedside_light:
+            state: on
+            transition: 2
+            brightness: 80
+            xy_color: [ 0.5926, 0.3814 ]
+        light.lara_bedside_light:
+            state: on
+            transition: 2
+            brightness: 80
+            xy_color: [ 0.5926, 0.3814 ]
+
+      #################################################################
+      ## Sleep Scenes
+      #################################################################
+
+  - name: bedroom sleep
+    entities:
+        light.jack_bedside_light:
+            state: off
+            transition: 900
+        light.lara_bedside_light:
+            state: on
+            transition: 2
+            brightness: 10
+            xy_color: [ 0.5926, 0.3814 ]
+        light.bedroom_main_light:
+            state: off
+
+
+
+#################################################################
+## Hallway Scenes
+#################################################################
+
+      #################################################################
+      ## Dimmable scenes
+      #################################################################
+
+  - name: hallway day
+    entities:
+        light.hallway_light:
+            state: on
+            transition: 2
+            brightness: 255
+            xy_color: [ 0.4448, 0.4066 ]
+
+  - name: hallway night
+    entities:
+        light.hallway_light:
+            state: on
+            transition: 2
+            brightness: 190
+            xy_color: [ 0.5926, 0.3814 ]
+
+  - name: hallway sleep
+    entities:
+        light.hallway_light:
+            state: on
+            transition: 2
+            brightness: 30
+            xy_color: [ 0.5926, 0.3814 ]
+        light.livingroom_light:
+            state: on
+            transition: 300
+            brightness: 30
+            xy_color: [ 0.5926, 0.3814 ]

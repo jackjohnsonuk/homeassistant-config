@@ -1,0 +1,225 @@
+#configurator.sabnzbd:
+#  hidden: true
+
+configurator.braviatv:
+  hidden: true
+
+group.dressing_room:
+  google_assistant: false
+
+group.hallway_light:
+  google_assistant: false
+
+light.pantry_light_1:
+  google_assistant: false
+
+light.pantry_light_2:
+  google_assistant: false
+
+light.pantry_light_3:
+  google_assistant: false
+
+light.pantry_light_4:
+  google_assistant: false
+
+group.all_automations:
+  google_assistant: false
+
+group.all_devices:
+  google_assistant: false
+
+group.all_lights:
+  google_assistant: false
+
+group.all_scripts:
+  google_assistant: false
+
+group.all_switches:
+  google_assistant: false
+
+light.all_hue_lights:
+  google_assistant: false
+
+light.bedroom:
+  google_assistant: false
+
+light.bedroom_main_light:
+  aliases:
+    - Bedroom Main light
+    - Main Bedroom light
+
+light.dressing_room:
+  google_assistant: false
+
+light.hallway:
+  google_assistant: false
+
+light.jack_bedside_light:
+  icon: mdi:lamp
+  aliases:
+    - Jack Bedside Light
+    - Jacks Bedside Light
+    - Jack's Bedside Light
+    - Jack is Bedside Light
+
+light.lara_bedside_light:
+  icon: mdi:lamp
+  aliases:
+    - Lara Bedside Light
+    - Laras Bedside Light
+    - Lara's Bedside Light
+    - Lara is Bedside Light
+
+
+light.livingroom_light:
+  icon: mdi:lamp
+  aliases:
+    - Livingroom Light
+    - Living Room Light
+
+group.lights:
+  google_assistant: false
+
+group.livingroom_lights:
+  google_assistant: false
+
+group.sensors:
+  google_assistant: false
+
+light.utility:
+  google_assistant: false
+
+sensor.status_philips_hue_hub:
+  friendly_name: Philips Hue Bridge
+  entity_picture: /local/hue.png
+
+sensor.status_jack_laptop:
+  friendly_name: Jacks Laptop
+  entity_picture: /local/apple.png
+
+sensor.status_nest_thermostat:
+  friendly_name: Nest Thermostat
+  entity_picture: /local/nest.png
+
+sensor.status_smart_thing_hub:
+  friendly_name: Smart Things Hub
+  entity_picture: /local/smartthings.png
+
+sensor.status_ps4:
+  friendly_name: PS4
+  entity_picture: /local/playstation.png
+
+sensor.status_fire_tv_1:
+  friendly_name: Fire TV 1
+  entity_picture: /local/firetv.png
+
+sensor.status_fire_tv_2:
+  friendly_name: Fire TV 2
+  entity_picture: /local/firetv.png
+
+sensor.status_fire_tv_3:
+  friendly_name: Fire TV 3
+  entity_picture: /local/firetv.png
+
+sensor.status_nest_camera:
+  friendly_name: Nest Outdoor Camera
+  entity_picture: /local/nest.png
+
+switch.bedroom_scentsy:
+  friendly_name: Bedroom Scentsy
+  entity_picture: /local/scentsy-logo.png
+
+switch.living_room_scentsy:
+  friendly_name: Living Room Scentsy
+  entity_picture: /local/scentsy-logo.png
+
+sensor.rubbish_pickup_day:
+  entity_picture: /local/Green_Bin.png
+
+sensor.recycling_pickup_day:
+  entity_picture: /local/Blue_Bin.png
+
+
+sensor.octoprint_actual_bed_temp:
+  friendly_name: Bed Currently
+  icon: mdi:thermometer
+sensor.octoprint_actual_tool0_temp:
+  friendly_name: Hot End Currently
+  icon: mdi:thermometer
+sensor.octoprint_current_state:
+  icon: mdi:printer-3d
+binary_sensor.octoprint_printing:
+  hidden: yes
+binary_sensor.octoprint_printing_error:
+  icon: mdi:alert
+  friendly_name: Error
+sensor.octoprint_job_percentage:
+  icon: mdi:percent
+  friendly_name: Job Percentage
+sensor.octoprint_target_bed_temp:
+  friendly_name: Bed Target
+  icon: mdi:thermometer
+sensor.octoprint_target_tool0_temp:
+  friendly_name: Hot End Target
+  icon: mdi:thermometer
+
+media_player.kitchen_speaker:
+  friendly_name: Kitchen Google Assistant
+
+media_player.kitchen:
+  friendly_name: Kitchen Sonos
+  entity_picture: ''
+
+media_player.living_room_speaker:
+  friendly_name: Living Room Google Assistant
+
+media_player.sony_bravia_tv:
+  friendly_name: Living Room TV
+
+media_player.front_room_speaker:
+  friendly_name: Front Room Google Assistant
+
+media_player.bedroom_speaker:
+  friendly_name: Bedroom Google Assistant
+
+sensor.dark_sky_summary:
+  friendly_name: Current Weather
+
+sensor.dark_sky_temperature:
+  friendly_name: Current Temperature
+
+script.upstairs_tv_power:
+  friendly_name: TV Power
+  icon: mdi:power
+
+script.upstairs_tv_up:
+  friendly_name: Volume Up
+  icon: mdi:volume-high
+
+script.upstairs_tv_down:
+  friendly_name: Volume Down
+  icon: mdi:volume-medium
+
+script.living_room_tv_power:
+  friendly_name: TV Power
+  icon: mdi:power
+
+script.living_room_tv_up:
+  friendly_name: Volume Up
+  icon: mdi:volume-high
+
+script.living_room_tv_down:
+  friendly_name: Volume Down
+  icon: mdi:volume-medium
+
+group.Living_room_side_lights:
+  icon: mdi:lightbulb
+
+group.group_bedside_lights:
+  icon: mdi:lamp
+
+group.Group_Pantry_lights:
+  icon: mdi:lightbulb
+
+media_player.shed_speaker:
+  entity_picture: ''

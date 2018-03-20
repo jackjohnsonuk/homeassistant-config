@@ -1,0 +1,98 @@
+homeassistant:
+  name: Orchard Cottages
+  latitude: !secret home_lat
+  longitude: !secret home_long
+  elevation: 74
+  unit_system: metric
+  time_zone: Europe/London
+  customize: !include customize.yaml
+
+
+
+config:
+map:
+updater:
+conversation:
+history:
+logbook:
+sun:
+hassio:
+
+http:
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  api_password: !secret http_password
+  base_url: !secret http_base_url
+
+
+# Discover some devices automatically
+# discovery:
+#  ignore:
+#   - sabnzbd
+
+
+tts:
+  - platform: google
+
+device_tracker:
+  - platform: owntracks
+    max_gps_accuracy: 200
+    waypoints: True
+    waypoint_whitelist:
+      - Jack
+
+  - platform: nmap_tracker
+    hosts: !secret nmap
+    exclude:
+      - !secret nmap_exclude
+
+
+ifttt:
+  key: !secret ifttt
+
+#sonos
+#media_player:
+# - platform: sonos
+#    scan_interval:  40
+
+
+octoprint:
+  host: !secret octoprint_ip
+  api_key: !secret octoprint
+  bed: true
+  number_of_tools: 1
+
+vacuum:
+  - platform: xiaomi_miio
+    host: !secret vacuum_ip
+    token: !secret vacuum_token
+
+nest:
+  client_id: !secret nest_client_id
+  client_secret: !secret nest
+
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
+
+hue:
+  bridges:
+    - host: !secret hue_ip
+      allow_hue_groups: false
+
+frontend: !include frontend.yaml
+sensor: !include_dir_merge_list sensor
+light: !include config/light.yaml
+group: !include groups.yaml
+automation: !include_dir_merge_list automation
+script: !include scripts.yaml
+scene: !include scenes.yaml
+media_player: !include config/media_player.yaml
+mqtt: !include config/mqtt.yaml
+switch: !include config/switches.yaml
+binary_sensor: !include_dir_merge_list binary_sensor
+zone: !include zone.yaml
+google_assistant: !include google_assistant.yaml
+camera: !include camera.yaml
+input_boolean: !include input_boolean.yaml
+weblink: !include weblinks.yaml
