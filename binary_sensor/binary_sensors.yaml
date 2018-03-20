@@ -1,0 +1,188 @@
+#Binary Sensors
+
+- platform: mqtt
+  name: "Hallway Motion"
+  state_topic: "smartthings/Hall Motion Sensor/motion/state"
+  command_topic: "smartthings/Hall Motion Sensor/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+- platform: mqtt
+  name: "Bedroom Motion Sensor"
+  state_topic: "smartthings/Bedroom Motion/motion/state"
+  command_topic: "smartthings/Bedroom Motion/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+- platform: mqtt
+  name: "Xiamoi Motion Sensor 2"
+  state_topic: "smartthings/Xiaomi Motion 2/motion/state"
+  command_topic: "smartthings/Xiaomi Motion 2/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+- platform: mqtt
+  name: "Front Door"
+  state_topic: "smartthings/Front Door/contact/state"
+  command_topic: "ssmartthings/Front Door/contact/state"
+  device_class: door
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
+
+- platform: mqtt
+  name: "Hallway Motion Jack"
+  state_topic: "smartthings/Motion Sensor 1/motion/state"
+  command_topic: "smartthings/Motion Sensor 1/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+- platform: octoprint
+  monitored_conditions:
+    - Printing
+    - Printing Error
+
+#  binary_sensor:
+#      platform: mqtt
+#      name: Motion Detector
+#      state_topic: "smartthings/Hall Motion Sensor/motion"
+#      command_topic: "smartthings/Hall Motion Sensor/motion"
+#      device_class: motion
+#      payload_on: "active"
+#      payload_off: "inactive"
+#      retain: true
+
+- platform: template
+  sensors:
+    camera_recording:
+      device_class: presence
+      value_template: "{{ is_state('switch.camera_record', 'on') }}"
+      friendly_name: 'Camera Recording'
+
+
+
+- platform: bayesian
+  name: Watching TV in the Living Room
+  prior: 0.3  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.90
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: group.family
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.99
+      prob_given_false: 0.40
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: media_player.living_room_fire_tv
+      platform: state
+      to_state: 'playing'
+      prob_given_true: 0.90
+      prob_given_false: 0.1
+    # Somebody at home -> Very Likely motion will be detected
+#    - entity_id: media_player.living_room_tv
+#      platform: state
+#      to_state: 'on'
+#      prob_given_true: 0.90
+#      prob_given_false: 0.2
+
+
+- platform: bayesian
+  name: Sleeping
+  prior: 0.3  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.90
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: group.all_lights
+      platform: state
+      to_state: 'off'
+      prob_given_true: 0.80
+      prob_given_false: 0.10
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: group.family
+      platform: state
+      to_state: home
+      prob_given_true: 0.80
+    #
+    - entity_id: sensor.motion_stairs
+      platform: state
+      to_state: 'off'
+      prob_given_true: 0.90
+    # Somebody at home -> Very Likely motion will be detected
+
+
+
+- platform: bayesian
+  name: jack home
+  prior: 0.4  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.90
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: device_tracker.jack_phone
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.90
+      prob_given_false: 0.10
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: device_tracker.jack_smart_watch
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.50
+      prob_given_false: 0.50
+    #
+    - entity_id: device_tracker.jack_jack
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.75
+      prob_given_false: 0.25
+    # Somebody at home -> Very Likely motion will be detected
+
+- platform: bayesian
+  name: lara home
+  prior: 0.6  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.90
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: device_tracker.lara_iphone
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.90
+      prob_given_false: 0.10
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: device_tracker.lara_lara
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.60
+      prob_given_false: 0.40
+    # Somebody at home -> Very Likely motion will be detected
+
+- platform: bayesian
+  name: someone watching tv bedroom
+  prior: 0.1  # 60% chance that somebody is at home at any given moment
+  probability_threshold: 0.70
+  observations:
+    # Somebody at home -> Very likely at least one household member is at home
+    - entity_id: group.family
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.90
+      prob_given_false: 0.10
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: media_player.bedroom_fire_tv
+      platform: state
+      to_state: 'playing'
+      prob_given_true: 0.99
+      prob_given_false: 0.01
+    # Somebody at home -> likely that at least one indoor light is turned on
+    - entity_id: input_boolean.bedroom_idle
+      platform: state
+      to_state: 'off'
+      prob_given_true: 0.30
+      prob_given_false: 0.20

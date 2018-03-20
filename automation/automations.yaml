@@ -1,0 +1,392 @@
+#################################################################
+## lighting Automations
+#################################################################
+
+
+      #################################################################
+      ## Hallway Lights Front Door
+      #################################################################
+
+- alias: Hallway light front door
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.front_door
+     from: 'off'
+     to: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.hallway_light
+
+
+- alias: Turn off hall light door close
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door
+    from: 'on'
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.hallway_light
+
+#################################################################
+## Audio Prompts
+#################################################################
+
+      #################################################################
+      ## Welcoming Homes
+      #################################################################
+
+#- alias: Welcome Home Lara
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.lara_lara
+#      to: 'home'
+#  action:
+#    - service: script.sonos_say
+#      data_template:
+#        sonos_entity: media_player.kitchen
+#        volume: 0.5
+#        message: 'Welcome Home Lara'
+#        delay: '00:00:10'
+
+#- alias: Welcome Home Jack
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jack_jack
+#      to: 'home'
+#  action:
+#    - service: script.sonos_say
+#      data_template:
+#        sonos_entity: media_player.kitchen
+#        volume: 0.5
+#        message: 'Welcome Home Jack'
+#        delay: '00:00:10'
+
+
+#  action:
+#    - service: tts.google_say
+#      entity_id:
+#        - media_player.kitchen
+#      data_template:
+#        message: >
+#          {% if as_timestamp(now()) - as_timestamp(states.device_tracker.jack_jack.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.device_tracker.lara_lara.last_changed) < 300%}
+#          Welcome home Jack and Lara!
+#          {% elif as_timestamp(now()) - as_timestamp(states.device_tracker.jack_jack.last_changed) < 300%}
+#          Welcome home Jack!
+#          {% elif as_timestamp(now()) - as_timestamp(states.device_tracker.lara_lara.last_changed) < 300%}
+#          Welcome home Lara!
+#          {% else %}
+#          This automation is confused!
+#          {% endif %}
+
+
+      #################################################################
+      ## Goodmorning Greetings
+      #################################################################
+
+
+
+
+#################################################################
+## Camera Automations
+#################################################################
+
+      #################################################################
+      ## Camera recording
+      #################################################################
+
+- alias: Start Camera Recording
+  trigger:
+    - platform: state
+      entity_id: device_tracker.jack_jack
+      from: 'home'
+    - platform: state
+      entity_id: device_tracker.lara_lara
+      from: 'home'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.camera_record
+
+- alias: Stop Camera Recording
+  trigger:
+    - platform: state
+      entity_id: device_tracker.jack_jack
+      to: 'home'
+    - platform: state
+      entity_id: device_tracker.lara_lara
+      to: 'home'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.camera_record
+
+- alias: Night Camera Recording
+  trigger:
+    - platform: time
+      at: '23:30:00'
+  action:
+    - service: switch.turn_on
+      entity_id: switch.camera_record
+
+- alias: Morning Camera Recording
+  trigger:
+    - platform: time
+      at: '06:30:00'
+  action:
+    - service: switch.turn_off
+      entity_id: switch.camera_record
+
+
+
+#################################################################
+## Feed the kittens notification's
+#################################################################
+
+
+- alias: Feed the Lara lunch
+  trigger:
+    - platform: time
+      at: '12:30:00'
+  action:
+    - delay: '00:10:00'
+    - service: tts.google_say
+      entity_id:
+        - media_player.bedroom_speaker
+        - media_player.front_room_speaker
+        - media_player.kitchen_speaker
+        - media_player.living_room_speaker
+      data:
+        message: 'Feed the Laara!'
+
+#################################################################
+## Misc
+#################################################################
+
+- alias: 3D Printer Notification
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.octoprint_job_percentage
+      above: 99
+  condition:
+    condition: time
+    after: '09:00:00'
+    before: '23:00:00'
+  action:
+    - delay: '00:05:00'
+    - service: tts.google_say
+      entity_id:
+        - media_player.bedroom_speaker
+        - media_player.front_room_speaker
+        - media_player.kitchen_speaker
+        - media_player.living_room_speaker
+        - media_player.shed_speaker
+      data:
+        message: '3D Print Complete!'
+
+#################################################################
+## Stop bedroom white noise in the morning
+#################################################################
+
+- alias: stop white noise
+  trigger:
+    platform: time
+    at: '06:45:00'
+  action:
+    - service: media_player.media_stop
+      entity_id: media_player.bedroom_speaker
+
+#################################################################
+## Scentsy - bedroom
+#################################################################
+
+- alias: bedroom scentsy on
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.bedroom_scentsy
+
+- alias: bedroom scentsy off
+  trigger:
+    platform: time
+    at: '03:00:00'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.bedroom_scentsy
+
+#################################################################
+## Occupancy Automations
+#################################################################
+
+      #################################################################
+      ## Living Room Occupancy
+      #################################################################
+
+- alias: Occupancy - Living turn on if motion detected
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_indoor_camera_lounge
+      from: 'off'
+      to: 'on'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.living_occupancy
+
+      #################################################################
+      ## Reset Living Room Occupancy
+      #################################################################
+
+- alias: Occupancy - Living turn off after 30min of no motion
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_indoor_camera_lounge
+      to: 'off'
+      for:
+        minutes: 30
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.living_occupancy
+
+      #################################################################
+      ## Kitchen Occupancy
+      #################################################################
+
+- alias: Occupancy - Kitchen turn on if motion detected
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_indoor_camera_kitchen
+      from: 'off'
+      to: 'no'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.kitchen_occupancy
+
+      #################################################################
+      ## Reset Kitchen Occupancy
+      #################################################################
+
+- alias: Occupancy - Kitchen turn off after 30min of no motion
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_indoor_camera_kitchen
+      to: 'off'
+      for:
+        minutes: 30
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.kitchen_occupancy
+
+
+
+#################################################################
+## Heating Automation
+#################################################################
+
+      #################################################################
+      ## Eco Mode Off
+      #################################################################
+
+#- alias: Heating Eco Mode On
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jack_jack
+#      to: 'home'
+#    - platform: state
+#      entity_id: device_tracker.lara_lara
+#      to: 'home'
+#  action:
+#    - service: climate.set_operation_mode
+#      data:
+#        entity_id: climate.kitchen
+#        operation_mode: heat
+
+      #################################################################
+      ## Eco Mode On
+      #################################################################
+
+#- alias: Heating Eco Mode Off
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jack_jack
+#      from: 'home'
+#    - platform: state
+#      entity_id: device_tracker.lara_lara
+#      from: 'home'
+#  action:
+#    - service: climate.set_operation_mode
+#      data:
+#        entity_id: climate.kitchen
+#        operation_mode: eco
+
+
+
+      #################################################################
+      ## Bedroom Sleep Lights
+      #################################################################
+
+- alias: Bedtime
+  trigger:
+    platform: time
+    at: '22:45:00'
+  action:
+    - service: scene.turn_on
+      entity_id: scene.bedroom_sleep
+
+
+
+
+
+
+- alias: Bedroom Idle
+  trigger:
+  - entity_id: sensor.motion_bedroom
+    for:
+      minutes: 30
+    from: 'On'
+    platform: state
+    to: 'Off'
+  action:
+  - data:
+      entity_id: input_boolean.bedroom_idle
+    service: input_boolean.turn_on
+
+- alias: Living Room Idle
+  trigger:
+  - entity_id: sensor.motion_indoor_camera_living_room
+    for:
+      minutes: 30
+    from: 'On'
+    platform: state
+    to: 'Off'
+  action:
+  - data:
+      entity_id: input_boolean.living_room_idle
+    service: input_boolean.turn_on
+
+      #################################################################
+      ## Reset input_boolean bedroom
+      #################################################################
+
+- alias: bedroom motion
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_bedroom
+      from: 'Off'
+      to: 'On'
+  action:
+  - data:
+      entity_id: input_boolean.bedroom_idle
+    service: input_boolean.turn_off
+
+- alias: living room motion
+  trigger:
+    - platform: state
+      entity_id: sensor.motion_indoor_camera_living_room
+      from: 'Off'
+      to: 'On'
+  action:
+  - data:
+      entity_id: input_boolean.living_room_idle
+    service: input_boolean.turn_off

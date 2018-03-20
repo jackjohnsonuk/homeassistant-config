@@ -1,4 +1,8 @@
 *
+!automation
+!binary_sensor
+!config
+!sensor
 !*.yaml
 !scenes
 !.gitignore

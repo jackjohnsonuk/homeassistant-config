@@ -1,0 +1,43 @@
+##############################################################################
+###  Adjust the light next to the perfect prep so we can see what we're doing
+##############################################################################
+
+#################################################################
+## Perfect Prep Lights Up
+#################################################################
+
+- alias: Perfect Prep Lights Up
+  trigger:
+    platform: numeric_state
+    entity_id: 'sensor.perfect_prep_power'
+    above: '0.9'
+  condition:
+    condition: time
+    after: "22:45:00"
+    before: "06:00:00"
+  action:
+    - service: light.turn_on
+      entity_id: light.lara_bedside_light
+      data_template:
+        brightness: '{{states.light.lara_bedside_light.attributes.brightness|int + 30}}'
+
+#################################################################
+## Perfect Prep Lights Down
+#################################################################
+
+- alias: Perfect Prep Lights Down
+  trigger:
+    platform: numeric_state
+    entity_id: 'sensor.perfect_prep_power'
+    below: '1.0'
+    for:
+     minutes: 3
+  condition:
+    condition: time
+    after: "22:45:00"
+    before: "06:00:00"
+  action:
+    - service: light.turn_on
+      entity_id: light.lara_bedside_light
+      data_template:
+        brightness: '{{states.light.lara_bedside_light.attributes.brightness|int - 30}}'

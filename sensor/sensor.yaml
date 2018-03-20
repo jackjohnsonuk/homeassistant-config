@@ -1,0 +1,644 @@
+
+
+#################################################################
+## Power Perfect Prep
+#################################################################
+
+- platform: mqtt
+  name: "Perfect Prep Power"
+  state_topic: "smartthings/Perfect Prep/power/state"
+  unit_of_measurement: "kw"
+
+
+
+#################################################################
+## Google Travel Time Sensor
+#################################################################
+
+- platform: google_travel_time
+  name: Jack Home To Work
+  api_key: !secret google_travel_api
+  origin: !secret origin
+  destination: !secret destination
+
+#################################################################
+## Octoprint Sensor
+#################################################################
+
+- platform: octoprint
+  name: Octoprint
+  monitored_conditions:
+    - Current State
+    - Temperatures
+    - Job Percentage
+
+#################################################################
+## Speedtest Sensor
+#################################################################
+
+- platform: speedtest
+  monitored_conditions:
+    - ping
+    - download
+    - upload
+
+#################################################################
+## Motion Sensors - Turn Binary Sensors into Sensors
+#################################################################
+
+      #################################################################
+      ## Living Room Camera - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_indoor_camera_living_room:
+      friendly_name: 'Living Room'
+      value_template: >-
+        {% if states.binary_sensor.motion_indoor_camera_lounge.state %}
+          {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
+            On
+          {% elif is_state('binary_sensor.motion_indoor_camera_lounge', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.motion_indoor_camera_lounge') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Kitchen Camera - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_indoor_camera_kitchen:
+      friendly_name: 'Kitchen'
+      value_template: >-
+        {% if states.binary_sensor.motion_indoor_camera_kitchen.state %}
+          {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
+            On
+          {% elif is_state('binary_sensor.motion_indoor_camera_kitchen', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.motion_indoor_camera_kitchen') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Kitchen 2 Camera - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_indoor_camera_kitchen2:
+      friendly_name: 'Kitchen2'
+      value_template: >-
+        {% if states.binary_sensor.motion_indoor_camera_kitchen2.state %}
+          {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
+            On
+          {% elif is_state('binary_sensor.motion_indoor_camera_kitchen2', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.motion_indoor_camera_kitchen2') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Under Stairs - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_under_stairs:
+      friendly_name: 'Under Stairs'
+      value_template: >-
+        {% if states.binary_sensor.hallway_motion.state %}
+          {% if is_state('binary_sensor.hallway_motion', 'on') %}
+            On
+          {% elif is_state('binary_sensor.hallway_motion', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.hallway_motion') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Dressing Room - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_dressing_room:
+      friendly_name: 'Dressing Room'
+      value_template: >-
+        {% if states.binary_sensor.xiamoi_motion_sensor_2.state %}
+          {% if is_state('binary_sensor.xiamoi_motion_sensor_2', 'on') %}
+            On
+          {% elif is_state('binary_sensor.xiamoi_motion_sensor_2', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.xiamoi_motion_sensor_2') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Xiamoi Motion 1 - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_bedroom:
+      friendly_name: 'Bedroom'
+      value_template: >-
+        {% if states.binary_sensor.bedroom_motion_sensor.state %}
+          {% if is_state('binary_sensor.bedroom_motion_sensor', 'on') %}
+            On
+          {% elif is_state('binary_sensor.bedroom_motion_sensor', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.bedroom_motion_sensor') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Stairs - Motion Sensor
+      #################################################################
+
+- platform: template
+  sensors:
+    motion_stairs:
+      friendly_name: 'Stairs'
+      value_template: >-
+        {% if states.binary_sensor.hallway_motion_jack.state %}
+          {% if is_state('binary_sensor.hallway_motion_jack', 'on') %}
+            On
+          {% elif is_state('binary_sensor.hallway_motion_jack', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.hallway_motion_jack') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
+      #################################################################
+      ## Define Starting state of Camera Motion Sensors
+      #################################################################
+
+- platform: template
+  sensors:
+    motion:
+      friendly_name: Motion
+      unit_of_measurement: 'On'
+      value_template: >
+        {% set total = 0 %}
+        {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
+          {% set total = total + 1 %}
+        {% endif %}
+        {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
+          {% set total = total + 1 %}
+        {% endif %}
+        {{total}}
+        {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
+          {% set total = total + 1 %}
+        {% endif %}
+        {{total}}
+
+      #################################################################
+      ## Templates for Online/Offline
+      #################################################################
+
+- platform: template
+  sensors:
+    status_bedroom_rf:
+      friendly_name: 'Bedroom RF Transmitter'
+      value_template: >-
+        {% if is_state("device_tracker.bedroom_rf_transmitter", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.bedroom_rf_transmitter", "home") %}
+          mdi:television-classic
+        {% else %}
+          mdi:television-classic-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_fire_tv_1:
+      friendly_name: 'Fire TV 1'
+      value_template: >-
+        {% if is_state("device_tracker.fire_tv_1", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_fire_tv_2:
+      friendly_name: 'Fire TV 2'
+      value_template: >-
+        {% if is_state("device_tracker.fire_tv_2", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_fire_tv_3:
+      friendly_name: 'Fire TV 3'
+      value_template: >-
+        {% if is_state("device_tracker.fire_tv_3", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_google_home_bedroom:
+      friendly_name: 'Google Home - Bedroom'
+      value_template: >-
+        {% if is_state("device_tracker.google_home_bedroom", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.google_home_bedroom", "home") %}
+          mdi:google-home
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_google_home_front_room:
+      friendly_name: 'Google Home - Front Room'
+      value_template: >-
+        {% if is_state("device_tracker.google_home_front_room", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.google_home_front_room", "home") %}
+          mdi:google-home
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_google_home_kitchen:
+      friendly_name: 'Google Home - Kitchen'
+      value_template: >-
+        {% if is_state("device_tracker.google_home_kitchen", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.google_home_kitchen", "home") %}
+          mdi:google-home
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_google_home_living_room:
+      friendly_name: 'Google Home - Living Room'
+      value_template: >-
+        {% if is_state("device_tracker.google_home_living_room", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.google_home_living_room", "home") %}
+          mdi:google-home
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_hikvision_1:
+      friendly_name: 'Hikvision 1'
+      value_template: >-
+        {% if is_state("device_tracker.hikvision_1", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.hikvision_1", "home") %}
+          mdi:cctv
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_hikvision_2:
+      friendly_name: 'Hikvision 2'
+      value_template: >-
+        {% if is_state("device_tracker.hikvision_2", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.hikvision_2", "home") %}
+          mdi:cctv
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_hikvision_3:
+      friendly_name: 'Hikvision 3'
+      value_template: >-
+        {% if is_state("device_tracker.hikvision_3", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.hikvision_3", "home") %}
+          mdi:cctv
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_jack_laptop:
+      friendly_name: 'Jacks Laptop'
+      value_template: >-
+        {% if is_state("device_tracker.jack_laptop", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_media_server:
+      friendly_name: 'Media Server'
+      value_template: >-
+        {% if is_state("device_tracker.media_server", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.media_server", "home") %}
+          mdi:server
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_nest_camera:
+      friendly_name: 'Nest Camera'
+      value_template: >-
+        {% if is_state("device_tracker.nest_camera", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_nest_thermostat:
+      friendly_name: 'Nest Thermostat'
+      value_template: >-
+        {% if is_state("device_tracker.nest_thermostat", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_network_extender:
+      friendly_name: 'Network Extender'
+      value_template: >-
+        {% if is_state("device_tracker.network_extender", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.network_extender", "home") %}
+          mdi:wifi
+        {% else %}
+          mdi:wifi-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_philips_hue_hub:
+      friendly_name: 'Philips Hue Hub'
+      value_template: >-
+        {% if is_state("device_tracker.philips_hue_hub", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_ps4:
+      friendly_name: 'PS4'
+      value_template: >-
+        {% if is_state("device_tracker.ps4", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_router_kitchen:
+      friendly_name: 'Router - Kitchen'
+      value_template: >-
+        {% if is_state("device_tracker.router_kitchen", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.router_kitchen", "home") %}
+          mdi:wifi
+        {% else %}
+          mdi:wifi-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_router_master:
+      friendly_name: 'Router - Master'
+      value_template: >-
+        {% if is_state("device_tracker.router_master", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.router_master", "home") %}
+          mdi:wifi
+        {% else %}
+          mdi:wifi-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_scentsy_sonoff:
+      friendly_name: 'Scentsy Sonoff'
+      value_template: >-
+        {% if is_state("device_tracker.scentsy_sonoff", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.scentsy_sonoff", "home") %}
+          mdi:wifi
+        {% else %}
+          mdi:wifi-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_smart_thing_hub:
+      friendly_name: 'Smart Things Hub'
+      value_template: >-
+        {% if is_state("device_tracker.smart_thing_hub", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+
+
+- platform: template
+  sensors:
+    status_sonos_bedroom:
+      friendly_name: 'Sonos Bedroom'
+      value_template: >-
+        {% if is_state("device_tracker.sonos_bedroom", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.sonos_bedroom", "home") %}
+          mdi:music-note
+        {% else %}
+          mdi:music-note-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_tv_living_room:
+      friendly_name: 'TV - Living Room'
+      value_template: >-
+        {% if is_state("device_tracker.tv_living_room", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.tv_living_room", "home") %}
+          mdi:television-classic
+        {% else %}
+          mdi:television-classic-off
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_xiaomi_vacuum:
+      friendly_name: 'Xiaomi Vacuum'
+      value_template: >-
+        {% if is_state("device_tracker.xiaomi_vacuum", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.xiaomi_vacuum", "home") %}
+          mdi:broom
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_living_room_scentsy:
+      friendly_name: 'Living Room Scentsy'
+      value_template: >-
+        {% if is_state("device_tracker.sonoff_living_room_scentsy", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.sonoff_living_room_scentsy", "home") %}
+          mdi:fire
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+- platform: template
+  sensors:
+    status_bedroom_scentsy:
+      friendly_name: 'Bedroom Scentsy'
+      value_template: >-
+        {% if is_state("device_tracker.sonoff_bedroom_screntsy", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.sonoff_bedroom_screntsy", "home") %}
+          mdi:fire
+        {% else %}
+          mdi:cancel
+        {% endif %}
+
+
+
+- platform: statistics
+  entity_id: sensor.weather_precipitation
+
+- platform: time_date
+  display_options:
+    - 'time'

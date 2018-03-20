@@ -1,0 +1,204 @@
+##############################################################################
+###  lights on as motion detected
+##############################################################################
+
+#################################################################
+## Under Stairs Motion On
+#################################################################
+
+- alias: Under the stairs motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.hallway_motion
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.under_stairs_light
+
+
+#################################################################
+## Under Stairs Motion Off
+#################################################################
+
+- alias: Turn off under stairs light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hallway_motion
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    service: light.turn_off
+    entity_id: light.under_stairs_light
+
+#################################################################
+## Hallway Motion On
+#################################################################
+
+- alias: Hallway motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.hallway_motion_jack
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.hallway_light
+
+#################################################################
+## Hallway Motion Off
+#################################################################
+
+- alias: Turn off hallway light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.hallway_motion_jack
+    to: 'off'
+    for:
+      seconds: 60
+  action:
+    service: light.turn_off
+    entity_id: light.hallway_light
+
+#################################################################
+## Dressing Room Motion On
+#################################################################
+
+- alias: Dressing room motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.xiamoi_motion_sensor_2
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.dressing_room
+
+#################################################################
+## Dressing Room Motion Off
+#################################################################
+
+- alias: Turn off dressing room light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.xiamoi_motion_sensor_2
+    to: 'off'
+    for:
+     seconds: 180
+  action:
+    service: light.turn_off
+    entity_id: light.dressing_room
+
+#################################################################
+## Living Room Motion On
+#################################################################
+
+- alias: Living room motion
+  trigger:
+   - platform: state
+     entity_id: sensor.motion_indoor_camera_living_room
+     from: 'Off'
+     to: 'On'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: numeric_state
+        entity_id: light.living_room_side_lights
+        value_template: '{% if states.light.living_room_side_light_1.state == "on"  %}{{ states.light.living_room_side_light_1.attributes.brightness }}{% else %}0{% endif %}'
+        below: 1
+      - condition: numeric_state
+        entity_id: light.living_room_lamp
+        value_template: '{% if states.light.living_room_lamp.state == "on"  %}{{ states.light.living_room_lamp.attributes.brightness }}{% else %}0{% endif %}'
+        below: 1
+      - condition: numeric_state
+        entity_id: light.living_room_main_light
+        value_template: '{% if states.light.living_room_main_light.state == "on"  %}{{ states.light.living_room_main_light.attributes.brightness }}{% else %}0{% endif %}'
+        below: 1
+  action:
+   - service: light.turn_on
+     entity_id: light.living_room_side_lights
+
+#################################################################
+## Living Room Motion Off
+#################################################################
+
+- alias: Turn off living room light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: sensor.motion_indoor_camera_living_room
+    to: 'Off'
+    for:
+     seconds: 180
+  action:
+   - service: light.turn_off
+     entity_id: light.living_room_side_lights
+
+#################################################################
+##  Bedroom Motion On
+#################################################################
+
+- alias: bedroom motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.bedroom_motion_sensor
+     to: 'on'
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: group.family
+        state: 'home'
+      - condition: time
+        after: "08:30:00"
+        before: "23:00:00"
+      - condition: state
+        entity_id: binary_sensor.someone_watching_tv_bedroom
+        state: 'off'
+      - condition: numeric_state
+        entity_id: light.jack_bedside_light
+        value_template: '{% if states.light.jack_bedside_light.state == "on"  %}{{ states.light.jack_bedside_light.attributes.brightness }}{% else %}0{% endif %}'
+        below: 1
+      - condition: numeric_state
+        entity_id: light.lara_bedside_light
+        value_template: '{% if states.light.lara_bedside_light.state == "on"  %}{{ states.light.lara_bedside_light.attributes.brightness }}{% else %}0{% endif %}'
+        below: 1
+      - condition: numeric_state
+        entity_id: light.bedroom_main_light
+        value_template: '{% if states.light.bedroom_main_light.state == "on"  %}{{ states.light.bedroom_main_light.attributes.brightness }}{% else %}0{% endif %}'
+        below: 1
+  action:
+   - service: light.turn_on
+     data:
+       entity_id:
+         - light.bedroom_main_light
+         - light.jack_bedside_light
+         - light.lara_bedside_light
+
+#################################################################
+## Bedroom Motion Off
+#################################################################
+
+- alias: Turn off Bedroom light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bedroom_motion_sensor
+    to: 'off'
+    for:
+     seconds: 180
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        after: "08:30:00"
+        before: "23:05:00"
+      - condition: state
+        entity_id: binary_sensor.someone_watching_tv_bedroom
+        state: 'off'
+  action:
+    service: light.turn_off
+    data:
+     entity_id:
+       - light.bedroom_main_light
+       - light.jack_bedside_light
+       - light.lara_bedside_light
