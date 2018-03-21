@@ -636,7 +636,7 @@
 
 - platform: template
   sensors:
-    Amount_of_rain:
+    amount_of_rain:
       value_template: '{{ ((states.sensor.stats_mean.attributes.total | float * 1 )) | round(2) }}'
       friendly_name: 'Running Total Rain'
 
