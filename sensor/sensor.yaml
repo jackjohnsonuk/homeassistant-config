@@ -634,10 +634,18 @@
           mdi:cancel
         {% endif %}
 
+- platform: template
+  sensors:
+    Amount_of_rain:
+      value_template: '{{ ((states.sensor.stats_mean.attributes.total | float * 1 )) | round(2) }}'
+      friendly_name: 'Running Total Rain'
+
+
 
 
 - platform: statistics
   entity_id: sensor.weather_precipitation
+  sampling_size: 200
 
 - platform: time_date
   display_options:
