@@ -163,6 +163,7 @@ Motion:
    - sensor.motion_dressing_room
    - sensor.motion_indoor_camera_kitchen
    - sensor.motion_bedroom
+   - sensor.motion_living_room
 #   - sensor.motion_indoor_camera_kitchen2
 
       #################################################################
@@ -174,6 +175,7 @@ living_room_motion:
   entities:
    - sensor.motion_under_stairs
    - sensor.motion_indoor_camera_living_room
+   - sensor.motion_living_room
 
 
 

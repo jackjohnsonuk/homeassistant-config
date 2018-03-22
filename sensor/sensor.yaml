@@ -67,6 +67,23 @@
           Off
         {% endif %}
 
+- platform: template
+  sensors:
+    motion_living_room:
+      friendly_name: 'Living Room Sensor'
+      value_template: >-
+        {% if states.binary_sensor.living_room_motion.state %}
+          {% if is_state('binary_sensor.living_room_motion', 'on') %}
+            On
+          {% elif is_state('binary_sensor.living_room_motion', 'off') %}
+            Off
+          {% else %}
+            {{ states('binary_sensor.living_room_motion') }}
+          {% endif %}
+        {% else %}
+          Off
+        {% endif %}
+
       #################################################################
       ## Kitchen Camera - Motion Sensor
       #################################################################

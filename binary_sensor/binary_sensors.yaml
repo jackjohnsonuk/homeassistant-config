@@ -187,7 +187,7 @@
       prob_given_true: 0.90
       prob_given_false: 0.10
     # Somebody at home -> likely that at least one indoor light is turned on
-    - entity_id: media_player.living_room_tv
+    - entity_id: media_player.living_room_fire_tv
       platform: state
       to_state: 'playing'
       prob_given_true: 0.99

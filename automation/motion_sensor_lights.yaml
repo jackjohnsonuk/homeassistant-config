@@ -125,14 +125,29 @@
 
 - alias: Turn off living room light 1 minutes after last movement
   trigger:
-    platform: state
-    entity_id: sensor.motion_indoor_camera_living_room
-    to: 'Off'
-    for:
-     seconds: 180
+    platform: time
+    minutes: '/2'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: sensor.motion_living_room
+        state: 'Off'
+        for:
+         seconds: 120
+      - condition: state
+        entity_id: binary_sensor.someone_watching_tv_livingroom
+        state: 'off'
+        for:
+         seconds: 120
   action:
    - service: light.turn_off
-     entity_id: light.living_room_side_lights
+     data:
+       entity_id:
+         - light.living_room_lamp
+         - light.living_room_main_light
+         - light.living_room_side_lights
 
 #################################################################
 ##  Bedroom Motion On
