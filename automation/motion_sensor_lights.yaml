@@ -105,7 +105,7 @@
         state: 'home'
       - condition: numeric_state
         entity_id: light.living_room_side_lights
-        value_template: '{% if states.light.living_room_side_lights.state == "on"  %}{{ states.light.living_room_side_light_1.attributes.brightness }}{% else %}0{% endif %}'
+        value_template: '{% if states.light.living_room_side_lights.state == "on"  %}{{ states.light.living_room_side_lights.attributes.brightness }}{% else %}0{% endif %}'
         below: 1
       - condition: numeric_state
         entity_id: light.living_room_lamp
