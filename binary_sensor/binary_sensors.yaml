@@ -9,6 +9,17 @@
   payload_off: "inactive"
   retain: true
 
+
+- platform: mqtt
+  name: "Living Room Motion"
+  state_topic: "smartthings/Living Room Motion/motion/state"
+  command_topic: "smartthings/Living Room Motion/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+
 - platform: mqtt
   name: "Bedroom Motion Sensor"
   state_topic: "smartthings/Bedroom Motion/motion/state"
