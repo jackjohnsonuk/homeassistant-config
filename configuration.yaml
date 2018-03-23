@@ -50,6 +50,9 @@ device_tracker:
 ifttt:
   key: !secret ifttt
 
+influxdb:
+  host: 127.0.0.1
+  
 #sonos
 #media_player:
 # - platform: sonos
