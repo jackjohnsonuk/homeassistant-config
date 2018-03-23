@@ -50,188 +50,188 @@
       ## Living Room Camera - Motion Sensor
       #################################################################
 
-- platform: template
-  sensors:
-    motion_indoor_camera_living_room:
-      friendly_name: 'Living Room'
-      value_template: >-
-        {% if states.binary_sensor.motion_indoor_camera_lounge.state %}
-          {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
-            On
-          {% elif is_state('binary_sensor.motion_indoor_camera_lounge', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.motion_indoor_camera_lounge') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
-
-- platform: template
-  sensors:
-    motion_living_room:
-      friendly_name: 'Living Room Sensor'
-      value_template: >-
-        {% if states.binary_sensor.living_room_motion.state %}
-          {% if is_state('binary_sensor.living_room_motion', 'on') %}
-            On
-          {% elif is_state('binary_sensor.living_room_motion', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.living_room_motion') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
+# - platform: template
+#   sensors:
+#     motion_living_room_camera:
+#       friendly_name: 'Motion - Living Room Camera'
+#       value_template: >-
+#         {% if states.binary_sensor.motion_indoor_camera_lounge.state %}
+#           {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.motion_indoor_camera_lounge', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.motion_indoor_camera_lounge') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
+#
+# - platform: template
+#   sensors:
+#     motion_living_room:
+#       friendly_name: 'Living Room Sensor'
+#       value_template: >-
+#         {% if states.binary_sensor.living_room_motion.state %}
+#           {% if is_state('binary_sensor.living_room_motion', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.living_room_motion', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.living_room_motion') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
 
       #################################################################
       ## Kitchen Camera - Motion Sensor
       #################################################################
-
-- platform: template
-  sensors:
-    motion_indoor_camera_kitchen:
-      friendly_name: 'Kitchen'
-      value_template: >-
-        {% if states.binary_sensor.motion_indoor_camera_kitchen.state %}
-          {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
-            On
-          {% elif is_state('binary_sensor.motion_indoor_camera_kitchen', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.motion_indoor_camera_kitchen') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
+#
+# - platform: template
+#   sensors:
+#     motion_indoor_camera_kitchen:
+#       friendly_name: 'Kitchen'
+#       value_template: >-
+#         {% if states.binary_sensor.motion_indoor_camera_kitchen.state %}
+#           {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.motion_indoor_camera_kitchen', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.motion_indoor_camera_kitchen') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
 
       #################################################################
       ## Kitchen 2 Camera - Motion Sensor
       #################################################################
-
-- platform: template
-  sensors:
-    motion_indoor_camera_kitchen2:
-      friendly_name: 'Kitchen2'
-      value_template: >-
-        {% if states.binary_sensor.motion_indoor_camera_kitchen2.state %}
-          {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
-            On
-          {% elif is_state('binary_sensor.motion_indoor_camera_kitchen2', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.motion_indoor_camera_kitchen2') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
+#
+# - platform: template
+#   sensors:
+#     motion_indoor_camera_kitchen2:
+#       friendly_name: 'Kitchen2'
+#       value_template: >-
+#         {% if states.binary_sensor.motion_indoor_camera_kitchen2.state %}
+#           {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.motion_indoor_camera_kitchen2', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.motion_indoor_camera_kitchen2') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
 
       #################################################################
       ## Under Stairs - Motion Sensor
       #################################################################
-
-- platform: template
-  sensors:
-    motion_under_stairs:
-      friendly_name: 'Under Stairs'
-      value_template: >-
-        {% if states.binary_sensor.hallway_motion.state %}
-          {% if is_state('binary_sensor.hallway_motion', 'on') %}
-            On
-          {% elif is_state('binary_sensor.hallway_motion', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.hallway_motion') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
+#
+# - platform: template
+#   sensors:
+#     motion_under_stairs:
+#       friendly_name: 'Under Stairs'
+#       value_template: >-
+#         {% if states.binary_sensor.hallway_motion.state %}
+#           {% if is_state('binary_sensor.hallway_motion', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.hallway_motion', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.hallway_motion') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
 
       #################################################################
       ## Dressing Room - Motion Sensor
-      #################################################################
-
-- platform: template
-  sensors:
-    motion_dressing_room:
-      friendly_name: 'Dressing Room'
-      value_template: >-
-        {% if states.binary_sensor.xiamoi_motion_sensor_2.state %}
-          {% if is_state('binary_sensor.xiamoi_motion_sensor_2', 'on') %}
-            On
-          {% elif is_state('binary_sensor.xiamoi_motion_sensor_2', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.xiamoi_motion_sensor_2') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
-
-      #################################################################
-      ## Xiamoi Motion 1 - Motion Sensor
-      #################################################################
-
-- platform: template
-  sensors:
-    motion_bedroom:
-      friendly_name: 'Bedroom'
-      value_template: >-
-        {% if states.binary_sensor.bedroom_motion_sensor.state %}
-          {% if is_state('binary_sensor.bedroom_motion_sensor', 'on') %}
-            On
-          {% elif is_state('binary_sensor.bedroom_motion_sensor', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.bedroom_motion_sensor') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
-
-      #################################################################
-      ## Stairs - Motion Sensor
-      #################################################################
-
-- platform: template
-  sensors:
-    motion_stairs:
-      friendly_name: 'Stairs'
-      value_template: >-
-        {% if states.binary_sensor.hallway_motion_jack.state %}
-          {% if is_state('binary_sensor.hallway_motion_jack', 'on') %}
-            On
-          {% elif is_state('binary_sensor.hallway_motion_jack', 'off') %}
-            Off
-          {% else %}
-            {{ states('binary_sensor.hallway_motion_jack') }}
-          {% endif %}
-        {% else %}
-          Off
-        {% endif %}
-
-      #################################################################
-      ## Define Starting state of Camera Motion Sensors
-      #################################################################
-
-- platform: template
-  sensors:
-    motion:
-      friendly_name: Motion
-      unit_of_measurement: 'On'
-      value_template: >
-        {% set total = 0 %}
-        {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
-          {% set total = total + 1 %}
-        {% endif %}
-        {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
-          {% set total = total + 1 %}
-        {% endif %}
-        {{total}}
-        {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
-          {% set total = total + 1 %}
-        {% endif %}
-        {{total}}
+#       #################################################################
+#
+# - platform: template
+#   sensors:
+#     motion_dressing_room:
+#       friendly_name: 'Dressing Room'
+#       value_template: >-
+#         {% if states.binary_sensor.xiamoi_motion_sensor_2.state %}
+#           {% if is_state('binary_sensor.xiamoi_motion_sensor_2', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.xiamoi_motion_sensor_2', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.xiamoi_motion_sensor_2') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
+# 
+#       #################################################################
+#       ## Xiamoi Motion 1 - Motion Sensor
+#       #################################################################
+#
+# - platform: template
+#   sensors:
+#     motion_bedroom:
+#       friendly_name: 'Bedroom'
+#       value_template: >-
+#         {% if states.binary_sensor.bedroom_motion_sensor.state %}
+#           {% if is_state('binary_sensor.bedroom_motion_sensor', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.bedroom_motion_sensor', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.bedroom_motion_sensor') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
+#
+#       #################################################################
+#       ## Stairs - Motion Sensor
+#       #################################################################
+#
+# - platform: template
+#   sensors:
+#     motion_stairs:
+#       friendly_name: 'Stairs'
+#       value_template: >-
+#         {% if states.binary_sensor.hallway_motion_jack.state %}
+#           {% if is_state('binary_sensor.hallway_motion_jack', 'on') %}
+#             On
+#           {% elif is_state('binary_sensor.hallway_motion_jack', 'off') %}
+#             Off
+#           {% else %}
+#             {{ states('binary_sensor.hallway_motion_jack') }}
+#           {% endif %}
+#         {% else %}
+#           Off
+#         {% endif %}
+#
+#       #################################################################
+#       ## Define Starting state of Camera Motion Sensors
+#       #################################################################
+#
+# - platform: template
+#   sensors:
+#     motion:
+#       friendly_name: Motion
+#       unit_of_measurement: 'On'
+#       value_template: >
+#         {% set total = 0 %}
+#         {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
+#           {% set total = total + 1 %}
+#         {% endif %}
+#         {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
+#           {% set total = total + 1 %}
+#         {% endif %}
+#         {{total}}
+#         {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
+#           {% set total = total + 1 %}
+#         {% endif %}
+#         {{total}}
 
       #################################################################
       ## Templates for Online/Offline

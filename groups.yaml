@@ -157,13 +157,13 @@ Internet:
 Motion:
   name: Motion
   entities:
-   - sensor.motion_under_stairs
-   - sensor.motion_stairs
-   - sensor.motion_indoor_camera_living_room
-   - sensor.motion_dressing_room
-   - sensor.motion_indoor_camera_kitchen
-   - sensor.motion_bedroom
-   - sensor.motion_living_room
+   - binary_sensor.motion_under_stairs_cupboard
+   - binary_sensor.motion_hallway
+   - binary_sensor.motion_living_room_camera
+   - binary_sensor.motion_dressing_room
+   - binary_sensor.motion_kitchen_camera
+   - binary_sensor.motion_bedroom
+   - binary_sensor.motion_living_room
 #   - sensor.motion_indoor_camera_kitchen2
 
       #################################################################
@@ -173,9 +173,9 @@ Motion:
 living_room_motion:
   name: Living Room Motion
   entities:
-   - sensor.motion_under_stairs
-   - sensor.motion_indoor_camera_living_room
-   - sensor.motion_living_room
+   - binary_sensor.motion_under_stairs_cupboard
+   - binary_sensor.motion_living_room_camera
+   - binary_sensor.motion_living_room
 
 
 
@@ -320,7 +320,7 @@ Christmas:
 Living_Room_motion_sensor:
   name: Living Room Motion Sensor
   entities:
-   - sensor.motion_indoor_camera_lounge
+   - binary_sensor.motion_living_room_camera
 
       #################################################################
       ## Kitchen Motion Sensor Card
@@ -329,8 +329,7 @@ Living_Room_motion_sensor:
 Kitchen_motion_sensor:
   name: Kitchen Motion Sensor
   entities:
-    - sensor.motion_indoor_camera_kitchen
-#    - sensor.motion_indoor_camera_kitchen2
+    - binary_sensor.motion_kitchen_camera
 
       #################################################################
       ## Bedroom Motion Sensor Card
@@ -339,8 +338,8 @@ Kitchen_motion_sensor:
 Bedroom_motion_sensor:
   name: Bedroom Motion Sensor
   entities:
-   - sensor.motion_bedroom
-   - sensor.motion_dressing_room
+   - binary_sensor.motion_bedroom
+   - binary_sensor.motion_dressing_room
 
       #################################################################
       ## 3D Printing Card

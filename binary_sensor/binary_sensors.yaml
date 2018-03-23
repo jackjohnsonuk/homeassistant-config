@@ -1,42 +1,9 @@
 #Binary Sensors
 
-- platform: mqtt
-  name: "Hallway Motion"
-  state_topic: "smartthings/Hall Motion Sensor/motion/state"
-  command_topic: "smartthings/Hall Motion Sensor/motion/state"
-  device_class: motion
-  payload_on: "active"
-  payload_off: "inactive"
-  retain: true
 
 
-- platform: mqtt
-  name: "Living Room Motion"
-  state_topic: "smartthings/Living Room Motion/motion/state"
-  command_topic: "smartthings/Living Room Motion/motion/state"
-  device_class: motion
-  payload_on: "active"
-  payload_off: "inactive"
-  retain: true
 
 
-- platform: mqtt
-  name: "Bedroom Motion Sensor"
-  state_topic: "smartthings/Bedroom Motion/motion/state"
-  command_topic: "smartthings/Bedroom Motion/motion/state"
-  device_class: motion
-  payload_on: "active"
-  payload_off: "inactive"
-  retain: true
-
-- platform: mqtt
-  name: "Xiamoi Motion Sensor 2"
-  state_topic: "smartthings/Xiaomi Motion 2/motion/state"
-  command_topic: "smartthings/Xiaomi Motion 2/motion/state"
-  device_class: motion
-  payload_on: "active"
-  payload_off: "inactive"
-  retain: true
 
 - platform: mqtt
   name: "Front Door"
@@ -47,14 +14,7 @@
   payload_off: "closed"
   retain: true
 
-- platform: mqtt
-  name: "Hallway Motion Jack"
-  state_topic: "smartthings/Motion Sensor 1/motion/state"
-  command_topic: "smartthings/Motion Sensor 1/motion/state"
-  device_class: motion
-  payload_on: "active"
-  payload_off: "inactive"
-  retain: true
+
 
 - platform: octoprint
   monitored_conditions:

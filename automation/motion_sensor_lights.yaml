@@ -9,7 +9,7 @@
 - alias: Under the stairs motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.hallway_motion
+     entity_id: binary_sensor.motion_under_stairs_cupboard
      to: 'on'
   action:
    - service: light.turn_on
@@ -23,7 +23,7 @@
 - alias: Turn off under stairs light 1 minutes after last movement
   trigger:
     platform: state
-    entity_id: binary_sensor.hallway_motion
+    entity_id: binary_sensor.motion_under_stairs_cupboard
     to: 'off'
     for:
       seconds: 10
@@ -38,7 +38,7 @@
 - alias: Hallway motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.hallway_motion_jack
+     entity_id: binary_sensor.motion_hallway
      to: 'on'
   action:
    - service: light.turn_on
@@ -51,7 +51,7 @@
 - alias: Turn off hallway light 1 minutes after last movement
   trigger:
     platform: state
-    entity_id: binary_sensor.hallway_motion_jack
+    entity_id: binary_sensor.motion_hallway
     to: 'off'
     for:
       seconds: 60
@@ -66,7 +66,7 @@
 - alias: Dressing room motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.xiamoi_motion_sensor_2
+     entity_id: binary_sensor.motion_dressing_room
      to: 'on'
   action:
    - service: light.turn_on
@@ -79,7 +79,7 @@
 - alias: Turn off dressing room light 1 minutes after last movement
   trigger:
     platform: state
-    entity_id: binary_sensor.xiamoi_motion_sensor_2
+    entity_id: binary_sensor.motion_dressing_room
     to: 'off'
     for:
      seconds: 180
@@ -94,8 +94,7 @@
 - alias: Living room motion
   trigger:
    - platform: state
-     entity_id: sensor.motion_indoor_camera_living_room
-     from: 'Off'
+     entity_id: binary_sensor.motion_living_room_camera
      to: 'On'
   condition:
     condition: and
@@ -132,7 +131,7 @@
     condition: and
     conditions:
       - condition: state
-        entity_id: sensor.motion_living_room
+        entity_id: binary_sensor.motion_living_room
         state: 'Off'
         for:
          seconds: 120
@@ -156,7 +155,7 @@
 - alias: bedroom motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.bedroom_motion_sensor
+     entity_id: binary_sensor.motion_bedroom
      to: 'on'
   condition:
     condition: and
@@ -197,7 +196,7 @@
 - alias: Turn off Bedroom light 1 minutes after last movement
   trigger:
     platform: state
-    entity_id: binary_sensor.bedroom_motion_sensor
+    entity_id: binary_sensor.motion_bedroom
     to: 'off'
     for:
      seconds: 180

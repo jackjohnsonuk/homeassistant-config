@@ -227,7 +227,7 @@
 - alias: Occupancy - Living turn on if motion detected
   trigger:
     - platform: state
-      entity_id: sensor.motion_indoor_camera_lounge
+      entity_id: binary_sensor.motion_living_room_camera
       from: 'off'
       to: 'on'
   action:
@@ -241,7 +241,7 @@
 - alias: Occupancy - Living turn off after 30min of no motion
   trigger:
     - platform: state
-      entity_id: sensor.motion_indoor_camera_lounge
+      entity_id: binary_sensor.motion_living_room_camera
       to: 'off'
       for:
         minutes: 30
@@ -256,7 +256,7 @@
 - alias: Occupancy - Kitchen turn on if motion detected
   trigger:
     - platform: state
-      entity_id: sensor.motion_indoor_camera_kitchen
+      entity_id: binary_sensor.motion_kitchen_camera
       from: 'off'
       to: 'no'
   action:
@@ -270,7 +270,7 @@
 - alias: Occupancy - Kitchen turn off after 30min of no motion
   trigger:
     - platform: state
-      entity_id: sensor.motion_indoor_camera_kitchen
+      entity_id: binary_sensor.motion_kitchen_camera
       to: 'off'
       for:
         minutes: 30
@@ -341,7 +341,7 @@
 
 - alias: Bedroom Idle
   trigger:
-  - entity_id: sensor.motion_bedroom
+  - entity_id: binary_sensor.motion_bedroom
     for:
       minutes: 30
     from: 'On'
@@ -354,7 +354,7 @@
 
 - alias: Living Room Idle
   trigger:
-  - entity_id: sensor.motion_indoor_camera_living_room
+  - entity_id: binary_sensor.motion_living_room
     for:
       minutes: 30
     from: 'On'
@@ -372,7 +372,7 @@
 - alias: bedroom motion
   trigger:
     - platform: state
-      entity_id: sensor.motion_bedroom
+      entity_id: binary_sensor.motion_bedroom
       from: 'Off'
       to: 'On'
   action:
@@ -383,7 +383,7 @@
 - alias: living room motion
   trigger:
     - platform: state
-      entity_id: sensor.motion_indoor_camera_living_room
+      entity_id: binary_sensor.motion_living_room_camera
       from: 'Off'
       to: 'On'
   action:
