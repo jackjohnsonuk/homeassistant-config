@@ -105,7 +105,7 @@ General I add ideas and plans to the issues tab...However my general goal is to 
 
 
 ## Devices
-
+<!--
 -------------------------------------------------------------------------------------
 
 <del>
@@ -203,4 +203,4 @@ A large amount of this will require a rewire of the lighting circuits, so that a
 </del>
 # Useful links
 
-* [Home Assistant documentation](https://home-assistant.io/docs/) and [component list](https://home-assistant.io/components/)
+* [Home Assistant documentation](https://home-assistant.io/docs/) and [component list](https://home-assistant.io/components/) -->
