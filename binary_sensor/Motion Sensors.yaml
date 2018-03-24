@@ -66,3 +66,7 @@
   payload_on: "active"
   payload_off: "inactive"
   retain: true
+
+#################################################################
+##   Test - Motion Sensor in Dressing Room
+#################################################################

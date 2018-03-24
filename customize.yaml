@@ -223,3 +223,6 @@ group.Group_Pantry_lights:
 
 media_player.shed_speaker:
   entity_picture: ''
+
+binary_sensor.motion_living_room_camera_state:
+  device_class: motion
