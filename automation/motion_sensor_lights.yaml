@@ -95,7 +95,7 @@
   trigger:
    - platform: state
      entity_id: binary_sensor.motion_living_room_camera
-     to: 'On'
+     to: 'on'
   condition:
     condition: and
     conditions:
@@ -132,7 +132,7 @@
     conditions:
       - condition: state
         entity_id: binary_sensor.motion_living_room
-        state: 'Off'
+        state: 'off'
         for:
          seconds: 120
       - condition: state
