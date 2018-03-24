@@ -94,11 +94,14 @@
 - alias: Living room motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.motion_living_room_camera
+     entity_id: binary_sensor.motion_living_room
      to: 'on'
   condition:
     condition: and
     conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_living_room_camera
+        state: 'on'
       - condition: state
         entity_id: group.family
         state: 'home'

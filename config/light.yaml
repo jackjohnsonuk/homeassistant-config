@@ -50,3 +50,11 @@
   entities:
     - light.living_room_side_light_1
     - light.living_room_side_light_2
+
+- platform: group
+  name: Pantry Lights
+  entities:
+    - light.pantry_light_1
+    - light.pantry_light_2
+    - light.pantry_light_3
+    - light.pantry_light_4

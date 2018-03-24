@@ -227,7 +227,7 @@ circulation_light:
   name: Circulation Lights
   entities:
     - light.hallway_light
-    - group.group_pantry_lights
+    - light.pantry_lights
 
       #################################################################
       ## Front Room Light Card
@@ -266,13 +266,13 @@ Living_room_lights:
       ## Pantry Light Card and Subcard
       #################################################################
 
-Group_Pantry_lights:
-  name: Pantry Lights
-  entities:
-    - light.pantry_light_1
-    - light.pantry_light_2
-    - light.pantry_light_3
-    - light.pantry_light_4
+# Group_Pantry_lights:
+#   name: Pantry Lights
+#   entities:
+#     - light.pantry_light_1
+#     - light.pantry_light_2
+#     - light.pantry_light_3
+#     - light.pantry_light_4
 
       #################################################################
       ## Dressing Room Light Card
