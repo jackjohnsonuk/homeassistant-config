@@ -224,7 +224,7 @@
 ##  Bathroom Motion On
 #################################################################
 
-- alias: bedroom motion
+- alias: bathroom motion
   trigger:
    - platform: state
      entity_id: binary_sensor.motion_bathroom
