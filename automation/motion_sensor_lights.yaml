@@ -249,11 +249,9 @@
      entity_id: binary_sensor.door_sensor_bathroom
      to: 'off'
   condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_bathroom
-        state: 'off'
+    condition: state
+    entity_id: binary_sensor.motion_bathroom
+    state: 'off'
   action:
    - service: light.turn_off
      data:
