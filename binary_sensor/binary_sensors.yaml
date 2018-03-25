@@ -1,8 +1,13 @@
 #Binary Sensors
 
-
-
-
+- platform: mqtt
+  name: "Door Sensor Bathroom"
+  state_topic: "smartthings/Bedroom Motion/motion/state"
+  command_topic: "smartthings/Bedroom Motion/motion/state"
+  device_class: door
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
 
 
 - platform: mqtt

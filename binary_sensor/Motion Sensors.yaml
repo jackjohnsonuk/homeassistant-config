@@ -68,5 +68,14 @@
   retain: true
 
 #################################################################
-##   Test - Motion Sensor in Dressing Room
+##   Test - Motion Sensor in Bathroom
 #################################################################
+
+- platform: mqtt
+  name: "Motion Bathroom"
+  state_topic: "smartthings/Motion Bathroom/motion/state"
+  command_topic: "smartthings/Motion Bathroom/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true

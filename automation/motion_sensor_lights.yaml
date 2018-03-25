@@ -219,3 +219,53 @@
        - light.bedroom_main_light
        - light.jack_bedside_light
        - light.lara_bedside_light
+
+#################################################################
+##  Bathroom Motion On
+#################################################################
+
+- alias: bedroom motion
+  trigger:
+# Triggered if motion detected
+#triggered if door openned
+   - platform: state
+     entity_id: binary_sensor.motion_bathroom
+     to: 'on'
+   - platform: state
+     entity_id: binary_sensor.door_sensor_bathroom
+     to: 'on'
+  action:
+   - service: light.turn_on
+     data:
+       entity_id:
+         - light.bathroom_lights
+
+#################################################################
+## Bathroom Motion Off
+#################################################################
+#
+# - alias: Turn off Bedroom light 1 minutes after last movement
+# #trigger if no motion detected
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_bedroom
+#     to: 'off'
+#     for:
+#      seconds: 180
+#   condition:
+# #condition is no motion since last off of door sensor
+#     condition: and
+#     conditions:
+#       - condition: time
+#         after: "08:30:00"
+#         before: "23:05:00"
+#       - condition: state
+#         entity_id: binary_sensor.someone_watching_tv_bedroom
+#         state: 'off'
+#   action:
+#     service: light.turn_off
+#     data:
+#      entity_id:
+#        - light.bedroom_main_light
+#        - light.jack_bedside_light
+#        - light.lara_bedside_light

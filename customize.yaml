@@ -226,3 +226,15 @@ media_player.shed_speaker:
 
 binary_sensor.motion_living_room_camera_state:
   device_class: motion
+
+light.bathroom_light_1:
+  hidden: true
+
+light.bathroom_light_2:
+  hidden: true
+
+# light.bathroom_light_3:
+#   hidden: true
+
+light.bathroom_light_4:
+  hidden: true

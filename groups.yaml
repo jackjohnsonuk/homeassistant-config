@@ -228,6 +228,7 @@ circulation_light:
   entities:
     - light.hallway_light
     - light.pantry_lights
+    - light.bathroom_lights
 
       #################################################################
       ## Front Room Light Card

@@ -58,3 +58,11 @@
     - light.pantry_light_2
     - light.pantry_light_3
     - light.pantry_light_4
+
+- platform: group
+  name: Bathroom Lights
+  entities:
+    - light.bathroom_light_1
+    - light.bathroom_light_2
+    # - light.bathroom_light_3
+    - light.bathroom_light_4

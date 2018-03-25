@@ -390,3 +390,38 @@
   - data:
       entity_id: input_boolean.living_room_idle
     service: input_boolean.turn_off
+
+      #################################################################
+      ## set input_boolean bathroom
+      #################################################################
+#
+# - alias: 'Bathroom Occupancy'
+#   initial_state: 'off'
+# #Trigger
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.door
+#     from: 'off'
+#     to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+# #motion ?
+#       - condition: numeric_state
+#         entity_id: sun.sun
+#         value_template: '{{ state.attributes.elevation }}'
+#         below: 10
+#       - condition: time
+#         after: '16:00:00'
+#         before: '23:00:00'
+#       - condition: state
+#         entity_id: binary_sensor.motion_sensor_outside
+#         state: 'on'
+#   action:
+#       - service: light.turn_off
+#         entity_id: light.outside
+#       - service: light.turn_on
+#         entity_id: light.inside
+#       - delay: 00:03:00
+#       - service: light.turn_off
+#         entity_id: light.inside

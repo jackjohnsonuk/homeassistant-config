@@ -17,6 +17,11 @@
     initial: off
     icon: mdi:account
 
+  bathroom_occupancy:
+    name: Bathroom Occupancy
+    initial: off
+    icon: mdi:account
+
   bedroom_idle:
     name: Bedroom Idle
     initial: off
