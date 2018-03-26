@@ -11,7 +11,6 @@
     - platform: time
       at: '21:00:00'
   action:
-    - delay: '00:10:00'
     - service: tts.google_say
       entity_id:
         - media_player.bedroom_speaker
