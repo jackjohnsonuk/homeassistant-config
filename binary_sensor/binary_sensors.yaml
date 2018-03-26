@@ -47,29 +47,6 @@
 
 
 
-- platform: bayesian
-  name: Sleeping
-  prior: 0.3  # 60% chance that somebody is at home at any given moment
-  probability_threshold: 0.90
-  observations:
-    # Somebody at home -> Very likely at least one household member is at home
-    - entity_id: group.all_lights
-      platform: state
-      to_state: 'off'
-      prob_given_true: 0.80
-      prob_given_false: 0.10
-    # Somebody at home -> likely that at least one indoor light is turned on
-    - entity_id: group.family
-      platform: state
-      to_state: home
-      prob_given_true: 0.80
-    #
-    - entity_id: sensor.motion_stairs
-      platform: state
-      to_state: 'off'
-      prob_given_true: 0.90
-    # Somebody at home -> Very Likely motion will be detected
-
 
 
 - platform: bayesian
