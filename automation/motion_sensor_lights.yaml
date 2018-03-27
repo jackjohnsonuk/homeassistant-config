@@ -139,6 +139,11 @@
         for:
          seconds: 120
       - condition: state
+        entity_id: binary_sensor.motion_living_room_camera
+        state: 'off'
+        for:
+         seconds: 120
+      - condition: state
         entity_id: binary_sensor.someone_watching_tv_livingroom
         state: 'off'
         for:
