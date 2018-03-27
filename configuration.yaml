@@ -23,6 +23,7 @@ http:
   ssl_key: !secret ssl_key
   api_password: !secret http_password
   base_url: !secret http_base_url
+  login_attempts_threshold: 3
 
 
 # Discover some devices automatically
@@ -52,7 +53,7 @@ ifttt:
 
 influxdb:
   host: 127.0.0.1
-  
+
 #sonos
 #media_player:
 # - platform: sonos
