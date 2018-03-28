@@ -89,7 +89,7 @@ sensor: !include_dir_merge_list sensor
 light: !include_dir_merge_list light
 group: !include groups.yaml
 automation: !include_dir_merge_list automation
-script: !include_dir_merge_list script
+script: !include scripts.yaml
 scene: !include scenes.yaml
 media_player: !include_dir_merge_list media_player
 mqtt: !include mqtt.yaml
