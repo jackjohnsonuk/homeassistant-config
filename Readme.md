@@ -21,23 +21,50 @@ This is my [Home Assistant](https://home-assistant.io/) configuration, I'm curre
 ### Hardware Components
 
 * [Samsung SmartThings Hub](http://www.samsung.com/uk/smartthings/hub-f-hub-uk-v2/) linking through:
-  * [Fibaro Motion Sensor](https://www.fibaro.com/us/products/motion-sensor/) x2  //TODO locations of items
-  * [Fibaro Dimmers](https://www.fibaro.com/us/products/dimmer-2/) x3
-  * [Xiaomi Motion Sensor](https://www.gearbest.com/alarm-systems/pp_659226.html) x2
+  * [Fibaro Motion Sensor](https://www.fibaro.com/us/products/motion-sensor/)
+    * One covering the hallway
+    * One still to be assigned
+  * [Fibaro Dimmers](https://www.fibaro.com/us/products/dimmer-2/)
+    * One controlling the Front Room Main Light
+    * One controlling the Living Room Main Light
+    * One controlling the Bedroom Main Light
+    * One still to be installed in the Kitchen Spotlights
+  * [Xiaomi Motion Sensor](https://www.gearbest.com/alarm-systems/pp_659226.html)
+    * One in the Living Room
+    * One in the Bathroom which isn't currently working for some reason? Out of range
+    * One in the Bedroom
+    * One still to be assigned    
   * [Samsung SmartThings Multi Sensor](http://www.samsung.com/uk/smartthings/sensors-plug-f-mlt-uk-v2/F-MLT-UK-V2/)
+    * Positioned on the front door
   * [Samsung SmartThings Motion Sensor](http://www.samsung.com/uk/smartthings/sensors-plug-f-irm-uk-v2/)
+    * **No idea? - Need to find this one**
   * [Samsung SmartThings Plug](http://www.samsung.com/uk/smartthings/sensors-plug-f-app-uk-v2/)
+    * Monitoring power usage on the [Perfect Prep](https://www.tommeetippee.co.uk/product-support/perfect-prep-machine)
 * Media
-  * TVs - put in Sony model details
+  * TVs - **put in Sony model details**
   * [Logitech Harmony Ultimate](https://www.logitech.com/en-gb/harmony-universal-remotes)
+    * Still playing around with this, currently in the Living Room, however with my TV using HDMI CEC, and the only source being Fire TV it seems slightly redundant?
   * [Sony Playstation 4](https://www.playstation.com/en-gb/explore/ps4/buy-ps4/buy-new-ps4/)
-  * [Fire TV Stick](https://www.amazon.co.uk/dp/B01ETRIFOW/ref=asc_df_B01ETRIFOW50970935/?tag=googshopuk-21&creative=22110&creativeASIN=B01ETRIFOW&linkCode=df0&hvadid=205236640281&hvpos=1o3&hvnetw=g&hvrand=15126035685830008529&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007009&hvtargid=pla-335245349918&th=1&psc=1) x2
+    * **Need to get this fully working but PS4 Waker to turn this on will be handy while I'm at work to make sure it's got the lastest updates on games for when I get home**
+  * [Fire TV Stick](https://www.amazon.co.uk/dp/B01ETRIFOW/ref=asc_df_B01ETRIFOW50970935/?tag=googshopuk-21&creative=22110&creativeASIN=B01ETRIFOW&linkCode=df0&hvadid=205236640281&hvpos=1o3&hvnetw=g&hvrand=15126035685830008529&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007009&hvtargid=pla-335245349918&th=1&psc=1)
+    * One sat behind the Bedroom TV
+    * One sat behind the Living Room TV
   * [Fire TV 4k](https://www.amazon.co.uk/dp/B06XTWLSRF/ref=asc_df_B06XTWLSRF50970935/?tag=googshopuk-21&creative=22110&creativeASIN=B06XTWLSRF&linkCode=df0&hvadid=218757371956&hvpos=1o1&hvnetw=g&hvrand=15126035685830008529&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007009&hvtargid=pla-375613946768&th=1&psc=1)
+    * One sat behind the Front Room TV
   * [Broadlink RF Mini](http://www.ibroadlink.com/rmMini3/)
+    * Currently in the Bedroom, as the TV up there is older than the two Sony's and can't be added as a component.  This allows basic control of it.
   * [Sonos Play:1](https://www.sonos.com/en-gb/shop/play1.html)
+    * One in the Bedroom that isn't really being used at the minute.
   * [Sonos Play:3](https://www.sonos.com/en-gb/shop/play3.html)
-  * [Google Home Mini](https://store.google.com/product/google_home_mini) x4
+    * Same as the Play:3 isn't in use currently, until google integrates assistant with them there a little moth-balled
+  * [Google Home Mini](https://store.google.com/product/google_home_mini)
+    * Located in the:
+      * Front Room
+      * Living Room
+      * Bedroom
+      * Shed    
   * [Google Home](https://store.google.com/product/google_home)
+    * Currently in the Front Room, although this might change if I can utilise the Sonos in there for music at some point.
 * Lighting
   * [Philips Hue Bridge](https://www.philips.co.uk/c-p/8718696516850/hue-bridge)
   * [Philips Hue Dimmer](https://www.philips.co.uk/c-p/8718696743157/hue-dimmer-switch)

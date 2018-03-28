@@ -10,4 +10,4 @@ secrets.yaml
 known_devices.yaml
 home-assistant_v2.db
 google_calendars.yaml
-!.md
+!Readme.md
