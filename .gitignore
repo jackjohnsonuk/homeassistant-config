@@ -2,7 +2,12 @@
 !automation
 !binary_sensor
 !config
+!light
+!media_player
+!mqtt
+!script
 !sensor
+!switches
 !*.yaml
 !scenes
 !.gitignore

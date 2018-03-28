@@ -35,7 +35,7 @@
       data_template:
         entity_id: "{{ trigger.event.data.entity_id }}"
         brightness: >
-          {% set hour=states("sensor.time").split(':')[0] | int %}
+          {% set hour=states("sensor.time").split(':')[0] | float * 0.7 %}
           {%- if hour >= 5 and hour < 8  -%}
             80
           {%- elif hour >= 8 and hour <20  -%}
