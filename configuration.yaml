@@ -92,7 +92,7 @@ automation: !include_dir_merge_list automation
 script: !include_dir_merge_list script
 scene: !include scenes.yaml
 media_player: !include_dir_merge_list media_player
-mqtt: !include_dir_merge_list mqtt
+mqtt: !include mqtt.yaml
 switch: !include_dir_merge_list switches
 binary_sensor: !include_dir_merge_list binary_sensor
 zone: !include zone.yaml
