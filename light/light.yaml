@@ -66,3 +66,16 @@
     - light.bathroom_light_2
     # - light.bathroom_light_3
     - light.bathroom_light_4
+
+- platform: group
+  name: Zone Bedroom
+  entities:
+    - light.bedroom_main_light
+    - light.bedside_lights
+
+- platform: group
+  name: Zone Living Room
+  entities:
+    - light.living_room_lamp
+    - light.living_room_main_light
+    - light.living_room_side_lights
