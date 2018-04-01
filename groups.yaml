@@ -193,11 +193,11 @@ family:
       ## Bedside Light Card
       #################################################################
 
-#group_bedside_lights:
-#  name: Bedside Lights
-#  entities:
-#    - light.jack_bedside_light
-#    - light.lara_bedside_light
+group_bedside_lights:
+  name: Bedside Lights
+  entities:
+    - light.jack_bedside_light
+    - light.lara_bedside_light
 
       #################################################################
       ## Bedroom Light Card
@@ -207,7 +207,8 @@ Bedroom_lights:
   name: Bedroom Lights
   entities:
     - light.bedroom_main_light
-    - light.bedside_lights
+    - light.jack_bedside_light
+    - light.lara_bedside_light
 
       #################################################################
       ## Bins
@@ -240,17 +241,6 @@ Front_room_lights:
     - light.front_room_main_light
 
       #################################################################
-      ## Front Room Light Card
-      #################################################################
-
-group_bedside_lights:
-  name: Bedside Lights
-  entities:
-    - light.jack_bedside_light
-    - light.lara_bedside_light
-
-
-      #################################################################
       ## Living Room Light Card
       #################################################################
 
@@ -267,13 +257,7 @@ Living_room_lights:
       ## Pantry Light Card and Subcard
       #################################################################
 
-# Group_Pantry_lights:
-#   name: Pantry Lights
-#   entities:
-#     - light.pantry_light_1
-#     - light.pantry_light_2
-#     - light.pantry_light_3
-#     - light.pantry_light_4
+
 
       #################################################################
       ## Dressing Room Light Card

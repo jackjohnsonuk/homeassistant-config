@@ -24,8 +24,6 @@
         sonos_entity: media_player.bedroom_speaker
         volume: 0.4
         message: 'Goodmorning Johnson Family. Time to get out of Bed! The Weather forcast is {{states.sensor.dark_sky_hourly_summary.state}}, the temperature outside is currently {{states.sensor.weather_temperature.state|round}} degrees, Jacks travel time to work currently is {{states.sensor.jack_home_to_work.state}} minutes'
-#        message: 'Goodmorning Johnson Family. Time to get out of Bed! The Weather forcast is {{states.sensor.dark_sky_hourly_summary.state}}, the temperature outside is currently {{states.sensor.weather_temperature.state}} degrees, Jacks travel time to work currently is {{states.sensor.jack_home_to_work.state}} minutes and Laaras travel time to work currently is {{states.sensor.lara_home_to_work.state}} minutes'
-
         delay: '00:00:30'
 
 #################################################################

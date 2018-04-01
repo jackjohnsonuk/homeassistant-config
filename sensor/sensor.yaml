@@ -1,5 +1,49 @@
+#################################################################
+## Living Room Light Count
+#################################################################
 
 
+- platform: template
+  sensors:
+    count_living_room_lights:
+      friendly_name: 'Count Living Room Lights On'
+      entity_id:
+        - light.living_room_lamp
+        - light.living_room_main_light
+        - light.living_room_side_lights
+      value_template: >-
+        {% if states('group.living_room_lights') == 'on' %}
+        {% for e in states.group.living_room_lights.attributes.entity_id if states(e) == 'on'  %}
+        {% if loop.last %}
+        {{ loop.index }}
+        {% endif %}
+        {%- endfor -%}
+        {% else %}
+        0
+        {% endif %}
+
+#################################################################
+## Bedroom Light Count
+#################################################################
+
+
+- platform: template
+  sensors:
+    count_bedroom_lights:
+      friendly_name: 'Count Bedroom Lights On'
+      entity_id:
+        - light.bedroom_main_light
+        - group.group_bedside_lights
+      value_template: >-
+        {% if states('group.bedroom_lights') == 'on' %}
+        {% for e in states.group.bedroom_lights.attributes.entity_id if states(e) == 'on'  %}
+        {% if loop.last %}
+        {{ loop.index }}
+        {% endif %}
+        {%- endfor -%}
+        {% else %}
+        0
+        {% endif %}
 #################################################################
 ## Power Perfect Prep
 #################################################################

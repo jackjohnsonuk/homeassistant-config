@@ -113,36 +113,6 @@
    - service: light.turn_on
      entity_id: light.zone_living_room
 
-# - alias: Living room motion
-#   trigger:
-#    - platform: state
-#      entity_id: binary_sensor.motion_living_room_camera
-#      to: 'on'
-#   condition:
-#     condition: and
-#     conditions:
-#       # - condition: state
-#       #   entity_id: binary_sensor.motion_living_room_camera
-#       #   state: 'on'
-#       - condition: state
-#         entity_id: group.family
-#         state: 'home'
-#       - condition: numeric_state
-#         entity_id: light.living_room_side_lights
-#         value_template: '{% if states.light.living_room_side_lights.state == "on"  %}{{ states.light.living_room_side_lights.attributes.brightness }}{% else %}0{% endif %}'
-#         below: 1
-#       - condition: numeric_state
-#         entity_id: light.living_room_lamp
-#         value_template: '{% if states.light.living_room_lamp.state == "on"  %}{{ states.light.living_room_lamp.attributes.brightness }}{% else %}0{% endif %}'
-#         below: 1
-#       - condition: numeric_state
-#         entity_id: light.living_room_main_light
-#         value_template: '{% if states.light.living_room_main_light.state == "on"  %}{{ states.light.living_room_main_light.attributes.brightness }}{% else %}0{% endif %}'
-#         below: 1
-#   action:
-#    - service: light.turn_on
-#      entity_id: light.living_room_side_lights
-
 #################################################################
 ## Living Room Motion Off
 #################################################################
@@ -174,9 +144,7 @@
    - service: light.turn_off
      data:
        entity_id:
-         - light.living_room_lamp
-         - light.living_room_main_light
-         - light.living_room_side_lights
+         - light.zone_living_room
 
 #################################################################
 ##  Bedroom Motion On
@@ -200,24 +168,22 @@
         entity_id: binary_sensor.someone_watching_tv_bedroom
         state: 'off'
       - condition: numeric_state
-        entity_id: light.jack_bedside_light
-        value_template: '{% if states.light.jack_bedside_light.state == "on"  %}{{ states.light.jack_bedside_light.attributes.brightness }}{% else %}0{% endif %}'
+        entity_id: light.zone_bedroom
+        value_template: '{% if states.light.zone_bedroom.state == "on"  %}{{ states.light.zone_bedroom.attributes.brightness }}{% else %}0{% endif %}'
         below: 1
-      - condition: numeric_state
-        entity_id: light.lara_bedside_light
-        value_template: '{% if states.light.lara_bedside_light.state == "on"  %}{{ states.light.lara_bedside_light.attributes.brightness }}{% else %}0{% endif %}'
-        below: 1
-      - condition: numeric_state
-        entity_id: light.bedroom_main_light
-        value_template: '{% if states.light.bedroom_main_light.state == "on"  %}{{ states.light.bedroom_main_light.attributes.brightness }}{% else %}0{% endif %}'
-        below: 1
+      # - condition: numeric_state
+      #   entity_id: light.lara_bedside_light
+      #   value_template: '{% if states.light.lara_bedside_light.state == "on"  %}{{ states.light.lara_bedside_light.attributes.brightness }}{% else %}0{% endif %}'
+      #   below: 1
+      # - condition: numeric_state
+      #   entity_id: light.bedroom_main_light
+      #   value_template: '{% if states.light.bedroom_main_light.state == "on"  %}{{ states.light.bedroom_main_light.attributes.brightness }}{% else %}0{% endif %}'
+      #   below: 1
   action:
    - service: light.turn_on
      data:
        entity_id:
-         - light.bedroom_main_light
-         - light.jack_bedside_light
-         - light.lara_bedside_light
+         - light.zone_bedroom
 
 #################################################################
 ## Bedroom Motion Off
@@ -243,9 +209,7 @@
     service: light.turn_off
     data:
      entity_id:
-       - light.bedroom_main_light
-       - light.jack_bedside_light
-       - light.lara_bedside_light
+       - light.zone_bedroom
 
 #################################################################
 ##  Bathroom Motion On
