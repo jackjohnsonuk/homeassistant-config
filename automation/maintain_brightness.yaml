@@ -118,7 +118,7 @@
             {%- elif hour >= 20 and hour <24  -%}
               {% set level = 150 %}
             {%- else -%}
-              {% set level = 60 %}
+              {% set level = 15 %}
             {%- endif %}
             {{ level }}
           {% endmacro %}
@@ -234,7 +234,7 @@
             {%- elif hour >= 20 and hour <24  -%}
               {% set level = 150 %}
             {%- else -%}
-              {% set level = 60 %}
+              {% set level = 15 %}
             {%- endif %}
             {{ level }}
           {% endmacro %}

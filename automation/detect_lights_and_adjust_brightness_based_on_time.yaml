@@ -8,26 +8,26 @@
     - platform: event
       event_type: state_changed
   condition:
-    condition: or
+    condition: and
     conditions:
       - condition: template
-        value_template: "{{ trigger.event.data.entity_id == 'light.dressing_room' }}"
-      # - condition: template
-      #   value_template: "{{ trigger.event.data.entity_id == 'light.bathroom_lights' }}"
+        value_template: "{{ trigger.event.data.new_state.state == 'on' }}"
       - condition: template
-        value_template: "{{ trigger.event.data.entity_id == 'light.front_room_main_light' }}"
-      - condition: template
-        value_template: "{{ trigger.event.data.entity_id == 'light.hallway_light' }}"
-      - condition: template
-        value_template: "{{ trigger.event.data.entity_id == 'light.pantry_lights' }}"
-      - condition: template
-        value_template: "{{ trigger.event.data.entity_id == 'light.under_stairs_light' }}"
-      - condition: and
+        value_template: "{{ trigger.event.data.old_state.state == 'off' }}"
+      - condition: or
         conditions:
           - condition: template
-            value_template: "{{ trigger.event.data.new_state.state == 'on' }}"
+            value_template: "{{ trigger.event.data.entity_id == 'light.dressing_room' }}"
+          # - condition: template
+          #   value_template: "{{ trigger.event.data.entity_id == 'light.bathroom_lights' }}"
           - condition: template
-            value_template: "{{ trigger.event.data.old_state.state == 'off' }}"
+            value_template: "{{ trigger.event.data.entity_id == 'light.front_room_main_light' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.hallway_light' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.pantry_lights' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.under_stairs_light' }}"
   action:
     - service: light.turn_on
       data_template:
@@ -35,11 +35,11 @@
         brightness: >
           {% set hour=states("sensor.time").split(':')[0] | int %}
           {%- if hour >= 5 and hour < 8  -%}
-            80
+            150
           {%- elif hour >= 8 and hour <20  -%}
             255
           {%- elif hour >= 20 and hour <24  -%}
-            80
+            150
           {%- else -%}
             15
           {%- endif %}
