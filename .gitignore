@@ -8,6 +8,7 @@
 !script
 !sensor
 !switches
+!customize
 !*.yaml
 !scenes
 !.gitignore

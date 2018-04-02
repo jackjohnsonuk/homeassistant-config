@@ -16,11 +16,11 @@
 
 - platform: cast
   name: Bedroom Google Assistant
-  host: 192.168.1.242
+  host: 192.168.1.244
 
 - platform: cast
   name: Front Room Google Assistant
-  host: 192.168.1.88
+  host: 192.168.1.91
 
 - platform: cast
   name: Living Room Google Assistant
