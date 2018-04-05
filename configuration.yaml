@@ -5,6 +5,7 @@ homeassistant:
   elevation: 74
   unit_system: metric
   time_zone: Europe/London
+  packages: !include_dir_named packages
   customize: !include_dir_merge_named customize
 
 
@@ -84,11 +85,6 @@ octoprint:
   bed: true
   number_of_tools: 1
 
-vacuum:
-  - platform: xiaomi_miio
-    host: !secret vacuum_ip
-    token: !secret vacuum_token
-
 nest:
   client_id: !secret nest_client_id
   client_secret: !secret nest
@@ -113,7 +109,7 @@ media_player: !include_dir_merge_list media_player
 mqtt: !include mqtt.yaml
 switch: !include_dir_merge_list switches
 binary_sensor: !include_dir_merge_list binary_sensor
-zone: !include zone.yaml
+# zone: !include zone.yaml
 google_assistant: !include google_assistant.yaml
 camera: !include camera.yaml
 input_boolean: !include input_boolean.yaml
