@@ -65,26 +65,16 @@
   origin: !secret origin
   destination: !secret destination
 
-#################################################################
-## Octoprint Sensor
-#################################################################
-
-- platform: octoprint
-  name: Octoprint
-  monitored_conditions:
-    - Current State
-    - Temperatures
-    - Job Percentage
 
 #################################################################
 ## Speedtest Sensor
 #################################################################
 
-- platform: speedtest
-  monitored_conditions:
-    - ping
-    - download
-    - upload
+# - platform: speedtest
+#   monitored_conditions:
+#     - ping
+#     - download
+#     - upload
 
 #################################################################
 ## Motion Sensors - Turn Binary Sensors into Sensors
@@ -695,18 +685,6 @@
           mdi:cancel
         {% endif %}
 
-- platform: template
-  sensors:
-    amount_of_rain:
-      value_template: '{{ ((states.sensor.stats_mean.attributes.total | float * 1 )) | round(2) }}'
-      friendly_name: 'Running Total Rain'
-
-
-
-
-- platform: statistics
-  entity_id: sensor.weather_precipitation
-  sampling_size: 200
 
 - platform: time_date
   display_options:

@@ -29,12 +29,12 @@
   optimistic: false
   retain: true
 
-- platform: command_line
-  switches:
-    camera_record:
-      command_on: !secret camera_record
-      command_off: !secret camera_stop
-      friendly_name: Camera's Recording
+# - platform: command_line
+#   switches:
+#     camera_record:
+#       command_on: !secret camera_record
+#       command_off: !secret camera_stop
+#       friendly_name: Camera's Recording
 
 
 #- platform: tplink

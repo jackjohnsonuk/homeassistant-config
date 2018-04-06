@@ -89,16 +89,7 @@ Bedroom:
     - group.group_bedside_lights
     - group.Bedroom_motion_sensor
 
-      #################################################################
-      ## 3D Printer
-      #################################################################
 
-3D Printing:
-  name: 3D Printing
-  view: yes
-  icon: mdi:printer-3d
-  entities:
-    - group.3D_Printing
 
       #################################################################
       ## Links
@@ -139,16 +130,6 @@ Settings:
 ## Cards
 #################################################################
 
-      #################################################################
-      ## Speedtest
-      #################################################################
-
-Internet:
-  name: Internet
-  entities:
-   - sensor.speedtest_download
-   - sensor.speedtest_upload
-   - sensor.speedtest_ping
 
       #################################################################
       ## House Hold Motion Detector Cards
@@ -189,114 +170,7 @@ family:
    - device_tracker.jack_jack
    - device_tracker.lara_lara
 
-      #################################################################
-      ## Bedside Light Card
-      #################################################################
 
-group_bedside_lights:
-  name: Bedside Lights
-  entities:
-    - light.jack_bedside_light
-    - light.lara_bedside_light
-
-      #################################################################
-      ## Bedroom Light Card
-      #################################################################
-
-Bedroom_lights:
-  name: Bedroom Lights
-  entities:
-    - light.bedroom_main_light
-    - light.jack_bedside_light
-    - light.lara_bedside_light
-
-      #################################################################
-      ## Bins
-      #################################################################
-
-bins:
-  name: Bins
-  entities:
-    - sensor.rubbish_pickup_day
-    - sensor.recycling_pickup_day
-
-      #################################################################
-      ## Circulation Light Card
-      #################################################################
-
-circulation_light:
-  name: Circulation Lights
-  entities:
-    - light.hallway_light
-    - light.pantry_lights
-    - light.bathroom_lights
-
-      #################################################################
-      ## Front Room Light Card
-      #################################################################
-
-Front_room_lights:
-  name: Front Room Lights
-  entities:
-    - light.front_room_main_light
-
-      #################################################################
-      ## Living Room Light Card
-      #################################################################
-
-Living_room_lights:
-  name: Living Room Lights
-  entities:
-    - light.living_room_lamp
-    - light.living_room_main_light
-    - light.living_room_side_lights
-
-
-
-      #################################################################
-      ## Pantry Light Card and Subcard
-      #################################################################
-
-
-
-      #################################################################
-      ## Dressing Room Light Card
-      #################################################################
-
-Dressing_Room:
-  name: Dressing Room Lights
-  entities:
-    - light.dressing_room
-
-      #################################################################
-      ## Outside Christmas Light Card
-      #################################################################
-
-Front_Room_Scentsy:
-  name: Front Room Scentsy
-  entities:
-    - switch.smart_plug_3
-
-
-      #################################################################
-      ## Christmas Tree Light Card
-      #################################################################
-
-Christmas_tree:
-  name: Christmas Tree Lights
-  entities:
-    - switch.smart_plug_2
-    - switch.smart_plug_3
-
-      #################################################################
-      ## Christmas Card
-      #################################################################
-
-Christmas:
-  name: Christmas
-  entities:
-    - group.Christmas_lights
-    - group.Christmas_tree
 
       #################################################################
       ## Living Room Motion Sensor Card
@@ -326,20 +200,7 @@ Bedroom_motion_sensor:
    - binary_sensor.motion_bedroom
    - binary_sensor.motion_dressing_room
 
-      #################################################################
-      ## 3D Printing Card
-      #################################################################
 
-3D_Printing:
-  name: 3D Printing
-  entities:
-    - camera.octoprint
-    - sensor.octoprint_actual_tool0_temp
-    - sensor.octoprint_actual_bed_temp
-    - sensor.octoprint_current_state
-    - sensor.octoprint_job_percentage
-    - binary_sensor.octoprint_printing
-    - binary_sensor.octoprint_printing_error
 
       #################################################################
       ## Travel Time Card
@@ -350,15 +211,6 @@ time_travel_card:
   entities:
     - sensor.jack_home_to_work
 
-      #################################################################
-      ## Weather Card
-      #################################################################
-
-weather_card:
-  name: Weather
-  entities:
-    - sensor.dark_sky_summary
-    - sensor.dark_sky_temperature
 
       #################################################################
       ## Bedroom TV

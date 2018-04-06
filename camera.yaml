@@ -1,37 +1,37 @@
-#################################################################
-## Cameras
-#################################################################
-
-      #################################################################
-      ## Blue Iris Cameras
-      #################################################################
-
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.239:81/mjpg/kitchen2
-  name: Kitchen2
-  username: !secret camera_user
-  password: !secret camera_pass
-  authentication: basic
-
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.239:81/mjpg/lounge
-  name: Lounge
-  username: !secret camera_user
-  password: !secret camera_pass
-  authentication: basic
-
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.239:81/mjpg/kitchen
-  name: Kitchen
-  username: !secret camera_user
-  password: !secret camera_pass
-  authentication: basic
-
-
-      #################################################################
-      ## Octoprint Camera
-      #################################################################
-
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.210/webcam/?action=stream
-  name: OctoPrint
+# #################################################################
+# ## Cameras
+# #################################################################
+#
+#       #################################################################
+#       ## Blue Iris Cameras
+#       #################################################################
+#
+# - platform: mjpeg
+#   mjpeg_url: http://192.168.1.239:81/mjpg/kitchen2
+#   name: Kitchen2
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+#
+# - platform: mjpeg
+#   mjpeg_url: http://192.168.1.239:81/mjpg/lounge
+#   name: Lounge
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+#
+# - platform: mjpeg
+#   mjpeg_url: http://192.168.1.239:81/mjpg/kitchen
+#   name: Kitchen
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+#
+#
+#       #################################################################
+#       ## Octoprint Camera
+#       #################################################################
+#
+# - platform: mjpeg
+#   mjpeg_url: http://192.168.1.210/webcam/?action=stream
+#   name: OctoPrint

@@ -97,10 +97,6 @@ sensor.status_jack_laptop:
   friendly_name: Jacks Laptop
   entity_picture: /local/apple.png
 
-sensor.status_nest_thermostat:
-  friendly_name: Nest Thermostat
-  entity_picture: /local/nest.png
-
 sensor.status_smart_thing_hub:
   friendly_name: Smart Things Hub
   entity_picture: /local/smartthings.png
@@ -120,10 +116,6 @@ sensor.status_fire_tv_2:
 sensor.status_fire_tv_3:
   friendly_name: Fire TV 3
   entity_picture: /local/firetv.png
-
-sensor.status_nest_camera:
-  friendly_name: Nest Outdoor Camera
-  entity_picture: /local/nest.png
 
 switch.bedroom_scentsy:
   friendly_name: Bedroom Scentsy
