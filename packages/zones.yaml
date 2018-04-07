@@ -1,0 +1,52 @@
+################################################################
+## Packages / Zones
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'zones'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+
+    ################################################
+    ## Zone
+    ################################################
+
+    zone.home:
+      <<: *customize
+      friendly_name: "Home"
+
+    zone.jack_work:
+      <<: *customize
+      friendly_name: "Jack Work"
+      icon: mdi:briefcase
+
+
+################################################
+## Zone
+################################################
+
+zone:
+  
+  - name: Home
+    latitude: !secret home_lat
+    longitude: !secret home_long
+    radius: 250
+
+  - name: Jack Work
+    latitude: !secret jack_work_lat
+    longitude: !secret jack_work_long
+    radius: 250

@@ -44,14 +44,6 @@
         {% else %}
         0
         {% endif %}
-#################################################################
-## Power Perfect Prep
-#################################################################
-
-- platform: mqtt
-  name: "Perfect Prep Power"
-  state_topic: "smartthings/Perfect Prep/power/state"
-  unit_of_measurement: "kw"
 
 
 

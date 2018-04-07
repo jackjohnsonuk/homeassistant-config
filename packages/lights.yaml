@@ -1,0 +1,262 @@
+################################################################
+## Packages / Lights
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Lights'
+
+      expose: &expose
+        <<: *customize
+        expose: true
+
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Lights
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Lights
+################################################
+
+light:
+
+      ################################################
+      ## Groups
+      ################################################
+
+- platform: group
+  name: Living Room Side Lights
+  entities:
+    - light.living_room_side_light_1
+    - light.living_room_side_light_2
+
+- platform: group
+  name: Pantry Lights
+  entities:
+    - light.pantry_light_1
+    - light.pantry_light_2
+    - light.pantry_light_3
+    - light.pantry_light_4
+
+- platform: group
+  name: Bathroom Lights
+  entities:
+    - light.bathroom_light_1
+    - light.bathroom_light_2
+    # - light.bathroom_light_3
+    - light.bathroom_light_4
+
+      ################################################
+      ## MQTT Lights
+      ################################################
+
+- platform: mqtt
+  name: "Bedroom Main Light"
+  state_topic: "smartthings/Bedroom Main Light/switch/state"
+  command_topic: "smartthings/Bedroom Main Light/switch/set"
+  brightness_state_topic: "smartthings/Bedroom Main Light/level/state"
+  brightness_command_topic: "smartthings/Bedroom Main Light/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
+
+
+- platform: mqtt
+  name: "Front Room Main Light"
+  state_topic: "smartthings/Front Room Main Light/switch/state"
+  command_topic: "smartthings/Front Room Main Light/switch/set"
+  brightness_state_topic: "smartthings/Front Room Main Light/level/state"
+  brightness_command_topic: "smartthings/Front Room Main Light/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
+
+
+- platform: mqtt
+  name: "Living Room Main Light"
+  state_topic: "smartthings/Living Room Main Light/switch/state"
+  command_topic: "smartthings/Living Room Main Light/switch/set"
+  brightness_state_topic: "smartthings/Living Room Main Light/level/state"
+  brightness_command_topic: "smartthings/Living Room Main Light/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
+
+
+
+################################################
+## Light - Group
+################################################
+
+group:
+
+      #################################################################
+      ## Bedside Light Card
+      #################################################################
+
+group_bedside_lights:
+  name: Bedside Lights
+  entities:
+    - light.jack_bedside_light
+    - light.lara_bedside_light
+
+      #################################################################
+      ## Bedroom Light Card
+      #################################################################
+
+Bedroom_lights:
+  name: Bedroom Lights
+  entities:
+    - light.bedroom_main_light
+    - light.jack_bedside_light
+    - light.lara_bedside_light
+
+      #################################################################
+      ## Circulation Light Card
+      #################################################################
+
+circulation_light:
+  name: Circulation Lights
+  entities:
+    - light.hallway_light
+    - light.pantry_lights
+    - light.bathroom_lights
+
+      #################################################################
+      ## Front Room Light Card
+      #################################################################
+
+Front_room_lights:
+  name: Front Room Lights
+  entities:
+    - light.front_room_main_light
+
+      #################################################################
+      ## Living Room Light Card
+      #################################################################
+
+Living_room_lights:
+  name: Living Room Lights
+  entities:
+    - light.living_room_lamp
+    - light.living_room_main_light
+    - light.living_room_side_lights
+
+      #################################################################
+      ## Dressing Room Light Card
+      #################################################################
+
+Dressing_Room:
+  name: Dressing Room Lights
+  entities:
+    - light.dressing_room
+
+
+################################################
+## Light - Automation
+################################################
+
+automation:
+
+      #################################################################
+      ## Weekday Lights Fade-Up
+      #################################################################
+
+- alias: Weekday Wakeup
+  trigger:
+    platform: time
+    at: '06:45:00'
+  condition:
+    condition: time
+    weekday:
+      - mon
+      - tue
+      - wed
+      - thu
+      - fri
+  action:
+    - service: automation.turn_off
+      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.jack_bedside_light
+          - light.lara_bedside_light
+        transition: 900
+        color_name: sandybrown
+    - service: automation.turn_on
+      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+
+
+      #################################################################
+      ## Weekend Lights Fade-Up
+      #################################################################
+
+- alias: Weekend Wakeup
+  trigger:
+    platform: time
+    at: '08:00:00'
+  condition:
+    condition: time
+    weekday:
+      - sun
+      - sat
+  action:
+    - service: automation.turn_off
+      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+    - service: light.turn_on
+      data:
+        entity_id:
+          - light.jack_bedside_light
+          - light.lara_bedside_light
+        transition: 900
+        color_name: sandybrown
+    - service: automation.turn_on
+      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+
+      #################################################################
+      ## Sleep time lighting
+      #################################################################
+
+- alias: Bedtime
+  trigger:
+    platform: time
+    at: '22:45:00'
+  action:
+    - service: light.turn_on
+      data:
+        entity_id:
+            light.jack_bedside_light:
+                state: off
+                transition: 900
+            light.lara_bedside_light:
+                state: on
+                transition: 2
+                brightness: 10
+                xy_color: [ 0.5926, 0.3814 ]
+            light.bedroom_main_light:
+                state: off

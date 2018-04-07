@@ -1,0 +1,96 @@
+################################################################
+## Packages / Google Home
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Google Home'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Google Home
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Google Home - Media Players's
+################################################
+
+media_player:
+
+      #################################################################
+      ## Kitchen Google Assistant
+      #################################################################
+
+- platform: cast
+  name: Kitchen Google Assistant
+  host: 192.168.1.203
+
+      #################################################################
+      ## Bedroom Google Assistant
+      #################################################################
+
+- platform: cast
+  name: Bedroom Google Assistant
+  host: 192.168.1.244
+
+      #################################################################
+      ## Front Room Google Assistant
+      #################################################################
+
+- platform: cast
+  name: Front Room Google Assistant
+  host: 192.168.1.91
+
+      #################################################################
+      ## Living Room Google Assistant
+      #################################################################
+
+- platform: cast
+  name: Living Room Google Assistant
+  host: 192.168.1.124
+
+      #################################################################
+      ## Shed Google Assistant
+      #################################################################
+
+#- platform: cast
+#  name: Shed Google Assistant
+#  host: 192.168.1.?
+
+################################################
+## Google Home - Google Assistant
+################################################
+
+google_assistant:
+
+      #################################################################
+      ## Google Assistant api
+      #################################################################
+
+  project_id: !secret google_assistant_project_id
+  client_id: !secret google_assistant_client_id
+  access_token: !secret google_assistant_access_token
+  agent_user_id: !secret google_assistant_agent_user_id
+  api_key: !secret google_assistant_api_key
+  expose_by_default: true
+  exposed_domains:
+     - switch
+     - light
+  #   - group

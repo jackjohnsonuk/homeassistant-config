@@ -1,0 +1,127 @@
+################################################################
+## Packages / Nest Thermostat
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Nest Thermostat'
+
+      expose: &expose
+        <<: *customize
+        expose: true
+
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Nest Thermostat
+    ################################################
+
+    sensor.status_nest_thermostat:
+      <<: *customize
+      friendly_name: Nest Thermostat
+      entity_picture: /local/nest.png
+
+    sensor.status_nest_camera:
+      <<: *customize
+      friendly_name: Nest Outdoor Camera
+      entity_picture: /local/nest.png
+
+    binary_sensor.dining_room_thermostat_fan:
+      <<: *customize
+      friendly_name: Thermostat Fan
+
+    binary_sensor.dining_room_thermostat_has_leaf:
+      <<: *customize
+      friendly_name: Thermostat has Leaf
+
+    binary_sensor.dining_room_thermostat_is_locked:
+      <<: *customize
+      friendly_name: Thermostat is Locked
+
+    binary_sensor.dining_room_thermostat_is_using_emergency_heat:
+      <<: *customize
+      friendly_name: Thermostart Emergency Heat
+
+    binary_sensor.dining_room_thermostat_online:
+      <<: *customize
+      friendly_name: Thermostat Online
+
+    sensor.dining_room_thermostat_humidity:
+      <<: *customize
+      friendly_name: Thermostat Humidity
+
+    sensor.dining_room_thermostat_hvac_state:
+      <<: *customize
+      friendly_name: Thermostat HVAC State
+
+    sensor.dining_room_thermostat_operation_mode:
+      <<: *customize
+      friendly_name: Thermostat Operation Mode
+
+    sensor.dining_room_thermostat_target:
+      <<: *customize
+      friendly_name: Thermostat Target
+
+    sensor.dining_room_thermostat_temperature:
+      <<: *customize
+      friendly_name: Thermostat Temperature
+
+    script.set_nest_away:
+      <<: *customize
+      friendly_name: Set Nest Thermostat Away
+
+    script.set_nest_home:
+      <<: *customize
+      friendly_name: Set Nest Thermostat Home
+
+
+################################################
+## Nest Thermostat - Hub api
+################################################
+
+nest:
+
+##############################################################################
+###  Api Keys etc
+##############################################################################
+
+  client_id: !secret nest_client_id
+  client_secret: !secret nest
+
+##############################################################################
+###  Nest Thermostat - Script
+##############################################################################
+
+script:
+
+##############################################################################
+###  Set Nest Away
+##############################################################################
+
+  set_nest_away:
+    sequence:
+      - service: nest.set_mode
+        data:
+          home_mode: away
+
+##############################################################################
+###  Set Nest Home
+##############################################################################
+
+  set_nest_home:
+    sequence:
+      - service: nest.set_mode
+        data:
+          home_mode: home

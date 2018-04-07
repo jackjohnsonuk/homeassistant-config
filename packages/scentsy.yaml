@@ -1,0 +1,93 @@
+################################################################
+## Packages / Scentsy
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Scentsy'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Scentsy
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Scentsy - Switches
+################################################
+
+switch:
+
+      #################################################################
+      ## Scentsy - Living Room
+      #################################################################
+
+- platform: mqtt
+  name: "Living Room Scentsy"
+  state_topic: "stat/livingroom_scentsy/POWER"
+  command_topic: "cmnd/livingroom_scentsy/power"
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 0
+  optimistic: false
+  retain: true
+
+      #################################################################
+      ## Scentsy - Bedroom
+      #################################################################
+
+- platform: mqtt
+  name: "Bedroom Scentsy"
+  state_topic: "stat/bedroom_scentsy/POWER"
+  command_topic: "cmnd/bedroom_scentsy/power"
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 0
+  optimistic: false
+  retain: true
+
+################################################
+## Scentsy - Automation's
+################################################
+
+automation:
+
+      #################################################################
+      ## Scentsy - Bedroom Automation On
+      #################################################################
+
+- alias: bedroom scentsy on
+  trigger:
+    platform: time
+    at: '22:00:00'
+  action:
+    - service: homeassistant.turn_on
+      entity_id: switch.bedroom_scentsy
+
+      #################################################################
+      ## Scentsy - Bedroom Automation Off
+      #################################################################
+
+- alias: bedroom scentsy off
+  trigger:
+    platform: time
+    at: '03:00:00'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: switch.bedroom_scentsy

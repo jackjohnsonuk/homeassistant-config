@@ -1,0 +1,66 @@
+################################################################
+## Packages / Backup and Upload
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Backup and Upload'
+
+      expose: &expose
+        <<: *customize
+        expose: true
+
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Backup and Upload
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Backup and Upload
+################################################
+
+automation:
+
+#################################################################
+## Snapshot
+#################################################################
+
+- alias: Snapshot
+  trigger:
+    platform: time
+    at: '2:00:00'
+  action:
+  - service: hassio.snapshot_full
+    data_template:
+      name: Automated Backup {{ now().strftime('%Y-%m-%d') }}
+
+#################################################################
+## Dropbox upload using "Dropbox Sync" by dwelch2102
+#################################################################
+
+- alias: Snapshot Upload dropbox
+  trigger:
+    platform: time
+    at: '4:00:00'
+  action:
+  - service: hassio.addon_stdin
+    data_template:
+      addon: 7be23ff5_dropbox_sync
+      input: {"command":"upload"}

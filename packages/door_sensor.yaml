@@ -1,0 +1,97 @@
+################################################################
+## Packages / Door Sensor
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Door Sensor'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Door Sensor
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Door Sensor - Binary Sensor's
+################################################
+
+binary_sensor:
+
+      #################################################################
+      ## Door Sensor - Front Door
+      #################################################################
+
+- platform: mqtt
+  name: "Front Door"
+  state_topic: "smartthings/Front Door/contact/state"
+  command_topic: "ssmartthings/Front Door/contact/state"
+  device_class: door
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
+
+      #################################################################
+      ## Door Sensor - Front Door
+      #################################################################
+
+- platform: mqtt
+  name: "Door Sensor Bathroom"
+  state_topic: "smartthings/Door Sensor - Bathroom/contact/state"
+  command_topic: "smartthings/Door Sensor - Bathroom/contact/state"
+  device_class: door
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
+
+################################################
+## Door Sensor - Automation's
+################################################
+
+automation:
+
+      #################################################################
+      ## Door Sensor - Front Door - Hallway Light Automation On
+      #################################################################
+
+- alias: Hallway light front door
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.front_door
+     from: 'off'
+     to: 'on'
+  action:
+    service: light.turn_off
+    entity_id: light.hallway_light
+
+      #################################################################
+      ## Door Sensor - Front Door - Hallway Light Automation Off
+      #################################################################
+
+- alias: Turn off hall light door close
+  trigger:
+    platform: state
+    entity_id: binary_sensor.front_door
+    from: 'on'
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: light.hallway_light

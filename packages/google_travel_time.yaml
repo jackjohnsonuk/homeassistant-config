@@ -1,0 +1,61 @@
+################################################################
+## Packages / Google Travel Time
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Google Travel Time'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Google Travel Time
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Google Travel Time - Sensor's
+################################################
+
+sensor:
+
+      #################################################################
+      ## Google Travel Time api
+      #################################################################
+
+- platform: google_travel_time
+  name: Jack Home To Work
+  api_key: !secret google_travel_api
+  origin: !secret origin
+  destination: !secret destination
+
+
+################################################
+## Google Travel Time - Group
+################################################
+
+group:
+
+      #################################################################
+      ## Travel Time Card
+      #################################################################
+
+time_travel_card:
+  name: Time To Destination
+  entities:
+    - sensor.jack_home_to_work

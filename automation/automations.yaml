@@ -3,32 +3,6 @@
 #################################################################
 
 
-      #################################################################
-      ## Hallway Lights Front Door
-      #################################################################
-
-- alias: Hallway light front door
-  trigger:
-   - platform: state
-     entity_id: binary_sensor.front_door
-     from: 'off'
-     to: 'on'
-  action:
-    service: light.turn_off
-    entity_id: light.hallway_light
-
-
-- alias: Turn off hall light door close
-  trigger:
-    platform: state
-    entity_id: binary_sensor.front_door
-    from: 'on'
-    to: 'off'
-    for:
-      seconds: 10
-  action:
-    service: homeassistant.turn_off
-    entity_id: light.hallway_light
 
 #################################################################
 ## Audio Prompts
@@ -102,25 +76,6 @@
     - service: media_player.media_stop
       entity_id: media_player.bedroom_speaker
 
-#################################################################
-## Scentsy - bedroom
-#################################################################
-
-- alias: bedroom scentsy on
-  trigger:
-    platform: time
-    at: '22:00:00'
-  action:
-    - service: homeassistant.turn_on
-      entity_id: switch.bedroom_scentsy
-
-- alias: bedroom scentsy off
-  trigger:
-    platform: time
-    at: '03:00:00'
-  action:
-    - service: homeassistant.turn_off
-      entity_id: switch.bedroom_scentsy
 
 #################################################################
 ## Occupancy Automations
@@ -225,20 +180,6 @@
 #      data:
 #        entity_id: climate.kitchen
 #        operation_mode: eco
-
-
-
-      #################################################################
-      ## Bedroom Sleep Lights
-      #################################################################
-
-- alias: Bedtime
-  trigger:
-    platform: time
-    at: '22:45:00'
-  action:
-    - service: scene.turn_on
-      entity_id: scene.bedroom_sleep
 
 
 

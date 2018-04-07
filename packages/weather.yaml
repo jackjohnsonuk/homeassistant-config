@@ -1,0 +1,90 @@
+################################################################
+## Packages / Weather
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Weather'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Weather
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Weather - Sensor's
+################################################
+
+sensor:
+
+      #################################################################
+      ## Yr
+      #################################################################
+
+- platform: yr
+  name: Weather
+  forecast: 24
+  monitored_conditions:
+    - temperature
+    - symbol
+    - precipitation
+    - windSpeed
+    - pressure
+    - windDirection
+    - humidity
+    - fog
+    - cloudiness
+    - lowClouds
+    - mediumClouds
+    - highClouds
+    - dewpointTemperature
+
+      #################################################################
+      ## DarkSky
+      #################################################################
+
+- platform: darksky
+  api_key: !secret dark_sky_api
+  units: uk2
+  monitored_conditions:
+    - summary
+    - icon
+    - nearest_storm_distance
+    - hourly_summary
+    - temperature
+    - precip_probability
+    - wind_speed
+    - temperature_min
+
+################################################
+## Weather - Group
+################################################
+
+group:
+
+      #################################################################
+      ## Weather Card
+      #################################################################
+
+weather_card:
+  name: Weather
+  entities:
+    - sensor.dark_sky_summary
+    - sensor.dark_sky_temperature

@@ -1,0 +1,366 @@
+################################################################
+## Packages / Motion Sensor
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Motion Sensor'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Motion Sensor
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Motion Sensor - Binary Sensor's
+################################################
+
+binary_sensor:
+
+      #################################################################
+      ## Motion Sensor - Under Stairs Cupboard
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Under Stairs Cupboard"
+  state_topic: "smartthings/Hall Motion Sensor/motion/state"
+  command_topic: "smartthings/Hall Motion Sensor/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
+      ## Motion Sensor - Living Room
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Living Room"
+  state_topic: "smartthings/Living Room Motion/motion/state"
+  command_topic: "smartthings/Living Room Motion/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
+      ## Motion Sensor - Bedroom
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Bedroom"
+  state_topic: "smartthings/Bedroom Motion/motion/state"
+  command_topic: "smartthings/Bedroom Motion/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
+      ## Motion Sensor - Hallway
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Hallway"
+  state_topic: "smartthings/Motion Sensor 1/motion/state"
+  command_topic: "smartthings/Motion Sensor 1/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
+      ## Motion Sensor - Dressing Room
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Dressing Room"
+  state_topic: "smartthings/Xiaomi Motion 2/motion/state"
+  command_topic: "smartthings/Xiaomi Motion 2/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
+      ## Motion Sensor - Bathroom - Test
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Bathroom"
+  state_topic: "smartthings/Motion Bathroom/motion/state"
+  command_topic: "smartthings/Motion Bathroom/motion/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+
+################################################
+## Motion Sensor - Automation's
+################################################
+
+automation:
+
+      #################################################################
+      ## Automation - Under Stairs Motion Switch On
+      #################################################################
+
+- alias: Under the stairs motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.motion_under_stairs_cupboard
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.under_stairs_light
+
+      #################################################################
+      ## Automation - Under Stairs Motion Switch Off
+      #################################################################
+
+- alias: Turn off under stairs light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_under_stairs_cupboard
+    to: 'off'
+    for:
+      seconds: 10
+  action:
+    service: light.turn_off
+    entity_id: light.under_stairs_light
+
+      #################################################################
+      ## Automation - Hallway Motion Switch On
+      #################################################################
+
+- alias: Hallway motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.motion_hallway
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.hallway_light
+
+      #################################################################
+      ## Automation - Hallway Motion Switch Off
+      #################################################################
+
+- alias: Turn off hallway light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_hallway
+    to: 'off'
+    for:
+      seconds: 60
+  action:
+    service: light.turn_off
+    entity_id: light.hallway_light
+
+      #################################################################
+      ## Automation - Dressing Room Motion Switch On
+      #################################################################
+
+- alias: Dressing room motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.motion_dressing_room
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.dressing_room
+
+      #################################################################
+      ## Automation - Dressing Room Motion Switch Off
+      #################################################################
+
+- alias: Turn off dressing room light 1 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_dressing_room
+    to: 'off'
+    for:
+     seconds: 180
+  action:
+    service: light.turn_off
+    entity_id: light.dressing_room
+
+      #################################################################
+      ## Automation - Bathroom Motion Switch On
+      #################################################################
+
+# - alias: bathroom motion
+#   trigger:
+#    - platform: state
+#      entity_id: binary_sensor.motion_bathroom
+#      to: 'on'
+#    - platform: state
+#      entity_id: binary_sensor.door_sensor_bathroom
+#      to: 'on'
+#   action:
+#    - service: light.turn_on
+#      data:
+#        entity_id:
+#          - light.bathroom_lights
+
+      #################################################################
+      ## Automation - Bathroom Motion Switch Off
+      #################################################################
+
+# - alias: Turn off Bathroom light 1 minutes after last movement
+# #trigger if no motion detected
+#   trigger:
+#    - platform: state
+#      entity_id: binary_sensor.door_sensor_bathroom
+#      to: 'off'
+#   condition:
+#     condition: state
+#     entity_id: binary_sensor.motion_bathroom
+#     state: 'off'
+#   action:
+#    - service: light.turn_off
+#      data:
+#        entity_id:
+#          - light.bathroom_lights
+
+      #################################################################
+      ## Automation - Living Room Motion Switch On
+      #################################################################
+
+# - alias: Living room motion
+#   trigger:
+#    - platform: state
+#      entity_id: binary_sensor.motion_living_room_camera
+#      to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+#       # - condition: state
+#       #   entity_id: binary_sensor.motion_living_room_camera
+#       #   state: 'on'
+#       - condition: state
+#         entity_id: group.family
+#         state: 'home'
+#       - condition: numeric_state
+#         entity_id: light.zone_living_room
+#         value_template: '{% if states.light.zone_living_room.state == "on"  %}{{ states.light.zone_living_room.attributes.brightness }}{% else %}0{% endif %}'
+#         below: 2
+#   action:
+#    - service: light.turn_on
+#      entity_id: light.zone_living_room
+
+      #################################################################
+      ## Automation - Living Room Motion Switch Off
+      #################################################################
+
+# - alias: Turn off living room light 1 minutes after last movement
+#   trigger:
+#     platform: time
+#     minutes: '/2'
+#     seconds: 00
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: binary_sensor.motion_living_room
+#         state: 'off'
+#         for:
+#          seconds: 120
+#       - condition: state
+#         entity_id: binary_sensor.motion_living_room_camera
+#         state: 'off'
+#         for:
+#          seconds: 120
+#       - condition: state
+#         entity_id: binary_sensor.someone_watching_tv_livingroom
+#         state: 'off'
+#         for:
+#          seconds: 120
+#   action:
+#    - service: light.turn_off
+#      data:
+#        entity_id:
+#          - light.zone_living_room
+
+      #################################################################
+      ## Automation - Bedroom Motion Switch On
+      #################################################################
+
+# - alias: bedroom motion
+#   trigger:
+#    - platform: state
+#      entity_id: binary_sensor.motion_bedroom
+#      to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: group.family
+#         state: 'home'
+#       - condition: time
+#         after: "08:30:00"
+#         before: "23:00:00"
+#       - condition: state
+#         entity_id: binary_sensor.someone_watching_tv_bedroom
+#         state: 'off'
+#       - condition: numeric_state
+#         entity_id: light.zone_bedroom
+#         value_template: '{% if states.light.zone_bedroom.state == "on"  %}{{ states.light.zone_bedroom.attributes.brightness }}{% else %}0{% endif %}'
+#         below: 1
+#       # - condition: numeric_state
+#       #   entity_id: light.lara_bedside_light
+#       #   value_template: '{% if states.light.lara_bedside_light.state == "on"  %}{{ states.light.lara_bedside_light.attributes.brightness }}{% else %}0{% endif %}'
+#       #   below: 1
+#       # - condition: numeric_state
+#       #   entity_id: light.bedroom_main_light
+#       #   value_template: '{% if states.light.bedroom_main_light.state == "on"  %}{{ states.light.bedroom_main_light.attributes.brightness }}{% else %}0{% endif %}'
+#       #   below: 1
+#   action:
+#    - service: light.turn_on
+#      data:
+#        entity_id:
+#          - light.zone_bedroom
+
+      #################################################################
+      ## Automation - Bedroom Motion Switch Off
+      #################################################################
+
+# - alias: Turn off Bedroom light 1 minutes after last movement
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.motion_bedroom
+#     to: 'off'
+#     for:
+#      seconds: 180
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: time
+#         after: "08:30:00"
+#         before: "23:05:00"
+#       - condition: state
+#         entity_id: binary_sensor.someone_watching_tv_bedroom
+#         state: 'off'
+#   action:
+#     service: light.turn_off
+#     data:
+#      entity_id:
+#        - light.zone_bedroom

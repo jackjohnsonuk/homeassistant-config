@@ -1,7 +1,74 @@
-#Binary Sensors
+################################################################
+## Packages / Bayesian
+################################################################
 
+################################################
+## Customize
+################################################
 
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
 
+    package.node_anchors:
+      customize: &customize
+        package: 'Bayesian'
+
+      expose: &expose
+        <<: *customize
+        expose: true
+
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Bayesian
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Bayesian - Binary Sensor's
+################################################
+
+binary_sensor:
+
+      #################################################################
+      ##   Bayesian Sensor for Sleeping
+      #################################################################
+
+# - platform: bayesian
+#   name: Sleeping
+#   prior: 0.3  # 30% chance that somebody is sleeping at any given moment
+#   probability_threshold: 0.90
+#   observations:
+#     # All lights off -> likely we're asleep
+#     # - entity_id: group.all_lights
+#     #   platform: state
+#     #   to_state: 'off'
+#     #   prob_given_true: 0.80
+#     #   prob_given_false: 0.10
+#     # Somebody at home -> 40% change we're asleep
+#     - entity_id: group.family
+#       platform: state
+#       to_state: home
+#       prob_given_true: 0.30
+#       prob_given_false: 0.01
+#     #
+#     - entity_id: sensor.motion_stairs
+#       platform: state
+#       to_state: 'off'
+#       prob_given_true: 0.90
+    # Somebody at home -> Very Likely motion will be detected
+
+      #################################################################
+      ##   Bayesian Sensor for Jack Home
+      #################################################################
 
 - platform: bayesian
   name: jack home
@@ -28,6 +95,10 @@
       prob_given_false: 0.25
     # Somebody at home -> Very Likely motion will be detected
 
+      #################################################################
+      ##   Bayesian Sensor for Lara Home
+      #################################################################
+
 - platform: bayesian
   name: lara home
   prior: 0.6  # 60% chance that somebody is at home at any given moment
@@ -46,6 +117,10 @@
       prob_given_true: 0.60
       prob_given_false: 0.40
     # Somebody at home -> Very Likely motion will be detected
+
+      #################################################################
+      ##   Bayesian Sensor someone watching TV in Bedroom
+      #################################################################
 
 - platform: bayesian
   name: someone watching tv bedroom
@@ -70,6 +145,10 @@
       to_state: 'off'
       prob_given_true: 0.30
       prob_given_false: 0.20
+
+      #################################################################
+      ##   Bayesian Sensor someone watching TV in Living Room
+      #################################################################
 
 - platform: bayesian
   name: someone watching tv livingroom

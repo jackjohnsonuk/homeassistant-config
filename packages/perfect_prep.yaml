@@ -1,0 +1,111 @@
+################################################################
+## Packages / Perfect Prep
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Perfect Prep'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Perfect Prep
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Perfect Prep - Automation's
+################################################
+
+automation:
+
+      #################################################################
+      ## Perfect Prep Lights Up
+      #################################################################
+
+- alias: Perfect Prep Lights Up
+  trigger:
+    platform: numeric_state
+    entity_id: 'sensor.perfect_prep_power'
+    above: '0.9'
+  condition:
+    condition: time
+    after: "22:45:00"
+    before: "06:00:00"
+  action:
+    - service: light.turn_on
+      entity_id: light.lara_bedside_light
+      data_template:
+        brightness: '{{states.light.lara_bedside_light.attributes.brightness|int + 30}}'
+
+        #################################################################
+        ## Perfect Prep Lights Down
+        #################################################################
+
+- alias: Perfect Prep Lights Down
+  trigger:
+    platform: numeric_state
+    entity_id: 'sensor.perfect_prep_power'
+    below: '1.0'
+    for:
+     minutes: 3
+  condition:
+    condition: time
+    after: "22:45:00"
+    before: "06:00:00"
+  action:
+    - service: light.turn_on
+      entity_id: light.lara_bedside_light
+      data_template:
+        brightness: '{{states.light.lara_bedside_light.attributes.brightness|int - 30}}'
+
+
+################################################
+## Perfect Prep - Sensor
+################################################
+
+sensor:
+
+      #################################################################
+      ## MQTT Monitor of power usage
+      #################################################################
+
+- platform: mqtt
+  name: "Perfect Prep Power"
+  state_topic: "smartthings/Perfect Prep/power/state"
+  unit_of_measurement: "kw"
+
+################################################
+## Perfect Prep - Switches
+################################################
+
+switch:
+
+      #################################################################
+      ## MQTT Power Control
+      #################################################################
+
+- platform: mqtt
+  name: "Perfect Prep"
+  state_topic: "smartthings/Perfect Prep/switch/state"
+  command_topic: "smartthings/Perfect Prep/switch/set"
+  payload_on: "on"
+  payload_off: "off"
+  qos: 0
+  optimistic: false
+  retain: false

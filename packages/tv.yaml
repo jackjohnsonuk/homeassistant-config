@@ -1,0 +1,161 @@
+################################################################
+## Packages / TV
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'TV'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## TV
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## TV - Media Player's
+################################################
+
+media_player:
+
+      #################################################################
+      ## TV - Living Room TV
+      #################################################################
+
+- platform: braviatv
+  host: 192.168.1.128
+  name: Living Room TV
+
+      #################################################################
+      ## TV - Living Room Fire TV
+      #################################################################
+
+- platform: firetv
+  device: Living_Room
+  name: Living Room Fire TV
+
+      #################################################################
+      ## TV - Front Room TV
+      #################################################################
+
+- platform: braviatv
+  host: 192.168.1.237
+  name: Front Room TV
+
+      #################################################################
+      ## TV - Front Room Fire TV
+      #################################################################
+
+- platform: firetv
+  device: Front_Room
+  name: Front Room Fire TV
+
+      #################################################################
+      ## TV - Bedroom Fire TV
+      #################################################################
+
+- platform: firetv
+  device: Bedroom
+  name: Bedroom Fire TV
+
+################################################
+## TV - switches
+################################################
+
+switch:
+
+      #################################################################
+      ## TV - Bedroom
+      #################################################################
+
+
+- platform: broadlink
+  host: 192.168.1.164
+  mac: 34:EA:34:8E:E9:59
+  friendly_name: Upstairs IR Sender
+  timeout: 15
+  switches:
+    upstairs_tv_power:
+      friendly_name: "Upstairs TV Power"
+      command_on: 'JgBQAAABKJIUEBQREzYVEBMSExETEhMSEzYUNRMSEzYUNRQ2FDUTNhUQExITEhI3ExISEhMSExISNhQ2FDUUERM2EzYUNhQ1FAAFHgABKEkTAA0FAAAAAAAAAAA='
+      command_off: 'JgBQAAABKJIUEBQREzYVEBMSExETEhMSEzYUNRMSEzYUNRQ2FDUTNhUQExITEhI3ExISEhMSExISNhQ2FDUUERM2EzYUNhQ1FAAFHgABKEkTAA0FAAAAAAAAAAA='
+    upstairs_tv_volume:
+      friendly_name: "Upstairs TV Volume"
+      command_on: 'JgBQAAABJZURFBETETgRFBMSEhMSEhITETgSNxEUEjcTNhM3ETgROBQREzYUEREUExEUERMSExERORMSEDkQORQ1FTQUNhE4FQAFHgABJkoRAA0FAAAAAAAAAAA='
+      command_off: 'JgBQAAABJZUUEBMSEjcVEBITEhIRFBMSETgUNRUQETgVNBQ2FDUVNBM3EzYSExETERQSExETExISEhURETcVNRM2FTQRORA5FQAFHQABJUwQAA0FAAAAAAAAAAA='
+    upstairs_tv_eco:
+      friendly_name: "Upstairs TV Eco Mode"
+      command_on: 'JgBYAAABJZUQFBUQETgVEBEUEBQRFBEUEDkROBEUETgROBE5FDUVNBE5FBATNhQSEDgVEBEUETgVEBE4FRAQORUQEDkROBUQEQAFIwABJ0kVAAxIAAElTBQADQU='
+      command_off: 'JgBYAAABJZUQFBUQETgVEBEUEBQRFBEUEDkROBEUETgROBE5FDUVNBE5FBATNhQSEDgVEBEUETgVEBE4FRAQORUQEDkROBUQEQAFIwABJ0kVAAxIAAElTBQADQU='
+    upstairs_tv_right:
+      friendly_name: "Upstairs TV Right-Left"
+      #Left#
+      command_on: 'JgBYAAABJZUTERQREjcRFBMSEBQRFBITEDkTNhEUEzYTNxA5EzYTNhE5EzYROBMSERQTERQQEhQQFBMSExITNhE4FDUUNhE4EQAFIwABJ0oTAAxJAAElTBEADQU='
+      #Right#
+      command_off: 'JgBYAAABJZURFBETFDYRExMSERQRExQRETgTNxETEzcTNhE4ETgTNxETETkROBEUEhITEhEUERMRORETERQROBE4ETkROBE4EwAFIgABJUsRAAxMAAElSxEADQU='
+    upstairs_tv_up:
+      friendly_name: "Upstairs TV Up-Down"
+      #Up#
+      command_on: 'JgBQAAABJZUSExISETgUEREUERMRFBMSETgTNhEUETgUNhE4ETgUNREUExIRExEUExIRExE5ERMRORE4ETgROBI4EjcRFBE4FAAFIAABKEkRAA0FAAAAAAAAAAA='
+      #Down#
+      command_off: 'JgBQAAABJZUUERAVEDgUERQRERQTEhAUETgUNRQRFDURORQ1ETgUNRQ2ExEUEhAUEhIRFBE4ERQRFBM2ETgVNRM2ETgVEBE4EQAFIwABJUwRAA0FAAAAAAAAAAA='
+
+################################################
+## TV - scripts
+################################################
+
+scripts:
+
+      #################################################################
+      ## Bedroom TV Scripts
+      #################################################################
+
+upstairs_tv_power:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.upstairs_tv_power
+
+upstairs_tv_up:
+  sequence:
+    - service: switch.turn_on
+      entity_id: switch.upstairs_tv_volume
+
+upstairs_tv_down:
+  sequence:
+    - service: switch.turn_off
+      entity_id: switch.upstairs_tv_volume
+
+      #################################################################
+      ## Livingroom TV Scripts
+      #################################################################
+
+living_room_tv_power:
+  sequence:
+    - service: media_player.toggle
+      entity_id: media_player.living_room_tv
+
+living_room_tv_up:
+  sequence:
+    - service: media_player.volume_up
+      entity_id: media_player.living_room_tv
+
+living_room_tv_down:
+  sequence:
+    - service: media_player.volume_down
+      entity_id: media_player.living_room_tv
