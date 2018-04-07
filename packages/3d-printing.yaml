@@ -29,6 +29,21 @@ homeassistant:
     #   friendly_name: "Bob"
 
 ################################################
+## 3D Printing - OctoPrint
+################################################
+
+octoprint:
+
+      #################################################################
+      ## Octoprint api
+      #################################################################
+
+  host: !secret octoprint_ip
+  api_key: !secret octoprint
+  bed: true
+  number_of_tools: 1
+
+################################################
 ## 3D Printing - Camera's
 ################################################
 
@@ -85,27 +100,16 @@ group:
       ## 3D Printing Card
       #################################################################
 
-3D_Printing:
-  name: 3D Printing
-  entities:
-    - camera.octoprint
-    - sensor.octoprint_actual_tool0_temp
-    - sensor.octoprint_actual_bed_temp
-    - sensor.octoprint_current_state
-    - sensor.octoprint_job_percentage
-    - binary_sensor.octoprint_printing
-    - binary_sensor.octoprint_printing_error
-
-      #################################################################
-      ## 3D Printer
-      #################################################################
-
-3D Printing:
-  name: 3D Printing
-  view: yes
-  icon: mdi:printer-3d
-  entities:
-    - group.3D_Printing
+  3d_printing_group:
+    name: 3D Printing
+    entities:
+      - camera.octoprint
+      - sensor.octoprint_actual_tool0_temp
+      - sensor.octoprint_actual_bed_temp
+      - sensor.octoprint_current_state
+      - sensor.octoprint_job_percentage
+      - binary_sensor.octoprint_printing
+      - binary_sensor.octoprint_printing_error
 
 ################################################
 ## 3D Printing - Automations

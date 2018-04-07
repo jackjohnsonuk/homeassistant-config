@@ -89,6 +89,16 @@ Bedroom:
     - group.group_bedside_lights
     - group.Bedroom_motion_sensor
 
+      #################################################################
+      ## 3D Printer
+      #################################################################
+
+  3D_Printing:
+    name: 3D Printing
+    view: yes
+    icon: mdi:printer-3d
+    entities:
+      - group.printing_group
 
 
       #################################################################

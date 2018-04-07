@@ -33,6 +33,20 @@ homeassistant:
     #   friendly_name: "Bob"
 
 ################################################
+## Lights - Hue Bridge
+################################################
+
+hue:
+
+      ################################################
+      ## Hue Bridge api
+      ################################################
+
+  bridges:
+    - host: !secret hue_ip
+      allow_hue_groups: false
+
+################################################
 ## Lights
 ################################################
 
@@ -118,62 +132,62 @@ group:
       ## Bedside Light Card
       #################################################################
 
-group_bedside_lights:
-  name: Bedside Lights
-  entities:
-    - light.jack_bedside_light
-    - light.lara_bedside_light
+  group_bedside_lights:
+    name: Bedside Lights
+    entities:
+      - light.jack_bedside_light
+      - light.lara_bedside_light
 
       #################################################################
       ## Bedroom Light Card
       #################################################################
 
-Bedroom_lights:
-  name: Bedroom Lights
-  entities:
-    - light.bedroom_main_light
-    - light.jack_bedside_light
-    - light.lara_bedside_light
+  Bedroom_lights:
+    name: Bedroom Lights
+    entities:
+      - light.bedroom_main_light
+      - light.jack_bedside_light
+      - light.lara_bedside_light
 
       #################################################################
       ## Circulation Light Card
       #################################################################
 
-circulation_light:
-  name: Circulation Lights
-  entities:
-    - light.hallway_light
-    - light.pantry_lights
-    - light.bathroom_lights
+  circulation_light:
+    name: Circulation Lights
+    entities:
+      - light.hallway_light
+      - light.pantry_lights
+      - light.bathroom_lights
 
       #################################################################
       ## Front Room Light Card
       #################################################################
 
-Front_room_lights:
-  name: Front Room Lights
-  entities:
-    - light.front_room_main_light
+  Front_room_lights:
+    name: Front Room Lights
+    entities:
+      - light.front_room_main_light
 
       #################################################################
       ## Living Room Light Card
       #################################################################
 
-Living_room_lights:
-  name: Living Room Lights
-  entities:
-    - light.living_room_lamp
-    - light.living_room_main_light
-    - light.living_room_side_lights
+  Living_room_lights:
+    name: Living Room Lights
+    entities:
+      - light.living_room_lamp
+      - light.living_room_main_light
+      - light.living_room_side_lights
 
       #################################################################
       ## Dressing Room Light Card
       #################################################################
 
-Dressing_Room:
-  name: Dressing Room Lights
-  entities:
-    - light.dressing_room
+  Dressing_Room:
+    name: Dressing Room Lights
+    entities:
+      - light.dressing_room
 
 
 ################################################
@@ -260,3 +274,355 @@ automation:
                 xy_color: [ 0.5926, 0.3814 ]
             light.bedroom_main_light:
                 state: off
+
+      ##############################################################################
+      ###  Maintain Brightness
+      ##############################################################################
+      ##############################################################################
+      #		As coded by @Skalavala and helped to completion by @Dale3h
+      #		Allows a room's brightness levels to be maintained,
+      #		regardless of number of lights turned on
+      ##############################################################################
+
+      ##############################################################################
+      ###  Maintain Brightness in the Bedroom
+      ##############################################################################
+
+
+- alias: Maintain Brightness Bedroom
+  trigger:
+
+    - platform: state
+      entity_id: light.bedroom_main_light
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.bedroom_main_light
+      from: 'off'
+      to: 'on'
+
+    - platform: state
+      entity_id: light.jack_bedside_light
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.jack_bedside_light
+      from: 'off'
+      to: 'on'
+
+    - platform: state
+      entity_id: light.lara_bedside_light
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.lara_bedside_light
+      from: 'off'
+      to: 'on'
+
+  action:
+    - service_template: >-
+        {% macro getlight_count() %}
+          {% set count = 0 %}
+          {% if is_state('light.bedroom_main_light', 'on') %}
+            {% set count = count + 2 %}
+          {% endif %}
+          {% if is_state('light.jack_bedside_light', 'on') %}
+            {% set count = count + 1 %}
+          {% endif %}
+          {% if is_state('light.lara_bedside_light', 'on') %}
+            {% set count = count + 1 %}
+          {% endif %}
+          {{ count }}
+        {% endmacro %}
+
+        {% set count = getlight_count() %}
+        {% if count == 0 %}
+          light.turn_off
+        {% else %}
+          light.turn_on
+        {% endif %}
+
+#      data_template:
+#        entity_id: >-
+#          {% set comma = joiner() %}
+#          {%- if is_state('light.bedroom_main_light', 'on') -%}
+#            {{- comma() -}}
+#            light.bedroom_main_light
+#          {%- endif -%}
+#          {%- if is_state('light.jack_bedside_light', 'on') -%}
+#            {{- comma() -}}
+#            light.jack_bedside_light
+#          {%- endif -%}
+#          {%- if is_state('light.lara_bedside_light', 'on') -%}
+#            {{- comma() -}}
+#            light.lara_bedside_light
+#          {%- endif -%}
+
+      data_template:
+        entity_id: >-
+          {% set lights = [
+          	'light.bedroom_main_light',
+            'light.jack_bedside_light',
+            'light.lara_bedside_light'
+          ] %}
+          {% set comma = joiner(',') %}
+          {%- for light in lights if is_state(light, 'on') -%}
+            {{ comma() }}{{ light }}
+          {%- endfor -%}
+
+        brightness: >-
+          {% macro getlight_count() %}
+            {% set count = 0 %}
+            {% if is_state('light.bedroom_main_light', 'on') %}
+              {% set count = count + 2 %}
+            {% endif %}
+            {% if is_state('light.jack_bedside_light', 'on') %}
+              {% set count = count + 1 %}
+            {% endif %}
+            {% if is_state('light.lara_bedside_light', 'on') %}
+              {% set count = count + 1 %}
+            {% endif %}
+            {{ count }}
+          {% endmacro %}
+
+          {% macro getlight_level() %}
+            {% set level = 0 %}
+            {% set hour=states("sensor.time").split(':')[0] | int %}
+            {%- if hour >= 5 and hour < 8  -%}
+              {% set level = 150 %}
+            {%- elif hour >= 8 and hour <20  -%}
+              {% set level = 350 %}
+            {%- elif hour >= 20 and hour <24  -%}
+              {% set level = 150 %}
+            {%- else -%}
+              {% set level = 15 %}
+            {%- endif %}
+            {{ level }}
+          {% endmacro %}
+
+          {% set count = getlight_count()|int %}
+          {% set level = getlight_level()|int %}
+          {% if count == 4 %}
+            {{ ( level // 4 |int ) }}
+          {% elif count == 3 %}
+            {{ ( level // 3 |int ) }}
+          {% elif count == 2 %}
+            {{ ( level // 2 |int ) }}
+          {% elif count == 1 %}
+            {{ ( level // 1 |int ) }}
+          {% else %}
+            0
+          {% endif %}
+
+      ##############################################################################
+      ###  Maintain Brightness in the Living Room
+      ##############################################################################
+
+- alias: Maintain Brightness Living Room
+  trigger:
+
+    - platform: state
+      entity_id: light.living_room_lamp
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.living_room_lamp
+      from: 'off'
+      to: 'on'
+
+    - platform: state
+      entity_id: light.living_room_main_light
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.living_room_main_light
+      from: 'off'
+      to: 'on'
+
+    - platform: state
+      entity_id: light.living_room_side_lights
+      from: 'on'
+      to: 'off'
+    - platform: state
+      entity_id: light.living_room_side_lights
+      from: 'off'
+      to: 'on'
+
+  action:
+    - service_template: >-
+        {% macro getlight_count() %}
+          {% set count = 0 %}
+          {% if is_state('light.living_room_lamp', 'on') %}
+            {% set count = count + 1 %}
+          {% endif %}
+          {% if is_state('light.living_room_main_light', 'on') %}
+            {% set count = count + 2 %}
+          {% endif %}
+          {% if is_state('light.living_room_side_lights', 'on') %}
+            {% set count = count + 2 %}
+          {% endif %}
+          {{ count }}
+        {% endmacro %}
+
+        {% set count = getlight_count() %}
+        {% if count == 0 %}
+          light.turn_off
+        {% else %}
+          light.turn_on
+        {% endif %}
+
+
+      data_template:
+        entity_id: >-
+          {% set lights = [
+          	'light.living_room_lamp',
+            'light.living_room_main_light',
+            'light.living_room_side_lights'
+          ] %}
+          {% set comma = joiner(',') %}
+          {%- for light in lights if is_state(light, 'on') -%}
+            {{ comma() }}{{ light }}
+          {%- endfor %}
+
+        brightness: >-
+          {% macro getlight_count() %}
+            {% set count = 0 %}
+            {% if is_state('light.living_room_lamp', 'on') %}
+              {% set count = count + 1 %}
+            {% endif %}
+            {% if is_state('light.living_room_main_light', 'on') %}
+              {% set count = count + 2 %}
+            {% endif %}
+            {% if is_state('light.living_room_side_lights', 'on') %}
+              {% set count = count + 2 %}
+            {% endif %}
+            {{ count }}
+          {% endmacro %}
+
+          {% macro getlight_level() %}
+            {% set level = 0 %}
+            {% set hour=states("sensor.time").split(':')[0] | int %}
+            {%- if hour >= 5 and hour < 8  -%}
+              {% set level = 150 %}
+            {%- elif hour >= 8 and hour <20  -%}
+              {% set level = 350 %}
+            {%- elif hour >= 20 and hour <24  -%}
+              {% set level = 150 %}
+            {%- else -%}
+              {% set level = 15 %}
+            {%- endif %}
+            {{ level }}
+          {% endmacro %}
+
+          {% set count = getlight_count()|int %}
+          {% set level = getlight_level()|int %}
+          {% if count == 5 %}
+            {{ ( level // 5 |int ) }}
+          {% elif count == 4 %}
+            {{ ( level // 4 |int ) }}
+          {% elif count == 3 %}
+            {{ ( level // 3 |int ) }}
+          {% elif count == 2 %}
+            {{ ( level // 2 |int ) }}
+          {% elif count == 1 %}
+            {{ ( level // 1 |int ) }}
+          {% else %}
+            0
+          {% endif %}
+
+    ##############################################################################
+    ###  Detect when lights are turned on and adjust them accordingly based on time.
+    ###  Code by @JesseWebDotCom
+    ##############################################################################
+
+- alias: auto adjust lights
+  trigger:
+    - platform: event
+      event_type: state_changed
+  condition:
+    condition: and
+    conditions:
+      - condition: template
+        value_template: "{{ trigger.event.data.new_state.state == 'on' }}"
+      - condition: template
+        value_template: "{{ trigger.event.data.old_state.state == 'off' }}"
+      - condition: or
+        conditions:
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.dressing_room' }}"
+          # - condition: template
+          #   value_template: "{{ trigger.event.data.entity_id == 'light.bathroom_lights' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.front_room_main_light' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.hallway_light' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.pantry_lights' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.under_stairs_light' }}"
+  action:
+    - service: light.turn_on
+      data_template:
+        entity_id: "{{ trigger.event.data.entity_id }}"
+        brightness: >
+          {% set hour=states("sensor.time").split(':')[0] | int %}
+          {%- if hour >= 5 and hour < 8  -%}
+            80
+          {%- elif hour >= 8 and hour <20  -%}
+            255
+          {%- elif hour >= 20 and hour <24  -%}
+            80
+          {%- else -%}
+            15
+          {%- endif %}
+
+################################################
+## Lights - Sensor
+################################################
+
+sensor:
+
+      #################################################################
+      ## Living Room Light Count
+      #################################################################
+
+# - platform: template
+#   sensors:
+#     count_living_room_lights:
+#       friendly_name: 'Count Living Room Lights On'
+#       entity_id:
+#         - light.living_room_lamp
+#         - light.living_room_main_light
+#         - light.living_room_side_lights
+#       value_template: >-
+#         {% if states('group.living_room_lights') == 'on' %}
+#         {% for e in states.group.living_room_lights.attributes.entity_id if states(e) == 'on'  %}
+#         {% if loop.last %}
+#         {{ loop.index }}
+#         {% endif %}
+#         {%- endfor -%}
+#         {% else %}
+#         0
+#         {% endif %}
+
+      #################################################################
+      ## Bedroom Light Count
+      #################################################################
+
+# - platform: template
+#   sensors:
+#     count_bedroom_lights:
+#       friendly_name: 'Count Bedroom Lights On'
+#       entity_id:
+#         - light.bedroom_main_light
+#         - group.group_bedside_lights
+#       value_template: >-
+#         {% if states('group.bedroom_lights') == 'on' %}
+#         {% for e in states.group.bedroom_lights.attributes.entity_id if states(e) == 'on'  %}
+#         {% if loop.last %}
+#         {{ loop.index }}
+#         {% endif %}
+#         {%- endfor -%}
+#         {% else %}
+#         0
+#         {% endif %}

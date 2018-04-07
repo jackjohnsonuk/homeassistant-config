@@ -38,9 +38,9 @@ homeassistant:
 
 automation:
 
-#################################################################
-## Day Time Google Home Volume
-#################################################################
+      #################################################################
+      ## Day Time Google Home Volume
+      #################################################################
 
 - alias: Day Time Google Home Volume
   trigger:
@@ -57,9 +57,9 @@ automation:
       data:
         volume_level: "0.45"
 
-#################################################################
-## Night Time Google Home Volume
-#################################################################
+      #################################################################
+      ## Night Time Google Home Volume
+      #################################################################
 
 - alias: Night Time Google Home Volume
   trigger:
@@ -75,3 +75,15 @@ automation:
         - media_player.shed_speaker
       data:
         volume_level: "0.09"
+
+      #################################################################
+      ## Stop bedroom white noise in the morning
+      #################################################################
+
+- alias: stop white noise
+  trigger:
+    platform: time
+    at: '06:45:00'
+  action:
+    - service: media_player.media_stop
+      entity_id: media_player.bedroom_speaker

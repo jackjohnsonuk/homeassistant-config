@@ -1,267 +1,46 @@
-#################################################################
-## Living Room Light Count
-#################################################################
+################################################################
+## Packages / Device Status
+################################################################
 
+################################################
+## Customize
+################################################
 
-- platform: template
-  sensors:
-    count_living_room_lights:
-      friendly_name: 'Count Living Room Lights On'
-      entity_id:
-        - light.living_room_lamp
-        - light.living_room_main_light
-        - light.living_room_side_lights
-      value_template: >-
-        {% if states('group.living_room_lights') == 'on' %}
-        {% for e in states.group.living_room_lights.attributes.entity_id if states(e) == 'on'  %}
-        {% if loop.last %}
-        {{ loop.index }}
-        {% endif %}
-        {%- endfor -%}
-        {% else %}
-        0
-        {% endif %}
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
 
-#################################################################
-## Bedroom Light Count
-#################################################################
+    package.node_anchors:
+      customize: &customize
+        package: 'Device Status'
 
+      expose: &expose
+        <<: *customize
+        expose: true
 
-- platform: template
-  sensors:
-    count_bedroom_lights:
-      friendly_name: 'Count Bedroom Lights On'
-      entity_id:
-        - light.bedroom_main_light
-        - group.group_bedside_lights
-      value_template: >-
-        {% if states('group.bedroom_lights') == 'on' %}
-        {% for e in states.group.bedroom_lights.attributes.entity_id if states(e) == 'on'  %}
-        {% if loop.last %}
-        {{ loop.index }}
-        {% endif %}
-        {%- endfor -%}
-        {% else %}
-        0
-        {% endif %}
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
 
+    ################################################
+    ## Device Status
+    ################################################
 
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
 
-#################################################################
-## Google Travel Time Sensor
-#################################################################
+################################################
+## Device Status - Sensor
+################################################
 
-# - platform: google_travel_time
-#   name: Jack Home To Work
-#   api_key: !secret google_travel_api
-#   origin: !secret origin
-#   destination: !secret destination
+sensor:
 
-
-#################################################################
-## Speedtest Sensor
-#################################################################
-
-# - platform: speedtest
-#   monitored_conditions:
-#     - ping
-#     - download
-#     - upload
-
-#################################################################
-## Motion Sensors - Turn Binary Sensors into Sensors
-#################################################################
-
-      #################################################################
-      ## Living Room Camera - Motion Sensor
-      #################################################################
-
-# - platform: template
-#   sensors:
-#     motion_living_room_camera:
-#       friendly_name: 'Motion - Living Room Camera'
-#       value_template: >-
-#         {% if states.binary_sensor.motion_indoor_camera_lounge.state %}
-#           {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.motion_indoor_camera_lounge', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.motion_indoor_camera_lounge') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-#
-# - platform: template
-#   sensors:
-#     motion_living_room:
-#       friendly_name: 'Living Room Sensor'
-#       value_template: >-
-#         {% if states.binary_sensor.living_room_motion.state %}
-#           {% if is_state('binary_sensor.living_room_motion', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.living_room_motion', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.living_room_motion') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-
-      #################################################################
-      ## Kitchen Camera - Motion Sensor
-      #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion_indoor_camera_kitchen:
-#       friendly_name: 'Kitchen'
-#       value_template: >-
-#         {% if states.binary_sensor.motion_indoor_camera_kitchen.state %}
-#           {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.motion_indoor_camera_kitchen', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.motion_indoor_camera_kitchen') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-
-      #################################################################
-      ## Kitchen 2 Camera - Motion Sensor
-      #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion_indoor_camera_kitchen2:
-#       friendly_name: 'Kitchen2'
-#       value_template: >-
-#         {% if states.binary_sensor.motion_indoor_camera_kitchen2.state %}
-#           {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.motion_indoor_camera_kitchen2', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.motion_indoor_camera_kitchen2') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-
-      #################################################################
-      ## Under Stairs - Motion Sensor
-      #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion_under_stairs:
-#       friendly_name: 'Under Stairs'
-#       value_template: >-
-#         {% if states.binary_sensor.hallway_motion.state %}
-#           {% if is_state('binary_sensor.hallway_motion', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.hallway_motion', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.hallway_motion') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-
-      #################################################################
-      ## Dressing Room - Motion Sensor
-#       #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion_dressing_room:
-#       friendly_name: 'Dressing Room'
-#       value_template: >-
-#         {% if states.binary_sensor.xiamoi_motion_sensor_2.state %}
-#           {% if is_state('binary_sensor.xiamoi_motion_sensor_2', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.xiamoi_motion_sensor_2', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.xiamoi_motion_sensor_2') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-#
-#       #################################################################
-#       ## Xiamoi Motion 1 - Motion Sensor
-#       #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion_bedroom:
-#       friendly_name: 'Bedroom'
-#       value_template: >-
-#         {% if states.binary_sensor.bedroom_motion_sensor.state %}
-#           {% if is_state('binary_sensor.bedroom_motion_sensor', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.bedroom_motion_sensor', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.bedroom_motion_sensor') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-#
-#       #################################################################
-#       ## Stairs - Motion Sensor
-#       #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion_stairs:
-#       friendly_name: 'Stairs'
-#       value_template: >-
-#         {% if states.binary_sensor.hallway_motion_jack.state %}
-#           {% if is_state('binary_sensor.hallway_motion_jack', 'on') %}
-#             On
-#           {% elif is_state('binary_sensor.hallway_motion_jack', 'off') %}
-#             Off
-#           {% else %}
-#             {{ states('binary_sensor.hallway_motion_jack') }}
-#           {% endif %}
-#         {% else %}
-#           Off
-#         {% endif %}
-#
-#       #################################################################
-#       ## Define Starting state of Camera Motion Sensors
-#       #################################################################
-#
-# - platform: template
-#   sensors:
-#     motion:
-#       friendly_name: Motion
-#       unit_of_measurement: 'On'
-#       value_template: >
-#         {% set total = 0 %}
-#         {% if is_state('binary_sensor.motion_indoor_camera_kitchen', 'on') %}
-#           {% set total = total + 1 %}
-#         {% endif %}
-#         {% if is_state('binary_sensor.motion_indoor_camera_lounge', 'on') %}
-#           {% set total = total + 1 %}
-#         {% endif %}
-#         {{total}}
-#         {% if is_state('binary_sensor.motion_indoor_camera_kitchen2', 'on') %}
-#           {% set total = total + 1 %}
-#         {% endif %}
-#         {{total}}
-
-      #################################################################
-      ## Templates for Online/Offline
-      #################################################################
+      ################################################
+      ## Device Status - Bedroom RF Transmitter
+      ################################################
 
 - platform: template
   sensors:
@@ -280,6 +59,10 @@
           mdi:television-classic-off
         {% endif %}
 
+      ################################################
+      ## Device Status - Fire TV 1
+      ################################################
+
 - platform: template
   sensors:
     status_fire_tv_1:
@@ -291,6 +74,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Fire TV 2
+      ################################################
 
 - platform: template
   sensors:
@@ -303,6 +89,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Fire TV 3
+      ################################################
 
 - platform: template
   sensors:
@@ -315,6 +104,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Google Home Bedroom
+      ################################################
 
 - platform: template
   sensors:
@@ -333,6 +125,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Google Home Front Room
+      ################################################
+
 - platform: template
   sensors:
     status_google_home_front_room:
@@ -349,6 +145,10 @@
         {% else %}
           mdi:cancel
         {% endif %}
+
+      ################################################
+      ## Device Status - Google Home Kitchen
+      ################################################
 
 - platform: template
   sensors:
@@ -367,6 +167,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Google Home Living Room
+      ################################################
+
 - platform: template
   sensors:
     status_google_home_living_room:
@@ -383,6 +187,10 @@
         {% else %}
           mdi:cancel
         {% endif %}
+
+      ################################################
+      ## Device Status - Hikvision 1
+      ################################################
 
 - platform: template
   sensors:
@@ -401,6 +209,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Hikvision 2
+      ################################################
+
 - platform: template
   sensors:
     status_hikvision_2:
@@ -417,6 +229,10 @@
         {% else %}
           mdi:cancel
         {% endif %}
+
+      ################################################
+      ## Device Status - Hikvision 3
+      ################################################
 
 - platform: template
   sensors:
@@ -435,6 +251,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Jacks Laptop
+      ################################################
+
 - platform: template
   sensors:
     status_jack_laptop:
@@ -446,6 +266,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Media Server
+      ################################################
 
 - platform: template
   sensors:
@@ -464,6 +287,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Nest Camera
+      ################################################
+
 - platform: template
   sensors:
     status_nest_camera:
@@ -475,6 +302,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Nest Thermostat
+      ################################################
 
 - platform: template
   sensors:
@@ -487,6 +317,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Network Extender
+      ################################################
 
 - platform: template
   sensors:
@@ -505,6 +338,10 @@
           mdi:wifi-off
         {% endif %}
 
+      ################################################
+      ## Device Status - Philips Hue Hub
+      ################################################
+
 - platform: template
   sensors:
     status_philips_hue_hub:
@@ -516,6 +353,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - PS4
+      ################################################
 
 - platform: template
   sensors:
@@ -528,6 +368,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Router - Kitchen
+      ################################################
 
 - platform: template
   sensors:
@@ -546,6 +389,10 @@
           mdi:wifi-off
         {% endif %}
 
+      ################################################
+      ## Device Status - Router - Master
+      ################################################
+
 - platform: template
   sensors:
     status_router_master:
@@ -562,6 +409,10 @@
         {% else %}
           mdi:wifi-off
         {% endif %}
+
+      ################################################
+      ## Device Status - Scentsy - Sonoff
+      ################################################
 
 - platform: template
   sensors:
@@ -580,6 +431,10 @@
           mdi:wifi-off
         {% endif %}
 
+      ################################################
+      ## Device Status - Smartthings Hub
+      ################################################
+
 - platform: template
   sensors:
     status_smart_thing_hub:
@@ -591,6 +446,9 @@
           Offline
         {% endif %}
 
+      ################################################
+      ## Device Status - Sonos Bedroom
+      ################################################
 
 - platform: template
   sensors:
@@ -609,6 +467,10 @@
           mdi:music-note-off
         {% endif %}
 
+      ################################################
+      ## Device Status - TV Living Room
+      ################################################
+
 - platform: template
   sensors:
     status_tv_living_room:
@@ -625,6 +487,10 @@
         {% else %}
           mdi:television-classic-off
         {% endif %}
+
+      ################################################
+      ## Device Status - Xiaomi Vacuum
+      ################################################
 
 - platform: template
   sensors:
@@ -643,6 +509,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Living Room Scentsy
+      ################################################
+
 - platform: template
   sensors:
     status_living_room_scentsy:
@@ -660,6 +530,10 @@
           mdi:cancel
         {% endif %}
 
+      ################################################
+      ## Device Status - Bedroom Scentsy
+      ################################################
+
 - platform: template
   sensors:
     status_bedroom_scentsy:
@@ -676,8 +550,3 @@
         {% else %}
           mdi:cancel
         {% endif %}
-
-
-- platform: time_date
-  display_options:
-    - 'time'

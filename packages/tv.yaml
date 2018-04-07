@@ -120,42 +120,42 @@ switch:
 ## TV - scripts
 ################################################
 
-scripts:
+script:
 
       #################################################################
       ## Bedroom TV Scripts
       #################################################################
 
-upstairs_tv_power:
-  sequence:
-    - service: switch.turn_on
-      entity_id: switch.upstairs_tv_power
+  upstairs_tv_power:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.upstairs_tv_power
 
-upstairs_tv_up:
-  sequence:
-    - service: switch.turn_on
-      entity_id: switch.upstairs_tv_volume
+  upstairs_tv_up:
+    sequence:
+      - service: switch.turn_on
+        entity_id: switch.upstairs_tv_volume
 
-upstairs_tv_down:
-  sequence:
-    - service: switch.turn_off
-      entity_id: switch.upstairs_tv_volume
+  upstairs_tv_down:
+    sequence:
+      - service: switch.turn_off
+        entity_id: switch.upstairs_tv_volume
 
       #################################################################
       ## Livingroom TV Scripts
       #################################################################
 
-living_room_tv_power:
-  sequence:
-    - service: media_player.toggle
-      entity_id: media_player.living_room_tv
+  living_room_tv_power:
+    sequence:
+      - service: media_player.toggle
+        entity_id: media_player.living_room_tv
 
-living_room_tv_up:
-  sequence:
-    - service: media_player.volume_up
-      entity_id: media_player.living_room_tv
+  living_room_tv_up:
+    sequence:
+      - service: media_player.volume_up
+        entity_id: media_player.living_room_tv
 
-living_room_tv_down:
-  sequence:
-    - service: media_player.volume_down
-      entity_id: media_player.living_room_tv
+  living_room_tv_down:
+    sequence:
+      - service: media_player.volume_down
+        entity_id: media_player.living_room_tv

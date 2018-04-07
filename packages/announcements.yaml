@@ -119,3 +119,51 @@ automation:
         volume: 0.4
         message: 'How about taking the Motobike in today?'
         delay: '00:00:10'
+
+
+      #################################################################
+      ## Welcoming Homes
+      #################################################################
+
+#- alias: Welcome Home Lara
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.lara_lara
+#      to: 'home'
+#  action:
+#    - service: script.sonos_say
+#      data_template:
+#        sonos_entity: media_player.kitchen
+#        volume: 0.5
+#        message: 'Welcome Home Lara'
+#        delay: '00:00:10'
+
+#- alias: Welcome Home Jack
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jack_jack
+#      to: 'home'
+#  action:
+#    - service: script.sonos_say
+#      data_template:
+#        sonos_entity: media_player.kitchen
+#        volume: 0.5
+#        message: 'Welcome Home Jack'
+#        delay: '00:00:10'
+
+
+#  action:
+#    - service: tts.google_say
+#      entity_id:
+#        - media_player.kitchen
+#      data_template:
+#        message: >
+#          {% if as_timestamp(now()) - as_timestamp(states.device_tracker.jack_jack.last_changed) < 300 and as_timestamp(now()) - as_timestamp(states.device_tracker.lara_lara.last_changed) < 300%}
+#          Welcome home Jack and Lara!
+#          {% elif as_timestamp(now()) - as_timestamp(states.device_tracker.jack_jack.last_changed) < 300%}
+#          Welcome home Jack!
+#          {% elif as_timestamp(now()) - as_timestamp(states.device_tracker.lara_lara.last_changed) < 300%}
+#          Welcome home Lara!
+#          {% else %}
+#          This automation is confused!
+#          {% endif %}

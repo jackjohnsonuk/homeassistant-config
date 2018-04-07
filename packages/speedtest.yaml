@@ -54,9 +54,9 @@ group:
       ## Weather Card
       #################################################################
 
-Internet:
-  name: Internet
-  entities:
-   - sensor.speedtest_download
-   - sensor.speedtest_upload
-   - sensor.speedtest_ping
+  Internet:
+    name: Internet
+    entities:
+     - sensor.speedtest_download
+     - sensor.speedtest_upload
+     - sensor.speedtest_ping

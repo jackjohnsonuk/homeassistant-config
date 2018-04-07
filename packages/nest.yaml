@@ -93,9 +93,9 @@ homeassistant:
 
 nest:
 
-##############################################################################
-###  Api Keys etc
-##############################################################################
+      ##############################################################################
+      ###  Api Keys etc
+      ##############################################################################
 
   client_id: !secret nest_client_id
   client_secret: !secret nest
@@ -106,9 +106,9 @@ nest:
 
 script:
 
-##############################################################################
-###  Set Nest Away
-##############################################################################
+      ##############################################################################
+      ###  Set Nest Away
+      ##############################################################################
 
   set_nest_away:
     sequence:
@@ -116,12 +116,55 @@ script:
         data:
           home_mode: away
 
-##############################################################################
-###  Set Nest Home
-##############################################################################
+      ##############################################################################
+      ###  Set Nest Home
+      ##############################################################################
 
   set_nest_home:
     sequence:
       - service: nest.set_mode
         data:
           home_mode: home
+
+##############################################################################
+###  Nest Thermostat - Automations
+##############################################################################
+
+automation:
+
+
+      #################################################################
+      ## Eco Mode Off
+      #################################################################
+
+#- alias: Heating Eco Mode On
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jack_jack
+#      to: 'home'
+#    - platform: state
+#      entity_id: device_tracker.lara_lara
+#      to: 'home'
+#  action:
+#    - service: climate.set_operation_mode
+#      data:
+#        entity_id: climate.kitchen
+#        operation_mode: heat
+
+      #################################################################
+      ## Eco Mode On
+      #################################################################
+
+#- alias: Heating Eco Mode Off
+#  trigger:
+#    - platform: state
+#      entity_id: device_tracker.jack_jack
+#      from: 'home'
+#    - platform: state
+#      entity_id: device_tracker.lara_lara
+#      from: 'home'
+#  action:
+#    - service: climate.set_operation_mode
+#      data:
+#        entity_id: climate.kitchen
+#        operation_mode: eco

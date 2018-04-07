@@ -83,8 +83,8 @@ group:
       ## Weather Card
       #################################################################
 
-weather_card:
-  name: Weather
-  entities:
-    - sensor.dark_sky_summary
-    - sensor.dark_sky_temperature
+  weather_card:
+    name: Weather
+    entities:
+      - sensor.dark_sky_summary
+      - sensor.dark_sky_temperature

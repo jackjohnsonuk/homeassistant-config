@@ -90,8 +90,8 @@ group:
       ##  Bin Card
       #################################################################
 
-bins:
-  name: Bins
-  entities:
-    - sensor.rubbish_pickup_day
-    - sensor.recycling_pickup_day
+  bins:
+    name: Bins
+    entities:
+      - sensor.rubbish_pickup_day
+      - sensor.recycling_pickup_day

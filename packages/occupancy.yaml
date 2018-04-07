@@ -1,0 +1,235 @@
+################################################################
+## Packages / Occupancy
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Occupancy'
+
+      expose: &expose
+        <<: *customize
+        expose: true
+
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Occupancy
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Occupancy - Automations
+################################################
+
+automation:
+
+      #################################################################
+      ## Living Room Occupancy
+      #################################################################
+
+# - alias: Occupancy - Living turn on if motion detected
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_living_room_camera
+#       from: 'off'
+#       to: 'on'
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.living_occupancy
+
+      #################################################################
+      ## Reset Living Room Occupancy
+      #################################################################
+
+# - alias: Occupancy - Living turn off after 30min of no motion
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_living_room_camera
+#       to: 'off'
+#       for:
+#         minutes: 30
+#   action:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.living_occupancy
+
+      #################################################################
+      ## Kitchen Occupancy
+      #################################################################
+
+# - alias: Occupancy - Kitchen turn on if motion detected
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_kitchen_camera
+#       from: 'off'
+#       to: 'no'
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_boolean.kitchen_occupancy
+
+      #################################################################
+      ## Reset Kitchen Occupancy
+      #################################################################
+#
+# - alias: Occupancy - Kitchen turn off after 30min of no motion
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_kitchen_camera
+#       to: 'off'
+#       for:
+#         minutes: 30
+#   action:
+#     - service: input_boolean.turn_off
+#       entity_id: input_boolean.kitchen_occupancy
+
+# - alias: Bedroom Idle
+#   trigger:
+#   - entity_id: binary_sensor.motion_bedroom
+#     for:
+#       minutes: 30
+#     from: 'On'
+#     platform: state
+#     to: 'Off'
+#   action:
+#   - data:
+#       entity_id: input_boolean.bedroom_idle
+#     service: input_boolean.turn_on
+#
+# - alias: Living Room Idle
+#   trigger:
+#   - entity_id: binary_sensor.motion_living_room
+#     for:
+#       minutes: 30
+#     from: 'On'
+#     platform: state
+#     to: 'Off'
+#   action:
+#   - data:
+#       entity_id: input_boolean.living_room_idle
+#     service: input_boolean.turn_on
+
+      #################################################################
+      ## Reset input_boolean bedroom
+      #################################################################
+#
+# - alias: bedroom motion
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_bedroom
+#       from: 'Off'
+#       to: 'On'
+#   action:
+#   - data:
+#       entity_id: input_boolean.bedroom_idle
+#     service: input_boolean.turn_off
+#
+# - alias: living room motion
+#   trigger:
+#     - platform: state
+#       entity_id: binary_sensor.motion_living_room_camera
+#       from: 'Off'
+#       to: 'On'
+#   action:
+#   - data:
+#       entity_id: input_boolean.living_room_idle
+#     service: input_boolean.turn_off
+
+      #################################################################
+      ## set input_boolean bathroom
+      #################################################################
+#
+# - alias: 'Bathroom Occupancy'
+#   initial_state: 'off'
+# #Trigger
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.door
+#     from: 'off'
+#     to: 'on'
+#   condition:
+#     condition: and
+#     conditions:
+# #motion ?
+#       - condition: numeric_state
+#         entity_id: sun.sun
+#         value_template: '{{ state.attributes.elevation }}'
+#         below: 10
+#       - condition: time
+#         after: '16:00:00'
+#         before: '23:00:00'
+#       - condition: state
+#         entity_id: binary_sensor.motion_sensor_outside
+#         state: 'on'
+#   action:
+#       - service: light.turn_off
+#         entity_id: light.outside
+#       - service: light.turn_on
+#         entity_id: light.inside
+#       - delay: 00:03:00
+#       - service: light.turn_off
+#         entity_id: light.inside
+
+################################################
+## Occupancy - Input Boolean
+################################################
+
+input_boolean:
+
+      #################################################################
+      ## Living Room Occupancy
+      #################################################################
+
+  living_occupancy:
+    name: Living Occupancy
+    initial: off
+    icon: mdi:account
+
+      #################################################################
+      ## Kitchen Occupancy
+      #################################################################
+
+  kitchen_occupancy:
+    name: Kitchen Occupancy
+    initial: off
+    icon: mdi:account
+
+      #################################################################
+      ## Bathroom Occupancy
+      #################################################################
+
+  bathroom_occupancy:
+    name: Bathroom Occupancy
+    initial: off
+    icon: mdi:account
+
+      #################################################################
+      ## Bedroom Idle
+      #################################################################
+
+  bedroom_idle:
+    name: Bedroom Idle
+    initial: off
+    icon: mdi:account
+
+      #################################################################
+      ## Living Room Idle
+      #################################################################
+
+  living_room_idle:
+    name: Living Room Idle
+    initial: off
+    icon: mdi:account
