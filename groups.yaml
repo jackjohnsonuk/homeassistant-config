@@ -93,12 +93,12 @@ Bedroom:
       ## 3D Printer
       #################################################################
 
-  3D_Printing:
-    name: 3D Printing
-    view: yes
-    icon: mdi:printer-3d
-    entities:
-      - group.printing_group
+  # 3D_Printing:
+  #   name: 3D Printing
+  #   view: yes
+  #   icon: mdi:printer-3d
+  #   entities:
+  #     - group.printing_group
 
 
       #################################################################
