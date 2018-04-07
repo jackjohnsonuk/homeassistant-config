@@ -35,11 +35,11 @@
         brightness: >
           {% set hour=states("sensor.time").split(':')[0] | int %}
           {%- if hour >= 5 and hour < 8  -%}
-            150
+            80
           {%- elif hour >= 8 and hour <20  -%}
             255
           {%- elif hour >= 20 and hour <24  -%}
-            150
+            80
           {%- else -%}
             15
           {%- endif %}

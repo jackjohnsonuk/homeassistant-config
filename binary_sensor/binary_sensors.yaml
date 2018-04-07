@@ -1,48 +1,5 @@
 #Binary Sensors
 
-- platform: mqtt
-  name: "Door Sensor Bathroom"
-  state_topic: "smartthings/Door Sensor - Bathroom/contact/state"
-  command_topic: "smartthings/Door Sensor - Bathroom/contact/state"
-  device_class: door
-  payload_on: "open"
-  payload_off: "closed"
-  retain: true
-
-
-- platform: mqtt
-  name: "Front Door"
-  state_topic: "smartthings/Front Door/contact/state"
-  command_topic: "ssmartthings/Front Door/contact/state"
-  device_class: door
-  payload_on: "open"
-  payload_off: "closed"
-  retain: true
-
-
-
-
-
-#  binary_sensor:
-#      platform: mqtt
-#      name: Motion Detector
-#      state_topic: "smartthings/Hall Motion Sensor/motion"
-#      command_topic: "smartthings/Hall Motion Sensor/motion"
-#      device_class: motion
-#      payload_on: "active"
-#      payload_off: "inactive"
-#      retain: true
-
-# - platform: template
-#   sensors:
-#     camera_recording:
-#       device_class: presence
-#       value_template: "{{ is_state('switch.camera_record', 'on') }}"
-#       friendly_name: 'Camera Recording'
-
-
-
-
 
 
 

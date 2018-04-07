@@ -59,11 +59,11 @@
 ## Google Travel Time Sensor
 #################################################################
 
-- platform: google_travel_time
-  name: Jack Home To Work
-  api_key: !secret google_travel_api
-  origin: !secret origin
-  destination: !secret destination
+# - platform: google_travel_time
+#   name: Jack Home To Work
+#   api_key: !secret google_travel_api
+#   origin: !secret origin
+#   destination: !secret destination
 
 
 #################################################################

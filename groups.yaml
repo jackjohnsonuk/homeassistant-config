@@ -205,11 +205,11 @@ Bedroom_motion_sensor:
       #################################################################
       ## Travel Time Card
       #################################################################
-
-time_travel_card:
-  name: Time To Destination
-  entities:
-    - sensor.jack_home_to_work
+#
+# time_travel_card:
+#   name: Time To Destination
+#   entities:
+#     - sensor.jack_home_to_work
 
 
       #################################################################

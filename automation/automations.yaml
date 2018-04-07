@@ -82,107 +82,13 @@
 #          {% endif %}
 
 
-      #################################################################
-      ## Goodmorning Greetings
-      #################################################################
 
-
-
-
-#################################################################
-## Camera Automations
-#################################################################
-
-      #################################################################
-      ## Camera recording
-      #################################################################
-
-- alias: Start Camera Recording
-  trigger:
-    - platform: state
-      entity_id: device_tracker.jack_jack
-      from: 'home'
-    - platform: state
-      entity_id: device_tracker.lara_lara
-      from: 'home'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.camera_record
-
-- alias: Stop Camera Recording
-  trigger:
-    - platform: state
-      entity_id: device_tracker.jack_jack
-      to: 'home'
-    - platform: state
-      entity_id: device_tracker.lara_lara
-      to: 'home'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.camera_record
-
-- alias: Night Camera Recording
-  trigger:
-    - platform: time
-      at: '23:30:00'
-  action:
-    - service: switch.turn_on
-      entity_id: switch.camera_record
-
-- alias: Morning Camera Recording
-  trigger:
-    - platform: time
-      at: '06:30:00'
-  action:
-    - service: switch.turn_off
-      entity_id: switch.camera_record
-
-
-
-#################################################################
-## Feed the kittens notification's
-#################################################################
-
-
-- alias: Feed the Lara lunch
-  trigger:
-    - platform: time
-      at: '12:30:00'
-  action:
-    - delay: '00:10:00'
-    - service: tts.google_say
-      entity_id:
-        - media_player.bedroom_speaker
-        - media_player.front_room_speaker
-        - media_player.kitchen_speaker
-        - media_player.living_room_speaker
-      data:
-        message: 'Feed the Laara!'
 
 #################################################################
 ## Misc
 #################################################################
 
-- alias: 3D Printer Notification
-  trigger:
-    - platform: numeric_state
-      entity_id: sensor.octoprint_job_percentage
-      above: 99
-  condition:
-    condition: time
-    after: '09:00:00'
-    before: '23:00:00'
-  action:
-    - delay: '00:05:00'
-    - service: tts.google_say
-      entity_id:
-        - media_player.bedroom_speaker
-        - media_player.front_room_speaker
-        - media_player.kitchen_speaker
-        - media_player.living_room_speaker
-        - media_player.shed_speaker
-      data:
-        message: '3D Print Complete!'
+
 
 #################################################################
 ## Stop bedroom white noise in the morning
