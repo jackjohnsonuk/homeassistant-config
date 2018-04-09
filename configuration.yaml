@@ -27,21 +27,6 @@ http:
   login_attempts_threshold: 3
 
 
-input_number:
-  slider1:
-    name: Slider
-    initial: 33
-    min: -20
-    max: 35
-    step: 1
-  box1:
-    name: Numeric Input Box
-    initial: 3
-    min: -20
-    max: 35
-    step: 1
-    mode: box
-
 # Discover some devices automatically
 # discovery:
 #  ignore:
