@@ -155,78 +155,78 @@ automation:
 #         - media_player.living_room_speaker
 #       data_template:
 #       message: !include ../templates/birthday_wishes.yaml
-#
-# - alias: Update Birthdays
-#   initial_state: true
-#   hide_entity: true
-#   trigger:
-#     - platform: time
-#       minutes: '/5'
-#       seconds: 00
-#     - platform: homeassistant
-#       event: start
-#   condition:
-#     - condition: template
-#       value_template: "{{ states.input_label.lara_birthday.state.split('-') | length  > 0 }}"
-#     - condition: template
-#       value_template: "{{ states.input_label.jack_birthday.state.split('-') | length  > 0 }}"
-#     - condition: template
-#       value_template: "{{ states.input_label.mollie_birthday.state.split('-') | length  > 0 }}"
-#   action:
-#     - service: input_label.set_value
-#       data_template:
-#         entity_id: input_label.lara_birthday_days2go
-#         value: >
-#           {% set year = states.sensor.date.state.split('-')[0] %}
-#           {% set month = states.sensor.date.state.split('-')[1] %}
-#           {% set date = states.sensor.date.state.split('-')[2] %}
-#           {% if states('input_label.lara_birthday') != "unknown" %}
-#             {%- set bDayMonth = states.input_label.lara_birthday.state.split('-')[0] -%}
-#             {%- set bDayDate = states.input_label.lara_birthday.state.split('-')[1] -%}
-#             {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
-#             {%- if numOfDays < 0 -%}
-#               {{ numOfDays + 365 }}
-#             {%- else -%}
-#               {{ numOfDays }}
-#             {%- endif -%}
-#           {% else %}
-#             -
-#           {% endif %}
-#     - service: input_label.set_value
-#       data_template:
-#         entity_id: input_label.jack_birthday_days2go
-#         value: >
-#           {% set year = states.sensor.date.state.split('-')[0] %}
-#           {% set month = states.sensor.date.state.split('-')[1] %}
-#           {% set date = states.sensor.date.state.split('-')[2] %}
-#           {% if states('input_label.jack_birthday') != "unknown" %}
-#             {%- set bDayMonth = states.input_label.jack_birthday.state.split('-')[0] -%}
-#             {%- set bDayDate = states.input_label.jack_birthday.state.split('-')[1] -%}
-#             {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
-#             {%- if numOfDays < 0 -%}
-#               {{ numOfDays + 365 }}
-#             {%- else -%}
-#               {{ numOfDays }}
-#             {%- endif -%}
-#           {% else %}
-#             -
-#           {% endif %}
-#     - service: input_label.set_value
-#       data_template:
-#         entity_id: input_label.mollie_birthday_days2go
-#         value: >
-#           {% set year = states.sensor.date.state.split('-')[0] %}
-#           {% set month = states.sensor.date.state.split('-')[1] %}
-#           {% set date = states.sensor.date.state.split('-')[2] %}
-#           {% if states('input_label.mollie_birthday') != "unknown" %}
-#             {%- set bDayMonth = states.input_label.mollie_birthday.state.split('-')[0] -%}
-#             {%- set bDayDate = states.input_label.mollie_birthday.state.split('-')[1] -%}
-#             {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
-#             {%- if numOfDays < 0 -%}
-#               {{ numOfDays + 365 }}
-#             {%- else -%}
-#               {{ numOfDays }}
-#             {%- endif -%}
-#           {% else %}
-#             -
-#           {% endif %}
+
+- alias: Update Birthdays
+  initial_state: true
+  hide_entity: true
+  trigger:
+    - platform: time
+      minutes: '/5'
+      seconds: 00
+    - platform: homeassistant
+      event: start
+  condition:
+    - condition: template
+      value_template: "{{ states.input_label.lara_birthday.state.split('-') | length  > 0 }}"
+    - condition: template
+      value_template: "{{ states.input_label.jack_birthday.state.split('-') | length  > 0 }}"
+    - condition: template
+      value_template: "{{ states.input_label.mollie_birthday.state.split('-') | length  > 0 }}"
+  action:
+    - service: input_label.set_value
+      data_template:
+        entity_id: input_label.lara_birthday_days2go
+        value: >
+          {% set year = states.sensor.date.state.split('-')[0] %}
+          {% set month = states.sensor.date.state.split('-')[1] %}
+          {% set date = states.sensor.date.state.split('-')[2] %}
+          {% if states('input_label.lara_birthday') != "unknown" %}
+            {%- set bDayMonth = states.input_label.lara_birthday.state.split('-')[0] -%}
+            {%- set bDayDate = states.input_label.lara_birthday.state.split('-')[1] -%}
+            {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
+            {%- if numOfDays < 0 -%}
+              {{ numOfDays + 365 }}
+            {%- else -%}
+              {{ numOfDays }}
+            {%- endif -%}
+          {% else %}
+            -
+          {% endif %}
+    - service: input_label.set_value
+      data_template:
+        entity_id: input_label.jack_birthday_days2go
+        value: >
+          {% set year = states.sensor.date.state.split('-')[0] %}
+          {% set month = states.sensor.date.state.split('-')[1] %}
+          {% set date = states.sensor.date.state.split('-')[2] %}
+          {% if states('input_label.jack_birthday') != "unknown" %}
+            {%- set bDayMonth = states.input_label.jack_birthday.state.split('-')[0] -%}
+            {%- set bDayDate = states.input_label.jack_birthday.state.split('-')[1] -%}
+            {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
+            {%- if numOfDays < 0 -%}
+              {{ numOfDays + 365 }}
+            {%- else -%}
+              {{ numOfDays }}
+            {%- endif -%}
+          {% else %}
+            -
+          {% endif %}
+    - service: input_label.set_value
+      data_template:
+        entity_id: input_label.mollie_birthday_days2go
+        value: >
+          {% set year = states.sensor.date.state.split('-')[0] %}
+          {% set month = states.sensor.date.state.split('-')[1] %}
+          {% set date = states.sensor.date.state.split('-')[2] %}
+          {% if states('input_label.mollie_birthday') != "unknown" %}
+            {%- set bDayMonth = states.input_label.mollie_birthday.state.split('-')[0] -%}
+            {%- set bDayDate = states.input_label.mollie_birthday.state.split('-')[1] -%}
+            {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
+            {%- if numOfDays < 0 -%}
+              {{ numOfDays + 365 }}
+            {%- else -%}
+              {{ numOfDays }}
+            {%- endif -%}
+          {% else %}
+            -
+          {% endif %}
