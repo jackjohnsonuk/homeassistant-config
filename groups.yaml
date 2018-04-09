@@ -23,6 +23,7 @@ default_view:
     - vacuum.xiaomi_vacuum_cleaner
     - group.bins
     - sensor.stats_mean
+    - group.birthday_countdown
 
       #################################################################
       ## Kitchen
