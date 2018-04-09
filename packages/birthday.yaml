@@ -42,7 +42,7 @@ input_label:
   mollie_birthday:
     value: !secret mollie_birthday
   kitten_birthday:
-    value: !secret mollie_birthday
+    value: !secret kitten_birthday
 
   lara_birthday_days2go:
     icon: mdi:cake-variant
