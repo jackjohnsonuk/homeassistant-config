@@ -31,6 +31,8 @@ homeassistant:
       <<: *not-expose
     input_label.mollie_birthday:
       <<: *not-expose
+    input_label.kitten_birthday:
+      <<: *not-expose
 
 input_label:
   lara_birthday:
@@ -38,6 +40,8 @@ input_label:
   jack_birthday:
     value: !secret jack_birthday
   mollie_birthday:
+    value: !secret mollie_birthday
+  kitten_birthday:
     value: !secret mollie_birthday
 
   lara_birthday_days2go:
@@ -49,6 +53,9 @@ input_label:
   mollie_birthday_days2go:
     icon: mdi:cake-variant
     name: Mollie's Birthday
+  kitten_birthday_days2go:
+    icon: mdi:cake-variant
+    name: Kitten's Birthday
 
 group:
   Birthday Countdown:
@@ -56,6 +63,7 @@ group:
       - input_label.jack_birthday_days2go
       - input_label.lara_birthday_days2go
       - input_label.mollie_birthday_days2go
+      - input_label.kitten_birthday_days2go
 
 automation:
 
@@ -72,6 +80,7 @@ automation:
 #       - input_label.lara_birthday_days2go
 #       - input_label.jack_birthday_days2go
 #       - input_label.mollie_birthday_days2go
+#       - input_label.kitten_birthday_days2go
 #   condition:
 #     - condition: state
 #       entity_id: group.all_devices
@@ -101,6 +110,7 @@ automation:
 #       - input_label.lara_birthday_days2go
 #       - input_label.jack_birthday_days2go
 #       - input_label.mollie_birthday_days2go
+#       - input_label.kitten_birthday_days2go
 #   condition:
 #     - condition: state
 #       entity_id: group.all_devices
@@ -146,6 +156,8 @@ automation:
 #             value_template: "{{ states.input_label.jack_birthday_days2go.state | int == 0 }}"
 #           - condition: template
 #             value_template: "{{ states.input_label.mollie_birthday_days2go.state | int == 0 }}"
+#           - condition: template
+#             value_template: "{{ states.input_label.kitten_birthday_days2go.state | int == 0 }}"
 #   action:
 #     - service: tts.google_say
 #       entity_id:
@@ -172,6 +184,8 @@ automation:
       value_template: "{{ states.input_label.jack_birthday.state.split('-') | length  > 0 }}"
     - condition: template
       value_template: "{{ states.input_label.mollie_birthday.state.split('-') | length  > 0 }}"
+    - condition: template
+      value_template: "{{ states.input_label.kitten_birthday.state.split('-') | length  > 0 }}"
   action:
     - service: input_label.set_value
       data_template:
@@ -221,6 +235,25 @@ automation:
           {% if states('input_label.mollie_birthday') != "unknown" %}
             {%- set bDayMonth = states.input_label.mollie_birthday.state.split('-')[0] -%}
             {%- set bDayDate = states.input_label.mollie_birthday.state.split('-')[1] -%}
+            {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
+            {%- if numOfDays < 0 -%}
+              {{ numOfDays + 365 }}
+            {%- else -%}
+              {{ numOfDays }}
+            {%- endif -%}
+          {% else %}
+            -
+          {% endif %}
+    - service: input_label.set_value
+      data_template:
+        entity_id: input_label.kitten_birthday_days2go
+        value: >
+          {% set year = states.sensor.date.state.split('-')[0] %}
+          {% set month = states.sensor.date.state.split('-')[1] %}
+          {% set date = states.sensor.date.state.split('-')[2] %}
+          {% if states('input_label.kitten_birthday') != "unknown" %}
+            {%- set bDayMonth = states.input_label.kitten_birthday.state.split('-')[0] -%}
+            {%- set bDayDate = states.input_label.kitten_birthday.state.split('-')[1] -%}
             {%- set numOfDays = ((as_timestamp(strptime(year ~ '-' ~ bDayMonth ~ '-' ~ bDayDate , '%Y-%m-%d')) | timestamp_custom('%j', true) | int ) - (as_timestamp(strptime(year ~ '-' ~ month~ '-' ~ date , '%Y-%m-%d')) | timestamp_custom('%j', true) | int)) -%}
             {%- if numOfDays < 0 -%}
               {{ numOfDays + 365 }}

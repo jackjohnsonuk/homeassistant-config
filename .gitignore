@@ -10,3 +10,4 @@ known_devices.yaml
 home-assistant_v2.db
 google_calendars.yaml
 !Readme.md
+!input_label.py
