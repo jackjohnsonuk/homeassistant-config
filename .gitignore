@@ -9,7 +9,9 @@
 !script
 !sensor
 !switches
+!custom_components
 !customize
+!templates
 !*.yaml
 !scenes
 !.gitignore
