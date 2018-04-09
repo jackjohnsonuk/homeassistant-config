@@ -18,15 +18,19 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
     ## TV
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    media_player.sony_bravia_tv:
+      friendly_name: Living Room TV
+      <<: *expose
 
 ################################################
 ## TV - Media Player's
@@ -159,3 +163,33 @@ script:
     sequence:
       - service: media_player.volume_down
         entity_id: media_player.living_room_tv
+
+################################################
+## TV - group
+################################################
+
+group:
+
+      #################################################################
+      ## Bedroom TV Group
+      #################################################################
+
+  bedroom_tv:
+    name: Bedroom TV
+    control: hidden
+    entities:
+      - script.upstairs_tv_power
+      - script.upstairs_tv_up
+      - script.upstairs_tv_down
+
+      #################################################################
+      ## Living Room TV Group
+      #################################################################
+
+  living_room_tv:
+    name: Living Room TV
+    control: hidden
+    entities:
+      - script.living_room_tv_power
+      - script.living_room_tv_up
+      - script.living_room_tv_down

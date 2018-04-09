@@ -18,15 +18,25 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
     ## Scentsy
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    switch.scentsy_bedroom:
+      <<: *expose
+      friendly_name: Bedroom Scentsy
+      entity_picture: /local/scentsy-logo.png
+
+    switch.scentsy_living_room:
+      <<: *expose
+      friendly_name: Living Room Scentsy
+      entity_picture: /local/scentsy-logo.png
 
 ################################################
 ## Scentsy - Switches
@@ -39,7 +49,7 @@ switch:
       #################################################################
 
 - platform: mqtt
-  name: "Living Room Scentsy"
+  name: "Scentsy Living Room"
   state_topic: "stat/livingroom_scentsy/POWER"
   command_topic: "cmnd/livingroom_scentsy/power"
   payload_on: "ON"
@@ -53,7 +63,7 @@ switch:
       #################################################################
 
 - platform: mqtt
-  name: "Bedroom Scentsy"
+  name: "Scentsy Bedroom"
   state_topic: "stat/bedroom_scentsy/POWER"
   command_topic: "cmnd/bedroom_scentsy/power"
   payload_on: "ON"
@@ -78,7 +88,7 @@ automation:
     at: '22:00:00'
   action:
     - service: homeassistant.turn_on
-      entity_id: switch.bedroom_scentsy
+      entity_id: switch.scentsy_bedroom
 
       #################################################################
       ## Scentsy - Bedroom Automation Off
@@ -90,4 +100,4 @@ automation:
     at: '03:00:00'
   action:
     - service: homeassistant.turn_off
-      entity_id: switch.bedroom_scentsy
+      entity_id: switch.scentsy_bedroom

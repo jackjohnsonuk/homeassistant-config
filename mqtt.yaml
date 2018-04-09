@@ -1,6 +1,6 @@
-broker: localhost
-port: 1883
-discovery: true
-discovery_prefix: mqtt
-username: !secret mqtt_user
-password: !secret mqtt_pass
+# broker: localhost
+# port: 1883
+# discovery: true
+# discovery_prefix: mqtt
+# username: !secret mqtt_user
+# password: !secret mqtt_pass

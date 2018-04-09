@@ -18,19 +18,119 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: true
+        hidden: false
 
       not-expose: &not-expose
         <<: *customize
-        expose: false
+        hidden: true
 
     ################################################
-    ## Lights
+    ## Bathroom Lights
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    light.bathroom_light_1:
+      <<: *not-expose
+      friendly_name: "Bathroom Light 1"
+
+    light.bathroom_light_2:
+      <<: *not-expose
+      friendly_name: "Bathroom Light 2"
+
+    light.bathroom_light_4:
+      <<: *not-expose
+      friendly_name: "Bathroom Light 2"
+
+    light.bathroom_lights:
+      <<: *expose
+      friendly_name: "Bathroom Lights"
+
+    ################################################
+    ## Bedroom Lights
+    ################################################
+
+    light.bedroom_main_light:
+      <<: *expose
+      friendly_name: "Bedroom Main Lights"
+
+    light.dressing_room:
+      <<: *expose
+      friendly_name: "Dressing Room Light"
+
+    light.lara_bedside_light:
+      <<: *expose
+      friendly_name: "Lara Bedside Light"
+      icon: mdi:lamp
+
+    light.jack_bedside_light:
+      <<: *expose
+      friendly_name: "Jack Bedside Light"
+      icon: mdi:lamp
+
+    ################################################
+    ## Front Room Lights
+    ################################################
+
+    light.front_room_main_light:
+      <<: *expose
+      friendly_name: "Front Room Main Light"
+
+    ################################################
+    ## Circulation Lights
+    ################################################
+
+    light.hallway_light:
+      <<: *expose
+      friendly_name: "Hallway Lights"
+
+    light.pantry_light_1:
+      <<: *not-expose
+      friendly_name: "Pantry Light 1"
+
+    light.pantry_light_2:
+      <<: *not-expose
+      friendly_name: "Pantry Light 2"
+
+    light.pantry_light_3:
+      <<: *not-expose
+      friendly_name: "Pantry Light 3"
+
+    light.pantry_light_4:
+      <<: *not-expose
+      friendly_name: "Pantry Light 4"
+
+    light.pantry_lights:
+      <<: *expose
+      friendly_name: "Pantry Lights"
+
+    light.under_stairs_light:
+      <<: *expose
+      friendly_name: "Under Stairs Lights"
+
+    ################################################
+    ## Living Room Lights
+    ################################################
+
+    light.living_room_lamp:
+      <<: *expose
+      friendly_name: "Living Room Lamp"
+      icon: mdi:lamp
+
+    light.living_room_main_light:
+      <<: *expose
+      friendly_name: "Living Room Main Light"
+
+    light.living_room_side_light_1:
+      <<: *not-expose
+      friendly_name: "Living Room Side Light 1"
+
+    light.living_room_side_light_2:
+      <<: *not-expose
+      friendly_name: "Living Room Side Light 2"
+
+    light.living_room_side_lights:
+      <<: *expose
+      friendly_name: "Living Room Side Lights"
+
 
 ################################################
 ## Lights - Hue Bridge

@@ -18,19 +18,51 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: true
+        hidden: false
 
       not-expose: &not-expose
         <<: *customize
-        expose: false
+        hidden: true
 
     ################################################
     ## Device Status
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.status_philips_hue_hub:
+      <<: *expose
+      friendly_name: Philips Hue Bridge
+      entity_picture: /local/hue.png
+
+    sensor.status_jack_laptop:
+      <<: *expose
+      friendly_name: Jacks Laptop
+      entity_picture: /local/apple.png
+
+    sensor.status_smart_thing_hub:
+      <<: *expose
+      friendly_name: Smart Things Hub
+      entity_picture: /local/smartthings.png
+
+    sensor.status_ps4:
+      <<: *expose
+      friendly_name: PS4
+      entity_picture: /local/playstation.png
+
+    sensor.status_fire_tv_1:
+      <<: *expose
+      friendly_name: Fire TV 1
+      entity_picture: /local/firetv.png
+
+    sensor.status_fire_tv_2:
+      <<: *expose
+      friendly_name: Fire TV 2
+      entity_picture: /local/firetv.png
+
+    sensor.status_fire_tv_3:
+      <<: *expose
+      friendly_name: Fire TV 3
+      entity_picture: /local/firetv.png
+
 
 ################################################
 ## Device Status - Sensor
@@ -550,3 +582,79 @@ sensor:
         {% else %}
           mdi:cancel
         {% endif %}
+
+################################################
+## Device Status - Group
+################################################
+
+group:
+
+      ################################################
+      ## Device Status -  Group - TV
+      ################################################
+
+  tv_status:
+    name: TV Status
+    control: hidden
+    entities:
+      - sensor.status_bedroom_rf
+      - sensor.status_fire_tv_1
+      - sensor.status_fire_tv_2
+      - sensor.status_fire_tv_3
+      - sensor.status_tv_living_room
+
+      ################################################
+      ## Device Status -  Group - CCTV
+      ################################################
+
+  cctv_status:
+    name: TV Status
+    control: hidden
+    entities:
+      - sensor.status_hikvision_1
+      - sensor.status_hikvision_2
+      - sensor.status_hikvision_3
+      - sensor.status_nest_camera
+
+      ################################################
+      ## Device Status -  Group - Server
+      ################################################
+
+  server_status:
+    name: Server Status
+    control: hidden
+    entities:
+      - sensor.status_router_master
+      - sensor.status_router_kitchen
+      - sensor.status_network_extender
+      - sensor.status_media_server
+      - sensor.status_philips_hue_hub
+      - sensor.status_smart_thing_hub
+
+      ################################################
+      ## Device Status -  Group - Google Home
+      ################################################
+
+  google_status:
+    name: Google Home Status
+    control: hidden
+    entities:
+      - sensor.status_google_home_bedroom
+      - sensor.status_google_home_front_room
+      - sensor.status_google_home_kitchen
+      - sensor.status_google_home_living_room
+
+      ################################################
+      ## Device Status -  Group - Misc
+      ################################################
+
+  misc_status:
+    name: Misc Status
+    control: hidden
+    entities:
+      - sensor.status_jack_laptop
+      - sensor.status_nest_thermostat
+      - sensor.status_ps4
+      - sensor.status_scentsy_sonoff
+      - sensor.status_sonos_bedroom
+      - sensor.status_xiaomi_vacuum

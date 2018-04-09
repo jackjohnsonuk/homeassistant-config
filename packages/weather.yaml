@@ -18,15 +18,53 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
     ## Weather
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.dark_sky_summary:
+      friendly_name: Current Weather
+      <<: *expose
+
+    sensor.dark_sky_temperature:
+      friendly_name: Current Temperature
+      <<: *expose
+
+    script.upstairs_tv_power:
+      friendly_name: TV Power
+      icon: mdi:power
+      <<: *expose
+
+    script.upstairs_tv_up:
+      friendly_name: Volume Up
+      icon: mdi:volume-high
+      <<: *expose
+
+    script.upstairs_tv_down:
+      friendly_name: Volume Down
+      icon: mdi:volume-medium
+      <<: *expose
+
+    script.living_room_tv_power:
+      friendly_name: TV Power
+      icon: mdi:power
+      <<: *expose
+
+    script.living_room_tv_up:
+      friendly_name: Volume Up
+      icon: mdi:volume-high
+      <<: *expose
+
+    script.living_room_tv_down:
+      friendly_name: Volume Down
+      icon: mdi:volume-medium
+      <<: *expose
 
 ################################################
 ## Weather - Sensor's

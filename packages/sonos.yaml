@@ -18,15 +18,20 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
     ## Sonos
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
+    # media_player.kitchen:
     #   <<: *customize
-    #   friendly_name: "Bob"
+    #   friendly_name: Kitchen Sonos
+    #   entity_picture: ''
 
 ################################################
 ## Sonos - Media Player's

@@ -54,7 +54,7 @@ Living_Room:
     - group.living_room_tv
     - camera.lounge
     - group.living_room_motion
-    - switch.living_room_scentsy
+    - switch.scentsy_living_room
 
       #################################################################
       ## Front Room
@@ -83,7 +83,7 @@ Bedroom:
     - media_player.bedroom_fire_tv
     - media_player.master_bedroom
     - media_player.bedroom_speaker
-    - switch.bedroom_scentsy
+    - switch.scentsy_bedroom
     - group.Dressing_Room
     - group.bedroom_tv
     - group.group_bedside_lights
@@ -168,8 +168,6 @@ living_room_motion:
    - binary_sensor.motion_living_room_camera
    - binary_sensor.motion_living_room
 
-
-
       #################################################################
       ## Family
       #################################################################
@@ -179,8 +177,6 @@ family:
   entities:
    - device_tracker.jack_jack
    - device_tracker.lara_lara
-
-
 
       #################################################################
       ## Living Room Motion Sensor Card
@@ -209,94 +205,3 @@ Bedroom_motion_sensor:
   entities:
    - binary_sensor.motion_bedroom
    - binary_sensor.motion_dressing_room
-
-
-
-      #################################################################
-      ## Travel Time Card
-      #################################################################
-#
-# time_travel_card:
-#   name: Time To Destination
-#   entities:
-#     - sensor.jack_home_to_work
-
-
-      #################################################################
-      ## Bedroom TV
-      #################################################################
-
-bedroom_tv:
-  name: Bedroom TV
-  control: hidden
-  entities:
-    - script.upstairs_tv_power
-    - script.upstairs_tv_up
-    - script.upstairs_tv_down
-
-      #################################################################
-      ## Living Room TV
-      #################################################################
-
-living_room_tv:
-  name: Living Room TV
-  control: hidden
-  entities:
-    - script.living_room_tv_power
-    - script.living_room_tv_up
-    - script.living_room_tv_down
-
-      #################################################################
-      ## Status
-      #################################################################
-
-tv_status:
-  name: TV Status
-  control: hidden
-  entities:
-    - sensor.status_bedroom_rf
-    - sensor.status_fire_tv_1
-    - sensor.status_fire_tv_2
-    - sensor.status_fire_tv_3
-    - sensor.status_tv_living_room
-
-cctv_status:
-  name: TV Status
-  control: hidden
-  entities:
-    - sensor.status_hikvision_1
-    - sensor.status_hikvision_2
-    - sensor.status_hikvision_3
-    - sensor.status_nest_camera
-
-server_status:
-  name: Server Status
-  control: hidden
-  entities:
-    - sensor.status_router_master
-    - sensor.status_router_kitchen
-    - sensor.status_network_extender
-    - sensor.status_media_server
-    - sensor.status_philips_hue_hub
-    - sensor.status_smart_thing_hub
-
-
-google_status:
-  name: Google Home Status
-  control: hidden
-  entities:
-    - sensor.status_google_home_bedroom
-    - sensor.status_google_home_front_room
-    - sensor.status_google_home_kitchen
-    - sensor.status_google_home_living_room
-
-misc_status:
-  name: Misc Status
-  control: hidden
-  entities:
-    - sensor.status_jack_laptop
-    - sensor.status_nest_thermostat
-    - sensor.status_ps4
-    - sensor.status_scentsy_sonoff
-    - sensor.status_sonos_bedroom
-    - sensor.status_xiaomi_vacuum

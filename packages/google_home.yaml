@@ -18,15 +18,31 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
     ## Google Home
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    media_player.bedroom_speaker:
+      <<: *expose
+      friendly_name: Bedroom Google Assistant
+      
+    media_player.front_room_speaker:
+      <<: *expose
+      friendly_name: Front Room Google Assistant
+
+    media_player.kitchen_speaker:
+      <<: *expose
+      friendly_name: Kitchen Google Assistant
+
+    media_player.living_room_speaker:
+      <<: *expose
+      friendly_name: Living Room Google Assistant
 
 ################################################
 ## Google Home - Media Players's
@@ -89,8 +105,110 @@ google_assistant:
   access_token: !secret google_assistant_access_token
   agent_user_id: !secret google_assistant_agent_user_id
   api_key: !secret google_assistant_api_key
-  expose_by_default: true
-  exposed_domains:
-     - switch
-     - light
-  #   - group
+  expose_by_default: false
+  # exposed_domains:
+    # - switch
+    # - light
+    # - group
+
+  entity_config:
+
+    ################################################
+    ## Google Assistant - entity configs
+    ################################################
+
+      ################################################
+      ## Google Assistant - bathroom
+      ################################################
+
+    light.bathroom_lights:
+      name: "Bathroom Lights"
+      expose: true
+      room: Bathroom
+
+      ################################################
+      ## Google Assistant - bedroom
+      ################################################
+
+    light.bedroom_main_light:
+      name: "Bedroom Main Lights"
+      expose: true
+      aliases:
+        - Bedroom Main light
+        - Main Bedroom light
+      room: Bedroom
+
+    light.dressing_room:
+      expose: true
+      name: "Dressing Room Light"
+      room: Bedroom
+
+    light.lara_bedside_light:
+      expose: true
+      name: "Lara Bedside Light"
+      aliases:
+        - Lara Bedside Light
+        - Laras Bedside Light
+        - Lara's Bedside Light
+        - Lara is Bedside Light
+      room: Bedroom
+
+    light.jack_bedside_light:
+      expose: true
+      name: "Jack Bedside Light"
+      aliases:
+        - Jack Bedside Light
+        - Jacks Bedside Light
+        - Jack's Bedside Light
+        - Jack is Bedside Light
+      room: Bedroom
+
+      ################################################
+      ## Google Assistant - front room
+      ################################################
+
+    light.front_room_main_light:
+      expose: true
+      name: "Front Room Main Light"
+      room: Front Room
+
+      ################################################
+      ## Google Assistant - circulation light
+      ################################################
+
+    light.hallway_light:
+      expose: true
+      name: "Hallway Lights"
+      room: Hallway
+
+    light.pantry_lights:
+      expose: true
+      name: "Pantry Lights"
+      room: Pantry
+
+    light.under_stairs_light:
+      expose: true
+      name: "Under Stairs Lights"
+      room: Under Stairs
+
+      ################################################
+      ## Google Assistant - living room light
+      ################################################
+
+    light.living_room_lamp:
+      expose: true
+      name: "Living Room Lamp"
+      room: Living Room
+
+    light.living_room_main_light:
+      expose: true
+      name: "Living Room Main Light"
+      room: Living Room
+      aliases:
+        - Livingroom Light
+        - Living Room Light
+
+    light.living_room_side_lights:
+      expose: true
+      name: "Living Room Side Lights"
+      room: Living Room

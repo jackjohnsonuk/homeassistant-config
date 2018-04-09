@@ -1,0 +1,50 @@
+################################################################
+## Packages / MQTT
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'MQTT'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## MQTT
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## MQTT - api setup
+################################################
+
+mqtt:
+
+      #################################################################
+      ## MQTT - api pass
+      #################################################################
+
+  broker: localhost
+  port: 1883
+  discovery: true
+  discovery_prefix: mqtt
+  username: !secret mqtt_user
+  password: !secret mqtt_pass

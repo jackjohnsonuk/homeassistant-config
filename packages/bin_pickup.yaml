@@ -18,19 +18,25 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: true
+        hidden: false
 
       not-expose: &not-expose
         <<: *customize
-        expose: false
+        hidden: true
+
 
     ################################################
     ## Bin Pickup
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.rubbish_pickup_day:
+      <<: *customize
+      entity_picture: /local/Green_Bin.png
+
+    sensor.recycling_pickup_day:
+      <<: *customize
+      entity_picture: /local/Blue_Bin.png
+
 
 ################################################
 ## Bin Pickup - Sensor's

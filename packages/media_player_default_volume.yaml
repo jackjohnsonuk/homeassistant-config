@@ -18,11 +18,11 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: true
+        hidden: false
 
       not-expose: &not-expose
         <<: *customize
-        expose: false
+        hidden: true
 
     ################################################
     ## Media Player Default Volume
