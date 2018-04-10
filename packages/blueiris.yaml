@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Camera's
+## Packages / Blue Iris's
 ################################################################
 
 ################################################
@@ -14,19 +14,98 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Camera'
+        package: 'blueiris'
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
-    ## Camera
+    ## Blue Iris - Cameras
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    camera.driveway:
+      <<: *customize
+      friendly_name: "Driveway Camera"
+
+    camera.kitchen:
+      <<: *customize
+      friendly_name: "Kitchen Camera"
+
+    camera.lounge:
+      <<: *customize
+      friendly_name: "Lounge Camera"
+
+    ################################################
+    ## Blue Iris - Groups
+    ################################################
+
+    group.indoor:
+      <<: *customize
+      friendly_name: "Indoor Cameras"
+
+    group.outdoor:
+      <<: *customize
+      friendly_name: "Outdoor Cameras"
+
+    ################################################
+    ## Blue Iris - Switch
+    ################################################
+
+    switch.camera_record:
+      <<: *customize
+      friendly_name: Camera's Recording
+
+    ################################################
+    ## Blue Iris - Automations
+    ################################################
+
+    automation.vacant_house_recording:
+      <<: *customize
+      friendly_name: Record when the house is empty
+
+
+    automation.occupied_house_stop_recording:
+      <<: *customize
+      friendly_name: Stop recording when the house is occupied
+
+
+    automation.overnight_camera_recording:
+      <<: *customize
+      friendly_name: Start recording over night
+
+    automation.morning_camera_stop_recording:
+      <<: *customize
+      friendly_name: Stop recording in the morning
+
+#################################################################
+## Blue Iris - Automations
+#################################################################
+
+group:
+
+      #################################################################
+      ## Camera Indoors
+      #################################################################
+
+  cameras_indoor:
+    control: hidden
+    entities:
+      - camera.kitchen
+      - camera.lounge
+
+      #################################################################
+      ## Camera Outdoors
+      #################################################################
+
+  cameras_outdoor:
+    control: hidden
+    entities:
+      - camera.driveway
 
 ################################################
 ## Camera - Camera's
@@ -39,47 +118,39 @@ camera:
       #################################################################
 
 - platform: mjpeg
-  mjpeg_url: http://192.168.1.239:81/mjpg/kitchen2
-  name: Kitchen2
-  username: !secret camera_user
-  password: !secret camera_pass
-  authentication: basic
-
-- platform: mjpeg
-  mjpeg_url: http://192.168.1.239:81/mjpg/lounge
+  mjpeg_url: !secret blueiris_lounge_url
   name: Lounge
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
 
 - platform: mjpeg
-  mjpeg_url: http://192.168.1.239:81/mjpg/kitchen
+  mjpeg_url: !secret blueiris_kitchen_url
   name: Kitchen
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
 
-
 ################################################
-## Camera - Binary Sensor
+## Blue Iris - Binary Sensor
 ################################################
 
-binary_sensor:
+# binary_sensor:
 
       #################################################################
-      ## Recording
+      ## Recording binary_sensor
       #################################################################
 
 
-- platform: template
-  sensors:
-    camera_recording:
-      device_class: presence
-      value_template: "{{ is_state('switch.camera_record', 'on') }}"
-      friendly_name: 'Camera Recording'
+# - platform: template
+#   sensors:
+#     camera_recording:
+#       device_class: presence
+#       value_template: "{{ is_state('switch.camera_record', 'on') }}"
+#       friendly_name: 'Camera Recording'
 
 ################################################
-## Camera - Switches
+## Blue Iris - Switches
 ################################################
 
 switch:
@@ -93,7 +164,6 @@ switch:
     camera_record:
       command_on: !secret camera_record
       command_off: !secret camera_stop
-      friendly_name: Camera's Recording
 
 #################################################################
 ## Camera - Automations
@@ -105,7 +175,7 @@ automation:
       ## Camera recording
       #################################################################
 
-- alias: Start Camera Recording
+- alias: vacant house recording
   trigger:
     - platform: state
       entity_id: device_tracker.jack_jack
@@ -117,7 +187,7 @@ automation:
     - service: switch.turn_on
       entity_id: switch.camera_record
 
-- alias: Stop Camera Recording
+- alias: occupied house stop recording
   trigger:
     - platform: state
       entity_id: device_tracker.jack_jack
@@ -129,7 +199,7 @@ automation:
     - service: switch.turn_off
       entity_id: switch.camera_record
 
-- alias: Night Camera Recording
+- alias: overnight camera recording
   trigger:
     - platform: time
       at: '23:30:00'
@@ -137,7 +207,7 @@ automation:
     - service: switch.turn_on
       entity_id: switch.camera_record
 
-- alias: Morning Camera Recording
+- alias: morning camera stop recording
   trigger:
     - platform: time
       at: '06:30:00'
