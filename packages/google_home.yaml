@@ -111,12 +111,13 @@ google_assistant:
     # - light
     # - group
 
-  entity_config:
 
     ################################################
     ## Google Assistant - entity configs
     ################################################
 
+  entity_config:
+    
       ################################################
       ## Google Assistant - bathroom
       ################################################
