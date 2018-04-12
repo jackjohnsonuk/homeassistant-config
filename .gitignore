@@ -12,3 +12,4 @@ google_calendars.yaml
 !Readme.md
 !*.py
 !*.ini
+!media_player
