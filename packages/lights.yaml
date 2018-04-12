@@ -314,7 +314,7 @@ automation:
       - fri
   action:
     - service: automation.turn_off
-      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+      entity_id: automation.maintain_brightness_bedroom
     - service: light.turn_on
       data:
         entity_id:
@@ -322,8 +322,9 @@ automation:
           - light.lara_bedside_light
         transition: 900
         color_name: sandybrown
+    - delay: '00:00:30'
     - service: automation.turn_on
-      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+      entity_id: automation.maintain_brightness_bedroom
 
 
       #################################################################
@@ -341,7 +342,7 @@ automation:
       - sat
   action:
     - service: automation.turn_off
-      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+      entity_id: automation.maintain_brightness_bedroom
     - service: light.turn_on
       data:
         entity_id:
@@ -349,8 +350,9 @@ automation:
           - light.lara_bedside_light
         transition: 900
         color_name: sandybrown
+    - delay: '00:00:30'
     - service: automation.turn_on
-      entity_id: automation.detect_lights_and_adjust_the_brightness_when_turned_on_based_on_time
+      entity_id: automation.maintain_brightness_bedroom
 
       #################################################################
       ## Sleep time lighting
@@ -361,19 +363,29 @@ automation:
     platform: time
     at: '22:45:00'
   action:
+    - service: automation.turn_off
+      entity_id: automation.maintain_brightness_bedroom
+    - delay: '00:00:01'
+      
+    - service: light.turn_off
+      data:
+        entity_id: light.jack_bedside_light
+        # transition: 900
+    - service: light.turn_off
+      data:
+        entity_id: light.bedroom_main_light
+        # transition: 90
     - service: light.turn_on
       data:
-        entity_id:
-            light.jack_bedside_light:
-                state: off
-                transition: 900
-            light.lara_bedside_light:
-                state: on
-                transition: 2
-                brightness: 10
-                xy_color: [ 0.5926, 0.3814 ]
-            light.bedroom_main_light:
-                state: off
+        entity_id: light.lara_bedside_light
+        transition: 20
+        brightness: 10
+        xy_color: [ 0.5926, 0.3814 ]
+    # - wait_template: "{{ states.light.lara_bedside_light.attributes.brightness == 10 }}"
+    - delay: '00:00:30'
+
+    - service: automation.turn_on
+      entity_id: automation.maintain_brightness_bedroom
 
       ##############################################################################
       ###  Maintain Brightness

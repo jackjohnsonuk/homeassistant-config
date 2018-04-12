@@ -82,7 +82,7 @@ Bedroom:
   entities:
     - group.bedroom_lights
     - media_player.bedroom_fire_tv
-    - media_player.master_bedroom
+    - media_player.bedroom_tv
     - media_player.bedroom_speaker
     - switch.scentsy_bedroom
     - group.Dressing_Room
