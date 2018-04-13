@@ -406,16 +406,37 @@ sensor:
 
 - platform: template
   sensors:
-    status_router_kitchen:
-      friendly_name: 'Router - Kitchen'
+    status_unifi_kitchen_ap:
+      friendly_name: 'Unifi - Kitchen AP'
       value_template: >-
-        {% if is_state("device_tracker.router_kitchen", "home") %}
+        {% if is_state("device_tracker.unifi_kitchen_ap", "home") %}
           Online
         {% else %}
           Offline
         {% endif %}
       icon_template: >-
-        {% if is_state("device_tracker.router_kitchen", "home") %}
+        {% if is_state("device_tracker.unifi_kitchen_ap", "home") %}
+          mdi:wifi
+        {% else %}
+          mdi:wifi-off
+        {% endif %}
+
+      ################################################
+      ## Device Status - Router - Kitchen
+      ################################################
+
+- platform: template
+  sensors:
+    status_unifi_controller:
+      friendly_name: 'Unifi - Controller'
+      value_template: >-
+        {% if is_state("device_tracker.unifi_controller", "home") %}
+          Online
+        {% else %}
+          Offline
+        {% endif %}
+      icon_template: >-
+        {% if is_state("device_tracker.unifi_controller", "home") %}
           mdi:wifi
         {% else %}
           mdi:wifi-off
@@ -625,7 +646,8 @@ group:
     control: hidden
     entities:
       - sensor.status_router_master
-      - sensor.status_router_kitchen
+      - sensor.status_unifi_controller
+      - sensor.status_unifi_kitchen_ap
       - sensor.status_network_extender
       - sensor.status_media_server
       - sensor.status_philips_hue_hub
