@@ -42,7 +42,7 @@ automation:
 ###  Audio notification to ramind us of kitten's food time
 ##############################################################################
 
-- alias: Feed the kittens AM
+- alias: Feed the kittens
   trigger:
     - platform: time
       at: '07:30:00'
@@ -51,11 +51,6 @@ automation:
     - platform: time
       at: '21:00:00'
   action:
-    - service: tts.google_say
-      entity_id:
-        - media_player.bedroom_speaker
-        - media_player.front_room_speaker
-        - media_player.kitchen_speaker
-        - media_player.living_room_speaker
-      data:
+    - service: script.google_notify
+      data_template:
         message: 'Feed the Kittens!'

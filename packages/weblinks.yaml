@@ -93,3 +93,11 @@ weblink:
   - name: Router
     url: !secret router_url
     icon: mdi:router-wireless
+
+      #################################################################
+      ## Unifi
+      #################################################################
+
+  - name: Unifi
+    url: !secret unifi_url
+    icon: mdi:router-wireless
