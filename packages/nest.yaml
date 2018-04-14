@@ -137,34 +137,37 @@ automation:
       ## Eco Mode Off
       #################################################################
 
-#- alias: Heating Eco Mode On
-#  trigger:
-#    - platform: state
-#      entity_id: device_tracker.jack_jack
-#      to: 'home'
-#    - platform: state
-#      entity_id: device_tracker.lara_lara
-#      to: 'home'
-#  action:
-#    - service: climate.set_operation_mode
-#      data:
-#        entity_id: climate.kitchen
-#        operation_mode: heat
+- alias: Heating Eco Mode On
+  trigger:
+   - platform: state
+     entity_id: group.family
+     to: 'home'
+  action:
+   - service: climate.set_away_mode
+     data:
+       entity_id: climate.kitchen
+       operation_mode: 'false'
+   - service: climate.set_operation_mode
+     data:
+       entity_id: climate.kitchen
+       operation_mode: 'heat'
+
 
       #################################################################
       ## Eco Mode On
       #################################################################
 
-#- alias: Heating Eco Mode Off
-#  trigger:
-#    - platform: state
-#      entity_id: device_tracker.jack_jack
-#      from: 'home'
-#    - platform: state
-#      entity_id: device_tracker.lara_lara
-#      from: 'home'
-#  action:
-#    - service: climate.set_operation_mode
-#      data:
-#        entity_id: climate.kitchen
-#        operation_mode: eco
+- alias: Heating Eco Mode On
+  trigger:
+   - platform: state
+     entity_id: group.family
+     to: 'home'
+  action:
+   - service: climate.set_away_mode
+     data:
+       entity_id: climate.kitchen
+       operation_mode: 'true'
+   - service: climate.set_operation_mode
+     data:
+       entity_id: climate.kitchen
+       operation_mode: 'eco'
