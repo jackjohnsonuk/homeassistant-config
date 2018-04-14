@@ -1,0 +1,66 @@
+################################################################
+## Packages / System
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'System'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## System
+    ################################################
+
+    sensor.disk_free_:
+      <<: *not-expose
+
+    sensor.memory_use_percent:
+      <<: *not-expose
+
+    sensor.memory_use:
+      <<: *not-expose
+
+    sensor.memory_free:
+      <<: *not-expose
+
+    sensor.processor_use:
+      <<: *not-expose
+
+    sensor.last_boot:
+      <<: *not-expose
+            
+################################################
+## System - sensor
+################################################
+
+sensor:
+      #################################################################
+      ## System Monito
+      #################################################################
+
+  - platform: systemmonitor
+    resources:
+      - type: disk_free
+        arg: /
+      - type: memory_use_percent
+      - type: memory_use
+      - type: memory_free
+      - type: processor_use
+      - type: last_boot
