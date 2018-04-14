@@ -111,6 +111,14 @@ sensor:
     - wind_speed
     - temperature_min
 
+      #################################################################
+      ## History Sensor
+      #################################################################
+
+- platform: statistics
+  entity_id: sensor.weather_precipitation
+  sampling_size: 2000
+
 ################################################
 ## Weather - Group
 ################################################
