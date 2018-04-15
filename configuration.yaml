@@ -57,6 +57,8 @@ device_tracker:
 ifttt:
   key: !secret ifttt
 
+influxdb:
+
 
 #sonos
 #media_player:
