@@ -117,6 +117,7 @@ sensor:
 
 - platform: statistics
   entity_id: sensor.weather_precipitation
+  name: Rain Average
   sampling_size: 2000
 
 ################################################
