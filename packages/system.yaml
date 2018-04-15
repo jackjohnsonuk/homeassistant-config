@@ -29,30 +29,30 @@ homeassistant:
     ################################################
 
     sensor.disk_free_:
-      <<: *not-expose
+      <<: *expose
 
     sensor.memory_use_percent:
-      <<: *not-expose
+      <<: *expose
 
     sensor.memory_use:
-      <<: *not-expose
+      <<: *expose
 
     sensor.memory_free:
-      <<: *not-expose
+      <<: *expose
 
     sensor.processor_use:
-      <<: *not-expose
+      <<: *expose
 
     sensor.last_boot:
-      <<: *not-expose
-            
+      <<: *expose
+
 ################################################
 ## System - sensor
 ################################################
 
 sensor:
       #################################################################
-      ## System Monito
+      ## System Monitor
       #################################################################
 
   - platform: systemmonitor
@@ -64,3 +64,21 @@ sensor:
       - type: memory_free
       - type: processor_use
       - type: last_boot
+
+################################################
+## System - group
+################################################
+
+group:
+      #################################################################
+      ## System Group
+      #################################################################
+
+  system_monitor:
+    entities:
+      - sensor.disk_free_
+      - sensor.memory_use_percent
+      - sensor.memory_use
+      - sensor.memory_free
+      - sensor.processor_use
+      - sensor.last_boot
