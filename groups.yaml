@@ -13,6 +13,7 @@ default_view:
   entities:
     - group.circulation_light
     - climate.kitchen
+    - sensor.rain_average_mean
 #    - script.owntracks_update
     - group.time_travel_card
     - group.weather_card
@@ -136,6 +137,7 @@ Settings:
     - group.google_status
     - group.tv_status
     - group.misc_status
+    - group.system_monitor
 
 
 #################################################################

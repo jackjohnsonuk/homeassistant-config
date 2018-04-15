@@ -18,15 +18,19 @@ homeassistant:
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
 
     ################################################
     ## Google Travel Time
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    # sensor.waze_travel_time	:
+    #   <<: *expose
 
 ################################################
 ## Google Travel Time - Sensor's
@@ -38,12 +42,17 @@ sensor:
       ## Google Travel Time api
       #################################################################
 
-- platform: google_travel_time
+# - platform: google_travel_time
+#   name: Jack Home To Work
+#   api_key: !secret google_travel_api
+#   origin: !secret origin
+#   destination: !secret destination
+
+- platform: waze_travel_time
   name: Jack Home To Work
-  api_key: !secret google_travel_api
   origin: !secret origin
   destination: !secret destination
-
+  region: 'EU'
 
 ################################################
 ## Google Travel Time - Group
@@ -58,4 +67,4 @@ group:
   time_travel_card:
     name: Time To Destination
     entities:
-      - sensor.jack_home_to_work
+      - sensor.waze_travel_time
