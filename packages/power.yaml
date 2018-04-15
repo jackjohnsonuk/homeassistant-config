@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Perfect Prep
+## Packages / Power Monitor
 ################################################################
 
 ################################################
@@ -14,22 +14,28 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Perfect Prep'
+        package: 'Lights'
 
       expose: &expose
         <<: *customize
-        expose: false
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
 
     ################################################
-    ## Perfect Prep
+    ## Power Monitor
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.power_perfect_prep:
+      <<: *expose
+
+    sensor.power_dish_washer:
+      <<: *expose
 
 ################################################
-## Perfect Prep - Automation's
+## Power Monitor - Automation's
 ################################################
 
 automation:
@@ -41,7 +47,7 @@ automation:
 - alias: Perfect Prep Lights Up
   trigger:
     platform: numeric_state
-    entity_id: 'sensor.perfect_prep_power'
+    entity_id: 'sensor.power_perfect_prep'
     above: '0.9'
   condition:
     condition: time
@@ -60,7 +66,7 @@ automation:
 - alias: Perfect Prep Lights Down
   trigger:
     platform: numeric_state
-    entity_id: 'sensor.perfect_prep_power'
+    entity_id: 'sensor.power_perfect_prep'
     below: '1.0'
     for:
      minutes: 3
@@ -76,19 +82,36 @@ automation:
 
 
 ################################################
-## Perfect Prep - Sensor
+## Power Monitor - Sensor
 ################################################
 
 sensor:
 
       #################################################################
-      ## MQTT Monitor of power usage
+      ## MQTT Monitor of power usage - Perfect Prep
       #################################################################
 
 - platform: mqtt
-  name: "Perfect Prep Power"
+  name: "Power Perfect Prep"
   state_topic: "smartthings/Perfect Prep/power/state"
   unit_of_measurement: "kw"
+
+      #################################################################
+      ## MQTT Monitor of power usage - Dish Washer
+      #################################################################
+
+- platform: mqtt
+  name: "Power Dish Washer"
+  # value_template: '{{ value | default (0) }}'
+  # value_template: >-
+  #   {% if is_state("sensor.power_dish_washer", "unknown") %}
+  #     0
+  #   {% else %}
+  #     '{{ value }}'
+  #   {% endif %}
+  state_topic: "smartthings/Power Dish Washer/power/state"
+  unit_of_measurement: "kw"
+
 
 ################################################
 ## Perfect Prep - Switches
