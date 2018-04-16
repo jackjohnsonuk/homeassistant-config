@@ -82,13 +82,13 @@ media_player:
       ## Media Player - Bedroom TV
       #################################################################
 
-# 
-# - platform: broadlink
-#   name: Bedroom TV
-#   host: 192.168.1.164
-#   mac: '34:EA:34:8E:E9:59'
-#   ircodes_ini: 'custom_components/bedroom_tv.ini'
-#
+
+- platform: broadlink
+  name: Bedroom TV
+  host: 192.168.1.164
+  mac: '34:EA:34:8E:E9:59'
+  ircodes_ini: 'custom_components/bedroom_tv.ini'
+
 
 
 # - platform: universal
