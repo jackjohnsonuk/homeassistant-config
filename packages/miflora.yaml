@@ -1,0 +1,73 @@
+################################################################
+## Packages / Miflora
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'MiFlora'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## MiFlora
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## MiFlora - Json Sensor Values
+################################################
+
+sensor:
+
+      #################################################################
+      ## MiFlora - api pass
+      #################################################################
+
+  - platform: mqtt
+    state_topic: 'miflora/BathroomPlant'
+    name: 'Plant Bathroom Battery'
+    unit_of_measurement: '%'
+    value_template: '{{ value_json.battery }}'
+
+  - platform: mqtt
+    state_topic: 'miflora/BathroomPlant'
+    name: 'Plant Bathroom Conductivity'
+    unit_of_measurement: 'µS/cm'
+    value_template: '{{ value_json.conductivity }}'
+
+  - platform: mqtt
+    state_topic: 'miflora/BathroomPlant'
+    name: 'Plant Bathroom Moisture'
+    unit_of_measurement: '%'
+    value_template: '{{ value_json.moisture }}'
+
+  - platform: mqtt
+    state_topic: 'miflora/BathroomPlant'
+    name: 'Plant Bathroom Temperature'
+    unit_of_measurement: '°C'
+    value_template: '{{ value_json.temperature }}'
+
+  - platform: mqtt
+    state_topic: 'miflora/BathroomPlant'
+    name: 'Plant Bathroom Light'
+    unit_of_measurement: 'lux'
+    value_template: '{{ value_json.light }}'
