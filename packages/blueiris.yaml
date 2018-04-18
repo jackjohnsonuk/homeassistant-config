@@ -214,3 +214,54 @@ automation:
   action:
     - service: switch.turn_off
       entity_id: switch.camera_record
+
+
+
+
+
+
+
+    #############################
+    #############################
+    ###### MQTT Commands ########
+    #############################
+    #############################
+
+# /image/{cam-short-name}?q=50&s=80 A single JPEG image from a specific camera or group, with optional quality (q) and scale (s) parameters.  Quality is a percentage from 1-100, and scale may be any number >0.
+# /image/{cam-short-name}?h=100 You may also specify a specific height (h) or width (w) instead of scale.
+# /mjpg/{cam-short-name}/video.mjpg An M-JPEG stream.  This stream is compatible with Blue Iris's "MJPEG stream request." 
+# /file/clips/{filename}&mode=jpeg&speed=100 An M-JPEG stream of a clip from your New clips folder.  You may include additional subdirectory names in the filename.  The speed parameter is optional, a percentage of normal playback speed.
+# /thumbs/{filename} A thumbnail image from a specific file in the New clips folder.
+# /alerts/{filename} A JPEG image from the Alerts folder.
+# /admin?profile=x&lock=y Set the active profile to x.  Use x=-1 to toggle the lock status, or set the lock=y, 0=run, 1=temp, 2=hold
+# /admin?schedule=1 or 0 or schedule name x=0 or 1 to disable/enable Options/Schedule, or a name to set the current schedule
+# /admin?signal=x Changes the traffic signal state and returns the current state.  x=0 for red, x=1 for green, x=2 for yellow.  This requires admin authentication.
+# /admin?output=x&msec=y or &force=true Temporarily change the active profile to x.  Use x=-1 to toggle the lock status.
+# /admin?input=x Set DIO output x=0-7 on for y msec, or force on indefinitely
+# /admin?macro=x&text={text} Set macro number x=1-9 to value {text}
+# /admin?console={group name} Select the specified group for display on the console, "index" is All cameras.
+# /admin?camera=x&trigger Trigger camera or group x (short name)
+# /admin?camera=x&manrec=1 or 0 Start or stop manual recording on camera or group x (short name)
+# /admin?camera=x&select Select camera x (short name)
+# /admin?camera=x&snapshot Snapshot on camera x (short name)
+# /admin?camera=x&reset Reset camera x (short name)
+# /admin?camera=x&reboot Reboot camera x (short name) (as supported)
+# /admin?camera=x&ptzcycle=1 or 0 Trigger camera x (short name)
+# /admin?camera=x&pause=x Send pause command to camera x (short name), x=-2 to 10 matching right-click Pause menu
+# /admin?camera=x&enable=1 or 0 Enable or disable camera x (short name)
+# /admin?camera=x&motion=1 or 0 Enable or disable motion detection on camera x (short name)
+# /admin?camera=x&hide=1 or 0 Hide or show camera x (short name)
+# /admin?camera=x&mdelay=x Delay motion detection on camera x (short name)
+# /admin?camera=x&webcast=1 or 0 Enable or disable webcasting on camera x (short name)
+# /admin?camera=x&preset=n Goto PTZ preset n on camera x (short name)
+# /admin?camera=x&ptz=n PTZ command n on camera x (short name).  n=0,1... for left,right,up,down,center,zoom+,zoom-
+# /admin?camera=x&pause=n Pause camera x (short name).  n=-2,-1,0,1,2... for toggle,infinite,0,+30s,+5min,+30m,+1h,+2h,+3h,+5h,+10h,+24h,+15m
+# /admin?camera=x&schedule=1 or 0 Enable or disable schedule on camera x (short name)
+# /admin?camera=x&profile=n Force profile n on camera x (short name)
+# /admin?camera=x&alerts=x Enable or disable alerts on camera x (short name)
+# /audio/{cam-short-name}/temp.wav Pull a raw audio stream (MIME type audio/x-wav).
+# /cam/{cam-short-name}/pos=x Performs a PTZ command on the specified camera, where x= 0=left, 1=right, 2=up, 3=down, 4=home, 5=zoom in, 6=zoom out
+# /cam/{cam-short-name}/pos=100 Causes a snapshot image to be captured from the specified camera.
+# /h264/{cam-short-name}/temp.h264 Pull a raw H.264 stream (MIME type video/H264).  This stream will play in a tool like VLC, and may be used in future versions of the ActiveX control.
+# /h264/{cam-short-name}/temp.ts Pull an MPEG-2 transport stream (MIME type video/MP2T).
+# /h264/{cam-short-name}/temp.m or .m3u8 Pull a virtual M3U8 file (MIME type application/vnd.apple.mpegurl).  This will play in QuickTime, iPad and the iPhone using the Apple HLS (HTTP Live Streaming) format
