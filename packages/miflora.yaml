@@ -82,15 +82,15 @@ plant:
       ## MiFlora - plant
       #################################################################
 
-  - Bathroom Plant:
-      sensors:
-        moisture: sensor.plant_bathroom_moisture
-        battery: sensor.plant_bathroom_battery
-        temperature: sensor.plant_bathroom_temperature
-        conductivity: sensor.plant_bathroom_conductivity
-        brightness: sensor.plant_bathroom_light
-      min_moisture: 20
-      max_moisture: 60
-      min_battery: 17
-      min_conductivity: 500
-      min_temperature: 15
+  Bathroom Plant:
+    sensors:
+      moisture: sensor.plant_bathroom_moisture
+      battery: sensor.plant_bathroom_battery
+      temperature: sensor.plant_bathroom_temperature
+      conductivity: sensor.plant_bathroom_conductivity
+      brightness: sensor.plant_bathroom_light
+    min_moisture: 20
+    max_moisture: 60
+    min_battery: 17
+    min_conductivity: 500
+    min_temperature: 15
