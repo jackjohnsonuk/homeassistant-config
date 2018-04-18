@@ -25,6 +25,7 @@ default_view:
     - group.bins
     - sensor.stats_mean
     - group.birthday_countdown
+    - plant.bathroom_plant
 
       #################################################################
       ## Kitchen
