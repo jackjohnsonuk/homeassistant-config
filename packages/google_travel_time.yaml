@@ -54,11 +54,6 @@ sensor:
   destination: !secret destination
   region: 'EU'
 
-- platform: waze_travel_time
-  name: Jack test
-  origin: "{{states.device_tracker.jack_jack.attributes.latitude}},{{states.device_tracker.jack_jack.attributes.longitude}}"
-  destination: London, UK
-  region: 'EU'
 
 ################################################
 ## Google Travel Time - Group
