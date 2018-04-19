@@ -68,9 +68,11 @@ sensor:
 
   - platform: mqtt
     state_topic: 'miflora/BathroomPlant'
-    name: 'Plant Bathroom Light'
+    name: 'Plant Bathroom Brightness'
     unit_of_measurement: 'lux'
-    value_template: '{{ value_json.light }}'
+    value_template: '{{ value_json.brightness }}'
+
+
 
 ################################################
 ## MiFlora - plant
@@ -88,7 +90,7 @@ plant:
       battery: sensor.plant_bathroom_battery
       temperature: sensor.plant_bathroom_temperature
       conductivity: sensor.plant_bathroom_conductivity
-      brightness: sensor.plant_bathroom_light
+      brightness: sensor.plant_bathroom_brightness
     min_moisture: 20
     max_moisture: 60
     min_battery: 17
