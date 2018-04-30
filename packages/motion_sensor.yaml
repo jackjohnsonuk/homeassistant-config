@@ -176,6 +176,33 @@ automation:
     entity_id: light.hallway_light
 
       #################################################################
+      ## Automation - Bathroom Motion Switch On
+      #################################################################
+
+- alias: bathroom motion
+  trigger:
+   - platform: state
+     entity_id: input_boolean.bathroom_occupancy
+     to: 'on'
+  action:
+   - service: light.turn_on
+     entity_id: light.bathroom_lights
+
+      #################################################################
+      ## Automation - Bathroom Motion Switch Off
+      #################################################################
+
+- alias: bathroom motion
+  trigger:
+   - platform: state
+     entity_id: input_boolean.bathroom_occupancy
+     to: 'off'
+  action:
+   - service: light.turn_off
+     entity_id: light.bathroom_lights
+
+
+      #################################################################
       ## Automation - Dressing Room Motion Switch On
       #################################################################
 

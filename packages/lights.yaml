@@ -175,7 +175,7 @@ light:
   entities:
     - light.bathroom_light_1
     - light.bathroom_light_2
-    # - light.bathroom_light_3
+    - light.bathroom_light_3
     - light.bathroom_light_4
 
       ################################################
@@ -366,7 +366,7 @@ automation:
     - service: automation.turn_off
       entity_id: automation.maintain_brightness_bedroom
     - delay: '00:00:01'
-      
+
     - service: light.turn_off
       data:
         entity_id: light.jack_bedside_light

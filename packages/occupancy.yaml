@@ -123,65 +123,45 @@ automation:
 #     service: input_boolean.turn_on
 
       #################################################################
-      ## Reset input_boolean bedroom
+      ## input_boolean bedroom off
       #################################################################
-#
-# - alias: bedroom motion
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_bedroom
-#       from: 'Off'
-#       to: 'On'
-#   action:
-#   - data:
-#       entity_id: input_boolean.bedroom_idle
-#     service: input_boolean.turn_off
-#
-# - alias: living room motion
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_living_room_camera
-#       from: 'Off'
-#       to: 'On'
-#   action:
-#   - data:
-#       entity_id: input_boolean.living_room_idle
-#     service: input_boolean.turn_off
+
+- alias: 'Bathroom Occupany Off'
+#Trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_sensor_bathroom
+    from: 'on'
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.motion_bedroom'
+      state: 'of'
+  action:
+  - data:
+      entity_id: input_boolean.bathroom_occupancy
+    service: input_boolean.turn_off
+
 
       #################################################################
-      ## set input_boolean bathroom
+      ## input_boolean bathroom on
       #################################################################
-#
-# - alias: 'Bathroom Occupancy'
-#   initial_state: 'off'
-# #Trigger
-#   trigger:
-#     platform: state
-#     entity_id: binary_sensor.door
-#     from: 'off'
-#     to: 'on'
-#   condition:
-#     condition: and
-#     conditions:
-# #motion ?
-#       - condition: numeric_state
-#         entity_id: sun.sun
-#         value_template: '{{ state.attributes.elevation }}'
-#         below: 10
-#       - condition: time
-#         after: '16:00:00'
-#         before: '23:00:00'
-#       - condition: state
-#         entity_id: binary_sensor.motion_sensor_outside
-#         state: 'on'
-#   action:
-#       - service: light.turn_off
-#         entity_id: light.outside
-#       - service: light.turn_on
-#         entity_id: light.inside
-#       - delay: 00:03:00
-#       - service: light.turn_off
-#         entity_id: light.inside
+
+- alias: 'Bathroom Occupany On'
+#Trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.door_sensor_bathroom
+    from: 'on'
+    to: 'off'
+  condition:
+    - condition: state
+      entity_id: 'binary_sensor.motion_bedroom'
+      state: 'on'
+  action:
+  - data:
+      entity_id: input_boolean.bathroom_occupancy
+    service: input_boolean.turn_on
 
 ################################################
 ## Occupancy - Input Boolean
@@ -216,14 +196,6 @@ input_boolean:
     initial: off
     icon: mdi:account
 
-      #################################################################
-      ## Bedroom Idle
-      #################################################################
-
-  bedroom_idle:
-    name: Bedroom Idle
-    initial: off
-    icon: mdi:account
 
       #################################################################
       ## Living Room Idle

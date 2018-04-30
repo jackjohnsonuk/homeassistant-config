@@ -44,41 +44,41 @@ automation:
       ## Perfect Prep Lights Up
       #################################################################
 
-- alias: Perfect Prep Lights Up
-  trigger:
-    platform: numeric_state
-    entity_id: 'sensor.power_perfect_prep'
-    above: '0.9'
-  condition:
-    condition: time
-    after: "22:45:00"
-    before: "06:00:00"
-  action:
-    - service: light.turn_on
-      entity_id: light.lara_bedside_light
-      data_template:
-        brightness: '{{states.light.lara_bedside_light.attributes.brightness|int + 30}}'
+# - alias: Perfect Prep Lights Up
+#   trigger:
+#     platform: numeric_state
+#     entity_id: 'sensor.power_perfect_prep'
+#     above: '0.9'
+#   condition:
+#     condition: time
+#     after: "22:45:00"
+#     before: "06:00:00"
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.lara_bedside_light
+#       data_template:
+#         brightness: '{{states.light.lara_bedside_light.attributes.brightness|int + 30}}'
 
         #################################################################
         ## Perfect Prep Lights Down
         #################################################################
 
-- alias: Perfect Prep Lights Down
-  trigger:
-    platform: numeric_state
-    entity_id: 'sensor.power_perfect_prep'
-    below: '1.0'
-    for:
-     minutes: 3
-  condition:
-    condition: time
-    after: "22:45:00"
-    before: "06:00:00"
-  action:
-    - service: light.turn_on
-      entity_id: light.lara_bedside_light
-      data_template:
-        brightness: '{{states.light.lara_bedside_light.attributes.brightness|int - 30}}'
+# - alias: Perfect Prep Lights Down
+#   trigger:
+#     platform: numeric_state
+#     entity_id: 'sensor.power_perfect_prep'
+#     below: '1.0'
+#     for:
+#      minutes: 3
+#   condition:
+#     condition: time
+#     after: "22:45:00"
+#     before: "06:00:00"
+#   action:
+#     - service: light.turn_on
+#       entity_id: light.lara_bedside_light
+#       data_template:
+#         brightness: '{{states.light.lara_bedside_light.attributes.brightness|int - 30}}'
 
 
 ################################################
@@ -91,10 +91,10 @@ sensor:
       ## MQTT Monitor of power usage - Perfect Prep
       #################################################################
 
-- platform: mqtt
-  name: "Power Perfect Prep"
-  state_topic: "smartthings/Perfect Prep/power/state"
-  unit_of_measurement: "kw"
+# - platform: mqtt
+#   name: "Power Perfect Prep"
+#   state_topic: "smartthings/Perfect Prep/power/state"
+#   unit_of_measurement: "kw"
 
       #################################################################
       ## MQTT Monitor of power usage - Dish Washer
