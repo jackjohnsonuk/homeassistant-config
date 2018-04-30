@@ -106,3 +106,7 @@ light.bathroom_light_2:
   name:
   platform: hue
   unique_id: 00:0b:57:ff:fe:d4:82:54-01
+light.dimmable_light_1:
+  name:
+  platform: hue
+  unique_id: 00:0b:57:ff:fe:d6:92:fe-01

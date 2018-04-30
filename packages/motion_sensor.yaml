@@ -79,8 +79,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Hallway"
-  state_topic: "smartthings/Motion Sensor 1/motion/state"
-  command_topic: "smartthings/Motion Sensor 1/motion/state"
+  state_topic: "smartthings/Motion Hallway/motion/state"
+  command_topic: "smartthings/Motion Hallway/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -92,8 +92,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Dressing Room"
-  state_topic: "smartthings/Xiaomi Motion 2/motion/state"
-  command_topic: "smartthings/Xiaomi Motion 2/motion/state"
+  state_topic: "smartthings/Motion Dressing Room/motion/state"
+  command_topic: "smartthings/Motion Dressing Room/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -198,7 +198,7 @@ automation:
     entity_id: binary_sensor.motion_dressing_room
     to: 'off'
     for:
-     seconds: 180
+     seconds: 120
   action:
     service: light.turn_off
     entity_id: light.dressing_room
