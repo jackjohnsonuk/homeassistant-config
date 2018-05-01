@@ -124,7 +124,7 @@ switch:
       #################################################################
 
 - platform: mqtt
-  name: "Bedroom Humidifier"
+  name: "Power Bedroom Humidifier"
   state_topic: "smartthings/Power - Bedroom Humidifier/switch/state"
   command_topic: "smartthings/Power - Bedroom Humidifier/switch/set"
   payload_on: "on"
