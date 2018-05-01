@@ -124,9 +124,9 @@ switch:
       #################################################################
 
 - platform: mqtt
-  name: "Perfect Prep"
-  state_topic: "smartthings/Power Perfect Prep/switch/state"
-  command_topic: "smartthings/Power Perfect Prep/switch/set"
+  name: "Bedroom Humidifier"
+  state_topic: "smartthings/Power - Bedroom Humidifier/switch/state"
+  command_topic: "smartthings/Power - Bedroom Humidifier/switch/set"
   payload_on: "on"
   payload_off: "off"
   qos: 0
