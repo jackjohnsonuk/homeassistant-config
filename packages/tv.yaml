@@ -53,6 +53,8 @@ media_player:
 - platform: firetv
   device: Living_Room
   name: Living Room Fire TV
+  host: 192.168.1.157
+  port: 5556
 
       #################################################################
       ## TV - Front Room TV
@@ -69,6 +71,8 @@ media_player:
 - platform: firetv
   device: Front_Room
   name: Front Room Fire TV
+  host: 192.168.1.157
+  port: 5556
 
       #################################################################
       ## TV - Bedroom Fire TV
@@ -77,6 +81,8 @@ media_player:
 - platform: firetv
   device: Bedroom
   name: Bedroom Fire TV
+  host: 192.168.1.157
+  port: 5556
 
       #################################################################
       ## Media Player - Bedroom TV
