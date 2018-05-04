@@ -119,7 +119,7 @@ camera:
 
 - platform: mjpeg
   mjpeg_url: !secret blueiris_living_room_url
-  name: Lounge
+  name: Living Room
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
@@ -130,6 +130,15 @@ camera:
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
+
+
+- platform: mjpeg
+  mjpeg_url: !secret blueiris_front_door_url
+  name: Front Door
+  username: !secret camera_user
+  password: !secret camera_pass
+  authentication: basic
+
 
 ################################################
 ## Blue Iris - Binary Sensor
