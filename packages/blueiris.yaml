@@ -118,7 +118,7 @@ camera:
       #################################################################
 
 - platform: mjpeg
-  mjpeg_url: !secret blueiris_lounge_url
+  mjpeg_url: !secret blueiris_living_room_url
   name: Lounge
   username: !secret camera_user
   password: !secret camera_pass
@@ -229,7 +229,7 @@ automation:
 
 # /image/{cam-short-name}?q=50&s=80 A single JPEG image from a specific camera or group, with optional quality (q) and scale (s) parameters.  Quality is a percentage from 1-100, and scale may be any number >0.
 # /image/{cam-short-name}?h=100 You may also specify a specific height (h) or width (w) instead of scale.
-# /mjpg/{cam-short-name}/video.mjpg An M-JPEG stream.  This stream is compatible with Blue Iris's "MJPEG stream request." 
+# /mjpg/{cam-short-name}/video.mjpg An M-JPEG stream.  This stream is compatible with Blue Iris's "MJPEG stream request."
 # /file/clips/{filename}&mode=jpeg&speed=100 An M-JPEG stream of a clip from your New clips folder.  You may include additional subdirectory names in the filename.  The speed parameter is optional, a percentage of normal playback speed.
 # /thumbs/{filename} A thumbnail image from a specific file in the New clips folder.
 # /alerts/{filename} A JPEG image from the Alerts folder.
