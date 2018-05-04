@@ -171,3 +171,6 @@ automation:
      data:
        entity_id: climate.kitchen
        operation_mode: 'eco'
+
+
+#last test
