@@ -41,8 +41,36 @@ homeassistant:
 automation:
 
       #################################################################
-      ## Perfect Prep Lights Up
+      ## Turn on humidifier
       #################################################################
+
+  - alias: humidifier on
+    trigger:
+      platform: time
+      at: '22:30:00'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.power_bedroom_humidifier
+
+      #################################################################
+      ## Turn off humidifier
+      #################################################################
+
+  - alias: humidifier off
+    trigger:
+      platform: time
+      at: '07:30:00'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.power_bedroom_humidifier
+
+
+
+
+
+        #################################################################
+        ## Perfect Prep Lights Up
+        #################################################################
 
 # - alias: Perfect Prep Lights Up
 #   trigger:
