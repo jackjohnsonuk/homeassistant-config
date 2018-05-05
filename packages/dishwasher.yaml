@@ -141,7 +141,7 @@ automation:
           entity_id: input_select.dishwasher_status
           option: Clean
       - service: calendar.todoist_new_task
-        data: { "content": "test?", "project": "Johnson Family Jobs", "due_date_string": "today"}
+        data: { "content": "Empty the Dishwasher", "project": "Johnson Family Jobs", "due_date_string": "today"}
 
       #################################################################
       ## Dishwasher Dirty
