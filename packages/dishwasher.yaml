@@ -1,0 +1,165 @@
+################################################################
+## Packages / Dishwasher
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Dishwasher'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## Dishwasher
+    ################################################
+
+    # sensor.power_perfect_prep:
+    #   <<: *expose
+    #
+    # sensor.power_dish_washer:
+    #   <<: *expose
+
+################################################
+## Dishwasher - Power
+################################################
+
+sensor:
+
+
+      #################################################################
+      ## MQTT Monitor of power usage - Dish Washer
+      #################################################################
+
+- platform: mqtt
+  name: "Power Dish Washer"
+  state_topic: "smartthings/Power Dish Washer/power/state"
+  unit_of_measurement: "kw"
+
+################################################
+## Dishwasher - Binary Sensor's
+################################################
+
+binary_sensor:
+
+      #################################################################
+      ## Dishwasher - Door Sensor
+      #################################################################
+
+- platform: mqtt
+  name: "Door Sensor Dishwasher"
+  state_topic: "smartthings/Door Sensor - Dishwasher/contact/state"
+  command_topic: "smartthings/Door Sensor - Dishwasher/contact/state"
+  device_class: door
+  payload_on: "open"
+  payload_off: "closed"
+  retain: true
+
+
+################################################
+## Dishwasher - Input Select
+################################################
+
+input_select:
+
+      #################################################################
+      ## Input select options
+      #################################################################
+
+  dishwasher_status:
+    name: Dishwasher Status
+    options:
+      - Dirty
+      - Running
+      - Clean
+    initial: Dirty
+
+################################################
+## Dishwasher - Automation
+################################################
+
+automation:
+
+      #################################################################
+      ## Dishwasher Running
+      #################################################################
+
+  - alias: Set dishwasher to running
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.power_dish_washer
+        above: 10
+    condition:
+      condition: or
+      conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Dirty
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Clean
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.dishwasher_status
+          option: Running
+
+      #################################################################
+      ## Dishwasher Clean
+      #################################################################
+
+  - alias: Set dishwasher to clean
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.power_dish_washer
+        below: 10
+        for:
+          minutes: 5
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Running
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.dishwasher_status
+          option: Clean
+
+      #################################################################
+      ## Dishwasher Dirty
+      #################################################################
+
+  - alias: Set washing machine to dirty
+    trigger:
+      - platform: state
+        entity_id: binary_sensor.door_sensor_dishwasher
+        to: 'on'
+        for:
+          minutes: 3
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: input_select.dishwasher_status
+          state: Clean
+    action:
+      - service: input_select.select_option
+        data:
+          entity_id: input_select.dishwasher_status
+          option: Dirty

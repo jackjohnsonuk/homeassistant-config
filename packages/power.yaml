@@ -85,7 +85,7 @@ automation:
 ## Power Monitor - Sensor
 ################################################
 
-sensor:
+# sensor:
 
       #################################################################
       ## MQTT Monitor of power usage - Perfect Prep
@@ -95,23 +95,6 @@ sensor:
 #   name: "Power Perfect Prep"
 #   state_topic: "smartthings/Perfect Prep/power/state"
 #   unit_of_measurement: "kw"
-
-      #################################################################
-      ## MQTT Monitor of power usage - Dish Washer
-      #################################################################
-
-- platform: mqtt
-  name: "Power Dish Washer"
-  # value_template: '{{ value | default (0) }}'
-  # value_template: >-
-  #   {% if is_state("sensor.power_dish_washer", "unknown") %}
-  #     0
-  #   {% else %}
-  #     '{{ value }}'
-  #   {% endif %}
-  state_topic: "smartthings/Power Dish Washer/power/state"
-  unit_of_measurement: "kw"
-
 
 ################################################
 ## Perfect Prep - Switches
