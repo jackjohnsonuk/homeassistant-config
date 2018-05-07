@@ -42,7 +42,7 @@ Kitchen:
 #    - camera.kitchen2
     - group.Kitchen_motion_sensor
     - input_select.dishwasher_status
-    
+
       #################################################################
       ## Living Room
       #################################################################
@@ -156,13 +156,14 @@ Motion:
   name: Motion
   entities:
    - binary_sensor.motion_under_stairs_cupboard
-   - binary_sensor.motion_hallway
-   - binary_sensor.motion_living_room_camera
-   - binary_sensor.motion_dressing_room
-   - binary_sensor.motion_kitchen_camera
-   - binary_sensor.motion_bedroom
    - binary_sensor.motion_living_room
-#   - sensor.motion_indoor_camera_kitchen2
+   - binary_sensor.motion_living_room_camera
+   - binary_sensor.motion_hallway
+   - binary_sensor.motion_dressing_room
+   - binary_sensor.motion_bedroom
+   - binary_sensor.motion_bathroom
+   - binary_sensor.motion_front_door
+   - binary_sensor.motion_kitchen
 
       #################################################################
       ## Living Room Motion Detector Cards
@@ -172,8 +173,8 @@ living_room_motion:
   name: Living Room Motion
   entities:
    - binary_sensor.motion_under_stairs_cupboard
-   - binary_sensor.motion_living_room_camera
    - binary_sensor.motion_living_room
+   - binary_sensor.motion_living_room_camera
 
       #################################################################
       ## Family
@@ -185,14 +186,6 @@ family:
    - device_tracker.jack_jack
    - device_tracker.lara_lara
 
-      #################################################################
-      ## Living Room Motion Sensor Card
-      #################################################################
-
-Living_Room_motion_sensor:
-  name: Living Room Motion Sensor
-  entities:
-   - binary_sensor.motion_living_room_camera
 
       #################################################################
       ## Kitchen Motion Sensor Card
@@ -201,7 +194,7 @@ Living_Room_motion_sensor:
 Kitchen_motion_sensor:
   name: Kitchen Motion Sensor
   entities:
-    - binary_sensor.motion_kitchen_camera
+    - binary_sensor.motion_kitchen
 
       #################################################################
       ## Bedroom Motion Sensor Card

@@ -235,7 +235,7 @@ binary_sensor:
       #################################################################
 
 - platform: mqtt
-  name: "Motion Living Room"
+  name: "Motion Living Room Camera"
   state_topic: "blueiris/living_room/state"
   command_topic: "blueiris/living_room/state"
   device_class: motion
