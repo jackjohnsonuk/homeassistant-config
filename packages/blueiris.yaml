@@ -224,10 +224,50 @@ automation:
     - service: switch.turn_off
       entity_id: switch.camera_record
 
+################################################
+## Blue Iris - Binary Sensor's
+################################################
 
+binary_sensor:
 
+      #################################################################
+      ## Motion Sensor - Living Room Motion
+      #################################################################
 
+- platform: mqtt
+  name: "Motion Living Room"
+  state_topic: "blueiris/living_room/state"
+  command_topic: "blueiris/living_room/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
 
+      #################################################################
+      ## Motion Sensor - Front Door Motion
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Front Door"
+  state_topic: "blueiris/front_door/state"
+  command_topic: "blueiris/front_door/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
+      ## Motion Sensor - Kitchen Motion
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Kitchen"
+  state_topic: "blueiris/kitchen/state"
+  command_topic: "blueiris/kitchen/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
 
 
     #############################
