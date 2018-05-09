@@ -94,18 +94,6 @@ media_player.plex_web_chrome:
   name:
   platform: plex
   unique_id: qv52pqnsmk5ljtt9
-light.bathroom_light_4:
-  name:
-  platform: hue
-  unique_id: 00:0b:57:ff:fe:d6:90:e3-01
-light.bathroom_light_1:
-  name:
-  platform: hue
-  unique_id: 00:0b:57:ff:fe:d8:90:26-01
-light.bathroom_light_2:
-  name:
-  platform: hue
-  unique_id: 00:0b:57:ff:fe:d4:82:54-01
 light.dimmable_light_1:
   name:
   platform: hue
