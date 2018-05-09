@@ -209,17 +209,52 @@ light:
 
 
 - platform: mqtt
-  name: "Living Room Main Light"
-  state_topic: "smartthings/Living Room Main Light/switch/state"
-  command_topic: "smartthings/Living Room Main Light/switch/set"
-  brightness_state_topic: "smartthings/Living Room Main Light/level/state"
-  brightness_command_topic: "smartthings/Living Room Main Light/level/set"
+  name: "Bathroom Light 1"
+  state_topic: "smartthings/Bathroom Light 1/switch/state"
+  command_topic: "smartthings/Bathroom Light 1/switch/set"
+  brightness_state_topic: "smartthings/Bathroom Light 1/level/state"
+  brightness_command_topic: "smartthings/Bathroom Light 1/level/set"
   brightness_scale: 101
   payload_on: "on"
   payload_off: "off"
   retain: false
   optimistic: false
 
+- platform: mqtt
+  name: "Bathroom Light 2"
+  state_topic: "smartthings/Bathroom Light 2/switch/state"
+  command_topic: "smartthings/Bathroom Light 2/switch/set"
+  brightness_state_topic: "smartthings/Bathroom Light 2/level/state"
+  brightness_command_topic: "smartthings/Bathroom Light 2/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
+
+- platform: mqtt
+  name: "Bathroom Light 3"
+  state_topic: "smartthings/Bathroom Light 3/switch/state"
+  command_topic: "smartthings/Bathroom Light 3/switch/set"
+  brightness_state_topic: "smartthings/Bathroom Light 3/level/state"
+  brightness_command_topic: "smartthings/Bathroom Light 3/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
+
+- platform: mqtt
+  name: "Bathroom Light 4"
+  state_topic: "smartthings/Bathroom Light 4/switch/state"
+  command_topic: "smartthings/Bathroom Light 4/switch/set"
+  brightness_state_topic: "smartthings/Bathroom Light 4/level/state"
+  brightness_command_topic: "smartthings/Bathroom Light 4/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
 
 
 ################################################
