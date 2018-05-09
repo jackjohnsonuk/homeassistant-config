@@ -37,6 +37,7 @@
       paper-slider-pin-color: "#1DE9B6"
       paper-slider-active-color: "#1DE9B6"
       paper-slider-secondary-color: "#33F2D8"
+
     darkorange:
       primary-color: "#ff9800"
       light-primary-color: "#ffc947"
@@ -75,6 +76,7 @@
       label-badge-grey: "var(--paper-grey-500)"
       table-row-background-color: "var(--paper-card-background-color)"
       table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+
     darkred:
     # Main colors that can be changed
       dark-primary-color: "#c66900"
@@ -108,6 +110,7 @@
       secondary-text-color: "var(--primary-color)"
       table-row-background-color: "var(--paper-card-background-color)"
       table-row-alternative-background-color: "var(--sidebar-text_-_background)"
+
     darkcyan:
     # Main colors that can be changed
       primary-color: "#00bcd4"
@@ -138,6 +141,7 @@
       paper-toggle-button-checked-button-color: "var(--primary-color)"
       paper-toggle-button-checked-bar-color: "var(--light-primary-color)"
       paper-toggle-button-unchecked-bar-color: "var(--primary-text-color)"
+
     carbongreen:
       #Color List
       make-light-carbon: "#93A5AB"
@@ -214,6 +218,7 @@
       paper-font-headline_-_font-family: "var(--primary-font-family)"
       paper-font-caption_-_font-family: "var(--primary-font-family)"
       paper-font-title_-_font-family: "var(--primary-font-family)"
+
     minimal:
       dark-primary-color: "#192231"
       primary-color: "#98878f"
@@ -225,6 +230,7 @@
       paper-slider-knob-start-color: "#494e6b"
       paper-slider-pin-color: "#494e6b"
       paper-slider-active-color: "#494e6b"
+
     stormy_hues:
       dark-primary-color: "#192231"
       primary-color: "#98878f"
@@ -236,6 +242,7 @@
       paper-slider-knob-start-color: "#494e6b"
       paper-slider-pin-color: "#494e6b"
       paper-slider-active-color: "#494e6b"
+
     vintage:
       dark-primary-color: "#373f27"
       primary-color: "#636b46"
@@ -247,6 +254,7 @@
       paper-slider-knob-start-color: "#cda34f"
       paper-slider-pin-color: "#cda34f"
       paper-slider-active-color: "#cda34f"
+
     done1:
       dark-primary-color: "#565656"
       primary-color: "#C09F80"
@@ -259,3 +267,86 @@
       paper-slider-pin-color: "#76323F"
       paper-slider-active-color: "#76323F"
       paper-slider-secondary-color: "#FFE0B2"
+
+    material_dark_green:
+     light_green: "#08a8a5"
+     dark_green: "#017775"
+     dark_grey: "#232326"
+     light_grey: "#344249"
+
+     red: "#d10404"
+     yellow: "#fffa0c"
+     white: "#f7f7f7"
+     pink: "#ff0090"
+
+  #Top bar, activate text on script, selected icon on home assistant menu, top panel of media players, text in config page, text on developer tools states page, mqtt publish text, logbook text
+     primary-color: "var(--light_green)"
+  # divider on dev tools info page
+     light-primary-color: "var(--red)"
+  # some hyperlinked text
+     dark-primary-color: "var(--red)"
+  # color of heading text when item selected from home screen ex: light
+     text-primary-color: "var(--white)"
+  # main background, top of side panel
+     primary-background-color: "var(--dark_grey)"
+  # not sure where used
+     sidebar-text_-_background: "var(--pink)"
+  # card background colour, part of media player background
+     paper-card-background-color: "var(--light_grey)"
+  # mqtt pubish header and thats it
+     paper-card-header-color: "var(--white)"
+  # main background colour of states page
+     secondary-background-color: "var(--dark_grey)"
+  # most of the text used
+     primary-text-color: "var(--white)"
+  #secondary pieces of text
+     secondary-text-color: "var(--white)"
+  #main background of side panel
+     paper-listbox-background-color: "var(--light_grey)"
+  #not sure where used
+     paper-toggle-button-checked-ink-color: "var(--pink)"
+  #switch colour when on
+     paper-toggle-button-checked-button-color: "var(--yellow)"
+  #Backgroud of switch/toggle when on
+     paper-toggle-button-checked-bar-color: "var(--yellow)"
+  #slide knob on brightness/volumes when not 0
+     paper-slider-knob-color: "var(--yellow)"
+  #slide knob on brightness/volumes when 0
+     paper-slider-knob-start-color: "var(--red)"
+  #don't know where used
+     paper-slider-pin-color: "var(--pink)"
+  #colour of brightness/volume slider line in used portion
+     paper-slider-active-color: "var(--yellow)"
+  #not sure where used
+     paper-slider-secondary-color: "var(--pink)"
+  # background of brightness/volume slider line not used portion
+     paper-slider-container-color: "var(--red)"
+  #not sure where used
+     paper-progress-secondary-color: "var(--pink)"
+  #background of theme selection toggle tiny use
+     paper-item-selected_-_background-color: "var(--light_green)"
+  #text, not sure which one "var(--white)"
+     paper-item-icon_-_color: "var(--pink)"
+  # icon on state page when off
+     paper-item-icon-color: "var(--dark_green)"
+  #states icon when active
+     paper-item-icon-active-color: "var(--yellow)"
+  #colour of switch toggle when off, icon on selected page of menu
+     paper-grey-50: "var(--light_green)"
+  #background of selected screen on menu "var(--light_green)"
+     paper-grey-200: "var(--dark_green)"
+  #Backgound of label icon
+     label-badge-background-color: "var(--light_grey)"
+  #colour of text in label icon
+     label-badge-text-color: "var(--white)"
+  #colour of edge of sensor labels
+     label-badge-red: "var(--red)"
+  #not sure where used
+     label-badge-blue: "var(--pink)"
+     label-badge-green: "var(--pink)"
+     label-badge-yellow: "var(--pink)"
+     label-badge-grey: "var(--pink)"
+  # Row 1 on entities page
+     table-row-background-color: "var(--light_grey)"
+  # row 2 on entities page
+     table-row-alternative-background-color: "var(--dark_grey)"
