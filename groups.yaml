@@ -41,7 +41,7 @@ Kitchen:
     - camera.kitchen
 #    - camera.kitchen2
     - group.Kitchen_motion_sensor
-    - input_select.dishwasher_status
+    - group.group_dishwasher
 
       #################################################################
       ## Living Room
