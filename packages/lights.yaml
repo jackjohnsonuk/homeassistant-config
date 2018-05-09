@@ -207,6 +207,17 @@ light:
   retain: false
   optimistic: false
 
+- platform: mqtt
+  name: "Living Room Main Light"
+  state_topic: "smartthings/Living Room Main Light/switch/state"
+  command_topic: "smartthings/Living Room Main Light/switch/set"
+  brightness_state_topic: "smartthings/Living Room Main Light/level/state"
+  brightness_command_topic: "smartthings/Living Room Main Light/level/set"
+  brightness_scale: 101
+  payload_on: "on"
+  payload_off: "off"
+  retain: false
+  optimistic: false
 
 - platform: mqtt
   name: "Bathroom Light 1"
