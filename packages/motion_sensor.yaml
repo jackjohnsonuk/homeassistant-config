@@ -234,19 +234,21 @@ automation:
       ## Automation - Bathroom Motion Switch On
       #################################################################
 
-# - alias: bathroom motion
-#   trigger:
-#    - platform: state
-#      entity_id: binary_sensor.motion_bathroom
-#      to: 'on'
-#    - platform: state
-#      entity_id: binary_sensor.door_sensor_bathroom
-#      to: 'on'
-#   action:
-#    - service: light.turn_on
-#      data:
-#        entity_id:
-#          - light.bathroom_lights
+- alias: bathroom motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.door_sensor_bathroom
+     to: 'on'
+  action:
+   - service: light.turn_on
+     data:
+       entity_id:
+         - light.bathroom_lights
+   - delay: '00:05:00'
+   - service: light.turn_off
+     data:
+       entity_id:
+         - light.bathroom_lights
 
       #################################################################
       ## Automation - Bathroom Motion Switch Off

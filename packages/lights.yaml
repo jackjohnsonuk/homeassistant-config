@@ -36,9 +36,13 @@ homeassistant:
       <<: *not-expose
       friendly_name: "Bathroom Light 2"
 
+    light.bathroom_light_3:
+      <<: *not-expose
+      friendly_name: "Bathroom Light 3"
+
     light.bathroom_light_4:
       <<: *not-expose
-      friendly_name: "Bathroom Light 2"
+      friendly_name: "Bathroom Light 4"
 
     light.bathroom_lights:
       <<: *expose
