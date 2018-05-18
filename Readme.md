@@ -1,5 +1,5 @@
-# Home Assistant (0.64.3) configuration
-This is my [Home Assistant](https://home-assistant.io/) configuration, I'm currently running 0.64.3. It is installed on a Raspberry Pi 3, using the [Hassio Installer](https://home-assistant.io/hassio/), on a 16 GB card. I use a [Smart Things Hub](http://www.samsung.com/uk/smartthings/hub-f-hub-uk-v2/) for both Z-Wave, and Zigbee control.
+# Home Assistant configuration
+This is my [Home Assistant](https://home-assistant.io/) configuration, I'm currently running . ~~It is installed on a Raspberry Pi 3, using the [Hassio Installer](https://home-assistant.io/hassio/), on a 16 GB card~~ After a change in home systems I now run the Home Assistant Docker image on my UnRaid server, it was sitting there, it seemed silly not to :) . I use a [Smart Things Hub](http://www.samsung.com/uk/smartthings/hub-f-hub-uk-v2/) for both Z-Wave, and Zigbee control.
 
 ## On the Pi itself I run
 
