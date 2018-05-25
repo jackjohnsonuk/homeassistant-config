@@ -17,6 +17,9 @@ history:
 logbook:
 sun:
 
+mqtt:
+  discovery: true
+  discovery_prefix: homeassistant
 
 http:
   # ssl_certificate: !secret ssl_certificate
