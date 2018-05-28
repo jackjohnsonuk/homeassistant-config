@@ -211,6 +211,10 @@ automation:
    - platform: state
      entity_id: binary_sensor.motion_dressing_room
      to: 'on'
+  condition:
+    condition: time
+    after: '19:00:00'
+    before: '08:00:00'
   action:
    - service: light.turn_on
      entity_id: light.dressing_room
