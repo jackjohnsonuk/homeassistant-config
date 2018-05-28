@@ -34,12 +34,6 @@ http:
 #  ignore:
 #   - sabnzbd
 
-# panel_iframe:
-#   nodered_flows:
-#     title: 'Node-RED Flows'
-#     url: 'https://orchardcottages.duckdns.org:1880'
-#     icon: mdi:nodejs
-
 tts:
   - platform: google
 
