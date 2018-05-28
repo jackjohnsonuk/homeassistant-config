@@ -98,3 +98,7 @@ light.dimmable_light_1:
   name:
   platform: hue
   unique_id: 00:0b:57:ff:fe:d6:92:fe-01
+sensor.bedroom_brightness:
+  name:
+  platform: mqtt
+  unique_id: bcddc2089e64-adc
