@@ -26,7 +26,6 @@ default_view:
     - sensor.stats_mean
     - group.birthday_countdown
     - plant.bathroom_plant
-    - device_tracker.tile_keys
 
       #################################################################
       ## Kitchen
@@ -186,6 +185,7 @@ family:
   entities:
    - device_tracker.jack_jack
    - device_tracker.lara_lara
+   - device_tracker.tile_keys
 
 
       #################################################################
