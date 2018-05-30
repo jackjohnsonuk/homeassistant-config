@@ -51,11 +51,8 @@ automation:
     # Optional
     to: 'off'
     for:
-      seconds: 5
+      seconds: 2
   action:
-    - service: script.sonos_say
+    - service: script.google_notify
       data_template:
-        sonos_entity: media_player.bedroom_speaker
-        volume: 0.4
-        message: 'Ding Dong'
-        delay: '00:00:10'
+        message: 'Ding Dong!'
