@@ -44,15 +44,15 @@ automation:
 
 - alias: Door Input Boolean
   trigger:
-    platform: mqtt
-    topic: doorbell/binary_sensor/doorbell/state
-    payload: 'ON'
+    platform: state
+    entity_id: binary_sensor.doorbell
+    to: 'on'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.doorbell_ring
-    - delay: '00:00:05'
-    - service: input_boolean.turn_off
-      entity_id: input_boolean.doorbell_ring
+    # - delay: '00:00:05'
+    # - service: input_boolean.turn_off
+    #   entity_id: input_boolean.doorbell_ring
 
       #################################################################
       ## doorbell - ring
