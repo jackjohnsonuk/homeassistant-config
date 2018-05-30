@@ -42,17 +42,45 @@ automation:
       ## doorbell - ring
       #################################################################
 
-- alias: 'Door'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.doorbell
-    # Optional
-    from: 'on'
-    # Optional
-    # to: 'off'
-    # for:
-    #   seconds: 1
-  action:
-    - service: script.google_notify
-      data_template:
-        message: 'Ding Dong!'
+# - alias: 'Door Boolean'
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.doorbell
+#     to: 'on'
+#   action:
+#     - service: input_boolean.turn_on
+#       entity_id: input_
+
+      #################################################################
+      ## doorbell - ring
+      #################################################################
+
+# - alias: 'Door'
+#   trigger:
+#     platform: state
+#     entity_id: binary_sensor.doorbell
+#     # Optional
+#     from: 'on'
+#     # Optional
+#     # to: 'off'
+#     # for:
+#     #   seconds: 1
+#   action:
+#     - service: script.google_notify
+#       data_template:
+#         message: 'Ding Dong!'
+
+
+################################################
+## doorbell
+################################################
+
+input_boolean:
+
+      #################################################################
+      ## doorbell - ring
+      #################################################################
+
+  doorbell_ring:
+    name: Ring Ring
+    initial: off
