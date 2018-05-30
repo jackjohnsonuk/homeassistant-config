@@ -1,0 +1,61 @@
+################################################################
+## Packages / doorbell
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'doorbell'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## doorbell
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## doorbell
+################################################
+
+automation:
+
+      #################################################################
+      ## doorbell - ring
+      #################################################################
+
+- alias: 'Door'
+  trigger:
+    platform: state
+    entity_id: binary_sensor.doorbell
+    # Optional
+    from: 'on'
+    # Optional
+    to: 'off'
+    for:
+      seconds: 5
+  action:
+    - service: script.sonos_say
+      data_template:
+        sonos_entity: media_player.bedroom_speaker
+        volume: 0.4
+        message: 'Ding Dong'
+        delay: '00:00:10'
