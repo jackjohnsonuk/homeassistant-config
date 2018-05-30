@@ -58,7 +58,7 @@ automation:
     from: 'on'
     to: 'off'
     for:
-      seconds: 5
+      seconds: 2
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.doorbell_ring
