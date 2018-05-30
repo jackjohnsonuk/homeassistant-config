@@ -49,9 +49,9 @@ automation:
     # Optional
     from: 'on'
     # Optional
-    to: 'off'
-    for:
-      seconds: 2
+    # to: 'off'
+    # for:
+    #   seconds: 1
   action:
     - service: script.google_notify
       data_template:
