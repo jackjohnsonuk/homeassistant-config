@@ -1,0 +1,56 @@
+################################################################
+## Packages / Batteries
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Batteries'
+        device_class: battery
+
+      expose: &expose
+        <<: *customize
+        expose: true
+
+      not-expose: &not-expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Batteries
+    ################################################
+
+    sensor.motion_dressing_room_battery:
+      <<: *customize
+      friendly_name: "Motion Sensor - Dressing Room - Battery"
+
+
+    sensor.door_sensor_dishwasher:
+      <<: *customize
+      friendly_name: "Door Sensor - Dishwasher - Battery"
+
+
+################################################
+## Batteries - Sensor
+################################################
+
+sensor:
+
+  - platform: mqtt
+    name: motion_dressing_room_battery
+    state_topic: smartthings/Motion Dressing Room/battery/states
+    unit_of_measurement: '%'
+
+  - platform: mqtt
+    name: door_sensor_dishwasher
+    state_topic: smartthings/Door Sensor - Dishwasher/battery/states
+    unit_of_measurement: '%'
