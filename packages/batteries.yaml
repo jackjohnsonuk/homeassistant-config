@@ -26,17 +26,28 @@ homeassistant:
         expose: false
 
     ################################################
-    ## Batteries
+    ## Batteries - Motion Sensor
     ################################################
 
     sensor.motion_dressing_room_battery:
       <<: *customize
       friendly_name: "Motion Sensor - Dressing Room - Battery"
 
+    sensor.motion_bedroom_battery:
+      <<: *customize
+      friendly_name: "Motion Sensor - Bedroom - Battery"
+
+    ################################################
+    ## Batteries - Door Sensor
+    ################################################
 
     sensor.door_sensor_dishwasher:
       <<: *customize
       friendly_name: "Door Sensor - Dishwasher - Battery"
+
+    sensor.door_sensor_bathroom:
+      <<: *customize
+      friendly_name: "Door Sensor - Bathroom - Battery"
 
 
 ################################################
@@ -45,12 +56,30 @@ homeassistant:
 
 sensor:
 
+    ################################################
+    ## Motion Sensors
+    ################################################
+
   - platform: mqtt
     name: motion_dressing_room_battery
     state_topic: "smartthings/Motion Dressing Room/battery/state"
     unit_of_measurement: '%'
 
   - platform: mqtt
+    name: motion_bedroom_battery
+    state_topic: "smartthings/Bedroom Motion/battery/state"
+    unit_of_measurement: '%'
+
+    ################################################
+    ## Door Sensors
+    ################################################
+
+  - platform: mqtt
     name: door_sensor_dishwasher
     state_topic: "smartthings/Door Sensor - Dishwasher/battery/state"
+    unit_of_measurement: '%'
+
+  - platform: mqtt
+    name: door_sensor_bathroom
+    state_topic: "smartthings/Door Sensor - Bathroom/battery/state"
     unit_of_measurement: '%'
