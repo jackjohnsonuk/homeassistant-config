@@ -47,10 +47,10 @@ sensor:
 
   - platform: mqtt
     name: motion_dressing_room_battery
-    state_topic: smartthings/Motion Dressing Room/battery/states
+    state_topic: "smartthings/Motion Dressing Room/battery/state"
     unit_of_measurement: '%'
 
   - platform: mqtt
     name: door_sensor_dishwasher
-    state_topic: smartthings/Door Sensor - Dishwasher/battery/states
+    state_topic: "smartthings/Door Sensor - Dishwasher/battery/state"
     unit_of_measurement: '%'
