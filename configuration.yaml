@@ -62,11 +62,6 @@ influxdb:
 # - platform: sonos
 #    scan_interval:  40
 
-panel_iframe:
-  baby_monitor:
-    title: 'Baby Monitor'
-    url: 'http://192.168.1.13:81/livestream.htm?cam=bed2'
-
 calendar:
   - platform: todoist
     token: !secret todoist_api
