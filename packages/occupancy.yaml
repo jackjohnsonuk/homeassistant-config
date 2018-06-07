@@ -130,13 +130,15 @@ automation:
 #Trigger
   trigger:
     platform: state
-    entity_id: binary_sensor.door_sensor_bathroom
+    entity_id: binary_sensor.motion_bedroom
     from: 'on'
     to: 'off'
+    for:
+      minutes: 10
   condition:
     - condition: state
-      entity_id: 'binary_sensor.motion_bedroom'
-      state: 'of'
+      entity_id: 'binary_sensor.door_sensor_bathroom'
+      state: 'on'
   action:
   - data:
       entity_id: input_boolean.bathroom_occupancy
@@ -156,8 +158,8 @@ automation:
     to: 'off'
   condition:
     - condition: state
-      entity_id: 'binary_sensor.motion_bedroom'
-      state: 'on'
+      entity_id: 'light.bathroom_lights'
+      state: 'off'
   action:
   - data:
       entity_id: input_boolean.bathroom_occupancy

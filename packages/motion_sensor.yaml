@@ -113,6 +113,7 @@ binary_sensor:
   retain: true
 
 
+
 ################################################
 ## Motion Sensor - Automation's
 ################################################
@@ -248,31 +249,23 @@ automation:
      data:
        entity_id:
          - light.bathroom_lights
-   - delay: '00:05:00'
-   - service: light.turn_off
-     data:
-       entity_id:
-         - light.bathroom_lights
+
 
       #################################################################
       ## Automation - Bathroom Motion Switch Off
       #################################################################
 
-# - alias: Turn off Bathroom light 1 minutes after last movement
-# #trigger if no motion detected
-#   trigger:
-#    - platform: state
-#      entity_id: binary_sensor.door_sensor_bathroom
-#      to: 'off'
-#   condition:
-#     condition: state
-#     entity_id: binary_sensor.motion_bathroom
-#     state: 'off'
-#   action:
-#    - service: light.turn_off
-#      data:
-#        entity_id:
-#          - light.bathroom_lights
+- alias: bathroom motion
+  trigger:
+   - platform: state
+     entity_id: binary_sensor.door_sensor_bathroom
+     to: 'off'
+  action:
+   - service: light.turn_off
+     data:
+       entity_id:
+         - light.bathroom_lights
+
 
       #################################################################
       ## Automation - Living Room Motion Switch On
