@@ -1,0 +1,84 @@
+################################################################
+## Packages / tablet
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'tablet'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## tablet
+    ################################################
+
+    # sensor.disk_free_:
+    #   <<: *expose
+
+
+################################################
+## tablet - sensor
+################################################
+
+sensor:
+      #################################################################
+      ## tablet
+      #################################################################
+
+  - platform: rest
+    name: Bedroom
+    json_attributes:
+      - batteryLevel
+      - kioskMode
+      - screenBrightness
+      - motionDetectorState
+      - maintenanceMode
+      - appFreeMemory
+      - appUsedMemory
+      - totalFreeMemory
+      - totalUsedMemory
+      - hostname4
+      - ip4
+      - mac
+      - locationLatitude
+      - locationLongitude
+      - locationAltitude
+      - startUrl
+      - currentPage
+    resource: !secret bedroom_rest
+    value_template: '{{ value_json.isScreenOn }}'
+
+
+################################################
+## tablet - switch
+################################################
+
+switch:
+      #################################################################
+      ## tablet screen
+      #################################################################
+
+  - platform: command_line
+    switches:
+      bedroom_tablet_screen:
+        command_on: !secret tablet_screen_on
+        command_off: !secret tablet_screen_off
+        command_state: !secret tablet_screen_state
+        value_template: '{{ value == "on" }}'
+        friendly_name: Bedroom Tablet Screen
