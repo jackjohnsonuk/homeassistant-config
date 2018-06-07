@@ -236,38 +236,6 @@ automation:
     entity_id: light.dressing_room
 
       #################################################################
-      ## Automation - Bathroom Motion Switch On
-      #################################################################
-
-- alias: bathroom motion
-  trigger:
-   - platform: state
-     entity_id: binary_sensor.door_sensor_bathroom
-     to: 'on'
-  action:
-   - service: light.turn_on
-     data:
-       entity_id:
-         - light.bathroom_lights
-
-
-      #################################################################
-      ## Automation - Bathroom Motion Switch Off
-      #################################################################
-
-- alias: bathroom motion
-  trigger:
-   - platform: state
-     entity_id: binary_sensor.door_sensor_bathroom
-     to: 'off'
-  action:
-   - service: light.turn_off
-     data:
-       entity_id:
-         - light.bathroom_lights
-
-
-      #################################################################
       ## Automation - Living Room Motion Switch On
       #################################################################
 
