@@ -180,7 +180,7 @@ automation:
       ## Automation - Bathroom Motion Switch On
       #################################################################
 
-- alias: bathroom motion
+- alias: bathroom motion on
   trigger:
    - platform: state
      entity_id: input_boolean.bathroom_occupancy
@@ -193,7 +193,7 @@ automation:
       ## Automation - Bathroom Motion Switch Off
       #################################################################
 
-- alias: bathroom motion
+- alias: bathroom motion off
   trigger:
    - platform: state
      entity_id: input_boolean.bathroom_occupancy
