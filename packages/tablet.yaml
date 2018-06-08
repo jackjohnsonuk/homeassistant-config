@@ -65,20 +65,20 @@ sensor:
     value_template: '{{ value_json.isScreenOn }}'
 
 
-################################################
-## tablet - switch
-################################################
-
-switch:
-      #################################################################
-      ## tablet screen
-      #################################################################
-
-  - platform: command_line
-    switches:
-      bedroom_tablet_screen:
-        command_on: !secret tablet_screen_on
-        command_off: !secret tablet_screen_off
-        command_state: !secret tablet_screen_state
-        value_template: '{{ value == "on" }}'
-        friendly_name: Bedroom Tablet Screen
+# ################################################
+# ## tablet - switch
+# ################################################
+#
+# switch:
+#       #################################################################
+#       ## tablet screen
+#       #################################################################
+#
+#   - platform: command_line
+#     switches:
+#       bedroom_tablet_screen:
+#         command_on: !secret tablet_screen_on
+#         command_off: !secret tablet_screen_off
+#         command_state: !secret tablet_screen_state
+#         value_template: '{{ value == "on" }}'
+#         friendly_name: Bedroom Tablet Screen
