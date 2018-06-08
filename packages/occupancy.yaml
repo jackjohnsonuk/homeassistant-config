@@ -137,8 +137,8 @@ automation:
       minutes: 10
   condition:
     - condition: state
-      entity_id: 'binary_sensor.door_sensor_bathroom'
-      state: 'on'
+      entity_id: binary_sensor.door_sensor_bathroom
+      state: 'off'
   action:
   - data:
       entity_id: input_boolean.bathroom_occupancy
@@ -158,7 +158,7 @@ automation:
     to: 'off'
   condition:
     - condition: state
-      entity_id: 'light.bathroom_lights'
+      entity_id: light.bathroom_lights
       state: 'off'
   action:
   - data:
