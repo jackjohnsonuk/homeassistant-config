@@ -42,7 +42,7 @@ sensor:
       #################################################################
 
   - platform: rest
-    name: Bedroom
+    name: Tablet_Bedroom
     json_attributes:
       - batteryLevel
       - kioskMode
@@ -76,7 +76,7 @@ switch:
 
   - platform: command_line
     switches:
-      bedroom_tablet_screen:
+      tablet_bedroom_screen:
         command_on: !secret tablet_screen_on
         command_off: !secret tablet_screen_off
         command_state: !secret tablet_screen_state
