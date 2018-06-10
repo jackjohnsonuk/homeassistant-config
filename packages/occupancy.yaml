@@ -154,8 +154,8 @@ automation:
   trigger:
     platform: state
     entity_id: binary_sensor.door_sensor_bathroom
-    from: 'on'
-    to: 'off'
+    from: 'off'
+    to: 'on'
   condition:
     - condition: state
       entity_id: light.bathroom_lights
@@ -165,6 +165,21 @@ automation:
       entity_id: input_boolean.bathroom_occupancy
     service: input_boolean.turn_on
 
+- alias: 'Bathroom Occupany On 2'
+#Trigger
+  trigger:
+    platform: state
+    entity_id: binary_sensor.motion_bedroom
+    from: 'off'
+    to: 'on'
+  condition:
+    - condition: state
+      entity_id: light.bathroom_lights
+      state: 'off'
+  action:
+  - data:
+      entity_id: input_boolean.bathroom_occupancy
+    service: input_boolean.turn_on
 ################################################
 ## Occupancy - Input Boolean
 ################################################
