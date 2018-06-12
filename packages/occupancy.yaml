@@ -165,6 +165,7 @@ automation:
       entity_id: input_boolean.bathroom_occupancy
     service: input_boolean.turn_on
 
+
 - alias: 'Bathroom Occupany On 2'
 #Trigger
   trigger:
