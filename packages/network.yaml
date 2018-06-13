@@ -1,0 +1,52 @@
+################################################################
+## Packages / network
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'network'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## network
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## network - Automations
+################################################
+
+automation:
+
+      #################################################################
+      ## network
+      #################################################################
+
+  - alias: Notify for new devices
+    trigger:
+      platform: event
+      event_type: device_tracker_new_device
+    action:
+      - service: notify.pushover
+        data_template:
+          message: >
+            New device:
+            {{trigger.event.data.host_name}}
+            ({{trigger.event.data.entity_id}})
+          title: New device
