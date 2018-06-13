@@ -117,7 +117,7 @@ automation:
       data_template:
         sonos_entity: media_player.bedroom_speaker
         volume: 0.4
-        message: 'How about taking the Motobike in today?'
+        message: 'How about taking the Motorbike in today?'
         delay: '00:00:10'
 
 
