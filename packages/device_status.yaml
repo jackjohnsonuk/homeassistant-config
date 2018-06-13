@@ -602,7 +602,7 @@ group:
       - sensor.status_fire_tv_1
       - sensor.status_fire_tv_2
       - sensor.status_fire_tv_3
-      - sensor.status_tv_living_room
+      # - sensor.status_tv_living_room
 
       ################################################
       ## Device Status -  Group - CCTV
