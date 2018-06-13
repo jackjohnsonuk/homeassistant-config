@@ -1,0 +1,48 @@
+################################################################
+## Packages / Pushover
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Pushover'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## Pushover
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Notify
+################################################
+
+notify:
+
+      #################################################################
+      ## Pushover - credentials
+      #################################################################
+
+  - name: pushover
+    platform: pushover
+    api_key: !secret pushover_api
+    user_key: !secret pushover_user
