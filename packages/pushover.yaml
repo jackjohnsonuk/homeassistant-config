@@ -33,7 +33,7 @@ homeassistant:
     #   friendly_name: "Bob"
 
 ################################################
-## Notify
+## Notify - pushover
 ################################################
 
 notify:
@@ -46,3 +46,24 @@ notify:
     platform: pushover
     api_key: !secret pushover_api
     user_key: !secret pushover_user
+
+################################################
+## Automation - pushover
+################################################
+
+automation:
+
+      #################################################################
+      ## Pushover - credentials
+      #################################################################
+
+- alias: plants need watering
+  trigger:
+   - platform: numeric_state
+     entity_id: sensor.plant_bathroom_moisture
+     below: 31
+  action:
+   - service: notify.pushover
+     data:
+       message: Your plants really need a water, there getting very dry!
+       title: Urgent Plant Care
