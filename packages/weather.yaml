@@ -36,36 +36,6 @@ homeassistant:
       friendly_name: Current Temperature
       <<: *expose
 
-    script.upstairs_tv_power:
-      friendly_name: TV Power
-      icon: mdi:power
-      <<: *expose
-
-    script.upstairs_tv_up:
-      friendly_name: Volume Up
-      icon: mdi:volume-high
-      <<: *expose
-
-    script.upstairs_tv_down:
-      friendly_name: Volume Down
-      icon: mdi:volume-medium
-      <<: *expose
-
-    script.living_room_tv_power:
-      friendly_name: TV Power
-      icon: mdi:power
-      <<: *expose
-
-    script.living_room_tv_up:
-      friendly_name: Volume Up
-      icon: mdi:volume-high
-      <<: *expose
-
-    script.living_room_tv_down:
-      friendly_name: Volume Down
-      icon: mdi:volume-medium
-      <<: *expose
-
 ################################################
 ## Weather - Sensor's
 ################################################
