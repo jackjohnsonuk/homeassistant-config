@@ -64,10 +64,6 @@ automation:
       - service: switch.turn_off
         entity_id: switch.power_bedroom_humidifier
 
-
-
-
-
         #################################################################
         ## Perfect Prep Lights Up
         #################################################################
@@ -113,19 +109,19 @@ automation:
 ## Power Monitor - Sensor
 ################################################
 
-# sensor:
+sensor:
 
       #################################################################
-      ## MQTT Monitor of power usage - Perfect Prep
+      ## MQTT Monitor of power usage - Bedroom Humidifier
       #################################################################
 
-# - platform: mqtt
-#   name: "Power Perfect Prep"
-#   state_topic: "smartthings/Perfect Prep/power/state"
-#   unit_of_measurement: "kw"
+- platform: mqtt
+  name: "Power Bedroom Humidifier"
+  state_topic: "smartthings/Perfect Prep/power/state"
+  unit_of_measurement: "kw"
 
 ################################################
-## Perfect Prep - Switches
+## Power - Switches
 ################################################
 
 switch:
