@@ -131,7 +131,6 @@ automation:
   trigger:
     platform: state
     entity_id: binary_sensor.motion_bedroom
-    from: 'on'
     to: 'off'
     for:
       minutes: 10
