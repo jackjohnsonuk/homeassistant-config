@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Xiaomi
+## Packages / vacuum
 ################################################################
 
 ################################################
@@ -14,17 +14,17 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Xiaomi'
+        package: 'vacuum'
 
       expose: &expose
         <<: *customize
         expose: false
 
     ################################################
-    ## Xiaomi
+    ## vacuum
     ################################################
 
-    vacuum.xiaomi_vacuum_cleaner:
+    vacuum.vacuum_vacuum_cleaner:
       <<: *customize
       friendly_name: "Bob"
 
@@ -33,6 +33,6 @@ homeassistant:
 ################################################
 
 vacuum:
-  - platform: xiaomi_miio
+  - platform: vacuum_miio
     host: !secret vacuum_ip
     token: !secret vacuum_token
