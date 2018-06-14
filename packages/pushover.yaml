@@ -61,7 +61,7 @@ automation:
   trigger:
    - platform: numeric_state
      entity_id: sensor.plant_bathroom_moisture
-     below: 31
+     below: 28
   action:
    - service: notify.pushover
      data:
