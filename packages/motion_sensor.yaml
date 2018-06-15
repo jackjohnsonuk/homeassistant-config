@@ -25,8 +25,7 @@ homeassistant:
     ################################################
 
     sensor.last_motion:
-      custom_ui_state_card: state-card-text
-
+      <<: *customize
 
 ################################################
 ## Motion Sensor - Binary Sensor's
