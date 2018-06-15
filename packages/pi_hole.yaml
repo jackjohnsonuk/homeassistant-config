@@ -39,7 +39,8 @@ sensor:
       #################################################################
 
   - platform: pi_hole
-    host: 192.168.1.157
+    host: !secret pi_hole_host
+    location: admin
     ssl: false
     monitored_conditions:
       - ads_blocked_today
