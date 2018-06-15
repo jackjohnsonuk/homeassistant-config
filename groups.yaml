@@ -19,7 +19,7 @@ default_view:
     - group.weather_card
     - camera.front_door
     - media_player.shed_speaker
-    - group.motion
+    - sensor.last_motion
     - group.family
     - vacuum.xiaomi_vacuum_cleaner
     - group.bins
@@ -155,6 +155,7 @@ Settings:
     - group.tv_status
     - group.misc_status
     - group.system_monitor
+    - group.motion
 
 
 #################################################################
