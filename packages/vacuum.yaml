@@ -24,7 +24,7 @@ homeassistant:
     ## vacuum
     ################################################
 
-    vacuum.vacuum_vacuum_cleaner:
+    vacuum.xiaomi_vacuum_cleaner:
       <<: *customize
       friendly_name: "Bob"
 
