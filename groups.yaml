@@ -198,6 +198,7 @@ last_motion:
   name: Last Motion
   entities:
     - sensor.last_motion
+  custom_ui_state_card: value_only
 
       #################################################################
       ## Kitchen Motion Sensor Card
