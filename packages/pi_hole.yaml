@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Pi-Hole
+## Packages / Pi_Hole
 ################################################################
 
 ################################################
@@ -14,14 +14,14 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Pi-Hole'
+        package: 'Pi_Hole'
 
       expose: &expose
         <<: *customize
         expose: false
 
     ################################################
-    ## Pi-Hole
+    ## Pi_Hole
     ################################################
 
     # vacuum.xiaomi_vacuum_cleaner:
@@ -29,7 +29,7 @@ homeassistant:
     #   friendly_name: "Bob"
 
 ################################################
-## Pi-Hole - Sensor
+## Pi_Hole - Sensor
 ################################################
 
 sensor:
