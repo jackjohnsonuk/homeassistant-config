@@ -19,7 +19,7 @@ default_view:
     - group.weather_card
     - camera.front_door
     - media_player.shed_speaker
-    - sensor.last_motion
+    - group.last_motion
     - group.family
     - vacuum.xiaomi_vacuum_cleaner
     - group.bins
@@ -27,18 +27,6 @@ default_view:
     - group.birthday_countdown
     - plant.bathroom_plant
     # - group.test
-
-
-
-
-test:
-  name: test
-  entities:
-    - binary_sensor.bedroom_motion__test
-    - light.bedroom_lights__test
-    - sensor.bedroom_humiditytest
-    - sensor.bedroom_temptest
-    - sensor.bedroom_brighttest
 
 
       #################################################################
@@ -202,6 +190,14 @@ family:
    - device_tracker.lara_lara
    - device_tracker.tile_keys
 
+      #################################################################
+      ## Last Motion Sensor Card
+      #################################################################
+
+last_motion:
+  name: Last Motion
+  entities:
+    - sensor.last_motion
 
       #################################################################
       ## Kitchen Motion Sensor Card
