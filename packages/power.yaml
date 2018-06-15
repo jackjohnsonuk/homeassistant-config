@@ -139,3 +139,11 @@ switch:
   qos: 0
   optimistic: false
   retain: false
+
+      #################################################################
+      ## MQTT Power Control
+      #################################################################
+
+- platform: tplink
+  host: 192.168.1.220
+  name: Garden lights temp
