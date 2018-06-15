@@ -24,9 +24,9 @@ homeassistant:
     ## Motion Sensor
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.last_motion:
+      <<: *customize
+      custom_ui_state_card: value_only
 
 ################################################
 ## Motion Sensor - Binary Sensor's
@@ -355,6 +355,6 @@ sensor:
           {%- set pirs = [states.binary_sensor.motion_under_stairs_cupboard, states.binary_sensor.motion_living_room, states.binary_sensor.motion_living_room_camera, states.binary_sensor.motion_hallway, states.binary_sensor.motion_dressing_room, states.binary_sensor.motion_bedroom, states.binary_sensor.motion_bathroom, states.binary_sensor.motion_front_door, states.binary_sensor.motion_kitchen] %}
           {% for pir in pirs %}
             {% if as_timestamp(pir.last_changed) == as_timestamp(pirs | map(attribute='last_changed') | max) %}
-              {{ pir.name }} {{pir.last_changed.astimezone(now().tzinfo).strftime('%d-%m %X')}}
+              {{ pir.name }} {{pir.last_changed.astimezone(now().tzinfo).strftime('%X')}}
             {% endif %}
           {% endfor %}
