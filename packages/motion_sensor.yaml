@@ -349,7 +349,7 @@ automation:
 sensor:
   - platform: template
     sensors:
-      template_last_motion:
+      last_motion:
         friendly_name: 'Last Motion Seen'
         value_template: >
           {%- set pirs = [states.binary_sensor.motion_under_stairs_cupboard, states.binary_sensor.motion_living_room, states.binary_sensor.motion_living_room_camera, states.binary_sensor.motion_hallway, states.binary_sensor.motion_dressing_room, states.binary_sensor.motion_bedroom, states.binary_sensor.motion_bathroom, states.binary_sensor.motion_front_door, states.binary_sensor.motion_kitchen] %}
