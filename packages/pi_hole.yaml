@@ -40,3 +40,6 @@ sensor:
 
   - platform: pi_hole
     host: !secret pi_hole_host
+    location: admin
+    ssl: true
+    
