@@ -24,15 +24,10 @@ homeassistant:
     ## Motion Sensor
     ################################################
 
-<<<<<<< HEAD
     sensor.last_motion:
       <<: *customize
       custom_ui_state_card: state-card-value_only
-=======
-    # sensor.last_motion:
-    #   <<: *customize
-    #   custom_ui_state_card: value_only
->>>>>>> 2038b69abfd725923fa8746d27ae008ef36e590a
+
 
 ################################################
 ## Motion Sensor - Binary Sensor's
