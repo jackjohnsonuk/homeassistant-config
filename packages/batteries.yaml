@@ -37,6 +37,7 @@ homeassistant:
       <<: *customize
       friendly_name: "Motion Sensor - Bedroom - Battery"
 
+
     ################################################
     ## Batteries - Door Sensor
     ################################################
@@ -48,6 +49,10 @@ homeassistant:
     sensor.door_sensor_bathroom:
       <<: *customize
       friendly_name: "Door Sensor - Bathroom - Battery"
+
+    sensor.door_sensor_dressing_room_window:
+      <<: *customize
+      friendly_name: "Door Sensor - Dressing Room Window - Battery"
 
 
 ################################################
@@ -82,4 +87,9 @@ sensor:
   - platform: mqtt
     name: door_sensor_bathroom
     state_topic: "smartthings/Door Sensor - Bathroom/battery/state"
+    unit_of_measurement: '%'
+
+  - platform: mqtt
+    name: door_sensor_dressing_room_window
+    state_topic: "smartthings/Door Sensor - Dressing Room Window/battery/state"
     unit_of_measurement: '%'
