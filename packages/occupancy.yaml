@@ -130,7 +130,7 @@ automation:
 #Trigger
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_bedroom
+    entity_id: binary_sensor.motion_bathroom
     to: 'off'
     for:
       minutes: 10
@@ -169,7 +169,7 @@ automation:
 #Trigger
   trigger:
     platform: state
-    entity_id: binary_sensor.motion_bedroom
+    entity_id: binary_sensor.motion_bathroom
     from: 'off'
     to: 'on'
   condition:
