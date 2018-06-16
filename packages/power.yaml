@@ -71,7 +71,7 @@ automation:
   - alias: garden lights on
     trigger:
       platform: sun
-      event: sunrise
+      event: sunset
       offset: '+00:00:00'
     action:
       - service: switch.turn_on
