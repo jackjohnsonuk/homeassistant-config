@@ -104,8 +104,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Bathroom"
-  state_topic: "smartthings/Motion - Bathroom/motion/state"
-  command_topic: "smartthings/Motion - Bathroom/motion/state"
+  state_topic: "smartthings/Motion Bathroom/motion/state"
+  command_topic: "smartthings/Motion Bathroom/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
