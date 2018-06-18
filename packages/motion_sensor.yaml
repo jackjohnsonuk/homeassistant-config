@@ -241,7 +241,7 @@ automation:
 - alias: Living room motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.motion_living_room_camera
+     entity_id: input_boolean.living_occupancy
      to: 'on'
   condition:
     condition: and
@@ -260,17 +260,9 @@ automation:
 
 - alias: Turn off living room light 2 minutes after last movement
   trigger:
-    platform: time
-    minutes: '/2'
-    seconds: 00
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_living_room_camera
-        state: 'off'
-        for:
-         seconds: 120
+   - platform: state
+     entity_id: input_boolean.living_occupancy
+     to: 'off'
   action:
    - service: light.turn_off
      data:

@@ -42,30 +42,53 @@ automation:
       ## Living Room Occupancy
       #################################################################
 
-# - alias: Occupancy - Living turn on if motion detected
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_living_room_camera
-#       from: 'off'
-#       to: 'on'
-#   action:
-#     - service: input_boolean.turn_on
-#       entity_id: input_boolean.living_occupancy
+- alias: Occupancy - Living turn on if motion detected
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_living_room_camera
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: media_player.living_room_tv
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: media_player.living_room_fire_tv
+      from: 'off'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.living_occupancy
 
       #################################################################
       ## Reset Living Room Occupancy
       #################################################################
 
-# - alias: Occupancy - Living turn off after 30min of no motion
-#   trigger:
-#     - platform: state
-#       entity_id: binary_sensor.motion_living_room_camera
-#       to: 'off'
-#       for:
-#         minutes: 30
-#   action:
-#     - service: input_boolean.turn_off
-#       entity_id: input_boolean.living_occupancy
+- alias: Occupancy - Living turn off after 30min of no motion
+  trigger:
+    platform: time
+    minutes: '/2'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_living_room_camera
+        state: 'off'
+        for:
+         seconds: 120
+      - condition: state
+        entity_id: media_player.living_room_tv
+        state: 'off'
+        for:
+         seconds: 120
+      - condition: state
+        entity_id: media_player.living_room_fire_tv
+        state: 'off'
+        for:
+         seconds: 120
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.living_occupancy
 
       #################################################################
       ## Kitchen Occupancy
