@@ -25,6 +25,8 @@ http:
   # ssl_certificate: !secret ssl_certificate
   # ssl_key: !secret ssl_key
   api_password: !secret http_password
+  ip_ban_enabled: true
+  login_attempts_threshold: 3
   # base_url: !secret http_base_url
   # login_attempts_threshold: 3
 
