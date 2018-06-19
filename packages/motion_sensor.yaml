@@ -231,8 +231,8 @@ automation:
     for:
      seconds: 120
   action:
-    service: light.turn_off
-    entity_id: light.dressing_room
+   - service: light.turn_off
+     entity_id: light.dressing_room
 
       #################################################################
       ## Automation - Living Room Motion Switch On
