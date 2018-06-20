@@ -28,6 +28,7 @@ homeassistant:
     #   <<: *customize
     #   friendly_name: "Bob"
 
+
 ################################################
 ## Presence Detection - Input Select
 ################################################
@@ -101,24 +102,24 @@ automations:
 - alias: Mark person as just arrived
   trigger:
     - platform: state
-      entity_id: device_tracker.jack
-      from: 'not_home'
-      to: 'home'
+      entity_id: binary_sensor.jack_home
+      from: 'off'
+      to: 'on'
     - platform: state
-      entity_id: group.helen
+      entity_id: binary_sensor.lara_home
       from: 'not_home'
       to: 'home'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.jack' %}
+          {% if trigger.entity_id == 'binary_sensor.jack_home' %}
             input_select.jack_status_dropdown
           {% else %}
             input_select.lara_status_dropdown
           {% endif %}
         option: >
-          {% if trigger.entity_id == 'device_tracker.jack' %}
+          {% if trigger.entity_id == 'binary_sensor.jack_home' %}
             {% if states.input_select.jack_status_dropdown.state == 'Just Left' %}
               Home
             {% else %}
@@ -167,18 +168,18 @@ automations:
 - alias: Mark person as just left
   trigger:
     - platform: state
-      entity_id: device_tracker.jack
-      from: 'home'
-      to: 'not_home'
+      entity_id: binary_sensor.jack_home
+      from: 'on'
+      to: 'off'
     - platform: state
-      entity_id: group.lara
-      from: 'home'
-      to: 'not_home'
+      entity_id: binary_sensor.lara_home
+      from: 'on'
+      to: 'off'
   action:
     - service: input_select.select_option
       data_template:
         entity_id: >
-          {% if trigger.entity_id == 'device_tracker.jack' %}
+          {% if trigger.entity_id == 'binary_sensor.jack_home' %}
             input_select.jack_status_dropdown
           {% else %}
             input_select.lara_status_dropdown
