@@ -1,0 +1,232 @@
+################################################################
+## Packages / presence detection
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Presence_Detection'
+
+      expose: &expose
+        <<: *customize
+        expose: false
+
+    ################################################
+    ## Presence Detection
+    ################################################
+
+    # vacuum.xiaomi_vacuum_cleaner:
+    #   <<: *customize
+    #   friendly_name: "Bob"
+
+################################################
+## Presence Detection - Input Select
+################################################
+
+
+input_select:
+
+      #################################################################
+      ## Jack Status
+      #################################################################
+
+  jack_status_dropdown:
+    name: Jack
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+      #################################################################
+      ## Lara Status
+      #################################################################
+
+  lara_status_dropdown:
+    name: Lara
+    options:
+      - Home
+      - Just Arrived
+      - Just Left
+      - Away
+      - Extended Away
+    initial: Home
+
+################################################
+## Presence Detection - Sensor
+################################################
+
+sensor:
+
+      #################################################################
+      ## Jack Status
+      #################################################################
+
+  - platform: template
+    sensors:
+      phil_status:
+        value_template: '{{ states.input_select.jack_status_dropdown.state }}'
+        friendly_name: 'Jack'
+
+      #################################################################
+      ## Lara Status
+      #################################################################
+
+  - platform: template
+    sensors:
+      phil_status:
+        value_template: '{{ states.input_select.lara_status_dropdown.state }}'
+        friendly_name: 'Lara'
+
+################################################
+## Presence Detection - Automation
+################################################
+
+automations:
+
+      #################################################################
+      ## Jack arrived
+      #################################################################
+- alias: Mark person as just arrived
+  trigger:
+    - platform: state
+      entity_id: device_tracker.jack
+      from: 'not_home'
+      to: 'home'
+    - platform: state
+      entity_id: group.helen
+      from: 'not_home'
+      to: 'home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.jack' %}
+            input_select.jack_status_dropdown
+          {% else %}
+            input_select.lara_status_dropdown
+          {% endif %}
+        option: >
+          {% if trigger.entity_id == 'device_tracker.jack' %}
+            {% if states.input_select.jack_status_dropdown.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% else %}
+            {% if states.input_select.lara_status_dropdown.state == 'Just Left' %}
+              Home
+            {% else %}
+              Just Arrived
+            {% endif %}
+          {% endif %}
+
+
+- alias: Mark person as home
+  trigger:
+    - platform: state
+      entity_id: input_select.jack_status_dropdown
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.lara_status_dropdown
+      to: 'Just Arrived'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.jack_status_dropdown
+      from: 'Just Left'
+      to: 'Just Arrived'
+    - platform: state
+      entity_id: input_select.lara_status_dropdown
+      from: 'Just Left'
+      to: 'Just Arrived'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.jack_status_dropdown' %}
+            input_select.jack_status_dropdown
+          {% else %}
+            input_select.lara_status_dropdown
+          {% endif %}
+        option: Home
+
+- alias: Mark person as just left
+  trigger:
+    - platform: state
+      entity_id: device_tracker.jack
+      from: 'home'
+      to: 'not_home'
+    - platform: state
+      entity_id: group.lara
+      from: 'home'
+      to: 'not_home'
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'device_tracker.jack' %}
+            input_select.jack_status_dropdown
+          {% else %}
+            input_select.lara_status_dropdown
+          {% endif %}
+        option: Just Left
+
+- alias: Mark person as away
+  trigger:
+    - platform: state
+      entity_id: input_select.jack_status_dropdown
+      to: 'Just Left'
+      for:
+        minutes: 10
+    - platform: state
+      entity_id: input_select.lara_status_dropdown
+      to: 'Just Left'
+      for:
+        minutes: 10
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.jack_status_dropdown' %}
+            input_select.jack_status_dropdown
+          {% else %}
+            input_select.lara_status_dropdown
+          {% endif %}
+        option: Away
+
+- alias: Mark person as extended away
+  trigger:
+    - platform: state
+      entity_id: input_select.jack_status_dropdown
+      to: 'Away'
+      for:
+        hours: 24
+    - platform: state
+      entity_id: input_select.lara_status_dropdown
+      to: 'Away'
+      for:
+        hours: 24
+  action:
+    - service: input_select.select_option
+      data_template:
+        entity_id: >
+          {% if trigger.entity_id == 'input_select.jack_status_dropdown' %}
+            input_select.jack_status_dropdown
+          {% else %}
+            input_select.lara_status_dropdown
+          {% endif %}
+        option: Extended Away
