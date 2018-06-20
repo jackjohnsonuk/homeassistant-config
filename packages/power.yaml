@@ -84,7 +84,7 @@ automation:
   - alias: garden lights off
     trigger:
       platform: time
-      at: '00:30:00'
+      at: '23:30:00'
     action:
       - service: switch.turn_off
         entity_id: switch.garden_lights_temp
