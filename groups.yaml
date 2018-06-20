@@ -185,8 +185,8 @@ living_room_motion:
 family:
   name: Family
   entities:
-   - device_tracker.jack_jack
-   - device_tracker.lara_lara
+   - sensor.jack_status
+   - sensor.lara_status
    - device_tracker.tile_keys
 
       #################################################################

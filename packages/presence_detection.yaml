@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Presence_Detection'
+        package: 'Presence Detection'
 
       expose: &expose
         <<: *customize
@@ -24,10 +24,13 @@ homeassistant:
     ## Presence Detection
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.jack_status:
+      <<: *customize
+      entity_picture: /local/jack.jpg
 
+    sensor.lara_status:
+      <<: *customize
+      entity_picture: /local/lara.jpg
 
 ################################################
 ## Presence Detection - Input Select
@@ -63,6 +66,23 @@ input_select:
       - Away
       - Extended Away
     initial: Home
+
+################################################
+## Presence Detection - Groups
+################################################
+
+group:
+
+      #################################################################
+      ## Family Group
+      #################################################################
+
+people_status:
+  name: People Status
+  entities:
+    - sensor.jack_status
+    - sensor.lara_status
+
 
 ################################################
 ## Presence Detection - Sensor
