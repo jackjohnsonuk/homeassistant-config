@@ -67,21 +67,6 @@ input_select:
       - Extended Away
     initial: Home
 
-################################################
-## Presence Detection - Groups
-################################################
-
-group:
-
-      #################################################################
-      ## Family Group
-      #################################################################
-
-people_status:
-  name: People Status
-  entities:
-    - sensor.jack_status
-    - sensor.lara_status
 
 
 ################################################
@@ -96,7 +81,7 @@ sensor:
 
   - platform: template
     sensors:
-      phil_status:
+      jack_status:
         value_template: '{{ states.input_select.jack_status_dropdown.state }}'
         friendly_name: 'Jack'
 
@@ -106,7 +91,7 @@ sensor:
 
   - platform: template
     sensors:
-      phil_status:
+      lara_status:
         value_template: '{{ states.input_select.lara_status_dropdown.state }}'
         friendly_name: 'Lara'
 
