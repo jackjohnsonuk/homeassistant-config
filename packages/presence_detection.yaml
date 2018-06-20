@@ -99,7 +99,7 @@ sensor:
 ## Presence Detection - Automation
 ################################################
 
-automations:
+automation:
 
       #################################################################
       ## Jack arrived
