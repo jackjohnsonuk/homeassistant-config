@@ -4,8 +4,10 @@ views:
   name: Home
   cards:
     - type: picture-glance
-      image:
+      image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       title: Outdoors
+      url: https://google.com/
+      link: https://google.com/
       entities:
         - binary_sensor.motion_front_door
         - switch.garden_lights_temp
