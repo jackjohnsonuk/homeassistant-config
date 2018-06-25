@@ -36,6 +36,10 @@ homeassistant:
       friendly_name: Current Temperature
       <<: *expose
 
+    weather.yahoo_home:
+      friendly_name: Home
+      <<: *expose
+
 ################################################
 ## Weather - Weather
 ################################################
