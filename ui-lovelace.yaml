@@ -4,14 +4,64 @@ views:
   name: Home
   cards:
     - type: camera-preview
-      entity: front_door
-    - type: glance
-      title: Today
+      entity: camera.front_door
+    - type: entities
+      title: Home
       entities:
         - sensor.last_motion
-        - sensor.waze_travel_time
+        - sensor.jack_home_to_work
+        - sensor.recycling_pickup_day
+        - sensor.rubbish_pickup_day
+    - type: entities
+      title: Birthdays
+      entities:
+        - input_label.jack_birthday_days2go
+        - input_label.lara_birthday_days2go
+        - input_label.mollie_birthday_days2go
+        - input_label.kitten_birthday_days2go
+    - type: plant-status
+      entity: plant.bathroom_plant
+    - type: entities
+      title: Vacuum
+      entities:
+        - vacuum.xiaomi_vacuum_cleaner
+    - type: entities
+      title: Circulation Lights
+      entities:
+        - light.hallway_light
+        - light.pantry_lights
+        - light.bathroom_lights
+    - type: entities
+      title: Climate
+      entities:
+        - climate.kitchen
+    - type: media-control
+      entity: media_player.shed_speaker
+
+
+
 - tab_icon: mdi:pot-mix
   name: Kitchen
+  cards:
+    - type: media-control
+      entity: media_player.kitchen_speaker
+    - type: camera-preview
+      entity: camera.kitchen
+    - type: entities
+      title: Dishwasher
+      entities:
+        - input_select.dishwasher_status
+    - type: entities
+      title: Motion
+      entities:
+        - binary_sensor.motion_kitchen
+
+
+
+
+
+
+
 - tab_icon: mdi:sofa
   name: Living Room
 - tab_icon: mdi:television

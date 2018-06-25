@@ -11,20 +11,20 @@ default_view:
   view: yes
   icon: mdi:home
   entities:
-    - group.circulation_light
-    - climate.kitchen
+    # - group.circulation_light
+    # - climate.kitchen
     # - sensor.rain_average_mean
-    - group.time_travel_card
+    # - group.time_travel_card
     - group.weather_card
-    - camera.front_door
-    - media_player.shed_speaker
-    - group.last_motion
+    # - camera.front_door
+    # - media_player.shed_speaker
+    # - group.last_motion
     - group.family
-    - vacuum.xiaomi_vacuum_cleaner
-    - group.bins
-    - sensor.stats_mean
-    - group.birthday_countdown
-    - plant.bathroom_plant
+    # - vacuum.xiaomi_vacuum_cleaner
+    # - group.bins
+    # - sensor.stats_mean
+    # - group.birthday_countdown
+    # - plant.bathroom_plant
     - switch.garden_lights_temp
 
 
@@ -37,12 +37,12 @@ Kitchen:
   view: yes
   icon: mdi:pot-mix
   entities:
-    - media_player.kitchen
-    - media_player.kitchen_speaker
-    - camera.kitchen
+    # - media_player.kitchen
+    # - media_player.kitchen_speaker
+    # - camera.kitchen
 #    - camera.kitchen2
-    - group.Kitchen_motion_sensor
-    - group.group_dishwasher
+    # - group.Kitchen_motion_sensor
+    # - group.group_dishwasher
 
       #################################################################
       ## Living Room
