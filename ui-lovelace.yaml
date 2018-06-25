@@ -3,6 +3,24 @@ views:
 - tab_icon: mdi:home
   name: Home
   cards:
+    - type: picture-glance
+      image:
+      title: Outdoors
+      entities:
+        - binary_sensor.motion_front_door
+        - switch.garden_lights_temp
+        - camera.front_door
+
+
+# "zones"
+# outdoor
+# kitchen
+# living Room
+# front Room
+# bedroom
+# spare Room
+# Circulation areas
+
     - type: camera-preview
       entity: camera.front_door
     - type: entities
