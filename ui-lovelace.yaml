@@ -6,12 +6,39 @@ views:
     - type: picture-glance
       image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       title: Outdoors
-      url: https://google.com/
-      link: https://google.com/
       entities:
         - binary_sensor.motion_front_door
         - switch.garden_lights_temp
         - camera.front_door
+    - type: picture-glance
+      image:
+      title: Kitchen
+      entities:
+        - binary_sensor.motion_kitchen
+        - climate.kitchen
+        - input_select.dishwasher_status
+        - camera.kitchen
+    - type: picture-glance
+      image:
+      title: Living Room
+      entities:
+        - Living_room_lights
+        - camera.living_room
+        - switch.scentsy_living_room
+        - binary_sensor.motion_living_room_camera
+    - type: picture-glance
+      image:
+      title: Front Room
+      entities:
+        - light.front_room_main_light
+    - type: picture-glance
+      image:
+      title: Bedroom
+      entities:
+        - binary_sensor.motion_bedroom
+        - switch.power_bedroom_humidifier
+        - switch.scentsy_bedroom
+        - group.Bedroom_lights
 
 
 # "zones"
@@ -111,12 +138,6 @@ views:
       entity: media_player.front_room_speaker
     - type: media-control
       entity: media_player.front_room_tv
-    - type: glance
-      title: Front Room
-      entities:
-        - binary_sensor.motion_under_stairs_cupboard
-        - binary_sensor.motion_living_room_camera
-        - switch.scentsy_living_room
     - type: entities
       title: Lights
       entities:
