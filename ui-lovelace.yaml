@@ -22,7 +22,7 @@ views:
       image: https://ksassets.timeincuk.net/wp/uploads/sites/56/2017/12/grey-neutral-living-room-1920x1152.jpg
       title: Living Room
       entities:
-        - Living_room_lights
+        - light.living_room_side_lights
         - camera.living_room
         - switch.scentsy_living_room
         - binary_sensor.motion_living_room_camera
@@ -38,7 +38,7 @@ views:
         - binary_sensor.motion_bedroom
         - switch.power_bedroom_humidifier
         - switch.scentsy_bedroom
-        - group.Bedroom_lights
+        - light.bedroom_main_light
 
 
 # "zones"
