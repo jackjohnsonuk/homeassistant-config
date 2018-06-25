@@ -74,19 +74,3 @@ google:
 group: !include groups.yaml
 logger: !include logger.yaml
 frontend: !include frontend.yaml
-views:
-  - tab_icon: mdi:home
-    name: Home
-    cards:
-      - type: camera-preview
-        entity: front_door
-  - tab_icon: mdi:pot-mix
-    name: Kitchen
-  - tab_icon: mdi:sofa
-    name: Living Room
-  - tab_icon: mdi:television
-    name: Front Room
-  - tab_icon: mdi:hotel
-    name: Bedroom
-  - tab_icon: mdi:settings
-    name: Settings

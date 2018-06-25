@@ -1,0 +1,22 @@
+name: Ochard Cottages
+views:
+- tab_icon: mdi:home
+  name: Home
+  cards:
+    - type: camera-preview
+      entity: front_door
+    - type: glance
+      title: Today
+      entities:
+        - sensor.last_motion
+        - sensor.waze_travel_time
+- tab_icon: mdi:pot-mix
+  name: Kitchen
+- tab_icon: mdi:sofa
+  name: Living Room
+- tab_icon: mdi:television
+  name: Front Room
+- tab_icon: mdi:hotel
+  name: Bedroom
+- tab_icon: mdi:settings
+  name: Settings
