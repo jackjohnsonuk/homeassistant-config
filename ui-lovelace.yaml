@@ -11,7 +11,7 @@ views:
         - switch.garden_lights_temp
         - camera.front_door
     - type: picture-glance
-      image:
+      image: https://www.homebase.co.uk/-/media/uk%20images/homebase/kitchens/steamer/steamer_earl_grey_highres_832x544.jpg
       title: Kitchen
       entities:
         - binary_sensor.motion_kitchen
@@ -19,7 +19,7 @@ views:
         - input_select.dishwasher_status
         - camera.kitchen
     - type: picture-glance
-      image:
+      image: https://ksassets.timeincuk.net/wp/uploads/sites/56/2017/12/grey-neutral-living-room-1920x1152.jpg
       title: Living Room
       entities:
         - Living_room_lights
@@ -27,12 +27,12 @@ views:
         - switch.scentsy_living_room
         - binary_sensor.motion_living_room_camera
     - type: picture-glance
-      image:
+      image: https://st.hzcdn.com/simgs/4602895305854f2b_8-9930/home-design.jpg
       title: Front Room
       entities:
         - light.front_room_main_light
     - type: picture-glance
-      image:
+      image: https://images2.roomstogo.com/is/image/roomstogo/br_rm_belmar_black_pan~Belmar-Black-5-Pc-Queen-Bedroom.jpeg?$pdp_gallery_945$
       title: Bedroom
       entities:
         - binary_sensor.motion_bedroom
