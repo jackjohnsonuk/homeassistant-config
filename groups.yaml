@@ -25,7 +25,7 @@ default_view:
     # - sensor.stats_mean
     # - group.birthday_countdown
     # - plant.bathroom_plant
-    - switch.garden_lights_temp
+    # - switch.garden_lights_temp
 
 
       #################################################################
@@ -53,13 +53,13 @@ Living_Room:
   view: yes
   icon: mdi:sofa
   entities:
-    - group.Living_room_lights
-    - media_player.living_room_speaker
-    - media_player.living_room_fire_tv
-    - group.living_room_tv
-    - camera.living_room
-    - group.living_room_motion
-    - switch.scentsy_living_room
+    # # - group.Living_room_lights
+    # - media_player.living_room_speaker
+    # - media_player.living_room_fire_tv
+    # - group.living_room_tv
+    # # - camera.living_room
+    # # - group.living_room_motion
+    # - switch.scentsy_living_room
 
       #################################################################
       ## Front Room
@@ -70,10 +70,10 @@ Front_Room:
   view: yes
   icon: mdi:television
   entities:
-    - group.Front_room_lights
-    - media_player.front_room_speaker
-    - group.Front_Room_Scentsy
-    - media_player.front_room_tv
+    # - group.Front_room_lights
+    # - media_player.front_room_speaker
+    # - group.Front_Room_Scentsy
+    # - media_player.front_room_tv
 
       #################################################################
       ## Master Bedroom
@@ -84,16 +84,16 @@ Bedroom:
   view: yes
   icon: mdi:hotel
   entities:
-    - group.bedroom_lights
-    - media_player.bedroom_fire_tv
-    - media_player.bedroom_tv
-    - media_player.bedroom_speaker
-    - switch.scentsy_bedroom
-    - switch.power_bedroom_humidifier
-    - group.Dressing_Room
-    - group.bedroom_tv
-    - group.group_bedside_lights
-    - group.Bedroom_motion_sensor
+    # - group.bedroom_lights
+    # - media_player.bedroom_fire_tv
+    # - media_player.bedroom_tv
+    # - media_player.bedroom_speaker
+    # - switch.scentsy_bedroom
+    # - switch.power_bedroom_humidifier
+    # - group.Dressing_Room
+    # - group.bedroom_tv
+    # - group.group_bedside_lights
+    # - group.Bedroom_motion_sensor
 
       #################################################################
       ## 3D Printer
@@ -111,19 +111,19 @@ Bedroom:
       ## Links
       #################################################################
 
-Links:
-  name: Links
-  view: yes
-  icon: mdi:link
-  entities:
-    - weblink.octoprint
-    - weblink.plex
-    - weblink.radarr
-    - weblink.sonarr
-    - weblink.sabnzbd
-    - weblink.router
-    - weblink.repo
-    - weblink.unifi
+# Links:
+#   name: Links
+#   view: yes
+#   icon: mdi:link
+#   entities:
+#     - weblink.octoprint
+#     - weblink.plex
+#     - weblink.radarr
+#     - weblink.sonarr
+#     - weblink.sabnzbd
+#     - weblink.router
+#     - weblink.repo
+#     - weblink.unifi
 
       #################################################################
       ## Settings

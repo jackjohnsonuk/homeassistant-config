@@ -1,4 +1,4 @@
-name: Ochard Cottages
+name: Orchard Cottages
 views:
 - tab_icon: mdi:home
   name: Home
@@ -31,13 +31,15 @@ views:
         - light.hallway_light
         - light.pantry_lights
         - light.bathroom_lights
+        - switch.garden_lights_temp
     - type: entities
       title: Climate
       entities:
         - climate.kitchen
     - type: media-control
       entity: media_player.shed_speaker
-
+    - type: weather-forecast
+      entity: weather.demo_weather_north
 
 
 - tab_icon: mdi:pot-mix
@@ -110,17 +112,27 @@ views:
     - type: media-control
       entity: media_player.bedroom_speaker
     - type: entities
-      title: Lights
+      title: Bedroom
       entities:
         - light.bedroom_main_light
         - light.jack_bedside_light
         - light.lara_bedside_light
-    - type: glance
-      title: Motion
-      entities:
         - binary_sensor.motion_bedroom
+        - switch.power_bedroom_humidifier
+        - switch.scentsy_bedroom
+    - type: entities
+      title: Bedisde Lights
+      entities:
+        - light.jack_bedside_light
+        - light.lara_bedside_light
+    - type: entities
+      title: Dressing Room
+      entities:
+        - light.dressing_room
         - binary_sensor.motion_dressing_room
-        
+
+
+
 
 
 
