@@ -49,7 +49,14 @@ weather:
 - platform: darksky
   api_key: !secret dark_sky_api
   units: uk2
-  name: Home
+  name: darksky_home
+
+      #################################################################
+      ## Yahoo Weather
+      #################################################################
+
+- platform: yweather
+  name: yahoo_home
 ################################################
 ## Weather - Sensor's
 ################################################

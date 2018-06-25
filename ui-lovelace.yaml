@@ -39,7 +39,7 @@ views:
     - type: media-control
       entity: media_player.shed_speaker
     - type: weather-forecast
-      entity: weather.home
+      entity: weather.yahoo_home
 
 
 - tab_icon: mdi:pot-mix
