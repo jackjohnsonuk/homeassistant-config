@@ -108,3 +108,31 @@ automation:
   action:
     service: homeassistant.turn_off
     entity_id: light.hallway_light
+
+- alias: Dressing room window open home
+  trigger:
+    platform: time
+    at: '19:00:00'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'home'
+  action:
+    service: script.google_notify
+    data:
+     message: 'Dressing Room Window is Open'
+
+
+- alias: Dressing room window open not home
+  trigger:
+    platform: time
+    at: '19:00:00'
+  condition:
+    - condition: state
+      entity_id: group.family
+      state: 'not_home'
+  action:
+    service: notify.pushover
+    data:
+     message: Close the Dressing Room Window so the cats don't escape!
+     title: Urgent!
