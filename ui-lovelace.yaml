@@ -51,14 +51,8 @@ views:
         - switch.power_bedroom_humidifier
         - switch.scentsy_bedroom
         - light.bedroom_main_light
-    - type: entity-filter
-      filter:
-        - domain: device_tracker
-          state: 'home'
-      card: glance
-      card_config:
-        title: People at home
-        
+
+
 # "zones"
 # outdoor
 # kitchen
