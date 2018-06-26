@@ -18,6 +18,18 @@ views:
         - climate.kitchen
         - input_select.dishwasher_status
         - camera.kitchen
+        - binary_sensor.motion_kitchen
+        - climate.kitchen
+        - input_select.dishwasher_status
+        - camera.kitchen
+        - binary_sensor.motion_kitchen
+        - climate.kitchen
+        - input_select.dishwasher_status
+        - camera.kitchen
+        - binary_sensor.motion_kitchen
+        - climate.kitchen
+        - input_select.dishwasher_status
+        - camera.kitchen
     - type: picture-glance
       image: https://ksassets.timeincuk.net/wp/uploads/sites/56/2017/12/grey-neutral-living-room-1920x1152.jpg
       title: Living Room
