@@ -54,6 +54,17 @@ homeassistant:
       <<: *customize
       friendly_name: "Door Sensor - Dressing Room Window - Battery"
 
+    ################################################
+    ## Batteries - Door Sensor
+    ################################################
+
+    sensor.presence_sensor_jack_car:
+      <<: *customize
+      friendly_name: "Presence Sensor - Jack Car - Battery"
+
+    sensor.presence_sensor_lara_car:
+      <<: *customize
+      friendly_name: "Presence Sensor - Lara Car - Battery"
 
 ################################################
 ## Batteries - Sensor
@@ -92,4 +103,18 @@ sensor:
   - platform: mqtt
     name: door_sensor_dressing_room_window
     state_topic: "smartthings/Door Sensor - Dressing Room Window/battery/state"
+    unit_of_measurement: '%'
+
+    ################################################
+    ## Presence Sensors
+    ################################################
+
+  - platform: mqtt
+    name: presence_sensor_jack_car
+    state_topic: "smartthings/Presence Jack Car/battery/state"
+    unit_of_measurement: '%'
+
+  - platform: mqtt
+    name: presence_sensor_lara_car
+    state_topic: "smartthings/Presence Lara Car/battery/state"
     unit_of_measurement: '%'
