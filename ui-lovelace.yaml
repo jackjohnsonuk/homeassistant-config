@@ -181,3 +181,10 @@ views:
 
 - tab_icon: mdi:settings
   name: Settings
+  cards:
+  - type: entity-filter
+    filter:
+      - entity_id: '*battery*'
+    card: glance
+    card_config:
+      title: Battery
