@@ -73,6 +73,7 @@ views:
         - vacuum.xiaomi_vacuum_cleaner
     - type: entities
       title: Circulation Lights
+      show_header_toggle: true
       entities:
         - light.hallway_light
         - light.pantry_lights
