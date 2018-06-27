@@ -31,11 +31,11 @@ homeassistant:
 
     sensor.motion_dressing_room_battery:
       <<: *customize
-      friendly_name: "Motion Sensor - Dressing Room - Battery"
+      friendly_name: "Battery - Motion Sensor - Dressing Room"
 
     sensor.motion_bedroom_battery:
       <<: *customize
-      friendly_name: "Motion Sensor - Bedroom - Battery"
+      friendly_name: "Battery - Motion Sensor - Bedroom"
 
 
     ################################################
@@ -44,15 +44,15 @@ homeassistant:
 
     sensor.door_sensor_dishwasher:
       <<: *customize
-      friendly_name: "Door Sensor - Dishwasher - Battery"
+      friendly_name: "Battery - Door Sensor - Dishwasher"
 
     sensor.door_sensor_bathroom:
       <<: *customize
-      friendly_name: "Door Sensor - Bathroom - Battery"
+      friendly_name: "Battery - Door Sensor - Bathroom"
 
     sensor.door_sensor_dressing_room_window:
       <<: *customize
-      friendly_name: "Door Sensor - Dressing Room Window - Battery"
+      friendly_name: "Battery - Door Sensor - Dressing Room Window"
 
     ################################################
     ## Batteries - Door Sensor
@@ -60,11 +60,11 @@ homeassistant:
 
     sensor.presence_sensor_jack_car:
       <<: *customize
-      friendly_name: "Presence Sensor - Jack Car - Battery"
+      friendly_name: "Battery - Presence Sensor - Jack Car"
 
     sensor.presence_sensor_lara_car:
       <<: *customize
-      friendly_name: "Presence Sensor - Lara Car - Battery"
+      friendly_name: "Battery - Presence Sensor - Lara Car"
 
 ################################################
 ## Batteries - Sensor
@@ -77,13 +77,13 @@ sensor:
     ################################################
 
   - platform: mqtt
-    name: motion_dressing_room_battery
+    name: battery_motion_dressing_room
     state_topic: "smartthings/Motion Dressing Room/battery/state"
     device_class: battery
     unit_of_measurement: '%'
 
   - platform: mqtt
-    name: motion_bedroom_battery
+    name: battery_motion_bedroom
     state_topic: "smartthings/Bedroom Motion/battery/state"
     device_class: battery
     unit_of_measurement: '%'
@@ -93,19 +93,19 @@ sensor:
     ################################################
 
   - platform: mqtt
-    name: door_sensor_dishwasher
+    name: battery_door_sensor_dishwasher
     state_topic: "smartthings/Door Sensor - Dishwasher/battery/state"
     device_class: battery
     unit_of_measurement: '%'
 
   - platform: mqtt
-    name: door_sensor_bathroom
+    name: battery_door_sensor_bathroom
     state_topic: "smartthings/Door Sensor - Bathroom/battery/state"
     device_class: battery
     unit_of_measurement: '%'
 
   - platform: mqtt
-    name: door_sensor_dressing_room_window
+    name: battery_door_sensor_dressing_room_window
     state_topic: "smartthings/Door Sensor - Dressing Room Window/battery/state"
     device_class: battery
     unit_of_measurement: '%'
@@ -115,13 +115,13 @@ sensor:
     ################################################
 
   - platform: mqtt
-    name: presence_sensor_jack_car
+    name: battery_presence_sensor_jack_car
     state_topic: "smartthings/Presence Jack Car/battery/state"
     device_class: battery
     unit_of_measurement: '%'
 
   - platform: mqtt
-    name: presence_sensor_lara_car
+    name: battery_presence_sensor_lara_car
     state_topic: "smartthings/Presence Lara Car/battery/state"
     device_class: battery
     unit_of_measurement: '%'
