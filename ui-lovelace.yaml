@@ -186,6 +186,5 @@ views:
   - type: entity-filter
     filter:
       - entity_id: '*battery*'
-    card: glance
-    card_config:
-      title: Battery
+    card: entities
+    title: Battery
