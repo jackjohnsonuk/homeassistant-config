@@ -69,6 +69,7 @@ views:
       entity: plant.bathroom_plant
     - type: entities
       title: Vacuum
+      show_header_toggle: false
       entities:
         - vacuum.xiaomi_vacuum_cleaner
     - type: entities
@@ -181,5 +182,5 @@ views:
     filter:
       - entity_id: '*battery*'
     card:
-      type: glance
+      type: entities
       title: Battery
