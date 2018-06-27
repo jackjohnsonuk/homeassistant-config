@@ -32,6 +32,14 @@ homeassistant:
       <<: *customize
       entity_picture: /local/lara.jpg
 
+    sensor.presence_sensor_jack_car:
+      <<: *customize
+      friendly_name: "Battery - Presence Sensor - Jack Car"
+
+    sensor.presence_sensor_lara_car:
+      <<: *customize
+      friendly_name: "Battery - Presence Sensor - Lara Car"
+
 ################################################
 ## Presence Detection - Input Select
 ################################################
@@ -94,6 +102,26 @@ sensor:
       lara_status:
         value_template: '{{ states.input_select.lara_status_dropdown.state }}'
         friendly_name: 'Lara'
+
+      ################################################
+      ##  Sensor - Battery - Presence Jack Car
+      ################################################
+
+  - platform: mqtt
+    name: battery_presence_sensor_jack_car
+    state_topic: "smartthings/Presence Jack Car/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'
+
+      ################################################
+      ##  Sensor - Battery - Presence Lara Car
+      ################################################
+
+  - platform: mqtt
+    name: battery_presence_sensor_lara_car
+    state_topic: "smartthings/Presence Lara Car/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'
 
 ################################################
 ## Presence Detection - Automation

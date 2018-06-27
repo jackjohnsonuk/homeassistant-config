@@ -24,9 +24,18 @@ homeassistant:
     ## Door Sensor
     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+    sensor.door_sensor_dishwasher:
+      <<: *customize
+      friendly_name: "Battery - Door Sensor - Dishwasher"
+
+    sensor.door_sensor_bathroom:
+      <<: *customize
+      friendly_name: "Battery - Door Sensor - Bathroom"
+
+    sensor.door_sensor_dressing_room_window:
+      <<: *customize
+      friendly_name: "Battery - Door Sensor - Dressing Room Window"
+
 
 ################################################
 ## Door Sensor - Binary Sensor's
@@ -117,6 +126,9 @@ automation:
     - condition: state
       entity_id: group.family
       state: 'home'
+    - condition: states
+      entity_id: binary_sensor.door_sensor_dressing_room_window
+      state: 'on'
   action:
     service: script.google_notify
     data:
@@ -131,8 +143,47 @@ automation:
     - condition: state
       entity_id: group.family
       state: 'not_home'
+    - condition: states
+      entity_id: binary_sensor.door_sensor_dressing_room_window
+      state: 'on'
   action:
     service: notify.pushover
     data:
      message: Close the Dressing Room Window so the cats don't escape!
      title: Urgent!
+
+################################################
+## Door Sensor - Sensor's
+################################################
+
+sensor:
+
+      #################################################################
+      ## Sensor - Battery - Dishwasher
+      #################################################################
+
+  - platform: mqtt
+    name: battery_door_sensor_dishwasher
+    state_topic: "smartthings/Door Sensor - Dishwasher/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'
+
+      #################################################################
+      ## Sensor - Battery - Bathroom
+      #################################################################
+
+  - platform: mqtt
+    name: battery_door_sensor_bathroom
+    state_topic: "smartthings/Door Sensor - Bathroom/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'
+
+      #################################################################
+      ## Sensor - Battery - Dressing Room Window
+      #################################################################
+
+  - platform: mqtt
+    name: battery_door_sensor_dressing_room_window
+    state_topic: "smartthings/Door Sensor - Dressing Room Window/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'

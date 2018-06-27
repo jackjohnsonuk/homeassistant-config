@@ -26,6 +26,15 @@ homeassistant:
 
     sensor.last_motion:
       <<: *customize
+      
+    sensor.motion_dressing_room_battery:
+      <<: *customize
+      friendly_name: "Battery - Motion Sensor - Dressing Room"
+
+    sensor.motion_bedroom_battery:
+      <<: *customize
+      friendly_name: "Battery - Motion Sensor - Bedroom"
+
 
 ################################################
 ## Motion Sensor - Binary Sensor's
@@ -334,10 +343,16 @@ automation:
 #      entity_id:
 #        - light.zone_bedroom
 
+################################################
+## Motion Sensor - Sensor's
+################################################
+
+sensor:
+
       #################################################################
       ## Sensor - Last Motion Seen
       #################################################################
-sensor:
+
   - platform: template
     sensors:
       last_motion:
@@ -349,3 +364,23 @@ sensor:
               {{ pir.name }} {{pir.last_changed.astimezone(now().tzinfo).strftime('%X')}}
             {% endif %}
           {% endfor %}
+
+    ################################################
+    ## Sensor - Battery - Dressing Room
+    ################################################
+
+  - platform: mqtt
+    name: battery_motion_dressing_room
+    state_topic: "smartthings/Motion Dressing Room/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'
+
+    ################################################
+    ## Sensor - Battery - Bedroom
+    ################################################
+
+  - platform: mqtt
+    name: battery_motion_bedroom
+    state_topic: "smartthings/Bedroom Motion/battery/state"
+    device_class: battery
+    unit_of_measurement: '%'
