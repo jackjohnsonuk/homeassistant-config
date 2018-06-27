@@ -126,7 +126,7 @@ automation:
     - condition: state
       entity_id: group.family
       state: 'home'
-    - condition: states
+    - condition: state
       entity_id: binary_sensor.door_sensor_dressing_room_window
       state: 'on'
   action:
@@ -143,7 +143,7 @@ automation:
     - condition: state
       entity_id: group.family
       state: 'not_home'
-    - condition: states
+    - condition: state
       entity_id: binary_sensor.door_sensor_dressing_room_window
       state: 'on'
   action:
