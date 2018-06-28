@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Google Travel Time
+## Packages / Travel Times
 ################################################################
 
 ################################################
@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Google Travel Time'
+        package: 'Travel Times'
 
       expose: &expose
         <<: *customize
@@ -26,14 +26,14 @@ homeassistant:
 
 
     ################################################
-    ## Google Travel Time
+    ## Travel Times
     ################################################
 
     # sensor.waze_travel_time	:
     #   <<: *expose
 
 ################################################
-## Google Travel Time - Sensor's
+## Travel Times - Sensor's
 ################################################
 
 sensor:
@@ -48,6 +48,10 @@ sensor:
 #   origin: !secret origin
 #   destination: !secret destination
 
+      #################################################################
+      ## Waze Travel Time api
+      #################################################################
+
 - platform: waze_travel_time
   name: Jack Home To Work
   origin: !secret origin
@@ -56,7 +60,7 @@ sensor:
 
 
 ################################################
-## Google Travel Time - Group
+## Travel Times - Group
 ################################################
 
 group:
