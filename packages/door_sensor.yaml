@@ -77,7 +77,7 @@ binary_sensor:
   name: "Door Sensor Dressing Room Window"
   state_topic: "smartthings/Door Sensor - Dressing Room Window/contact/state"
   command_topic: "smartthings/Door Sensor - Dressing Room Window/contact/state"
-  device_class: door
+  device_class: window
   payload_on: "open"
   payload_off: "closed"
   retain: true
