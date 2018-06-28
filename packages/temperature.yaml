@@ -1,5 +1,5 @@
 ################################################################
-## Packages / Nest Thermostat
+## Packages / Temperature
 ################################################################
 
 ################################################
@@ -14,7 +14,7 @@ homeassistant:
 
     package.node_anchors:
       customize: &customize
-        package: 'Nest Thermostat'
+        package: 'Temperature'
 
       expose: &expose
         <<: *customize
@@ -25,7 +25,7 @@ homeassistant:
         expose: false
 
     ################################################
-    ## Nest Thermostat
+    ## Temperature
     ################################################
 
     sensor.status_nest_thermostat:
@@ -88,7 +88,7 @@ homeassistant:
 
 
 ################################################
-## Nest Thermostat - Hub api
+## Temperature - Hub api
 ################################################
 
 nest:
@@ -101,7 +101,7 @@ nest:
   client_secret: !secret nest
 
 ##############################################################################
-###  Nest Thermostat - Script
+###  Temperature - Script
 ##############################################################################
 
 script:
@@ -127,7 +127,7 @@ script:
           home_mode: home
 
 ##############################################################################
-###  Nest Thermostat - Automations
+###  Temperature - Automations
 ##############################################################################
 
 automation:
@@ -152,7 +152,6 @@ automation:
        entity_id: climate.kitchen
        operation_mode: 'heat'
 
-#dfds  
       #################################################################
       ## Eco Mode On
       #################################################################
