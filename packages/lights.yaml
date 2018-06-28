@@ -25,6 +25,14 @@ homeassistant:
         hidden: true
 
     ################################################
+    ## Garden Lights
+    ################################################
+
+    light.garden_light:
+      <<: *not-expose
+      friendly_name: "Garden Lights"
+
+    ################################################
     ## Bathroom Lights
     ################################################
 
@@ -181,6 +189,20 @@ light:
     - light.bathroom_light_2
     - light.bathroom_light_3
     - light.bathroom_light_4
+
+      ################################################
+      ## Template Light to spoof my tplink smart plug as a light
+      ################################################
+
+- platform: template
+  lights:
+    garden_light:
+      turn_on:
+        service: switch.turn_on
+        entity_id: switch.garden_lights_temp
+      turn_off:
+        service: switch.turn_off
+        entity_id: switch.garden_lights_temp
 
       ################################################
       ## MQTT Lights
@@ -741,3 +763,17 @@ automation:
           {%- else -%}
             15
           {%- endif %}
+
+################################################
+## Light - switch
+################################################
+
+switch:
+
+      #################################################################
+      ## tp-link smart plug in the garden
+      #################################################################
+
+- platform: tplink
+  host: 192.168.1.220
+  name: Garden lights temp
