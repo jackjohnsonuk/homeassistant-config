@@ -264,3 +264,18 @@ automation:
             input_select.lara_status_dropdown
           {% endif %}
         option: Extended Away
+
+################################################
+## device_tracker
+################################################
+
+device_tracker:
+
+  ################################################
+  ## tile
+  ################################################
+
+
+  - platform: tile
+    username: !secret tile_user
+    password: !secret tile_password
