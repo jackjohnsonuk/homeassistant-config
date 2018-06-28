@@ -34,10 +34,23 @@ homeassistant:
 
 automation:
 
+    #################################################################
+    ## Feed the kittens notification's
+    #################################################################
 
-##############################################################################
-###  Audio notification to ramind us of kitten's food time
-##############################################################################
+
+- alias: Feed the Lara lunch
+  trigger:
+    - platform: time
+      at: '12:30:00'
+  action:
+    - service: script.google_notify
+      data_template:
+        message: 'Feed the Laara!'
+
+    ##############################################################################
+    ###  Audio notification to ramind us of kitten's food time
+    ##############################################################################
 
 - alias: Feed the kittens
   trigger:
