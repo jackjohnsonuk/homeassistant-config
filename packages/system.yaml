@@ -82,3 +82,18 @@ group:
       - sensor.memory_free
       - sensor.processor_use
       - sensor.last_boot
+
+################################################
+## System - MQTT
+################################################
+
+mqtt:
+
+      #################################################################
+      ## MQTT - api pass
+      #################################################################
+
+  broker: 192.168.1.157
+  port: 1883
+  username: !secret mqtt_user
+  password: !secret mqtt_pass
