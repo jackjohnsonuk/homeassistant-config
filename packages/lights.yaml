@@ -199,10 +199,10 @@ light:
     garden_light:
       turn_on:
         service: switch.turn_on
-        entity_id: switch.garden_lights_temp
+        entity_id: switch.garden_lights
       turn_off:
         service: switch.turn_off
-        entity_id: switch.garden_lights_temp
+        entity_id: switch.garden_lights
 
       ################################################
       ## MQTT Lights
@@ -776,4 +776,4 @@ switch:
 
 - platform: tplink
   host: 192.168.1.220
-  name: Garden lights temp
+  name: Garden lights

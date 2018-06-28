@@ -79,7 +79,7 @@ views:
         - light.hallway_light
         - light.pantry_lights
         - light.bathroom_lights
-        - switch.garden_lights_temp
+        - light.garden_light
     - type: entities
       title: Climate
       entities:
