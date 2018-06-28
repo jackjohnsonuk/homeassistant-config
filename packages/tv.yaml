@@ -217,3 +217,20 @@ group:
       - script.living_room_tv_power
       - script.living_room_tv_up
       - script.living_room_tv_down
+
+################################################
+## TV - binary_sensor
+################################################
+
+binary_sensor:
+
+        #################################################################
+        ## LWT MQTT Bedroom TV
+        #################################################################
+
+  - platform: mqtt
+    name: "Bedroom_TV"
+    state_topic: "bedroom_tv/power"
+    payload_on: "online"
+    payload_off: "offline"
+    device_class: power
