@@ -16,6 +16,8 @@ conversation:
 history:
 logbook:
 sun:
+logger:
+  default: warning
 
 mqtt:
   discovery: true
