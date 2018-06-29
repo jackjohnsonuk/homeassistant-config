@@ -448,6 +448,31 @@ automation:
     - service: automation.turn_on
       entity_id: automation.maintain_brightness_bedroom
 
+      #################################################################
+      ## Turn on garden lights
+      #################################################################
+
+- alias: garden lights on
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '+00:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.garden_light
+
+      #################################################################
+      ## Turn off humidifier
+      #################################################################
+
+- alias: garden lights off
+  trigger:
+    platform: time
+    at: '23:30:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.garden_light
+
       ##############################################################################
       ###  Maintain Brightness
       ##############################################################################
