@@ -1,7 +1,7 @@
 name: Orchard Cottages
 views:
-- tab_icon: mdi:home
-  name: Home
+- icon: mdi:home
+  title: Home
   cards:
     - type: picture-glance
       image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
@@ -90,8 +90,8 @@ views:
       entity: weather.yahoo_home
 
 
-- tab_icon: mdi:pot-mix
-  name: Kitchen
+- icon: mdi:pot-mix
+  title: Kitchen
   cards:
     - type: media-control
       entity: media_player.kitchen_speaker
@@ -108,8 +108,8 @@ views:
 
 
 
-- tab_icon: mdi:sofa
-  name: Living Room
+- icon: mdi:sofa
+  title: Living Room
   cards:
     - type: entities
       title: Lights
@@ -132,8 +132,8 @@ views:
     - type: media-control
       entity: media_player.living_room_tv
 
-- tab_icon: mdi:television
-  name: Front Room
+- icon: mdi:television
+  title: Front Room
   cards:
     - type: media-control
       entity: media_player.front_room_speaker
@@ -144,8 +144,8 @@ views:
       entities:
         - light.front_room_main_light
 
-- tab_icon: mdi:hotel
-  name: Bedroom
+- icon: mdi:hotel
+  title: Bedroom
   cards:
     - type: media-control
       entity: media_player.bedroom_fire_tv
@@ -175,8 +175,8 @@ views:
 
 
 
-- tab_icon: mdi:settings
-  name: Settings
+- icon: mdi:settings
+  title: Settings
   cards:
   - type: entity-filter
     filter:
