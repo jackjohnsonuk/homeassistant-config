@@ -53,8 +53,8 @@ switch:
 
 - platform: mqtt
   name: "Scentsy Living Room"
-  state_topic: "stat/livingroom_scentsy/POWER"
-  command_topic: "cmnd/livingroom_scentsy/power"
+  state_topic: "living_room_scentsy/switch/living_room_scentsy_relay/state"
+  command_topic: "living_room_scentsy/switch/living_room_scentsy_relay/command"
   payload_on: "ON"
   payload_off: "OFF"
   qos: 0
