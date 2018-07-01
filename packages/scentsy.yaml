@@ -33,7 +33,7 @@ homeassistant:
       friendly_name: Bedroom Scentsy
       entity_picture: /local/scentsy-logo.png
 
-    switch.living_room_scentsy_relay:
+    switch.scentsy_living_room:
       <<: *expose
       friendly_name: Living Room Scentsy
       entity_picture: /local/scentsy-logo.png
