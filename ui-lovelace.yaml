@@ -39,6 +39,18 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
+    - type: vertical-stack
+      cards:
+        - type: camera-preview
+          entity: camera.front_door
+        - type: entities
+          title: Motion Front Door
+          entities: binary_sensor.motion_front_door
+        - type: camera-preview
+          entity: camera.kitchen
+        - type: entities
+          title: Motion Kitchen
+          entities: binary_sensor.motion_kitchen
 
 # "zones"
 # outdoor
