@@ -10,10 +10,10 @@ views:
         - type: camera-preview
           entity: camera.front_door
         - type: camera-preview
-          entity: camera.front_door
+          entity: camera.kitchen
         - type: camera-preview
-          entity: camera.front_door
-          
+          entity: camera.living_room
+
     - type: picture-glance
       image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       title: Outdoors
@@ -121,25 +121,27 @@ views:
       entities:
         - input_select.dishwasher_status
 
-
-
-
 - icon: mdi:sofa
   title: Living Room
   cards:
+    - type: vertical-stack
+      cards:
+        - type: camera-preview
+          entity: camera.living_room
+        - type: entities
+          title: Motion
+          entities:
+        - binary_sensor.motion_under_stairs_cupboard
+        - binary_sensor.motion_living_room_camera
     - type: entities
       title: Lights
       entities:
         - light.living_room_lamp
         - light.living_room_main_light
         - light.living_room_side_lights
-    - type: camera-preview
-      entity: camera.living_room
     - type: glance
       title: Living Room
       entities:
-        - binary_sensor.motion_under_stairs_cupboard
-        - binary_sensor.motion_living_room_camera
         - switch.living_room_scentsy_relay
     - type: media-control
       entity: media_player.living_room_speaker
