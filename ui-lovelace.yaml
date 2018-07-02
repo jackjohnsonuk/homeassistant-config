@@ -5,23 +5,12 @@ views:
   cards:
 
 
-    - type: vertical-stack
-      cards:
-        - type: camera-preview
-          entity: camera.front_door
-        - type: camera-preview
-          entity: camera.front_door
-
-
-
     - type: horizontal-stack
       cards:
-        - type: picture-entity
-          image: https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
-          entity: group.bedroom_lights
-        - type: picture-entity
-          image: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
-          entity: group.living_room_lights
+        - type: camera-preview
+          entity: camera.front_door
+        - type: camera-preview
+          entity: camera.front_door
 
     - type: picture-glance
       image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
@@ -115,18 +104,21 @@ views:
 - icon: mdi:pot-mix
   title: Kitchen
   cards:
+    - type: vertical-stack
+      cards:
+        - type: camera-preview
+          entity: camera.kitchen
+        - type: entities
+          title: Motion
+          entities:
+            - binary_sensor.motion_kitchen
     - type: media-control
       entity: media_player.kitchen_speaker
-    - type: camera-preview
-      entity: camera.kitchen
     - type: entities
       title: Dishwasher
       entities:
         - input_select.dishwasher_status
-    - type: entities
-      title: Motion
-      entities:
-        - binary_sensor.motion_kitchen
+
 
 
 
