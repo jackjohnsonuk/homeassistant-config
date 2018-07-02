@@ -11,8 +11,8 @@ views:
 
 
     - type: picture-glance
-      image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
-      camera_image: camera.front_door
+      image: 
+        - camera_image: camera.front_door
       title: Outdoors
       entities:
         - binary_sensor.motion_front_door
