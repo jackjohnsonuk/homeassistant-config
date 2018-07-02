@@ -3,9 +3,16 @@ views:
 - icon: mdi:home
   title: Home
   cards:
+    - type: weather-forecast
+      entity: weather.yahoo_home
+
+
+
+
+
     - type: picture-glance
+      image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       camera_image: camera.front_door
-      # image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       title: Outdoors
       entities:
         - binary_sensor.motion_front_door
@@ -89,8 +96,7 @@ views:
         - climate.kitchen
     - type: media-control
       entity: media_player.shed_speaker
-    - type: weather-forecast
-      entity: weather.yahoo_home
+
 
 
 - icon: mdi:pot-mix
