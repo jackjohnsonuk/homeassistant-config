@@ -3,6 +3,19 @@ views:
 - icon: mdi:home
   title: Home
   cards:
+
+
+    - type: horizontal-stack
+      cards:
+        - type: camera-preview
+          entity: camera.front_door
+        - type: camera-preview
+          entity: camera.kitchen
+        - type: camera-preview
+          entity: camera.living_room
+
+
+
     - type: picture-glance
       image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       title: Outdoors
@@ -39,14 +52,6 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
-    - type: Horizontal-stack
-      cards:
-        - type: camera-preview
-          entity: camera.front_door
-        - type: camera-preview
-          entity: camera.kitchen
-        - type: camera-preview
-          entity: camera.living_room
 
 
 
