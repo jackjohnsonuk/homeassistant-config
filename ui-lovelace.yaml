@@ -7,18 +7,10 @@ views:
 
     - type: vertical-stack
       cards:
-        - type: picture-entity
-          image: https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
-          entity: group.bedroom_lights
-        - type: horizontal-stack
-          cards:
-            - type: picture-entity
-              image: https://i.imgur.com/aOZM05k.jpg
-              entity: light.jack_bedside_light
-            - type: picture-entity
-              image: https://i.imgur.com/WHddNZK.jpg
-              entity: light.lara_bedside_light
-
+        - type: camera-preview
+          entity: camera.front_door
+        - type: camera-preview
+          entity: camera.front_door
 
 
 
