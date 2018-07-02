@@ -5,16 +5,32 @@ views:
   cards:
 
 
+    - type: vertical-stack
+      cards:
+        - type: picture-entity
+          image: https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
+          entity: group.bedroom_lights
+        - type: horizontal-stack
+          cards:
+            - type: picture-entity
+              image: https://i.imgur.com/FhQTtgq.jpg
+              entity: light.jack_bedside_light
+            - type: picture-entity
+              image: https://i.imgur.com/rD65Htq.jpg
+              entity: light.lara_bedside_light
+
+
+
+
     - type: horizontal-stack
       cards:
-
         - type: picture-entity
           image: https://images.pexels.com/photos/775219/pexels-photo-775219.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=295&w=490
           entity: group.bedroom_lights
         - type: picture-entity
           image: https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=240&w=495
           entity: group.living_room_lights
-          
+
     - type: picture-glance
       image: https://www.worcester.ac.uk/content_images/primary-outdoor-education-university-worcester-course-page-header.jpg
       title: Outdoors
