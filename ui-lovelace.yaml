@@ -16,7 +16,7 @@ views:
               image: https://i.imgur.com/aOZM05k.jpg
               entity: light.jack_bedside_light
             - type: picture-entity
-              image: https://i.imgur.com/rD65Htq.jpg
+              image: https://i.imgur.com/WHddNZK.jpg
               entity: light.lara_bedside_light
 
 
