@@ -8,16 +8,16 @@ views:
 
 
 
-
-
     - type: picture-glance
-      image: 
-        - camera_image: camera.front_door
       title: Outdoors
+      image:
+      camera_image: camera.front_door
       entities:
         - binary_sensor.motion_front_door
-        - switch.garden_lights_temp
-        - camera.front_door
+        - switch.garden_lights
+
+
+
     - type: picture-glance
       image: https://www.homebase.co.uk/-/media/uk%20images/homebase/kitchens/steamer/steamer_earl_grey_highres_832x544.jpg
       title: Kitchen
