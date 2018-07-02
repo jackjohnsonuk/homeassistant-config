@@ -13,7 +13,7 @@ views:
         - type: horizontal-stack
           cards:
             - type: picture-entity
-              image: https://i.imgur.com/FhQTtgq.jpg
+              image: https://i.imgur.com/aOZM05k.jpg
               entity: light.jack_bedside_light
             - type: picture-entity
               image: https://i.imgur.com/rD65Htq.jpg
