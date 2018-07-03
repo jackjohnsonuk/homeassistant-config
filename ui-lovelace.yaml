@@ -6,8 +6,6 @@ views:
     - type: weather-forecast
       entity: weather.yahoo_home
 
-
-
     - type: picture-glance
       title: Outdoors
       image:
@@ -74,6 +72,7 @@ views:
         - sensor.jack_home_to_work
         - sensor.recycling_pickup_day
         - sensor.rubbish_pickup_day
+        
     - type: entities
       title: Birthdays
       entities:
