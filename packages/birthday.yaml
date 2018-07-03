@@ -87,7 +87,7 @@ automation:
       state: 'home'
     - condition: time
       after: '18:00:00'
-      before: '23:00:00'
+      before: '21:00:00'
     - condition: template
       value_template: "{{ trigger.to_state.state | int > 0 and trigger.to_state.state | int < 30 }}"
   action:
