@@ -15,15 +15,15 @@ views:
         - binary_sensor.motion_front_door
         - light.garden_light
 
-    - type: picture-glance
-      title: Kitchen
-      image:
-      camera_image: camera.kitchen
-      entities:
-        - camera.kitchen
-        - binary_sensor.motion_kitchen
-        - input_select.dishwasher_status
-        - climate.kitchen
+    # - type: picture-glance
+    #   title: Kitchen
+    #   image:
+    #   camera_image: camera.kitchen
+    #   entities:
+    #     - camera.kitchen
+    #     - binary_sensor.motion_kitchen
+    #     - input_select.dishwasher_status
+    #     - climate.kitchen
 
     - type: picture-glance
       title: Living Room
@@ -72,7 +72,7 @@ views:
         - sensor.jack_home_to_work
         - sensor.recycling_pickup_day
         - sensor.rubbish_pickup_day
-        
+
     - type: entities
       title: Birthdays
       entities:
