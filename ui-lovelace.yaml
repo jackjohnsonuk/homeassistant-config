@@ -29,6 +29,7 @@ views:
     - type: picture-glance
       title: Living Room
       image:
+      navigation_path: /lovelace/living_room
       camera_image: camera.living_room
       entities:
         - camera.living_room
@@ -36,18 +37,17 @@ views:
         - group.living_room_lights
         - switch.living_room_scentsy_relay
 
-
-
-
     - type: picture-glance
       image: https://st.hzcdn.com/simgs/4602895305854f2b_8-9930/home-design.jpg
       title: Front Room
+      navigation_path: /lovelace/front_room
       entities:
         - light.front_room_main_light
 
     - type: picture-glance
       image: https://images2.roomstogo.com/is/image/roomstogo/br_rm_belmar_black_pan~Belmar-Black-5-Pc-Queen-Bedroom.jpeg?$pdp_gallery_945$
       title: Bedroom
+      navigation_path: /lovelace/bedroom
       entities:
         - binary_sensor.motion_bedroom
         - switch.power_bedroom_humidifier
@@ -164,6 +164,7 @@ views:
 
 - icon: mdi:television
   title: Front Room
+  id: front_room
   cards:
     - type: media-control
       entity: media_player.front_room_speaker
