@@ -31,3 +31,12 @@ homeassistant:
 ################################################
 ## Todoist
 ################################################
+
+
+calendar:
+  - platform: todoist
+    token: !secret todoist_api
+    custom_projects:
+      - name: 'Shopping'
+        include_projects:
+          - Food Shopping

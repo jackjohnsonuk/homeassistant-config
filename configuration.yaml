@@ -64,9 +64,6 @@ influxdb:
 # - platform: sonos
 #    scan_interval:  40
 
-calendar:
-  - platform: todoist
-    token: !secret todoist_api
 
 google:
   client_id: !secret google_id
