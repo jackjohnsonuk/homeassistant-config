@@ -85,6 +85,15 @@ views:
         - entity: input_label.kitten_birthday_days2go
           name: Kittens
 
+    - type: glance
+      title: Circulation Lights
+      entities:
+        - entity: light.hallway_light
+          name: Hallway
+        - entity: light.pantry_lights
+          name: Pantry
+        - entity: light.bathroom_lights
+          name: Bathroom
 
     - type: plant-status
       entity: plant.bathroom_plant
@@ -93,14 +102,7 @@ views:
       show_header_toggle: false
       entities:
         - vacuum.xiaomi_vacuum_cleaner
-    - type: entities
-      title: Circulation Lights
-      show_header_toggle: true
-      entities:
-        - light.hallway_light
-        - light.pantry_lights
-        - light.bathroom_lights
-        - light.garden_light
+
     - type: entities
       title: Climate
       entities:
