@@ -115,7 +115,7 @@ views:
 
 - icon: mdi:pot-mix
   title: Kitchen
-  id: kithen
+  id: kitchen
   cards:
     - type: vertical-stack
       cards:
