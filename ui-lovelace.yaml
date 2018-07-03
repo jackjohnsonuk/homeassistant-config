@@ -73,13 +73,19 @@ views:
         - sensor.recycling_pickup_day
         - sensor.rubbish_pickup_day
 
-    - type: entities
+    - type: glance
       title: Birthdays
       entities:
-        - input_label.jack_birthday_days2go
-        - input_label.lara_birthday_days2go
-        - input_label.mollie_birthday_days2go
-        - input_label.kitten_birthday_days2go
+        - entity: input_label.jack_birthday_days2go
+          name: Jack
+        - entity: input_label.lara_birthday_days2go
+          name: Lara
+        - entity: input_label.mollie_birthday_days2go
+          name: Mollie
+        - entity: input_label.kitten_birthday_days2go
+          name: Kittens
+
+
     - type: plant-status
       entity: plant.bathroom_plant
     - type: entities
