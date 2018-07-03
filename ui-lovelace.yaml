@@ -18,6 +18,7 @@ views:
     - type: picture-glance
       title: Kitchen
       image:
+      navigation_path: /lovelace/kitchen
       camera_image: camera.kitchen
       entities:
         - camera.kitchen
