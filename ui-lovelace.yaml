@@ -127,8 +127,8 @@ views:
         - type: entities
           title: Motion
           entities:
-        - binary_sensor.motion_under_stairs_cupboard
-        - binary_sensor.motion_living_room_camera
+            - binary_sensor.motion_under_stairs_cupboard
+            - binary_sensor.motion_living_room_camera
     - type: entities
       title: Lights
       entities:
