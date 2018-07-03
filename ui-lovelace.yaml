@@ -6,6 +6,14 @@ views:
     - type: weather-forecast
       entity: weather.yahoo_home
 
+    - type: picture-glance
+      title: Outdoors
+      image:
+      camera_image: camera.front_door
+      entities:
+        - camera.front_door
+        - binary_sensor.motion_front_door
+        - light.garden_light
 
     - type: picture-glance
       title: Kitchen
@@ -27,20 +35,7 @@ views:
         - group.living_room_lights
         - switch.living_room_scentsy_relay
 
-    - type: picture-glance
-      title: Outdoors
-      image:
-      camera_image: camera.front_door
-      entities:
-        - camera.front_door
-        - binary_sensor.motion_living_room_camera
-        - group.living_room_lights
-        - switch.living_room_scentsy_relay
 
-
-
-        # - binary_sensor.motion_front_door
-        # - light.garden_light
 
 
     - type: picture-glance
