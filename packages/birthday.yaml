@@ -126,39 +126,53 @@ automation:
 ###############################################################################
 # Announce Happy Birthday message every hour starting 7 am until 9 PM
 ###############################################################################
+#
+#
+# - alias: Random Birthday Wishes
+#   initial_state: true
+#   hide_entity: true
+#   trigger:
+#     platform: time
+#     hours: '/1'
+#     minutes: 3
+#     seconds: 00
+#   condition:
+#     condition: and
+#     conditions:
+#       - condition: state
+#         entity_id: group.all_devices
+#         state: 'home'
+#       - condition: time
+#         after: '07:00:00'
+#         before: '21:00:00'
+#       - condition: or
+#         conditions:
+#           - condition: template
+#             value_template: "{{ states.input_label.lara_birthday_days2go.state | int == 0 }}"
+#           - condition: template
+#             value_template: "{{ states.input_label.jack_birthday_days2go.state | int == 0 }}"
+#           - condition: template
+#             value_template: "{{ states.input_label.mollie_birthday_days2go.state | int == 0 }}"
+#           - condition: template
+#             value_template: "{{ states.input_label.kitten_birthday_days2go.state | int == 0 }}"
+#   action:
+#     - service: script.google_notify
+#       data_template:
+#         message: >
+#           {% set msg = "" %}
+#           {%- macro getEndGreeting() -%}
+#             {%- if greeting |default('yes', true ) == "yes" -%}
+#               Thank you!
+#             {%- endif -%}
+#           {%- endmacro -%}
+#           {% set msg = msg + "<speak> " %}
+#           {% set msg = msg + ". " + message %}
+#           {% set msg = msg.replace(".", " <break time='0.5s'/> ") %}
+#           {% set msg = msg + " " + getEndGreeting() %}
+#           {% set msg = msg + " </speak>" %}
+#           {{ msg }}
 
 
-- alias: Random Birthday Wishes
-  initial_state: true
-  hide_entity: true
-  trigger:
-    platform: time
-    hours: '/1'
-    minutes: 3
-    seconds: 00
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.all_devices
-        state: 'home'
-      - condition: time
-        after: '07:00:00'
-        before: '21:00:00'
-      - condition: or
-        conditions:
-          - condition: template
-            value_template: "{{ states.input_label.lara_birthday_days2go.state | int == 0 }}"
-          - condition: template
-            value_template: "{{ states.input_label.jack_birthday_days2go.state | int == 0 }}"
-          - condition: template
-            value_template: "{{ states.input_label.mollie_birthday_days2go.state | int == 0 }}"
-          - condition: template
-            value_template: "{{ states.input_label.kitten_birthday_days2go.state | int == 0 }}"
-  action:
-    - service: script.voice_notify
-      data_template:
-        message: !include ../templates/birthday_wishes.yaml
 
 
 - alias: Update Birthdays
