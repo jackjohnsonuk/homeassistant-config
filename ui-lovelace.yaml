@@ -114,6 +114,7 @@ views:
 
 - icon: mdi:pot-mix
   title: Kitchen
+  id: kithen
   cards:
     - type: vertical-stack
       cards:
@@ -132,6 +133,7 @@ views:
 
 - icon: mdi:sofa
   title: Living Room
+  id: living_room
   cards:
     - type: vertical-stack
       cards:
@@ -173,6 +175,7 @@ views:
 
 - icon: mdi:hotel
   title: Bedroom
+  id: bedroom
   cards:
     - type: media-control
       entity: media_player.bedroom_fire_tv
@@ -204,6 +207,7 @@ views:
 
 - icon: mdi:settings
   title: Settings
+  id: settings
   cards:
   - type: entity-filter
     filter:
