@@ -12,6 +12,7 @@ views:
         - camera.front_door
         - binary_sensor.motion_front_door
         - light.garden_light
+        - binary_sensor.front_door
     - type: picture-glance
       title: Kitchen
       image:
@@ -69,8 +70,8 @@ views:
       entities:
         - sensor.last_motion
         - sensor.jack_home_to_work
-        - sensor.recycling_pickup_day
-        - sensor.rubbish_pickup_day
+        # - sensor.recycling_pickup_day
+        # - sensor.rubbish_pickup_day
 
     - type: glance
       title: Birthdays
@@ -88,11 +89,11 @@ views:
       title: Circulation Lights
       entities:
         - entity: light.hallway_light
-          name: Hallway
+          name: Hall
         - entity: light.pantry_lights
           name: Pantry
         - entity: light.bathroom_lights
-          name: Bathroom
+          name: Bath
 
     - type: plant-status
       entity: plant.bathroom_plant
@@ -176,8 +177,8 @@ views:
   cards:
     - type: media-control
       entity: media_player.front_room_speaker
-    - type: media-control
-      entity: media_player.front_room_tv
+    # - type: media-control
+    #   entity: media_player.front_room_tv
     - type: entities
       title: Lights
       entities:
@@ -223,12 +224,23 @@ views:
   title: Settings
   id: settings
   cards:
-  - type: entity-filter
-    filter:
-      - entity_id: '*battery*'
-    card:
-      type: entities
-      title: Battery
+  - type: entities
+    title: Battery Status
+    show_header_toggle: true
+    entities:
+      - sensor.battery_door_sensor_bathroom
+      - sensor.battery_door_sensor_dishwasher
+      - sensor.battery_door_sensor_dressing_room_window
+      - sensor.battery_motion_bedroom
+      - sensor.battery_motion_dressing_room
+      - sensor.battery_presence_sensor_jack_car
+      # - sensor.battery_presence_sensor_lara_car
+      - sensor.plant_bathroom_battery
+  - type: entities
+    title: Battery Status
+    show_header_toggle: true
+    entities:
+
   - type: picture
     image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
     navigation_path: /lovelace/home/
