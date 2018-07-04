@@ -4,9 +4,6 @@ views:
   title: Home
   id: home
   cards:
-    - type: weather-forecast
-      entity: weather.yahoo_home
-
     - type: picture-glance
       title: Outdoors
       image:
@@ -15,7 +12,6 @@ views:
         - camera.front_door
         - binary_sensor.motion_front_door
         - light.garden_light
-
     - type: picture-glance
       title: Kitchen
       image:
@@ -26,7 +22,6 @@ views:
         - binary_sensor.motion_kitchen
         - input_select.dishwasher_status
         - climate.kitchen
-
     - type: picture-glance
       title: Living Room
       image:
@@ -56,6 +51,8 @@ views:
         - light.bedroom_main_light
 
 
+    - type: weather-forecast
+      entity: weather.yahoo_home
 
 
 # "zones"
@@ -143,7 +140,7 @@ views:
   cards:
     - type: vertical-stack
       cards:
-        - type: picture-glance
+        - type: picture-entity
           title: Living Room Camera
           entity: camera.living_room
           camera-image: camera.living_room
@@ -169,7 +166,7 @@ views:
       entity: media_player.living_room_fire_tv
     - type: media-control
       entity: media_player.living_room_tv
-    - type: picture-entity
+    - type: picture
       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
       navigation_path: /lovelace/home/
 
@@ -185,7 +182,7 @@ views:
       title: Lights
       entities:
         - light.front_room_main_light
-    - type: picture-entity
+    - type: picture
       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
       navigation_path: /lovelace/home/
 
@@ -218,7 +215,7 @@ views:
       entities:
         - light.dressing_room
         - binary_sensor.motion_dressing_room
-    - type: picture-entity
+    - type: picture
       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
       navigation_path: /lovelace/home/
 
@@ -232,6 +229,6 @@ views:
     card:
       type: entities
       title: Battery
-  - type: picture-entity
-    image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-    navigation_path: /lovelace/home/
+    - type: picture
+      image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+      navigation_path: /lovelace/home/
