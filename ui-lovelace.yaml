@@ -112,16 +112,15 @@ views:
     # - type: media-control
     #   entity: media_player.shed_speaker
 
-
-
 - icon: mdi:pot-mix
   title: Kitchen
   id: kitchen
   cards:
     - type: vertical-stack
       cards:
-        - type: camera-preview
-          entity: camera.kitchen
+        - type: picture-glance
+          title: Kitchen Camera
+          camera-image: camera.kitchen
         - type: entities
           title: Motion
           entities:
@@ -142,8 +141,9 @@ views:
   cards:
     - type: vertical-stack
       cards:
-        - type: camera-preview
-          entity: camera.living_room
+        - type: picture-glance
+          title: Living Room Camera
+          camera-image: camera.living_room
         - type: entities
           title: Motion
           entities:
