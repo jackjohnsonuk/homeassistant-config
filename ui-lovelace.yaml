@@ -118,9 +118,11 @@ views:
   cards:
     - type: vertical-stack
       cards:
-        - type: picture-glance
+        - type: picture-entity
           title: Kitchen Camera
+          entity: camera.kitchen
           camera-image: camera.kitchen
+          show_info: false
         - type: entities
           title: Motion
           entities:
@@ -131,10 +133,8 @@ views:
       title: Dishwasher
       entities:
         - input_select.dishwasher_status
-    - type: picture-entity
+    - type: picture
       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-      entity: light.jack_bedside_light
-      show_info: false
       navigation_path: /lovelace/home/
 
 - icon: mdi:sofa
@@ -145,7 +145,9 @@ views:
       cards:
         - type: picture-glance
           title: Living Room Camera
+          entity: camera.living_room
           camera-image: camera.living_room
+          show_info: false
         - type: entities
           title: Motion
           entities:
