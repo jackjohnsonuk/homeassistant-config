@@ -1,17 +1,17 @@
+##This is very much a work in progress for me - any questions, I'm usually on the [Discord Channel] (https://discord.gg/c5DvZ4e) and will be happy to help!
+
 # Home Assistant configuration
 This is my [Home Assistant](https://home-assistant.io/) configuration, I'm currently running . ~~It is installed on a Raspberry Pi 3, using the [Hassio Installer](https://home-assistant.io/hassio/), on a 16 GB card~~ After a change in home systems I now run the Home Assistant Docker image on my UnRaid server, it was sitting there, it seemed silly not to :) . I use a [Smart Things Hub](http://www.samsung.com/uk/smartthings/hub-f-hub-uk-v2/) for both Z-Wave, and Zigbee control.
 
-## On the Pi itself I run
+## On the Server itself I run
 
 * [Home Assistant](https://home-assistant.io/) with the following addons:
-  * [Dropbox Sync](https://github.com/danielwelch/hassio-addons/) to enable me to remote backup my evening snapshots
   * [Duck DNS](https://github.com/hassio-addons/repository/) for enabling external access via a DNS
   * [FireTV Server](http://github.com/gollo/hassio-addons/) for enabling me to add my fire-tv's as media players
-  * [Git Pull](https://github.com/vkorn/hassio-addons/) for pulling amends I've made to my git repository, for example anything I ight think of while at work.
+  * [My Git Pull Script](https://community.home-assistant.io/t/small-bash-code-to-automate-a-git-pull-and-restart-the-docker/52395/3)
   * [Mosquitto Broker](https://github.com/hassio-addons/repository/) MQTT Broker to receive and pass all my mqtt devices into Hass.IO
   * [PS4WakerBridge](https://github.com/vkorn/hassio-addons/) I'm still playing with this, but hoping to link in my PS4 wake-up
   * [SSH server](https://github.com/hassio-addons/repository/) to allow me to ssh into my instance
-  * [Samba Share](https://github.com/hassio-addons/repository/) to allow access through samba to files stored on the install
   * [SmartThings Bridge](https://github.com/vkorn/hassio-addons/) links my [SmartThings Hub](http://www.samsung.com/uk/smartthings/hub-f-hub-uk-v2/) into home assistant which allows me to operate all my z-wave and zig-bee devices, this then forwards everything to the MQTT Broker
 
 
@@ -45,7 +45,7 @@ This is my [Home Assistant](https://home-assistant.io/) configuration, I'm curre
   * [Logitech Harmony Ultimate](https://www.logitech.com/en-gb/harmony-universal-remotes)
     * Still playing around with this, currently in the Living Room, however with my TV using HDMI CEC, and the only source being Fire TV it seems slightly redundant?
   * [Sony Playstation 4](https://www.playstation.com/en-gb/explore/ps4/buy-ps4/buy-new-ps4/)
-    * **Need to get this fully working but PS4 Waker to turn this on will be handy while I'm at work to make sure it's got the lastest updates on games for when I get home**
+    * **Need to get this fully working but PS4 Waker to turn this on will be handy while I'm at work to make sure it's got the latest updates on games for when I get home**
   * [Fire TV Stick](https://www.amazon.co.uk/dp/B01ETRIFOW/ref=asc_df_B01ETRIFOW50970935/?tag=googshopuk-21&creative=22110&creativeASIN=B01ETRIFOW&linkCode=df0&hvadid=205236640281&hvpos=1o3&hvnetw=g&hvrand=15126035685830008529&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1007009&hvtargid=pla-335245349918&th=1&psc=1)
     * One sat behind the Bedroom TV
     * One sat behind the Living Room TV
