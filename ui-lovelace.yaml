@@ -257,14 +257,14 @@ views:
         - entity_id: "*battery*"
       exclude:
         - entity_id: sensor.battery_presence_sensor_lara_car
-
-  - type: custom:monster-card
-    card:
-      type: entities
-      title: Door and Window Status
-    filter:
-      include:
-        - domain: binary_sensor
+  # 
+  # - type: custom:monster-card
+  #   card:
+  #     type: entities
+  #     title: Door and Window Status
+  #   filter:
+  #     include:
+  #       - domain: binary_sensor
         # - attributes:
         #     device_class: window
               # - door
