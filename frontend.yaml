@@ -1,5 +1,5 @@
 
-  javascript_version: es5
+  javascript_version: latest
   extra_html_url:
     - /local/lovelace.html
     - /local/custom_ui/state-card-custom-ui.html
