@@ -1,3 +1,7 @@
+resources:
+  - url: /local/bignumber-card.js?v=1
+    type: js
+
 name: Orchard Cottages
 views:
 - icon: mdi:home
@@ -51,6 +55,13 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
+    - type: custom:bignumber-card
+      title: Outside Temperature
+      entity: sensor.plant_bathroom_temperature
+      severity:
+        red: 30
+        amber: 26
+        green: 20
 
     - type: weather-forecast
       entity: weather.yahoo_home
