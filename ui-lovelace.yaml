@@ -250,6 +250,16 @@ views:
   - type: custom:monster-card
     card:
       type: entities
+      title: Motion Sensor Status
+    filter:
+      include:
+        - attributes:
+            device_class: motion
+
+
+  - type: custom:monster-card
+    card:
+      type: entities
       title: Door and Window Status
     filter:
       include:
