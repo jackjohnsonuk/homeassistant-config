@@ -1,6 +1,8 @@
 resources:
   - url: /local/bignumber-card.js?v=2
     type: js
+  - url: /local/monster-card.js?v=1
+    type: js
 
 name: Orchard Cottages
 views:
@@ -58,6 +60,17 @@ views:
     - type: custom:bignumber-card
       title: Outside Temperature
       entity: sensor.plant_bathroom_temperature
+
+    - type: custom:monster-card
+      card:
+        type: glance
+        title: Monster
+      filter:
+        include: [{}]
+        exclude:
+          - entity_id: "*yweather*"
+          - domain: group
+          - domain: zone
 
     - type: weather-forecast
       entity: weather.yahoo_home
