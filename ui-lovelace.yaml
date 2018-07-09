@@ -1,5 +1,5 @@
 resources:
-  - url: /local/bignumber-card.js?v=1
+  - url: /local/bignumber-card.js
     type: js
 
 name: Orchard Cottages
@@ -59,9 +59,7 @@ views:
       title: Outside Temperature
       entity: sensor.plant_bathroom_temperature
       severity:
-        red: 30
-        amber: 26
-        green: 20
+        normal: 24
 
     - type: weather-forecast
       entity: weather.yahoo_home
