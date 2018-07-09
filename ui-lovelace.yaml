@@ -61,16 +61,16 @@ views:
       title: Outside Temperature
       entity: sensor.plant_bathroom_temperature
 
-    - type: custom:monster-card
-      card:
-        type: glance
-        title: Monster
-      filter:
-        include: [{}]
-        exclude:
-          - entity_id: "*yweather*"
-          - domain: group
-          - domain: zone
+    # - type: custom:monster-card
+    #   card:
+    #     type: glance
+    #     title: Monster
+    #   filter:
+    #     include: [{}]
+    #     exclude:
+    #       - entity_id: "*yweather*"
+    #       - domain: group
+    #       - domain: zone
 
     - type: weather-forecast
       entity: weather.yahoo_home
