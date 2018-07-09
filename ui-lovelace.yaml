@@ -58,8 +58,6 @@ views:
     - type: custom:bignumber-card
       title: Outside Temperature
       entity: sensor.plant_bathroom_temperature
-      severity:
-        normal: 24
 
     - type: weather-forecast
       entity: weather.yahoo_home
