@@ -256,7 +256,7 @@ views:
       include:
         - entity_id: "*battery*"
       exclude:
-        - entity_id: "sensor.battery_presence_sensor_lara_car"
+        - entity_id: "battery_presence_sensor_lara_car"
 # #
   # - type: custom:monster-card
   #   card:
