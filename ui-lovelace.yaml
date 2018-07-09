@@ -242,7 +242,8 @@ views:
       title: Battery Status
     filter:
       include:
-        - entity_id: "*battery*"
+        - attributes:
+            device_class: battery
       exclude:
         - entity_id: "sensor.battery_presence_sensor_lara_car"
 
