@@ -1,5 +1,5 @@
 resources:
-  - url: /local/bignumber-card.js?v=1
+  - url: /local/bignumber-card.js?v=2
     type: js
 
 name: Orchard Cottages
