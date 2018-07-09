@@ -264,9 +264,9 @@ views:
       title: Door and Window Status
     filter:
       include:
-        - entity_id: "*"
-          attributes:
-            device_class: window
+        - domain: binary_sensor
+        # - attributes:
+        #     device_class: window
               # - door
 
   - type: picture
