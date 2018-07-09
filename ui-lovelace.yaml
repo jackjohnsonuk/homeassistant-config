@@ -61,16 +61,7 @@ views:
       title: Outside Temperature
       entity: sensor.plant_bathroom_temperature
 
-    # - type: custom:monster-card
-    #   card:
-    #     type: glance
-    #     title: Monster
-    #   filter:
-    #     include: [{}]
-    #     exclude:
-    #       - entity_id: "*yweather*"
-    #       - domain: group
-    #       - domain: zone
+
 
     - type: weather-forecast
       entity: weather.yahoo_home
@@ -257,6 +248,13 @@ views:
       # - sensor.battery_presence_sensor_lara_car
       - sensor.plant_bathroom_battery
 
+  - type: custom:monster-card
+    card:
+      type: entities
+      title: Battery Status
+    filter:
+      include:
+        - entity_id: "*battery*"
 
   - type: picture
     image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
