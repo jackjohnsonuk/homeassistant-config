@@ -257,6 +257,14 @@ views:
         - attributes:
             device_class: door
 
+  - type: custom:monster-card
+    card:
+      type: entities
+      title: Things that are probably broken
+    filter:
+      include:
+        - state: "unknown"
+
   - type: picture
     image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
     navigation_path: /lovelace/home/
