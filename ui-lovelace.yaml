@@ -255,6 +255,19 @@ views:
     filter:
       include:
         - entity_id: "*battery*"
+      exclude:
+        - entity_id: sensor.battery_presence_sensor_lara_car
+
+  - type: custom:monster-card
+    card:
+      type: entities
+      title: Door Status
+    filter:
+      include:
+        - attributes:
+            device_class: window
+        - attributes:            
+            device_class: door
 
   - type: picture
     image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
