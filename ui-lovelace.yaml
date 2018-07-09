@@ -235,18 +235,18 @@ views:
   title: Settings
   id: settings
   cards:
-  # - type: entities
-  #   title: Battery Status
-  #   show_header_toggle: true
-  #   entities:
-  #     - sensor.battery_door_sensor_bathroom
-  #     - sensor.battery_door_sensor_dishwasher
-  #     - sensor.battery_door_sensor_dressing_room_window
-  #     - sensor.battery_motion_bedroom
-  #     - sensor.battery_motion_dressing_room
-  #     - sensor.battery_presence_sensor_jack_car
-  #     # - sensor.battery_presence_sensor_lara_car
-  #     - sensor.plant_bathroom_battery
+  - type: entities
+    title: Battery Status
+    show_header_toggle: true
+    entities:
+      - sensor.battery_door_sensor_bathroom
+      - sensor.battery_door_sensor_dishwasher
+      - sensor.battery_door_sensor_dressing_room_window
+      - sensor.battery_motion_bedroom
+      - sensor.battery_motion_dressing_room
+      - sensor.battery_presence_sensor_jack_car
+      # - sensor.battery_presence_sensor_lara_car
+      - sensor.plant_bathroom_battery
 
   - type: custom:monster-card
     card:
@@ -255,9 +255,9 @@ views:
     filter:
       include:
         - entity_id: "*battery*"
-      exclude:
-        - entity_id: sensor.battery_presence_sensor_lara_car
-  # 
+  #     exclude:
+  #       - entity_id: sensor.battery_presence_sensor_lara_car
+# # 
   # - type: custom:monster-card
   #   card:
   #     type: entities
