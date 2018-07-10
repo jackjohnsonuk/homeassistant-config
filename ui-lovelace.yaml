@@ -1,7 +1,9 @@
 resources:
-  - url: /local/bignumber-card.js?v=2
+  - url: /local/bignumber-card.js?v=3
     type: js
-  - url: /local/monster-card.js?v=2
+  - url: /local/monster-card.js?v=3
+    type: js
+  - url: /local/gauge-card.js?v=1
     type: js
 
 name: Orchard Cottages
@@ -57,12 +59,16 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
-    - type: custom:bignumber-card
+    - type: custom:gauge-card
       title: Outside Temperature
       entity: sensor.plant_bathroom_temperature
-
-
-
+      min: -5
+      max: 35
+      severity:
+        normal: -5
+        green: 15
+        red: 25
+        
     - type: weather-forecast
       entity: weather.yahoo_home
 
