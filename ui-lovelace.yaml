@@ -60,7 +60,7 @@ views:
         - light.bedroom_main_light
 
     - type: custom:gauge-card
-      title: Outside Temperature
+      title: Outside Temp
       entity: sensor.plant_bathroom_temperature
       min: -5
       max: 35
@@ -68,7 +68,7 @@ views:
         normal: -5
         green: 15
         red: 25
-        
+
     - type: weather-forecast
       entity: weather.yahoo_home
 
