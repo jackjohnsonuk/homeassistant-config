@@ -76,10 +76,10 @@ views:
       entities:
         - light.bedroom_main_light
       state_filter:
-        - "off"
+        - 'on'
       card:
-        type: picture-glance
-        image: https://images2.roomstogo.com/is/image/roomstogo/br_rm_belmar_black_pan~Belmar-Black-5-Pc-Queen-Bedroom.jpeg?$pdp_gallery_945$
+        type: glance
+        title: test
 
 # "zones"
 # outdoor
