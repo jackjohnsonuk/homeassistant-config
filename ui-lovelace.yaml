@@ -72,15 +72,6 @@ views:
     - type: weather-forecast
       entity: weather.yahoo_home
 
-    - type: entity-filter
-      entities:
-        - light.bedroom_main_light
-      state_filter:
-        - 'on'
-      card:
-        type: glance
-        title: test
-
 # "zones"
 # outdoor
 # kitchen
