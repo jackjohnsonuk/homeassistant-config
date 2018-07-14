@@ -5,6 +5,8 @@ resources:
     type: js
   - url: /local/gauge-card.js?v=1
     type: js
+  - url: /local/last-motion-card.js?v=1
+    type: js
 
 name: Orchard Cottages
 views:
@@ -88,6 +90,10 @@ views:
         - sensor.jack_home_to_work
         # - sensor.recycling_pickup_day
         # - sensor.rubbish_pickup_day
+
+    - type: custom:last-motion-card
+      title: Last Motion Card
+      entity: sensor.last_motion
 
     - type: glance
       title: Birthdays
