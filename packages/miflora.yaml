@@ -92,11 +92,11 @@ plant:
 
  Outdoor Plant:
     sensors:
-      moisture: sensor.plant Outdoor_moisture
-      battery: sensor.plant Outdoor_battery
-      temperature: sensor.plant Outdoor_temperature
-      conductivity: sensor.plant Outdoor_conductivity
-      brightness: sensor.plant Outdoor_brightness
+      moisture: sensor.plant_outdoor_moisture
+      battery: sensor.plant_outdoor_battery
+      temperature: sensor.plant_outdoor_temperature
+      conductivity: sensor.plant_outdoor_conductivity
+      brightness: sensor.plant_outdoor_brightness
     min_moisture: 25
     max_moisture: 60
     min_battery: 17
