@@ -48,21 +48,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Under Stairs Cupboard"
-  state_topic: "smartthings/Hall Motion Sensor/motion/state"
-  command_topic: "smartthings/Hall Motion Sensor/motion/state"
-  device_class: motion
-  payload_on: "active"
-  payload_off: "inactive"
-  retain: true
-
-      #################################################################
-      ## Motion Sensor - Living Room
-      #################################################################
-
-- platform: mqtt
-  name: "Motion Living Room"
-  state_topic: "smartthings/Living Room Motion/motion/state"
-  command_topic: "smartthings/Living Room Motion/motion/state"
+  state_topic: "smartthings/Motion - Under Stairs/motion/state"
+  command_topic: "smartthings/Motion - Under Stairs/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -74,8 +61,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Bedroom"
-  state_topic: "smartthings/Bedroom Motion/motion/state"
-  command_topic: "smartthings/Bedroom Motion/motion/state"
+  state_topic: "smartthings/Motion - Bedroom/motion/state"
+  command_topic: "smartthings/Motion - Bedroom/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -87,8 +74,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Hallway"
-  state_topic: "smartthings/Motion Hallway/motion/state"
-  command_topic: "smartthings/Motion Hallway/motion/state"
+  state_topic: "smartthings/Motion - Hallway/motion/state"
+  command_topic: "smartthings/Motion - Hallway/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -100,8 +87,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Dressing Room"
-  state_topic: "smartthings/Motion Dressing Room/motion/state"
-  command_topic: "smartthings/Motion Dressing Room/motion/state"
+  state_topic: "smartthings/Motion - Dressing Room/motion/state"
+  command_topic: "smartthings/Motion - Dressing Room/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -113,8 +100,8 @@ binary_sensor:
 
 - platform: mqtt
   name: "Motion Bathroom"
-  state_topic: "smartthings/Motion Bathroom/motion/state"
-  command_topic: "smartthings/Motion Bathroom/motion/state"
+  state_topic: "smartthings/Motion - Bathroom/motion/state"
+  command_topic: "smartthings/Motion - Bathroom/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
@@ -279,10 +266,10 @@ automation:
          - light.living_room_side_lights
 
       #################################################################
-      ## Automation - Bedroom Motion Switch On
+      ## Automation - Motion - Bedroom Switch On
       #################################################################
 
-# - alias: bedroom motion
+# - alias: Motion - Bedroom
 #   trigger:
 #    - platform: state
 #      entity_id: binary_sensor.motion_bedroom
@@ -318,7 +305,7 @@ automation:
 #          - light.zone_bedroom
 
       #################################################################
-      ## Automation - Bedroom Motion Switch Off
+      ## Automation - Motion - Bedroom Switch Off
       #################################################################
 
 # - alias: Turn off Bedroom light 1 minutes after last movement
@@ -371,7 +358,7 @@ sensor:
 
   - platform: mqtt
     name: battery_motion_dressing_room
-    state_topic: "smartthings/Motion Dressing Room/battery/state"
+    state_topic: "smartthings/Motion - Dressing Room/battery/state"
     device_class: battery
     unit_of_measurement: '%'
 
@@ -381,6 +368,6 @@ sensor:
 
   - platform: mqtt
     name: battery_motion_bedroom
-    state_topic: "smartthings/Bedroom Motion/battery/state"
+    state_topic: "smartthings/Motion - Bedroom/battery/state"
     device_class: battery
     unit_of_measurement: '%'
