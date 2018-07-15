@@ -118,7 +118,7 @@ views:
           name: Bath
 
     - type: plant-status
-      entity: plant.bathroom_plant
+      entity: plant.outdoor_plant
     - type: entities
       title: Vacuum
       show_header_toggle: false

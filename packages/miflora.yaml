@@ -43,37 +43,37 @@ sensor:
       #################################################################
 
   - platform: mqtt
-    state_topic: 'miflora/BathroomPlant'
-    name: 'Plant Bathroom Battery'
+    state_topic: 'miflora/OutdoorPlants'
+    name: 'Plant Outdoor Battery'
     force_update: true
     device_class: battery
     unit_of_measurement: '%'
     value_template: '{{ value_json.battery }}'
 
   - platform: mqtt
-    state_topic: 'miflora/BathroomPlant'
-    name: 'Plant Bathroom Conductivity'
+    state_topic: 'miflora/OutdoorPlants'
+    name: 'Plant Outdoor Conductivity'
     force_update: true
     unit_of_measurement: 'µS/cm'
     value_template: '{{ value_json.conductivity }}'
 
   - platform: mqtt
-    state_topic: 'miflora/BathroomPlant'
-    name: 'Plant Bathroom Moisture'
+    state_topic: 'miflora/OutdoorPlants'
+    name: 'Plant Outdoor Moisture'
     force_update: true
     unit_of_measurement: '%'
     value_template: '{{ value_json.moisture }}'
 
   - platform: mqtt
-    state_topic: 'miflora/BathroomPlant'
-    name: 'Plant Bathroom Temperature'
+    state_topic: 'miflora/OutdoorPlants'
+    name: 'Plant Outdoor Temperature'
     force_update: true
     unit_of_measurement: '°C'
     value_template: '{{ value_json.temperature }}'
 
   - platform: mqtt
-    state_topic: 'miflora/BathroomPlant'
-    name: 'Plant Bathroom Brightness'
+    state_topic: 'miflora/OutdoorPlants'
+    name: 'Plant Outdoor Brightness'
     force_update: true
     unit_of_measurement: 'lux'
     value_template: '{{ value_json.brightness }}'
@@ -90,13 +90,13 @@ plant:
       ## MiFlora - plant
       #################################################################
 
-  Bathroom Plant:
+ Outdoor Plant:
     sensors:
-      moisture: sensor.plant_bathroom_moisture
-      battery: sensor.plant_bathroom_battery
-      temperature: sensor.plant_bathroom_temperature
-      conductivity: sensor.plant_bathroom_conductivity
-      brightness: sensor.plant_bathroom_brightness
+      moisture: sensor.plant Outdoor_moisture
+      battery: sensor.plant Outdoor_battery
+      temperature: sensor.plant Outdoor_temperature
+      conductivity: sensor.plant Outdoor_conductivity
+      brightness: sensor.plant Outdoor_brightness
     min_moisture: 25
     max_moisture: 60
     min_battery: 17
