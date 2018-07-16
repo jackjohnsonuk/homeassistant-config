@@ -257,6 +257,19 @@ binary_sensor:
   retain: true
 
       #################################################################
+      ## Motion Sensor - Front Room Motion
+      #################################################################
+
+- platform: mqtt
+  name: "Motion Front Room"
+  state_topic: "blueiris/front_room/state"
+  command_topic: "blueiris/front_room/state"
+  device_class: motion
+  payload_on: "active"
+  payload_off: "inactive"
+  retain: true
+
+      #################################################################
       ## Motion Sensor - Kitchen Motion
       #################################################################
 
