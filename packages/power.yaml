@@ -119,7 +119,7 @@ sensor:
 
 - platform: mqtt
   name: "Power Bedroom Humidifier"
-  state_topic: "smartthings/Perfect Prep/power/state"
+  state_topic: "smartthings/Power - Bedroom Humidifier/power/state"
   unit_of_measurement: "kw"
 
 ################################################
