@@ -131,6 +131,12 @@ camera:
   password: !secret camera_pass
   authentication: basic
 
+- platform: mjpeg
+  mjpeg_url: !secret blueiris_front_room_url
+  name: Front Room
+  username: !secret camera_user
+  password: !secret camera_pass
+  authentication: basic
 
 - platform: mjpeg
   mjpeg_url: !secret blueiris_front_door_url
