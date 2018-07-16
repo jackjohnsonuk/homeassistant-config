@@ -32,6 +32,11 @@ homeassistant:
       friendly_name: Living Room TV
       <<: *expose
 
+    binary_sensor.bedroom_tv:
+      friendly_name: Bedroom TV
+      initial_state: off
+      <<: *expose
+
 ################################################
 ## TV - Media Player's
 ################################################
@@ -234,7 +239,7 @@ binary_sensor:
         #################################################################
 
   - platform: mqtt
-    name: "Bedroom_TV"
+    name: "bedroom_tv"
     state_topic: "bedroom_tv/power"
     payload_on: "online"
     payload_off: "offline"
