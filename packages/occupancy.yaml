@@ -45,7 +45,7 @@ automation:
 - alias: Occupancy - Living turn on if motion detected
   trigger:
     - platform: state
-      entity_id: binary_sensor.motion_living_room_camera
+      entity_id: binary_sensor.motion_living_room
       from: 'off'
       to: 'on'
     - platform: state
@@ -63,7 +63,7 @@ automation:
       ## Reset Living Room Occupancy
       #################################################################
 
-- alias: Occupancy - Living turn off after 30min of no motion
+- alias: Occupancy - Living turn off after 2 min of no motion
   trigger:
     platform: time
     minutes: '/2'
@@ -72,7 +72,7 @@ automation:
     condition: and
     conditions:
       - condition: state
-        entity_id: binary_sensor.motion_living_room_camera
+        entity_id: binary_sensor.motion_living_room
         state: 'off'
         for:
          seconds: 120
@@ -150,7 +150,6 @@ automation:
       #################################################################
 
 - alias: 'Bathroom Occupany Off'
-#Trigger
   trigger:
     platform: state
     entity_id: binary_sensor.motion_bathroom
@@ -172,16 +171,15 @@ automation:
       #################################################################
 
 - alias: 'Bathroom Occupany On'
-#Trigger
   trigger:
     platform: state
     entity_id: binary_sensor.door_sensor_bathroom
     from: 'off'
     to: 'on'
-  condition:
-    - condition: state
-      entity_id: light.bathroom_lights
-      state: 'off'
+  # condition:
+  #   - condition: state
+  #     entity_id: light.bathroom_lights
+  #     state: 'off'
   action:
   - data:
       entity_id: input_boolean.bathroom_occupancy
@@ -189,16 +187,15 @@ automation:
 
 
 - alias: 'Bathroom Occupany On 2'
-#Trigger
   trigger:
     platform: state
     entity_id: binary_sensor.motion_bathroom
     from: 'off'
     to: 'on'
-  condition:
-    - condition: state
-      entity_id: light.bathroom_lights
-      state: 'off'
+  # condition:
+  #   - condition: state
+  #     entity_id: light.bathroom_lights
+  #     state: 'off'
   action:
   - data:
       entity_id: input_boolean.bathroom_occupancy
@@ -233,15 +230,5 @@ input_boolean:
 
   bathroom_occupancy:
     name: Bathroom Occupancy
-    initial: off
-    icon: mdi:account
-
-
-      #################################################################
-      ## Living Room Idle
-      #################################################################
-
-  living_room_idle:
-    name: Living Room Idle
     initial: off
     icon: mdi:account
