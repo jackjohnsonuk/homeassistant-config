@@ -61,15 +61,15 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
-    - type: custom:gauge-card
-      title: Outside Temp
-      entity: sensor.plant_bathroom_temperature
-      min: -5
-      max: 35
-      severity:
-        normal: -5
-        green: 15
-        red: 25
+    # - type: custom:gauge-card
+    #   title: Outside Temp
+    #   entity: sensor.plant_bathroom_temperature
+    #   min: -5
+    #   max: 35
+    #   severity:
+    #     normal: -5
+    #     green: 15
+    #     red: 25
 
     - type: weather-forecast
       entity: weather.yahoo_home
@@ -91,9 +91,9 @@ views:
         # - sensor.recycling_pickup_day
         # - sensor.rubbish_pickup_day
 
-    - type: custom:last-motion-card
-      title: Last Motion Card
-      entity: sensor.last_motion
+    # - type: custom:last-motion-card
+    #   title: Last Motion Card
+    #   entity: sensor.last_motion
 
     - type: glance
       title: Birthdays
