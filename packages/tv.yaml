@@ -95,7 +95,12 @@ media_player:
   mac: '34:EA:34:8E:E9:59'
   ircodes_ini: 'custom_components/bedroom_tv.ini'
 
+      #################################################################
+      ## Media Player - Plex
+      #################################################################
 
+
+- platform: plex
 
 # - platform: universal
 #   name: Bedroom Universal
