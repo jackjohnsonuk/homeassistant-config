@@ -69,7 +69,7 @@ views:
 
     - type: custom:gauge-card
       title: Outside Temp
-      entity: sensor.plant_bathroom_temperature
+      entity: sensor.plant_outdoor_temperature
       min: -5
       max: 35
       severity:
