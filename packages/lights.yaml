@@ -462,7 +462,7 @@ automation:
       entity_id: light.garden_light
 
       #################################################################
-      ## Turn off humidifier
+      ## Turn off garden lights
       #################################################################
 
 - alias: garden lights off
