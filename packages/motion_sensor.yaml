@@ -219,7 +219,7 @@ automation:
       ## Automation - Dressing Room Motion Switch Off
       #################################################################
 
-- alias: Turn off dressing room light 1 minutes after last movement
+- alias: Turn off dressing room light 2 minutes after last movement
   trigger:
     platform: state
     entity_id: binary_sensor.motion_dressing_room
@@ -239,12 +239,12 @@ automation:
    - platform: state
      entity_id: input_boolean.living_occupancy
      to: 'on'
-  condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: group.family
-        state: 'home'
+  # condition:
+  #   condition: and
+  #   conditions:
+  #     - condition: state
+  #       entity_id: group.family
+  #       state: 'home'
   action:
    - service: light.turn_on
      entity_id: light.living_room_side_lights
