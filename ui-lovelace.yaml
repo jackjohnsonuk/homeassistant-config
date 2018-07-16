@@ -203,6 +203,17 @@ views:
   title: Front Room
   id: front_room
   cards:
+    - type: vertical-stack
+      cards:
+        - type: picture-entity
+          title: Front Room Camera
+          entity: camera.front_room
+          camera-image: camera.front_room
+          show_info: false
+        - type: entities
+          title: Motion
+          entities:
+            - binary_sensor.motion_front_room
     - type: media-control
       entity: media_player.front_room_speaker
     # - type: media-control
