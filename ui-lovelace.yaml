@@ -40,7 +40,7 @@ views:
       camera_image: camera.living_room
       entities:
         - camera.living_room
-        - binary_sensor.motion_living_room_camera
+        - binary_sensor.motion_living_room
         - group.living_room_lights
         - switch.living_room_scentsy_relay
 
