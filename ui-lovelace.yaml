@@ -14,6 +14,7 @@ views:
   title: Home
   id: home
   cards:
+
     - type: picture-glance
       title: Outdoors
       image:
@@ -23,6 +24,7 @@ views:
         - binary_sensor.motion_front_door
         - light.garden_light
         - binary_sensor.front_door
+
     - type: picture-glance
       title: Kitchen
       image:
@@ -33,6 +35,7 @@ views:
         - binary_sensor.motion_kitchen
         - input_select.dishwasher_status
         - climate.kitchen
+
     - type: picture-glance
       title: Living Room
       image:
@@ -45,10 +48,13 @@ views:
         - switch.living_room_scentsy_relay
 
     - type: picture-glance
-      image: https://st.hzcdn.com/simgs/4602895305854f2b_8-9930/home-design.jpg
       title: Front Room
+      image:
       navigation_path: /lovelace/front_room
+      camera_image: camera.front_room
       entities:
+        - camera.front_room
+        - binary_sensor.motion_front_room
         - light.front_room_main_light
 
     - type: picture-glance
@@ -61,15 +67,15 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
-    # - type: custom:gauge-card
-    #   title: Outside Temp
-    #   entity: sensor.plant_bathroom_temperature
-    #   min: -5
-    #   max: 35
-    #   severity:
-    #     normal: -5
-    #     green: 15
-    #     red: 25
+    - type: custom:gauge-card
+      title: Outside Temp
+      entity: sensor.plant_bathroom_temperature
+      min: -5
+      max: 35
+      severity:
+        normal: -5
+        green: 15
+        red: 25
 
     - type: weather-forecast
       entity: weather.yahoo_home
