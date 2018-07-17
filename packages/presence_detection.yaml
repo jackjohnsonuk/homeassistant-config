@@ -30,10 +30,11 @@ homeassistant:
       templates:
         icon: if (state === 'Home') return 'mdi:home'; if (state === 'Just Arrived') return 'mdi:door-open'; if (state === 'Just Left') return 'mdi:door-closed'; if (state === 'Away') return 'mdi:map'; else return 'mdi:airplane';
 
-
     sensor.lara_status:
       <<: *customize
-      entity_picture: /local/lara.jpg
+      # entity_picture: /local/lara.jpg
+      templates:
+        icon: if (state === 'Home') return 'mdi:home'; if (state === 'Just Arrived') return 'mdi:door-open'; if (state === 'Just Left') return 'mdi:door-closed'; if (state === 'Away') return 'mdi:map'; else return 'mdi:airplane';
 
     sensor.presence_sensor_jack_car:
       <<: *customize
