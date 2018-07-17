@@ -94,6 +94,8 @@ views:
       entities:
         - sensor.last_motion
         - sensor.jack_home_to_work
+        - sensor.jack_status
+        - sensor.lara_status
         # - sensor.recycling_pickup_day
         # - sensor.rubbish_pickup_day
 
