@@ -72,7 +72,7 @@ binary_sensor:
 
 - platform: bayesian
   name: jack home
-  prior: 0.4  # 60% chance that somebody is at home at any given moment
+  prior: 0.4  # 40% chance that somebody is at home at any given moment
   probability_threshold: 0.90
   observations:
     # Somebody at home -> Very likely at least one household member is at home

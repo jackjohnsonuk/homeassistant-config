@@ -140,8 +140,8 @@ automation:
       to: 'on'
     - platform: state
       entity_id: binary_sensor.lara_home
-      from: 'not_home'
-      to: 'home'
+      from: 'off'
+      to: 'on'
   action:
     - service: input_select.select_option
       data_template:
