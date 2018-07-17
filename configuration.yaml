@@ -18,8 +18,8 @@ logbook:
 sun:
 
 custom_cards:
-  auto_update: False
-  hide_sensor: False
+  auto_update: false
+  hide_sensor: false
 
 mqtt:
   discovery: true
