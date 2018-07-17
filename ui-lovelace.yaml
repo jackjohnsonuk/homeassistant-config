@@ -7,6 +7,8 @@ resources:
     type: js
   - url: /local/last-motion-card.js?v=1
     type: js
+  - url: /local/card-tracker.js?v=0
+    type: js
 
 name: Orchard Cottages
 views:
@@ -268,6 +270,9 @@ views:
   id: settings
   cards:
 
+  - type: custom:card-tracker
+    entity: sensor.custom_card_tracker
+    
   - type: custom:monster-card
     card:
       type: entities
