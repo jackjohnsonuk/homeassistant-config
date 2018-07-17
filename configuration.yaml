@@ -17,6 +17,9 @@ history:
 logbook:
 sun:
 
+custom_cards:
+  auto_update: False
+  hide_sensor: False
 
 mqtt:
   discovery: true
