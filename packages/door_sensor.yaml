@@ -99,7 +99,7 @@ automation:
      from: 'off'
      to: 'on'
   action:
-    service: light.turn_off
+    service: light.turn_on
     entity_id: light.hallway_light
 
       #################################################################
@@ -115,7 +115,7 @@ automation:
     for:
       seconds: 10
   action:
-    service: homeassistant.turn_off
+    service: light.turn_on
     entity_id: light.hallway_light
 
 - alias: Dressing room window open home
