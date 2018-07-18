@@ -33,6 +33,6 @@ homeassistant:
 ################################################
 
 
-# calendar:
-#   - platform: todoist
-#     token: !secret todoist_api
+calendar:
+  - platform: todoist
+    token: !secret todoist_api
