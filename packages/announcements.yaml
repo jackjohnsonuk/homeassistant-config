@@ -153,6 +153,24 @@ automation:
 
 
       #################################################################
+      ## Doors/Windows Open
+      #################################################################
+
+- alias: 'Stop Escape Routes for the Cats'
+  trigger:
+   platform: time
+   at: '20:00:00'
+  condition:
+    condition: state
+    entity_id: 'group.door_window_sensor'
+    state: 'on'
+    weekday:
+  action:
+    - service: script.google_notify
+      data_template:
+        message: "If you want to keep the cats in, make sure to close the {{ dict((states|selectattr('entity_id', 'in', state_attr('group.door_window_sensor', 'entity_id'))|list)|groupby('state'))['on']|map(attribute='name')|list|join(', ') }}"
+
+      #################################################################
       ## Welcoming Homes
       #################################################################
 
