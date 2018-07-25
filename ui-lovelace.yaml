@@ -1,11 +1,11 @@
 resources:
-  - url: /local/bignumber-card.js?v=1.1
+  - url: /local/bignumber-card.js?v=0
     type: js
-  - url: /local/monster-card.js?v=1.1
+  - url: /local/monster-card.js?v=0
     type: js
-  - url: /local/gauge-card.js?v=0.0.0.9
+  - url: /local/gauge-card.js?v=0
     type: js
-  - url: /local/last-motion-card.js?v=1
+  - url: /local/last-motion-card.js?v=0
     type: js
   - url: /local/card-tracker.js?v=0
     type: js

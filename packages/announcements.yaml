@@ -156,7 +156,7 @@ automation:
       ## Doors/Windows Open
       #################################################################
 
-- alias: 'Stop Escape Routes for the Cats'
+- alias: 'Cats in'
   trigger:
    platform: time
    at: '20:00:00'
