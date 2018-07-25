@@ -24,6 +24,23 @@ homeassistant:
     ## Door Sensor
     ################################################
 
+    binary_sensor.door_sensor_bathroom:
+      <<: *customize
+      friendly_name: "Bathroom Door"
+    binary_sensor.door_sensor_dishwasher:
+      <<: *customize
+      friendly_name: "Dishwasher Door"
+    binary_sensor.door_sensor_front_door:
+      <<: *customize
+      friendly_name: "Front Door"
+    binary_sensor.door_sensor_dressing_room_window:
+      <<: *customize
+      friendly_name: "Dressing Room Window"    
+
+    ################################################
+    ## Door Sensor Battery
+    ################################################
+
     sensor.door_sensor_dishwasher:
       <<: *customize
       friendly_name: "Battery - Door Sensor - Dishwasher"
@@ -48,7 +65,7 @@ binary_sensor:
       #################################################################
 
 - platform: mqtt
-  name: "Front Door"
+  name: "Door Sensor Front Door"
   state_topic: "smartthings/Door Sensor - Front Door/contact/state"
   command_topic: "smartthings/Door Sensor - Front Door/contact/state"
   device_class: door

@@ -224,7 +224,5 @@ Bedroom_motion_sensor:
 door_window_sensor:
   name: Door/Window Sensor
   entities:
-   - binary_sensor.front_door
-   - binary_sensor.door_sensor_dishwasher
-   - binary_sensor.door_sensor_bathroom
+   - binary_sensor.door_sensor_front_door
    - binary_sensor.door_sensor_dressing_room_window
