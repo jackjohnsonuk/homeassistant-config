@@ -162,9 +162,8 @@ automation:
    at: '20:00:00'
   condition:
     condition: state
-    entity_id: 'group.door_window_sensor'
+    entity_id: group.door_window_sensor
     state: 'on'
-    weekday:
   action:
     - service: script.google_notify
       data_template:
