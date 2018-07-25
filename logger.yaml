@@ -27,3 +27,4 @@ logs:
   requests.packages.urllib3: critical
   requests.packages.urllib3.connectionpool: critical
   root: warn
+  custom_components.custom_updater: debug
