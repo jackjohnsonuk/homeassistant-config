@@ -1,9 +1,9 @@
 resources:
-  - url: /local/bignumber-card.js?v=3
+  - url: /local/bignumber-card.js?v=1.1
     type: js
-  - url: /local/monster-card.js?v=3
+  - url: /local/monster-card.js?v=1.1
     type: js
-  - url: /local/gauge-card.js?v=1
+  - url: /local/gauge-card.js?v=0.0.0.9
     type: js
   - url: /local/last-motion-card.js?v=1
     type: js
