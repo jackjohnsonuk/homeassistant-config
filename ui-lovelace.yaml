@@ -38,8 +38,8 @@ views:
         - type: state-icon
           entity: sensor.outside_temp
           style:
-            top: 7.5%
-            left: 82%
+            top: 8%
+            left: 75%
             pointer-events: none
             max-width: 24px
             max-height: 24px

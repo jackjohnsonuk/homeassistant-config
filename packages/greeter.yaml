@@ -130,5 +130,5 @@ sensor:
   - platform: command_line
     name: "Outside: Alerts"
     icon: alert-outline
-    command: "/config/custom_component/shell/check-weather.sh"
+    command: "/local/check-weather.sh"
     scan_interval: 180 
