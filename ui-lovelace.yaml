@@ -44,6 +44,7 @@ views:
             max-width: 24px
             max-height: 24px
             color: rgb(249, 251, 255)
+            
         - type: state-label
           entity: sensor.outside_temp
           style:
@@ -64,7 +65,7 @@ views:
             top: 40%
             left: 50%
             color: rgb(249, 251, 255)
-            font-size: 250%
+            font-size: 200%
             pointer-events: none
             text-shadow: 2px 2px DarkSlateGrey
             font-family: Trebuchet MS
