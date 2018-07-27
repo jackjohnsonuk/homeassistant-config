@@ -57,7 +57,7 @@ views:
             -moz-osx-font-smoothing: grayscale
             font-smoothing: antialiased
             -webkit-font-smoothing: antialiased
-​
+            
         - type: state-label
           entity: sensor.time_of_day
           style:
