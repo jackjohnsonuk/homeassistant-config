@@ -94,7 +94,7 @@ sensor:
           {% else %}
              mdi:help-circle
           {% endif %}
-​
+
         entity_picture_template: >
           {% if is_state('weather.yahoo_home', 'sunny') -%}
               /local/weather_icons/static/sunny.svg
