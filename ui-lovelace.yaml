@@ -17,6 +17,81 @@ views:
   id: home
   cards:
 
+    - type: picture-elements
+      image: /local/wallpaper/hatheme3.jpg
+      elements:
+        - type: state-label
+          entity: sensor.time
+          style:
+            top: 8%
+            left: 10%
+            color: rgb(249, 251, 255)
+            text-shadow: 2px 2px DarkSlateGrey
+            font-family: Trebuchet MS
+            font-weight: bold
+            pointer-events: none
+            text-rendering: optimizeLegibility
+            -moz-osx-font-smoothing: grayscale
+            font-smoothing: antialiased
+            -webkit-font-smoothing: antialiased
+            
+        - type: state-icon
+          entity: sensor.outside_temp
+          style:
+            top: 7.5%
+            left: 82%
+            pointer-events: none
+            max-width: 24px
+            max-height: 24px
+            color: rgb(249, 251, 255)
+        - type: state-label
+          entity: sensor.outside_temp
+          style:
+            top: 8%
+            left: 90%
+            color: rgb(249, 251, 255)
+            font-family: Trebuchet MS
+            font-weight: bold
+            text-shadow: 2px 2px DarkSlateGrey
+            text-rendering: optimizeLegibility
+            -moz-osx-font-smoothing: grayscale
+            font-smoothing: antialiased
+            -webkit-font-smoothing: antialiased
+​
+        - type: state-label
+          entity: sensor.time_of_day
+          style:
+            top: 40%
+            left: 50%
+            color: rgb(249, 251, 255)
+            font-size: 250%
+            pointer-events: none
+            text-shadow: 2px 2px DarkSlateGrey
+            font-family: Trebuchet MS
+            font-style: oblique
+            font-weight: 400
+            text-rendering: optimizeLegibility
+            -moz-osx-font-smoothing: grayscale
+            font-smoothing: antialiased
+            -webkit-font-smoothing: antialiased
+            
+        - type: state-label
+          entity: sensor.outside_alerts
+          style:
+            top: 52%
+            left: 50%
+            color: rgb(249, 251, 255)
+            font-family: Trebuchet MS
+            font-style: oblique
+            text-shadow: 2px 2px DarkSlateGrey
+            font-size: 120%
+            pointer-events: none
+            font-weight: 400
+            text-rendering: optimizeLegibility
+            -moz-osx-font-smoothing: grayscale
+            font-smoothing: antialiased
+            -webkit-font-smoothing: antialiased
+
     - type: picture-glance
       title: Outdoors
       image:
