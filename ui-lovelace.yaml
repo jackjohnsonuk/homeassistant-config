@@ -18,7 +18,7 @@ views:
   cards:
 
     - type: picture-elements
-      image: /local/wallpaper/hatheme3.jpg
+      image: /local/hatheme3.jpg
       elements:
         - type: state-label
           entity: sensor.time
