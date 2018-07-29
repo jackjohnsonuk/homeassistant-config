@@ -107,7 +107,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.locate
         style:
-          top: 90%
+          top: 80%
           left: 80%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -117,7 +117,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.return_to_base
         style:
-          top: 90%
+          top: 80%
           left: 60%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -127,7 +127,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.start_pause
         style:
-          top: 90%
+          top: 80%
           left: 40%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -137,7 +137,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.stop
         style:
-          top: 90%
+          top: 80%
           left: 20%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
