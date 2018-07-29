@@ -107,7 +107,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.locate
         style:
-          top: 10%
+          top: 90%
           left: 80%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -117,7 +117,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.return_to_base
         style:
-          top: 10%
+          top: 90%
           left: 60%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -127,7 +127,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.start_pause
         style:
-          top: 10%
+          top: 90%
           left: 40%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -137,15 +137,15 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.stop
         style:
-          top: 10%
+          top: 90%
           left: 20%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
       - type: state-label
         entity: sensor.vacuum_battery
         style:
-          top: 90%
-          left: 90%
+          top: 0%
+          left: 00%
           color: rgb(115, 122, 130)
           transform: none
           pointer-events: none
@@ -160,8 +160,8 @@ views:
       - type: state-label
         entity: sensor.vacuum_status
         style:
-          top: 90%
-          left: 10%
+          top: 20%
+          left: 0%
           color: rgb(115, 122, 130)
           transform: none
           pointer-events: none
