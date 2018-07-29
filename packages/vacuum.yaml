@@ -41,6 +41,7 @@ vacuum:
 ## Vacuum - Sensors
 ################################################
 
+sensor:
 
   - platform: template
     sensors:
