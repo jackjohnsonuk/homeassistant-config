@@ -113,7 +113,7 @@ automation:
       entity_id: input_boolean.front_room_occupancy
 
       #################################################################
-      ## Reset Living Room Occupancy
+      ## Reset Front Room Occupancy
       #################################################################
 
 - alias: Occupancy - Living turn off after 2 min of no motion
@@ -122,13 +122,13 @@ automation:
     minutes: '/2'
     seconds: 00
   condition:
-    condition: and
-    conditions:
-      - condition: state
-        entity_id: binary_sensor.motion_front_room
-        state: 'off'
-        for:
-      #    seconds: 120
+    # condition: and
+    # conditions:
+    - condition: state
+      entity_id: binary_sensor.motion_front_room
+      state: 'off'
+      for:
+        seconds: 120
       # - condition: state
       #   entity_id: media_player.living_room_tv
       #   state: 'off'
