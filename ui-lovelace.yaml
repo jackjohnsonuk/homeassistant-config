@@ -101,49 +101,44 @@ views:
     - type: picture-elements
       image: /local/vacuum_card.jpg
       elements:
-      - type: state-icon
+      - type: icon
+        icon: mdi:bell-ring
         tap_action: toggle
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.locate
         style:
-          top: 5%
-          left: 95%
-          "--paper-item-icon-color": rgb(115, 122, 130)
-
-      - type: state-icon
-        tap_action: toggle
-        entity: vacuum.xiaomi_vacuum_cleaner
-        service: vacuum.return_to_base
-        style:
           top: 10%
           left: 95%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: state-icon
+      - type: icon
         tap_action: toggle
+        icon: mdi:home
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.return_to_base
         style:
           top: 10%
-          left: 95%
+          left: 75%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: state-icon
+      - type: icon
+        icon: mdi:play-pause
         tap_action: toggle
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.start_pause
         style:
           top: 10%
-          left: 95%
+          left: 55%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: state-icon
+      - type: icon
+        icon: mdi:stop
         tap_action: toggle
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.stop
         style:
           top: 10%
-          left: 95%
+          left: 35%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
 
