@@ -38,8 +38,8 @@ views:
         - type: state-icon
           entity: sensor.outside_temp
           style:
-            top: 8%
-            left: 75%
+            top: 7.8%
+            left: 80%
             pointer-events: none
             max-width: 24px
             max-height: 24px
@@ -92,6 +92,122 @@ views:
             -moz-osx-font-smoothing: grayscale
             font-smoothing: antialiased
             -webkit-font-smoothing: antialiased
+
+
+
+
+
+
+    - type: picture-elements
+      image: /local/vacuum_card.jpg
+      elements:
+      - type: state-icon
+        tap_action: toggle
+        entity: vacuum.xiaomi_vacuum_cleaner
+        service: vacuum.locate
+        style:
+          top: 5%
+          left: 95%
+          "--paper-item-icon-color": rgb(115, 122, 130)
+
+      - type: state-icon
+        tap_action: toggle
+        entity: vacuum.xiaomi_vacuum_cleaner
+        service: vacuum.return_to_base
+        style:
+          top: 10%
+          left: 95%
+          "--paper-item-icon-color": rgb(115, 122, 130)
+
+      - type: state-icon
+        tap_action: toggle
+        entity: vacuum.xiaomi_vacuum_cleaner
+        service: vacuum.return_to_base
+        style:
+          top: 10%
+          left: 95%
+          "--paper-item-icon-color": rgb(115, 122, 130)
+
+      - type: state-icon
+        tap_action: toggle
+        entity: vacuum.xiaomi_vacuum_cleaner
+        service: vacuum.start_pause
+        style:
+          top: 10%
+          left: 95%
+          "--paper-item-icon-color": rgb(115, 122, 130)
+
+      - type: state-icon
+        tap_action: toggle
+        entity: vacuum.xiaomi_vacuum_cleaner
+        service: vacuum.stop
+        style:
+          top: 10%
+          left: 95%
+          "--paper-item-icon-color": rgb(115, 122, 130)
+
+
+
+      # - type: state-icon
+      #   tap_action: toggle
+      #   entity: switch.neato_schedule
+      #   style:
+      #     top: 15%
+      #     left: 95%
+      #     "--paper-item-icon-color": rgb(115, 122, 130)
+
+      # - type: state-label
+      #   entity: sensor.neato_battery
+      #   style:
+      #     top: 70%
+      #     left: 0%
+      #     color: rgb(115, 122, 130)
+      #     transform: none
+      #     pointer-events: none
+      #     text-shadow: 1px 1px black
+      #     font-family: Trebuchet MS
+      #     font-size: 90%
+      #     font-weight: bold
+      #     border-left-style: solid
+      #     border-color: DeepSkyBlue
+      #     background-color: rgb(54, 65, 78)
+          
+      # - type: state-label
+      #   entity: sensor.neato_status
+      #   style:
+      #     top: 80%
+      #     left: 0%
+      #     color: rgb(115, 122, 130)
+      #     transform: none
+      #     pointer-events: none
+      #     text-shadow: 1px 1px black
+      #     font-family: Trebuchet MS
+      #     font-size: 90%
+      #     font-weight: bold
+      #     border-left-style: solid
+      #     border-color: Tomato
+      #     background-color: rgb(54, 65, 78)
+
+      # - type: state-label
+      #   entity: sensor.neato_area
+      #   style:
+      #     top: 90%
+      #     left: 0%
+      #     color: rgb(115, 122, 130)
+      #     transform: none
+      #     pointer-events: none
+      #     text-shadow: 1px 1px black
+      #     font-family: Trebuchet MS
+      #     font-size: 90%
+      #     font-weight: bold
+      #     border-left-style: solid
+      #     border-color: GreenYellow
+      #     background-color: rgb(54, 65, 78)
+
+
+
+
+
 
     - type: picture-glance
       title: Outdoors
