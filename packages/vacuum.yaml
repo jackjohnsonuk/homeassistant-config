@@ -54,7 +54,7 @@ sensor:
     sensors:
       vacuum_battery:
         friendly_name: "Vacuum - Battery"
-        value_template: "Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}"
+        value_template: "Battery: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}"
         device_class: battery
         unit_of_measurement: '%'
       

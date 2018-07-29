@@ -142,9 +142,25 @@ views:
           "--paper-item-icon-color": rgb(115, 122, 130)
 
       - type: state-label
+        entity: sensor.vacuum_status
+        style:
+          top: 10%
+          left: 0%
+          color: rgb(115, 122, 130)
+          transform: none
+          pointer-events: none
+          text-shadow: 1px 1px black
+          font-family: Trebuchet MS
+          font-size: 90%
+          font-weight: bold
+          border-left-style: solid
+          border-color: Tomato
+          background-color: rgb(54, 65, 78)
+
+      - type: state-label
         entity: sensor.vacuum_battery
         style:
-          top: 0%
+          top: 20%
           left: 00%
           color: rgb(115, 122, 130)
           transform: none
@@ -157,21 +173,7 @@ views:
           border-color: DeepSkyBlue
           background-color: rgb(54, 65, 78)
           
-      - type: state-label
-        entity: sensor.vacuum_status
-        style:
-          top: 20%
-          left: 0%
-          color: rgb(115, 122, 130)
-          transform: none
-          pointer-events: none
-          text-shadow: 1px 1px black
-          font-family: Trebuchet MS
-          font-size: 90%
-          font-weight: bold
-          border-left-style: solid
-          border-color: Tomato
-          background-color: rgb(54, 65, 78)
+
 
 
 
