@@ -161,7 +161,7 @@ views:
       - type: state-label
         entity: sensor.vacuum_battery
         style:
-          top: 5%
+          top: 10%
           right: 5%
           color: rgb(255, 255, 255)
           transform: translate(0%,-50%)
