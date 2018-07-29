@@ -45,14 +45,14 @@ sensor:
 
   - platform: template
     sensors:
-      neato_status:
+      vacuum_status:
         friendly_name: "Vacuum - Status"
         value_template: "Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}"
 
 
   - platform: template
     sensors:
-      neato_status:
+      vacuum_battery:
         friendly_name: "Vacuum - Battery"
         value_template: "Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}"
         device_class: battery
