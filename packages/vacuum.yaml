@@ -36,3 +36,24 @@ vacuum:
   - platform: xiaomi_miio
     host: !secret vacuum_ip
     token: !secret vacuum_token
+
+################################################
+## Vacuum - Sensors
+################################################
+
+
+  - platform: template
+    sensors:
+      neato_status:
+        friendly_name: "Vacuum - Status"
+        value_template: "Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.status }}"
+
+
+  - platform: template
+    sensors:
+      neato_status:
+        friendly_name: "Vacuum - Battery"
+        value_template: "Status: {{ states.vacuum.xiaomi_vacuum_cleaner.attributes.battery_level }}"
+        device_class: battery
+        unit_of_measurement: '%'
+      
