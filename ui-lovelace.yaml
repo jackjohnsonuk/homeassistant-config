@@ -144,10 +144,10 @@ views:
       - type: state-label
         entity: sensor.vacuum_status
         style:
-          top: 5%
+          top: 10%
           left: 5%
           color: rgb(255, 255, 255)
-          transform: none
+          transform: translate(0%,-50%)
           pointer-events: none
           text-shadow: 1px 1px black
           font-family: Trebuchet MS
