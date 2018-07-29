@@ -103,7 +103,7 @@ views:
       elements:
       - type: icon
         icon: mdi:bell-ring
-        tap_action: toggle
+        tap_action: call-service
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.locate
         style:
@@ -112,7 +112,7 @@ views:
           "--paper-item-icon-color": rgb(115, 122, 130)
 
       - type: icon
-        tap_action: toggle
+        tap_action: call-service
         icon: mdi:home
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.return_to_base
@@ -123,7 +123,7 @@ views:
 
       - type: icon
         icon: mdi:play-pause
-        tap_action: toggle
+        tap_action: call-service
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.start_pause
         style:
@@ -133,7 +133,7 @@ views:
 
       - type: icon
         icon: mdi:stop
-        tap_action: toggle
+        tap_action: call-service
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.stop
         style:
