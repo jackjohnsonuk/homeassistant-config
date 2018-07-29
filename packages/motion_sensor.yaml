@@ -265,6 +265,43 @@ automation:
        entity_id:
          - light.living_room_side_lights
 
+
+      #################################################################
+      ## Automation - Front Room Motion Switch On
+      #################################################################
+
+- alias: Front room motion
+  trigger:
+   - platform: state
+     entity_id: input_boolean.front_room_occupancy
+     to: 'on'
+  # condition:
+  #   condition: and
+  #   conditions:
+  #     - condition: state
+  #       entity_id: group.family
+  #       state: 'home'
+  action:
+   - service: light.turn_on
+     entity_id:  light.front_room_main_light
+
+      #################################################################
+      ## Automation - Front Room Motion Switch Off
+      #################################################################
+
+
+- alias: Turn off Front room light 2 minutes after last movement
+  trigger:
+   - platform: state
+     entity_id: input_boolean.front_room_occupancy
+     to: 'off'
+  action:
+   - service: light.turn_off
+     data:
+       entity_id:
+         -  light.front_room_main_light
+
+
       #################################################################
       ## Automation - Motion - Bedroom Switch On
       #################################################################

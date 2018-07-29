@@ -90,6 +90,59 @@ automation:
     - service: input_boolean.turn_off
       entity_id: input_boolean.living_occupancy
 
+
+      #################################################################
+      ## Front Room Occupancy
+      #################################################################
+
+- alias: Occupancy - front_room turn on if motion detected
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.motion_front_room
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: media_player.front_room_tv
+      from: 'off'
+      to: 'on'
+    - platform: state
+      entity_id: media_player.front_room_fire_tv
+      from: 'off'
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.front_room_occupancy
+
+      #################################################################
+      ## Reset Living Room Occupancy
+      #################################################################
+
+- alias: Occupancy - Living turn off after 2 min of no motion
+  trigger:
+    platform: time
+    minutes: '/2'
+    seconds: 00
+  condition:
+    condition: and
+    conditions:
+      - condition: state
+        entity_id: binary_sensor.motion_front_room
+        state: 'off'
+        for:
+      #    seconds: 120
+      # - condition: state
+      #   entity_id: media_player.living_room_tv
+      #   state: 'off'
+      #   for:
+      #    seconds: 120
+      # - condition: state
+      #   entity_id: media_player.living_room_fire_tv
+      #   state: 'off'
+      #   for:
+      #    seconds: 120
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.front_room_occupancy
+
       #################################################################
       ## Kitchen Occupancy
       #################################################################
@@ -200,6 +253,7 @@ automation:
   - data:
       entity_id: input_boolean.bathroom_occupancy
     service: input_boolean.turn_on
+
 ################################################
 ## Occupancy - Input Boolean
 ################################################
@@ -221,6 +275,15 @@ input_boolean:
 
   kitchen_occupancy:
     name: Kitchen Occupancy
+    initial: off
+    icon: mdi:account
+
+      #################################################################
+      ## Front Room Occupancy
+      #################################################################
+
+  front_room_occupancy:
+    name: Front Room Occupancy
     initial: off
     icon: mdi:account
 
