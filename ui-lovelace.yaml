@@ -107,7 +107,7 @@ views:
         entity: vacuum.xiaomi_vacuum_cleaner
         service: vacuum.locate
         style:
-          top: 80%
+          top: 0%
           left: 80%
           "--paper-item-icon-color": rgb(115, 122, 130)
 
@@ -144,9 +144,9 @@ views:
       - type: state-label
         entity: sensor.vacuum_status
         style:
-          top: 10%
+          top: 3%
           left: 0%
-          color: rgb(115, 122, 130)
+          color: rgb(255, 255, 255)
           transform: none
           pointer-events: none
           text-shadow: 1px 1px black
@@ -154,15 +154,17 @@ views:
           font-size: 90%
           font-weight: bold
           border-left-style: solid
-          border-color: Tomato
+          border-color: rgb(34, 154, 210)
           background-color: rgb(54, 65, 78)
+          opacity: 0.8
+
 
       - type: state-label
         entity: sensor.vacuum_battery
         style:
           top: 20%
           left: 00%
-          color: rgb(115, 122, 130)
+          color: rgb(255, 255, 255)
           transform: none
           pointer-events: none
           text-shadow: 1px 1px black
@@ -170,8 +172,9 @@ views:
           font-size: 90%
           font-weight: bold
           border-left-style: solid
-          border-color: DeepSkyBlue
+          border-color: rgb(34, 154, 210)
           background-color: rgb(54, 65, 78)
+          opacity: 0.8
           
 
 
