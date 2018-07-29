@@ -170,7 +170,7 @@ views:
           font-family: Trebuchet MS
           font-size: 90%
           font-weight: bold
-          border-left-style: solid
+          border-right-style: solid
           border-color: rgb(34, 154, 210)
           background-color: rgb(54, 65, 78)
           opacity: 0.8
