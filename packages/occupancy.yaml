@@ -101,13 +101,13 @@ automation:
       entity_id: binary_sensor.motion_front_room
       from: 'off'
       to: 'on'
-    - platform: state
-      entity_id: media_player.front_room_tv
-      from: 'off'
-      to: 'on'
-    - platform: state
-      entity_id: media_player.front_room_fire_tv
-      from: 'off'
+    # - platform: state
+    #   entity_id: media_player.front_room_tv
+    #   from: 'off'
+    #   to: 'on'
+    # - platform: state
+    #   entity_id: media_player.front_room_fire_tv
+    #   from: 'off'
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.front_room_occupancy
