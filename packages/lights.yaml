@@ -473,6 +473,29 @@ automation:
     - service: light.turn_off
       entity_id: light.garden_light
 
+      #################################################################
+      ## Turn off bedroom lights
+      #################################################################
+
+- alias: bedroom lights off
+  trigger:
+    platform: time
+    at: '09:00:00'
+  action:
+    - service: automation.turn_off
+      entity_id: automation.maintain_brightness_bedroom
+    - delay: '00:00:01'
+    - service: light.turn_off
+      data:
+        entity_id:
+          - light.jack_bedside_light
+          - light.lara_bedside_light
+          - light.bedroom_main_light
+    - delay: '00:00:30'
+    - service: automation.turn_on
+      entity_id: automation.maintain_brightness_bedroom
+
+
       ##############################################################################
       ###  Maintain Brightness
       ##############################################################################
