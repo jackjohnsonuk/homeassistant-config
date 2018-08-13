@@ -50,7 +50,6 @@ device_tracker:
     exclude:
       - !secret nmap_exclude
 
-
 ifttt:
   key: !secret ifttt
 
