@@ -104,7 +104,7 @@ mqtt:
       ## MQTT - api pass
       #################################################################
 
-  broker: 192.168.1.10
+  broker: 192.168.1.123
   port: 1883
   username: !secret mqtt_user
   password: !secret mqtt_pass
