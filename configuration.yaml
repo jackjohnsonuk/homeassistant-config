@@ -58,6 +58,7 @@ influxdb:
   host: 192.168.1.124
   port: 8086
 
+
 #sonos
 #media_player:
 # - platform: sonos
