@@ -457,7 +457,7 @@ views:
   - type: custom:monster-card
     card:
       type: entities
-      title: Things that are probably broken
+      title: Things that are broken
     filter:
       include:
         - state: "unknown"
