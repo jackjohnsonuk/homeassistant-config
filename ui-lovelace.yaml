@@ -9,6 +9,8 @@ resources:
     type: js
   - url: /local/card-tracker.js?v=0
     type: js
+  - url: /local/useful-markdown-card.js?v=0
+    type: js
 
 name: Orchard Cottages
 views:
@@ -176,6 +178,9 @@ views:
         - sensor.jack_status
         - sensor.lara_status
         
+    - type: custom:useful-markdown-card
+      content: >
+        Last motion was detected in the [[ sensor.last_motion.state ]].
         
         # - sensor.recycling_pickup_day
         # - sensor.rubbish_pickup_day
@@ -467,3 +472,4 @@ views:
   - type: picture
     image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
     navigation_path: /lovelace/home/
+
