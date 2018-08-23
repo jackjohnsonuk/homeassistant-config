@@ -17,7 +17,6 @@ history:
 logbook:
 sun:
 custom_updater:
-discovery:
 
 mqtt:
   discovery: true
@@ -32,9 +31,9 @@ http:
 
 
 # Discover some devices automatically
-# discovery:
-#  ignore:
-#   - sabnzbd
+discovery:
+ ignore:
+  - sabnzbd
 
 tts:
   - platform: google
