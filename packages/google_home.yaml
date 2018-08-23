@@ -78,9 +78,9 @@ media_player:
       ## Living Room Google Assistant
       #################################################################
 
-- platform: cast
-  name: Living Room Google Assistant
-  host: 192.168.1.124
+# - platform: cast
+#   name: Living Room Google Assistant
+#   host: 192.168.1.124
 
       #################################################################
       ## Shed Google Assistant
