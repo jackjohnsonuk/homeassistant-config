@@ -17,6 +17,7 @@ history:
 logbook:
 sun:
 custom_updater:
+discovery:
 
 mqtt:
   discovery: true
