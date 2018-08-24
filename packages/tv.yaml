@@ -51,15 +51,15 @@ media_player:
   host: 192.168.1.128
   name: Living Room TV
 
-      #################################################################
-      ## TV - Living Room Fire TV
-      #################################################################
+#       #################################################################
+#       ## TV - Living Room Fire TV
+#       #################################################################
 
-- platform: firetv
-  device: Living_Room
-  name: Living Room Fire TV
-  host: 192.168.1.157
-  port: 5556
+# - platform: firetv
+#   device: Living_Room
+#   name: Living Room Fire TV
+#   host: 192.168.1.157
+#   port: 5556
 
       #################################################################
       ## TV - Front Room TV
@@ -69,25 +69,25 @@ media_player:
   host: 192.168.1.237
   name: Front Room TV
 
-      #################################################################
-      ## TV - Front Room Fire TV
-      #################################################################
+#       #################################################################
+#       ## TV - Front Room Fire TV
+#       #################################################################
 
-- platform: firetv
-  device: Front_Room
-  name: Front Room Fire TV
-  host: 192.168.1.157
-  port: 5556
+# - platform: firetv
+#   device: Front_Room
+#   name: Front Room Fire TV
+#   host: 192.168.1.157
+#   port: 5556
 
-      #################################################################
-      ## TV - Bedroom Fire TV
-      #################################################################
+#       #################################################################
+#       ## TV - Bedroom Fire TV
+#       #################################################################
 
-- platform: firetv
-  device: Bedroom
-  name: Bedroom Fire TV
-  host: 192.168.1.157
-  port: 5556
+# - platform: firetv
+#   device: Bedroom
+#   name: Bedroom Fire TV
+#   host: 192.168.1.157
+#   port: 5556
 
       #################################################################
       ## Media Player - Bedroom TV
