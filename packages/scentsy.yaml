@@ -67,8 +67,8 @@ switch:
 
 - platform: mqtt
   name: "Scentsy Bedroom"
-  state_topic: "stat/bedroom_scentsy/POWER"
-  command_topic: "cmnd/bedroom_scentsy/power"
+  state_topic: "stat/bedroom_scentsy/RESULT"
+  command_topic: "cmnd/bedroom_scentsy/POWER"
   payload_on: "ON"
   payload_off: "OFF"
   qos: 0
