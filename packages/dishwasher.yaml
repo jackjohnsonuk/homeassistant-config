@@ -63,7 +63,7 @@ sensor:
 
 - platform: mqtt
   name: "Power Dish Washer"
-  state_topic: "smartthings/Power Dish Washer/power/state"
+  state_topic: "smartthings/Power - Dish Washer/power/state"
   unit_of_measurement: "kw"
 
 ################################################
