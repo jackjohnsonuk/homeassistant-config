@@ -1,134 +1,134 @@
-################################################################
-## Packages / Greeter
-################################################################
+  # ################################################################
+  # ## Packages / Greeter
+  # ################################################################
 
-################################################
-## Customize
-################################################
+  # ################################################
+  # ## Customize
+  # ################################################
 
-homeassistant:
-  customize:
-    ################################################
-    ## Node Anchors
-    ################################################
+  # homeassistant:
+  #   customize:
+  #     ################################################
+  #     ## Node Anchors
+  #     ################################################
 
-    package.node_anchors:
-      customize: &customize
-        package: 'Greeter'
+  #     package.node_anchors:
+  #       customize: &customize
+  #         package: 'Greeter'
 
-      expose: &expose
-        <<: *customize
-        hidden: false
+  #       expose: &expose
+  #         <<: *customize
+  #         hidden: false
 
-      not-expose: &not-expose
-        <<: *customize
-        hidden: true
+  #       not-expose: &not-expose
+  #         <<: *customize
+  #         hidden: true
 
-    ################################################
-    ## Greeter
-    ################################################
+  #     ################################################
+  #     ## Greeter
+  #     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+  #     # vacuum.xiaomi_vacuum_cleaner:
+  #     #   <<: *customize
+  #     #   friendly_name: "Bob"
 
-################################################
-## Greeter - Sensors
-################################################
+  # ################################################
+  # ## Greeter - Sensors
+  # ################################################
 
-sensor:
+  # sensor:
 
-      #################################################################
-      ## Greeter - time of day
-      #################################################################
+  #       #################################################################
+  #       ## Greeter - time of day
+  #       #################################################################
 
-  - platform: template
-    sensors:
-      time_of_day:
-        value_template: >
-          {% set current_hour = strptime(states('sensor.time'), "%H:%M").hour %}
-          {% if current_hour < 12 %}
-            Good Morning, Johnson's
-          {% elif 12 <= current_hour < 18 %}
-            Good Afternoon, Johnson's
-          {% elif 18 <= current_hour < 23 %}
-            Good Evening, Johnson's
-          {% else %}
-            Good Night, Johnson's
-          {% endif %}
+  #   - platform: template
+  #     sensors:
+  #       time_of_day:
+  #         value_template: >
+  #           {% set current_hour = strptime(states('sensor.time'), "%H:%M").hour %}
+  #           {% if current_hour < 12 %}
+  #             Good Morning, Johnson's
+  #           {% elif 12 <= current_hour < 18 %}
+  #             Good Afternoon, Johnson's
+  #           {% elif 18 <= current_hour < 23 %}
+  #             Good Evening, Johnson's
+  #           {% else %}
+  #             Good Night, Johnson's
+  #           {% endif %}
 
-      #################################################################
-      ## Greeter - time of day
-      #################################################################
-
-
-  - platform: template
-    sensors:
-      outside_temp:
-        friendly_name: "Outside Temperature"
-        unit_of_measurement: '°C'
-        value_template: "{{ states.weather.yahoo_home.attributes.temperature }}"
-        icon_template: >
-          {% if is_state("weather.yahoo_home", "sunny") -%}
-             mdi:weather-sunny
-          {% elif is_state('weather.yahoo_home', 'clear-night') -%}
-             mdi:weather-night
-          {% elif is_state('weather.yahoo_home', 'rain') -%}
-             mdi:weather-rainy
-          {% elif is_state('weather.yahoo_home', 'snow') -%}
-             mdi:weather-snowy
-          {% elif is_state('weather.yahoo_home', 'sleet') -%}
-             mdi:weather-snowy-rainy
-          {% elif is_state('weather.yahoo_home', 'wind') -%}
-             mdi:weather-windy-variant
-          {% elif is_state('weather.yahoo_home', 'fog') -%}
-             mdi:weather-fog
-          {% elif is_state('weather.yahoo_home', 'cloudy') -%}
-             mdi:weather-cloudy
-          {% elif is_state('weather.yahoo_home', 'partly-cloudy-day') -%}
-             mdi:weather-partlycloudy
-          {% elif is_state('weather.yahoo_home', 'hail') -%}
-             mdi:weather-hail
-          {% elif is_state('weather.yahoo_home', 'thunderstorm') -%}
-             mdi:weather-lightning
-          {% else %}
-             mdi:help-circle
-          {% endif %}
-
-        entity_picture_template: >
-          {% if is_state('weather.yahoo_home', 'sunny') -%}
-              /local/weather_icons/static/sunny.svg
-          {% elif is_state('weather.yahoo_home', 'clear-night') -%}
-             /local/weather_icons/static/clear-night.svg
-          {% elif is_state('weather.yahoo_home', 'rain') -%}
-             /local/weather_icons/static/rain.svg
-          {% elif is_state('weather.yahoo_home', 'snow') -%}
-             /local/weather_icons/static/snow.svg
-          {% elif is_state('weather.yahoo_home', 'sleet') -%}
-             /local/weather_icons/static/sleet.svg
-          {% elif is_state('weather.yahoo_home', 'wind') -%}
-             /local/weather_icons/static/wind.svg
-          {% elif is_state('weather.yahoo_home', 'fog') -%}
-             /local/weather_icons/static/fog.svg
-          {% elif is_state('weather.yahoo_home', 'cloudy') -%}
-             /local/weather_icons/static/cloudy.svg
-          {% elif is_state('weather.yahoo_home', 'partly-cloudy-day') -%}
-             /local/weather_icons/static/partly-cloudy-day.svg
-          {% elif is_state('weather.yahoo_home', 'hail') -%}
-             /local/weather_icons/static/hail.svg
-          {% elif is_state('weather.yahoo_home', 'thunderstorm') -%}
-             /local/weather_icons/static/thunderstorm.svg
-          {% else %}
-             /local/weather_icons/static/help.svg
-          {% endif %}
-
-      #################################################################
-      ## Greeter - time of day
-      #################################################################
+  #       #################################################################
+  #       ## Greeter - time of day
+  #       #################################################################
 
 
-  - platform: command_line
-    name: "Outside: Alerts"
-    icon: alert-outline
-    command: "/local/check-weather.sh"
-    scan_interval: 180 
+  #   - platform: template
+  #     sensors:
+  #       outside_temp:
+  #         friendly_name: "Outside Temperature"
+  #         unit_of_measurement: '°C'
+  #         value_template: "{{ states.weather.yahoo_home.attributes.temperature }}"
+  #         icon_template: >
+  #           {% if is_state("weather.yahoo_home", "sunny") -%}
+  #             mdi:weather-sunny
+  #           {% elif is_state('weather.yahoo_home', 'clear-night') -%}
+  #             mdi:weather-night
+  #           {% elif is_state('weather.yahoo_home', 'rain') -%}
+  #             mdi:weather-rainy
+  #           {% elif is_state('weather.yahoo_home', 'snow') -%}
+  #             mdi:weather-snowy
+  #           {% elif is_state('weather.yahoo_home', 'sleet') -%}
+  #             mdi:weather-snowy-rainy
+  #           {% elif is_state('weather.yahoo_home', 'wind') -%}
+  #             mdi:weather-windy-variant
+  #           {% elif is_state('weather.yahoo_home', 'fog') -%}
+  #             mdi:weather-fog
+  #           {% elif is_state('weather.yahoo_home', 'cloudy') -%}
+  #             mdi:weather-cloudy
+  #           {% elif is_state('weather.yahoo_home', 'partly-cloudy-day') -%}
+  #             mdi:weather-partlycloudy
+  #           {% elif is_state('weather.yahoo_home', 'hail') -%}
+  #             mdi:weather-hail
+  #           {% elif is_state('weather.yahoo_home', 'thunderstorm') -%}
+  #             mdi:weather-lightning
+  #           {% else %}
+  #             mdi:help-circle
+  #           {% endif %}
+
+  #         entity_picture_template: >
+  #           {% if is_state('weather.yahoo_home', 'sunny') -%}
+  #               /local/weather_icons/static/sunny.svg
+  #           {% elif is_state('weather.yahoo_home', 'clear-night') -%}
+  #             /local/weather_icons/static/clear-night.svg
+  #           {% elif is_state('weather.yahoo_home', 'rain') -%}
+  #             /local/weather_icons/static/rain.svg
+  #           {% elif is_state('weather.yahoo_home', 'snow') -%}
+  #             /local/weather_icons/static/snow.svg
+  #           {% elif is_state('weather.yahoo_home', 'sleet') -%}
+  #             /local/weather_icons/static/sleet.svg
+  #           {% elif is_state('weather.yahoo_home', 'wind') -%}
+  #             /local/weather_icons/static/wind.svg
+  #           {% elif is_state('weather.yahoo_home', 'fog') -%}
+  #             /local/weather_icons/static/fog.svg
+  #           {% elif is_state('weather.yahoo_home', 'cloudy') -%}
+  #             /local/weather_icons/static/cloudy.svg
+  #           {% elif is_state('weather.yahoo_home', 'partly-cloudy-day') -%}
+  #             /local/weather_icons/static/partly-cloudy-day.svg
+  #           {% elif is_state('weather.yahoo_home', 'hail') -%}
+  #             /local/weather_icons/static/hail.svg
+  #           {% elif is_state('weather.yahoo_home', 'thunderstorm') -%}
+  #             /local/weather_icons/static/thunderstorm.svg
+  #           {% else %}
+  #             /local/weather_icons/static/help.svg
+  #           {% endif %}
+
+  #       #################################################################
+  #       ## Greeter - time of day
+  #       #################################################################
+
+
+  #   - platform: command_line
+  #     name: "Outside: Alerts"
+  #     icon: alert-outline
+  #     command: "/local/check-weather.sh"
+  #     scan_interval: 180 
