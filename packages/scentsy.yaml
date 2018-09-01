@@ -57,6 +57,8 @@ switch:
   command_topic: "cmnd/living_room_scentsy/POWER"
   payload_on: "ON"
   payload_off: "OFF"
+  state_on: "ON"
+  state_off: "OFF"
   qos: 0
   optimistic: false
   retain: true
@@ -71,6 +73,8 @@ switch:
   command_topic: "cmnd/bedroom_scentsy/POWER"
   payload_on: "ON"
   payload_off: "OFF"
+  state_on: "ON"
+  state_off: "OFF"
   qos: 0
   optimistic: false
   retain: true
