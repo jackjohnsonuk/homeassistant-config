@@ -61,7 +61,7 @@ automation:
     - platform: time
       at: '21:00:00'
   action:
-    - service: script.google_notify
+    - service: script.google_notify_no_bedroom
       data_template:
         message: 'Feed the Kittens!'
 
