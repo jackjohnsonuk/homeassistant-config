@@ -52,18 +52,18 @@ automation:
     ###  Audio notification to ramind us of kitten's food time
     ##############################################################################
 
-- alias: Feed the kittens
-  trigger:
-    - platform: time
-      at: '07:30:00'
-    - platform: time
-      at: '14:00:00'
-    - platform: time
-      at: '21:00:00'
-  action:
-    - service: script.google_notify_no_bedroom
-      data_template:
-        message: 'Feed the Kittens!'
+# - alias: Feed the kittens
+#   trigger:
+#     - platform: time
+#       at: '07:30:00'
+#     - platform: time
+#       at: '14:00:00'
+#     - platform: time
+#       at: '21:00:00'
+#   action:
+#     - service: script.google_notify_no_bedroom
+#       data_template:
+#         message: 'Feed the Kittens!'
 
       #################################################################
       ## Weekday Morning Greeting
