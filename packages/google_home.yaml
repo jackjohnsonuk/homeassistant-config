@@ -141,15 +141,15 @@ google_assistant:
       name: "Dressing Room Light"
       room: Bedroom
 
-    light.lara_bedside_light:
-      expose: true
-      name: "Lara Bedside Light"
-      aliases:
-        - Lara Bedside Light
-        - Laras Bedside Light
-        - Lara's Bedside Light
-        - Lara is Bedside Light
-      room: Bedroom
+    # light.lara_bedside_light:
+    #   expose: true
+    #   name: "Lara Bedside Light"
+    #   aliases:
+    #     - Lara Bedside Light
+    #     - Laras Bedside Light
+    #     - Lara's Bedside Light
+    #     - Lara is Bedside Light
+    #   room: Bedroom
 
     light.jack_bedside_light:
       expose: true
@@ -206,7 +206,7 @@ google_assistant:
         - Livingroom Light
         - Living Room Light
 
-    light.living_room_side_lights:
-      expose: true
-      name: "Living Room Side Lights"
-      room: Living Room
+    # light.living_room_side_lights:
+    #   expose: true
+    #   name: "Living Room Side Lights"
+    #   room: Living Room
