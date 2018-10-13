@@ -62,10 +62,10 @@ media_player.aftt:
   name:
   platform: plex
   unique_id: 766a5dc9e3a33b02-com-plexapp-android
-media_player.fire_tv:
-  name:
-  platform: plex
-  unique_id: 1a7e7f1efbfb7088-com-plexapp-android
+# media_player.fire_tv:
+#   name:
+#   platform: plex
+#   unique_id: 1a7e7f1efbfb7088-com-plexapp-android
 media_player.aftn:
   name:
   platform: plex
