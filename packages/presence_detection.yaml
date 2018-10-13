@@ -288,14 +288,14 @@ device_tracker:
   ## life360
   ################################################
 
-  # - platform: life360
-  #   username: !secret life360_username
-  #   password: !secret life360_password
-  #   interval_seconds: 10
-  #   filename: life360.conf
-  #   show_as_state: places, driving, moving
-  #   max_update_wait:
-  #     minutes: 30
+  - platform: life360
+    username: !secret life360_username
+    password: !secret life360_password
+    interval_seconds: 10
+    filename: life360.conf
+    show_as_state: places, driving, moving
+    max_update_wait:
+      minutes: 30
 
 ################################################
 ## automation

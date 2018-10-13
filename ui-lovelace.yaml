@@ -1,15 +1,15 @@
 resources:
   - url: /local/bignumber-card.js?v=0.0.1
     type: js
-  - url: /local/monster-card.js?v=0.0.1
+  - url: /local/monster-card.js?v=0.2.3
     type: js
-  - url: /local/gauge-card.js?v=0.0.1
+  - url: /local/gauge-card.js?v=0.2.0
     type: js
   - url: /local/last-motion-card.js?v=0.0.1
     type: js
   - url: /local/card-tracker.js?v=0.0.1
     type: js
-  - url: /local/useful-markdown-card.js?v=0.0.1
+  - url: /local/useful-markdown-card.js?v=54a046
     type: js
 
 name: Orchard Cottages
