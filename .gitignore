@@ -13,3 +13,4 @@ google_calendars.yaml
 !*.py
 !*.ini
 !media_player
+!device_tracker
