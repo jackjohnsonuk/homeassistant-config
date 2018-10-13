@@ -21,6 +21,9 @@ sun:
 custom_updater:
   track:
     - components
+    - cards
+    - python_scripts
+  show_installable: True
   component_urls:
     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
 
