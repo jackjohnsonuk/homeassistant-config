@@ -93,6 +93,12 @@ binary_sensor:
       to_state: 'home'
       prob_given_true: 0.75
       prob_given_false: 0.25
+    #
+    - entity_id: device_tracker.jack
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.75
+      prob_given_false: 0.25
     # Somebody at home -> Very Likely motion will be detected
 
       #################################################################
@@ -116,6 +122,12 @@ binary_sensor:
       to_state: 'home'
       prob_given_true: 0.60
       prob_given_false: 0.40
+    #
+    - entity_id: device_tracker.lara
+      platform: state
+      to_state: 'home'
+      prob_given_true: 0.75
+      prob_given_false: 0.25
     # Somebody at home -> Very Likely motion will be detected
 
       #################################################################
