@@ -115,7 +115,7 @@ binary_sensor:
       platform: state
       to_state: 'home'
       prob_given_true: 0.90
-      prob_given_false: 0.10
+      prob_given_false: 0.50
     # Somebody at home -> likely that at least one indoor light is turned on
     - entity_id: device_tracker.lara_lara
       platform: state
