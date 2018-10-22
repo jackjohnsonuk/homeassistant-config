@@ -141,3 +141,14 @@ switch:
   qos: 0
   optimistic: false
   retain: false
+
+- platform: mqtt
+  name: "Power Bedroom Vapor"
+  state_topic: "smartthings/Power - Bedroom Vapor/switch/state"
+  command_topic: "smartthings/Power - Bedroom Vapor/switch/set"
+  payload_on: "on"
+  payload_off: "off"
+  qos: 0
+  optimistic: false
+  retain: false
+
