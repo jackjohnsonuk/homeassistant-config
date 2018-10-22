@@ -65,6 +65,29 @@ automation:
         entity_id: switch.power_bedroom_humidifier
 
 
+      #################################################################
+      ## Turn on vapor
+      #################################################################
+
+  - alias: vapor on
+    trigger:
+      platform: time
+      at: '00:30:00'
+    action:
+      - service: switch.turn_on
+        entity_id: switch.power_bedroom_vapor
+
+      #################################################################
+      ## Turn off vapor
+      #################################################################
+
+  - alias: vapor off
+    trigger:
+      platform: time
+      at: '04:30:00'
+    action:
+      - service: switch.turn_off
+        entity_id: switch.power_bedroom_vapor
 
         #################################################################
         ## Perfect Prep Lights Up
