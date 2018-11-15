@@ -110,19 +110,19 @@ binary_sensor:
   prior: 0.6  # 60% chance that somebody is at home at any given moment
   probability_threshold: 0.90
   observations:
-    # Somebody at home -> Very likely at least one household member is at home
-    - entity_id: device_tracker.lara_iphone
-      platform: state
-      to_state: 'home'
-      prob_given_true: 0.90
-      prob_given_false: 0.50
+    # # Somebody at home -> Very likely at least one household member is at home
+    # - entity_id: device_tracker.lara_iphone
+    #   platform: state
+    #   to_state: 'home'
+    #   prob_given_true: 0.90
+    #   prob_given_false: 0.50
     # Somebody at home -> likely that at least one indoor light is turned on
-    - entity_id: device_tracker.lara_lara
-      platform: state
-      to_state: 'home'
-      prob_given_true: 0.60
-      prob_given_false: 0.40
-    #
+    # - entity_id: device_tracker.lara_lara
+    #   platform: state
+    #   to_state: 'home'
+    #   prob_given_true: 0.90
+    #   prob_given_false: 0.10
+    # #
     - entity_id: device_tracker.lara
       platform: state
       to_state: 'home'
