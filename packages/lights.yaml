@@ -385,8 +385,8 @@ automation:
       - thu
       - fri
   action:
-    - service: automation.turn_off
-      entity_id: automation.maintain_brightness_bedroom
+  #   - service: automation.turn_off
+  #     entity_id: automation.maintain_brightness_bedroom
     - service: light.turn_on
       data:
         entity_id:
@@ -394,9 +394,9 @@ automation:
           - light.lara_bedside_light
         transition: 900
         color_name: sandybrown
-    - delay: '00:00:30'
-    - service: automation.turn_on
-      entity_id: automation.maintain_brightness_bedroom
+    # - delay: '00:00:30'
+    # - service: automation.turn_on
+    #   entity_id: automation.maintain_brightness_bedroom
 
 
       #################################################################
@@ -413,8 +413,8 @@ automation:
       - sun
       - sat
   action:
-    - service: automation.turn_off
-      entity_id: automation.maintain_brightness_bedroom
+    # - service: automation.turn_off
+    #   entity_id: automation.maintain_brightness_bedroom
     - service: light.turn_on
       data:
         entity_id:
@@ -422,9 +422,9 @@ automation:
           - light.lara_bedside_light
         transition: 900
         color_name: sandybrown
-    - delay: '00:00:30'
-    - service: automation.turn_on
-      entity_id: automation.maintain_brightness_bedroom
+    # - delay: '00:00:30'
+    # - service: automation.turn_on
+    #   entity_id: automation.maintain_brightness_bedroom
 
       #################################################################
       ## Sleep time lighting
@@ -435,18 +435,18 @@ automation:
     platform: time
     at: '22:45:00'
   action:
-    - service: automation.turn_off
-      entity_id: automation.maintain_brightness_bedroom
-    - delay: '00:00:01'
+    # - service: automation.turn_off
+    #   entity_id: automation.maintain_brightness_bedroom
+    # - delay: '00:00:01'
     - service: light.turn_off
       data:
         entity_id:
           - light.jack_bedside_light
           - light.lara_bedside_light
           - light.bedroom_main_light
-    - delay: '00:00:30'
-    - service: automation.turn_on
-      entity_id: automation.maintain_brightness_bedroom
+    # - delay: '00:00:30'
+    # - service: automation.turn_on
+    #   entity_id: automation.maintain_brightness_bedroom
 
       #################################################################
       ## Turn on garden lights
@@ -482,18 +482,18 @@ automation:
     platform: time
     at: '09:00:00'
   action:
-    - service: automation.turn_off
-      entity_id: automation.maintain_brightness_bedroom
-    - delay: '00:00:01'
+    # - service: automation.turn_off
+    #   entity_id: automation.maintain_brightness_bedroom
+    # - delay: '00:00:01'
     - service: light.turn_off
       data:
         entity_id:
           - light.jack_bedside_light
           - light.lara_bedside_light
           - light.bedroom_main_light
-    - delay: '00:00:30'
-    - service: automation.turn_on
-      entity_id: automation.maintain_brightness_bedroom
+    # - delay: '00:00:30'
+    # - service: automation.turn_on
+    #   entity_id: automation.maintain_brightness_bedroom
 
 
       ##############################################################################
@@ -510,261 +510,261 @@ automation:
       ##############################################################################
 
 
-- alias: Maintain Brightness Bedroom
-  trigger:
+# - alias: Maintain Brightness Bedroom
+#   trigger:
 
-    - platform: state
-      entity_id: light.bedroom_main_light
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: light.bedroom_main_light
-      from: 'off'
-      to: 'on'
+#     - platform: state
+#       entity_id: light.bedroom_main_light
+#       from: 'on'
+#       to: 'off'
+#     - platform: state
+#       entity_id: light.bedroom_main_light
+#       from: 'off'
+#       to: 'on'
 
-    - platform: state
-      entity_id: light.jack_bedside_light
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: light.jack_bedside_light
-      from: 'off'
-      to: 'on'
+#     - platform: state
+#       entity_id: light.jack_bedside_light
+#       from: 'on'
+#       to: 'off'
+#     - platform: state
+#       entity_id: light.jack_bedside_light
+#       from: 'off'
+#       to: 'on'
 
-    - platform: state
-      entity_id: light.lara_bedside_light
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: light.lara_bedside_light
-      from: 'off'
-      to: 'on'
+#     - platform: state
+#       entity_id: light.lara_bedside_light
+#       from: 'on'
+#       to: 'off'
+#     - platform: state
+#       entity_id: light.lara_bedside_light
+#       from: 'off'
+#       to: 'on'
 
-  action:
-    - service_template: >-
-        {% macro getlight_count() %}
-          {% set count = 0 %}
-          {% if is_state('light.bedroom_main_light', 'on') %}
-            {% set count = count + 2 %}
-          {% endif %}
-          {% if is_state('light.jack_bedside_light', 'on') %}
-            {% set count = count + 1 %}
-          {% endif %}
-          {% if is_state('light.lara_bedside_light', 'on') %}
-            {% set count = count + 1 %}
-          {% endif %}
-          {{ count }}
-        {% endmacro %}
+#   action:
+#     - service_template: >-
+#         {% macro getlight_count() %}
+#           {% set count = 0 %}
+#           {% if is_state('light.bedroom_main_light', 'on') %}
+#             {% set count = count + 2 %}
+#           {% endif %}
+#           {% if is_state('light.jack_bedside_light', 'on') %}
+#             {% set count = count + 1 %}
+#           {% endif %}
+#           {% if is_state('light.lara_bedside_light', 'on') %}
+#             {% set count = count + 1 %}
+#           {% endif %}
+#           {{ count }}
+#         {% endmacro %}
 
-        {% set count = getlight_count() %}
-        {% if count == 0 %}
-          light.turn_off
-        {% else %}
-          light.turn_on
-        {% endif %}
+#         {% set count = getlight_count() %}
+#         {% if count == 0 %}
+#           light.turn_off
+#         {% else %}
+#           light.turn_on
+#         {% endif %}
 
-#      data_template:
-#        entity_id: >-
-#          {% set comma = joiner() %}
-#          {%- if is_state('light.bedroom_main_light', 'on') -%}
-#            {{- comma() -}}
-#            light.bedroom_main_light
-#          {%- endif -%}
-#          {%- if is_state('light.jack_bedside_light', 'on') -%}
-#            {{- comma() -}}
-#            light.jack_bedside_light
-#          {%- endif -%}
-#          {%- if is_state('light.lara_bedside_light', 'on') -%}
-#            {{- comma() -}}
-#            light.lara_bedside_light
-#          {%- endif -%}
+# #      data_template:
+# #        entity_id: >-
+# #          {% set comma = joiner() %}
+# #          {%- if is_state('light.bedroom_main_light', 'on') -%}
+# #            {{- comma() -}}
+# #            light.bedroom_main_light
+# #          {%- endif -%}
+# #          {%- if is_state('light.jack_bedside_light', 'on') -%}
+# #            {{- comma() -}}
+# #            light.jack_bedside_light
+# #          {%- endif -%}
+# #          {%- if is_state('light.lara_bedside_light', 'on') -%}
+# #            {{- comma() -}}
+# #            light.lara_bedside_light
+# #          {%- endif -%}
 
-      data_template:
-        entity_id: >-
-          {% set lights = [
-          	'light.bedroom_main_light',
-            'light.jack_bedside_light',
-            'light.lara_bedside_light'
-          ] %}
-          {% set comma = joiner(',') %}
-          {%- for light in lights if is_state(light, 'on') -%}
-            {{ comma() }}{{ light }}
-          {%- endfor -%}
+#       data_template:
+#         entity_id: >-
+#           {% set lights = [
+#           	'light.bedroom_main_light',
+#             'light.jack_bedside_light',
+#             'light.lara_bedside_light'
+#           ] %}
+#           {% set comma = joiner(',') %}
+#           {%- for light in lights if is_state(light, 'on') -%}
+#             {{ comma() }}{{ light }}
+#           {%- endfor -%}
 
-        brightness: >-
-          {% macro getlight_count() %}
-            {% set count = 0 %}
-            {% if is_state('light.bedroom_main_light', 'on') %}
-              {% set count = count + 2 %}
-            {% endif %}
-            {% if is_state('light.jack_bedside_light', 'on') %}
-              {% set count = count + 1 %}
-            {% endif %}
-            {% if is_state('light.lara_bedside_light', 'on') %}
-              {% set count = count + 1 %}
-            {% endif %}
-            {{ count }}
-          {% endmacro %}
+#         brightness: >-
+#           {% macro getlight_count() %}
+#             {% set count = 0 %}
+#             {% if is_state('light.bedroom_main_light', 'on') %}
+#               {% set count = count + 2 %}
+#             {% endif %}
+#             {% if is_state('light.jack_bedside_light', 'on') %}
+#               {% set count = count + 1 %}
+#             {% endif %}
+#             {% if is_state('light.lara_bedside_light', 'on') %}
+#               {% set count = count + 1 %}
+#             {% endif %}
+#             {{ count }}
+#           {% endmacro %}
 
-          {% macro getlight_level() %}
-            {% set level = 0 %}
-            {% set hour=states("sensor.time").split(':')[0] | int %}
-            {%- if hour >= 5 and hour < 8  -%}
-              {% set level = 150 %}
-            {%- elif hour >= 8 and hour <20  -%}
-              {% set level = 350 %}
-            {%- elif hour >= 20 and hour <24  -%}
-              {% set level = 150 %}
-            {%- else -%}
-              {% set level = 15 %}
-            {%- endif %}
-            {{ level }}
-          {% endmacro %}
+#           {% macro getlight_level() %}
+#             {% set level = 0 %}
+#             {% set hour=states("sensor.time").split(':')[0] | int %}
+#             {%- if hour >= 5 and hour < 8  -%}
+#               {% set level = 150 %}
+#             {%- elif hour >= 8 and hour <20  -%}
+#               {% set level = 350 %}
+#             {%- elif hour >= 20 and hour <24  -%}
+#               {% set level = 150 %}
+#             {%- else -%}
+#               {% set level = 15 %}
+#             {%- endif %}
+#             {{ level }}
+#           {% endmacro %}
 
-          {% set count = getlight_count()|int %}
-          {% set level = getlight_level()|int %}
-          {% if count == 4 %}
-            {{ ( level // 4 |int ) }}
-          {% elif count == 3 %}
-            {{ ( level // 3 |int ) }}
-          {% elif count == 2 %}
-            {{ ( level // 2 |int ) }}
-          {% elif count == 1 %}
-            {{ ( level // 1 |int ) }}
-          {% else %}
-            0
-          {% endif %}
+#           {% set count = getlight_count()|int %}
+#           {% set level = getlight_level()|int %}
+#           {% if count == 4 %}
+#             {{ ( level // 4 |int ) }}
+#           {% elif count == 3 %}
+#             {{ ( level // 3 |int ) }}
+#           {% elif count == 2 %}
+#             {{ ( level // 2 |int ) }}
+#           {% elif count == 1 %}
+#             {{ ( level // 1 |int ) }}
+#           {% else %}
+#             0
+#           {% endif %}
 
       ##############################################################################
       ###  Maintain Brightness in the Living Room
       ##############################################################################
 
-- alias: Maintain Brightness Living Room
-  trigger:
+# - alias: Maintain Brightness Living Room
+#   trigger:
 
-    - platform: state
-      entity_id: light.living_room_lamp
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: light.living_room_lamp
-      from: 'off'
-      to: 'on'
+#     - platform: state
+#       entity_id: light.living_room_lamp
+#       from: 'on'
+#       to: 'off'
+#     - platform: state
+#       entity_id: light.living_room_lamp
+#       from: 'off'
+#       to: 'on'
 
-    - platform: state
-      entity_id: light.living_room_main_light
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: light.living_room_main_light
-      from: 'off'
-      to: 'on'
+#     - platform: state
+#       entity_id: light.living_room_main_light
+#       from: 'on'
+#       to: 'off'
+#     - platform: state
+#       entity_id: light.living_room_main_light
+#       from: 'off'
+#       to: 'on'
 
-    - platform: state
-      entity_id: light.living_room_side_lights
-      from: 'on'
-      to: 'off'
-    - platform: state
-      entity_id: light.living_room_side_lights
-      from: 'off'
-      to: 'on'
+#     - platform: state
+#       entity_id: light.living_room_side_lights
+#       from: 'on'
+#       to: 'off'
+#     - platform: state
+#       entity_id: light.living_room_side_lights
+#       from: 'off'
+#       to: 'on'
 
-  action:
-    - service_template: >-
-        {% macro getlight_count() %}
-          {% set count = 0 %}
-          {% if is_state('light.living_room_lamp', 'on') %}
-            {% set count = count + 1 %}
-          {% endif %}
-          {% if is_state('light.living_room_main_light', 'on') %}
-            {% set count = count + 2 %}
-          {% endif %}
-          {% if is_state('light.living_room_side_lights', 'on') %}
-            {% set count = count + 2 %}
-          {% endif %}
-          {{ count }}
-        {% endmacro %}
+#   action:
+#     - service_template: >-
+#         {% macro getlight_count() %}
+#           {% set count = 0 %}
+#           {% if is_state('light.living_room_lamp', 'on') %}
+#             {% set count = count + 1 %}
+#           {% endif %}
+#           {% if is_state('light.living_room_main_light', 'on') %}
+#             {% set count = count + 2 %}
+#           {% endif %}
+#           {% if is_state('light.living_room_side_lights', 'on') %}
+#             {% set count = count + 2 %}
+#           {% endif %}
+#           {{ count }}
+#         {% endmacro %}
 
-        {% set count = getlight_count() %}
-        {% if count == 0 %}
-          light.turn_off
-        {% else %}
-          light.turn_on
-        {% endif %}
+#         {% set count = getlight_count() %}
+#         {% if count == 0 %}
+#           light.turn_off
+#         {% else %}
+#           light.turn_on
+#         {% endif %}
 
-#      data_template:
-#        entity_id: >-
-#          {% set comma = joiner() %}
-#          {%- if is_state('light.living_room_lamp', 'on') -%}
-#            {{- comma() -}}
-#            light.living_room_lamp
-#          {%- endif -%}
-#          {%- if is_state('light.living_room_main_light', 'on') -%}
-#            {{- comma() -}}
-#            light.living_room_main_light
-#          {%- endif -%}
-#          {%- if is_state('light.living_room_side_lights', 'on') -%}
-#            {{- comma() -}}
-#            light.living_room_side_lights
-#          {%- endif -%}
+# #      data_template:
+# #        entity_id: >-
+# #          {% set comma = joiner() %}
+# #          {%- if is_state('light.living_room_lamp', 'on') -%}
+# #            {{- comma() -}}
+# #            light.living_room_lamp
+# #          {%- endif -%}
+# #          {%- if is_state('light.living_room_main_light', 'on') -%}
+# #            {{- comma() -}}
+# #            light.living_room_main_light
+# #          {%- endif -%}
+# #          {%- if is_state('light.living_room_side_lights', 'on') -%}
+# #            {{- comma() -}}
+# #            light.living_room_side_lights
+# #          {%- endif -%}
 
-      data_template:
-        entity_id: >-
-          {% set lights = [
-          	'light.living_room_lamp',
-            'light.living_room_main_light',
-            'light.living_room_side_lights'
-          ] %}
-          {% set comma = joiner(',') %}
-          {%- for light in lights if is_state(light, 'on') -%}
-            {{ comma() }}{{ light }}
-          {%- endfor %}
+#       data_template:
+#         entity_id: >-
+#           {% set lights = [
+#           	'light.living_room_lamp',
+#             'light.living_room_main_light',
+#             'light.living_room_side_lights'
+#           ] %}
+#           {% set comma = joiner(',') %}
+#           {%- for light in lights if is_state(light, 'on') -%}
+#             {{ comma() }}{{ light }}
+#           {%- endfor %}
 
-        brightness: >-
-          {% macro getlight_count() %}
-            {% set count = 0 %}
-            {% if is_state('light.living_room_lamp', 'on') %}
-              {% set count = count + 1 %}
-            {% endif %}
-            {% if is_state('light.living_room_main_light', 'on') %}
-              {% set count = count + 2 %}
-            {% endif %}
-            {% if is_state('light.living_room_side_lights', 'on') %}
-              {% set count = count + 2 %}
-            {% endif %}
-            {{ count }}
-          {% endmacro %}
+#         brightness: >-
+#           {% macro getlight_count() %}
+#             {% set count = 0 %}
+#             {% if is_state('light.living_room_lamp', 'on') %}
+#               {% set count = count + 1 %}
+#             {% endif %}
+#             {% if is_state('light.living_room_main_light', 'on') %}
+#               {% set count = count + 2 %}
+#             {% endif %}
+#             {% if is_state('light.living_room_side_lights', 'on') %}
+#               {% set count = count + 2 %}
+#             {% endif %}
+#             {{ count }}
+#           {% endmacro %}
 
-          {% macro getlight_level() %}
-            {% set level = 0 %}
-            {% set hour=states("sensor.time").split(':')[0] | int %}
-            {%- if hour >= 5 and hour < 8  -%}
-              {% set level = 150 %}
-            {%- elif hour >= 8 and hour <20  -%}
-              {% set level = 350 %}
-            {%- elif hour >= 20 and hour <24  -%}
-              {% set level = 150 %}
-            {%- else -%}
-              {% set level = 15 %}
-            {%- endif %}
-            {{ level }}
-          {% endmacro %}
+#           {% macro getlight_level() %}
+#             {% set level = 0 %}
+#             {% set hour=states("sensor.time").split(':')[0] | int %}
+#             {%- if hour >= 5 and hour < 8  -%}
+#               {% set level = 150 %}
+#             {%- elif hour >= 8 and hour <20  -%}
+#               {% set level = 350 %}
+#             {%- elif hour >= 20 and hour <24  -%}
+#               {% set level = 150 %}
+#             {%- else -%}
+#               {% set level = 15 %}
+#             {%- endif %}
+#             {{ level }}
+#           {% endmacro %}
 
-          {% set count = getlight_count()|int %}
-          {% set level = getlight_level()|int %}
-          {% if count == 5 %}
-            {{ ( level // 5 |int ) }}
-          {% elif count == 4 %}
-            {{ ( level // 4 |int ) }}
-          {% elif count == 3 %}
-            {{ ( level // 3 |int ) }}
-          {% elif count == 2 %}
-            {{ ( level // 2 |int ) }}
-          {% elif count == 1 %}
-            {{ ( level // 1 |int ) }}
-          {% else %}
-            0
-          {% endif %}
+#           {% set count = getlight_count()|int %}
+#           {% set level = getlight_level()|int %}
+#           {% if count == 5 %}
+#             {{ ( level // 5 |int ) }}
+#           {% elif count == 4 %}
+#             {{ ( level // 4 |int ) }}
+#           {% elif count == 3 %}
+#             {{ ( level // 3 |int ) }}
+#           {% elif count == 2 %}
+#             {{ ( level // 2 |int ) }}
+#           {% elif count == 1 %}
+#             {{ ( level // 1 |int ) }}
+#           {% else %}
+#             0
+#           {% endif %}
 
     ##############################################################################
     ###  Detect when lights are turned on and adjust them accordingly based on time.
@@ -803,11 +803,11 @@ automation:
         brightness: >
           {% set hour=states("sensor.time").split(':')[0] | int %}
           {%- if hour >= 5 and hour < 8  -%}
-            80
+            60
           {%- elif hour >= 8 and hour <20  -%}
             255
           {%- elif hour >= 20 and hour <24  -%}
-            80
+            60
           {%- else -%}
             15
           {%- endif %}
