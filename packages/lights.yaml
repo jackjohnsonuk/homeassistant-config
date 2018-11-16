@@ -786,8 +786,8 @@ automation:
         conditions:
           - condition: template
             value_template: "{{ trigger.event.data.entity_id == 'light.dressing_room' }}"
-          # - condition: template
-          #   value_template: "{{ trigger.event.data.entity_id == 'light.bathroom_lights' }}"
+          - condition: template
+            value_template: "{{ trigger.event.data.entity_id == 'light.bathroom_lights' }}"
           - condition: template
             value_template: "{{ trigger.event.data.entity_id == 'light.front_room_main_light' }}"
           - condition: template
