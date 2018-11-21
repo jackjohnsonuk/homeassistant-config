@@ -375,7 +375,7 @@ automation:
 - alias: Weekday Wakeup
   trigger:
     platform: time
-    at: '06:45:00'
+    at: '07:15:00'
   condition:
     condition: time
     weekday:
