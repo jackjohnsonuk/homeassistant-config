@@ -208,9 +208,13 @@ automation:
      entity_id: binary_sensor.motion_dressing_room
      to: 'on'
   condition:
-    condition: time
-    after: '19:00:00'
-    before: '08:00:00'
+    condition: and
+    conditions:
+      - condition: sun
+        before: sunset
+        before_offset: "-01:30:00"
+      - condition: sun
+        after: sunrise
   action:
    - service: light.turn_on
      entity_id: light.dressing_room
