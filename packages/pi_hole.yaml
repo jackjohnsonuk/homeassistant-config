@@ -32,13 +32,13 @@ homeassistant:
 ## Pi_Hole - Sensor
 ################################################
 
-sensor:
+# sensor:
 
       #################################################################
       ## Add Component
       #################################################################
 
-  - platform: pi_hole
-    host: !secret pi_hole_host
-    location: admin
-    ssl: false
+  # - platform: pi_hole
+  #   host: !secret pi_hole_host
+  #   location: admin
+  #   ssl: false
