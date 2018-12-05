@@ -209,6 +209,8 @@ views:
           name: Pantry
         - entity: light.bathroom_lights
           name: Bath
+        - entity: light.garden_light
+          name: Garden
 
     - type: entities
       title: Climate
