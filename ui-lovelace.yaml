@@ -148,15 +148,15 @@ views:
         - switch.scentsy_bedroom
         - light.bedroom_main_light
 
-    - type: custom:gauge-card
-      title: Outside Temp
-      entity: sensor.plant_outdoor_temperature
-      min: -5
-      max: 35
-      severity:
-        normal: -5
-        green: 15
-        red: 25
+    # - type: custom:gauge-card
+    #   title: Outside Temp
+    #   entity: sensor.plant_outdoor_temperature
+    #   min: -5
+    #   max: 35
+    #   severity:
+    #     normal: -5
+    #     green: 15
+    #     red: 25
 
     - type: weather-forecast
       entity: weather.yahoo_home
@@ -297,6 +297,13 @@ views:
           background-color: rgb(54, 65, 78)
           opacity: 0.8
 
+    - type: glance
+      title: Christmas Lights
+      entities:
+        - entity: switch.christmas_tree_lights
+          name: Christmas Tree Lights
+        - entity: switch.christmas_outdoor_lights
+          name: Christmas Outdoor Lights
 
 
 - icon: mdi:pot-mix
@@ -346,10 +353,8 @@ views:
         - light.living_room_lamp
         - light.living_room_main_light
         - light.living_room_side_lights
-    - type: glance
-      title: Living Room
-      entities:
-        - switch.scentsy_living_room
+    - type: entity-button
+      entity: switch.scentsy_living_room
     - type: media-control
       entity: media_player.living_room_speaker
     # - type: media-control

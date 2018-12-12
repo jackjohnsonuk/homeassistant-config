@@ -1,0 +1,117 @@
+################################################################
+## Packages / Christmas
+################################################################
+
+################################################
+## Customize
+################################################
+
+homeassistant:
+  customize:
+    ################################################
+    ## Node Anchors
+    ################################################
+
+    package.node_anchors:
+      customize: &customize
+        package: 'Christmas'
+
+      expose: &expose
+        <<: *customize
+        hidden: false
+
+      not-expose: &not-expose
+        <<: *customize
+        hidden: true
+
+    ################################################
+    ## Christmas
+    ################################################
+
+    # switch.scentsy_bedroom:
+    #   <<: *expose
+    #   friendly_name: Bedroom Scentsy
+    #   entity_picture: /local/scentsy-logo.png
+
+    # switch.scentsy_living_room:
+    #   <<: *expose
+    #   friendly_name: Living Room Scentsy
+    #   entity_picture: /local/scentsy-logo.png
+
+
+
+
+################################################
+## Christmas - Switches
+################################################
+
+switch:
+
+      #################################################################
+      ## Christmas - Tree Lights
+      #################################################################
+
+- platform: mqtt
+  name: "Christmas Tree Lights"
+  state_topic: "stat/christmas_tree_lights/POWER"
+  command_topic: "cmnd/christmas_tree_lights/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  state_on: "ON"
+  state_off: "OFF"
+  qos: 0
+  optimistic: false
+  retain: true
+
+      #################################################################
+      ## Christmas - Outdoor Lights
+      #################################################################
+
+- platform: mqtt
+  name: "Christmas Outdoor Lights"
+  state_topic: "stat/christmas_outdoor_lights/POWER"
+  command_topic: "cmnd/christmas_outdoor_lights/POWER"
+  payload_on: "ON"
+  payload_off: "OFF"
+  state_on: "ON"
+  state_off: "OFF"
+  qos: 0
+  optimistic: false
+  retain: true
+
+################################################
+## Scentsy - Automation's
+################################################
+
+automation:
+
+      #################################################################
+      ## Scentsy - Bedroom Automation On
+      #################################################################
+
+- alias: christmas lights on
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-00:30:00'
+  action:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: 
+          - switch.christmas_tree_lights
+          - switch.christmas_outdoor_lights
+
+      #################################################################
+      ## Scentsy - Bedroom Automation Off
+      #################################################################
+
+- alias: bedroom scentsy off
+  trigger:
+    platform: time
+    at: '23:00:00'
+  action:
+    - service: homeassistant.turn_off
+      data:
+        entity_id: 
+          - switch.christmas_tree_lights
+          - switch.christmas_outdoor_lights
