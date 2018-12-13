@@ -297,23 +297,15 @@ views:
           background-color: rgb(54, 65, 78)
           opacity: 0.8
 
-    - type: entities
-      title: Christmas Lights
-      show_header_toogle: true
-      entities:
-        - type: call-service
-          name: Christmas Tree Lights
-          action_name: Toggle Lights
-          service: switch.toggle
-          service_data:
-            entity: switch.christmas_tree_lights
-        - type: call-service
-          name: Christmas Tree Lights
-          action_name: Toggle Lights
-          service: switch.toggle
-          service_data:
-            entity: switch.christmas_outdoor_lights
 
+    - type: entity-button
+      entity: switch.christmas_tree_lights
+      tap_action:
+        action: toggle
+    - type: entity-button
+      entity: switch.christmas_outdoor_lights
+      tap_action:
+        action: toggle
 
 - icon: mdi:pot-mix
   title: Kitchen
