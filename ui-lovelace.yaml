@@ -300,9 +300,8 @@ views:
 
     - type: entity-button
       entity: switch.christmas_tree_lights
-      icon: pine-tree
       tap_action:
-        action: toggle
+        action: call-service
         service: switch.toggle
         service_data:
           entity_id: switch.christmas_tree_lights
@@ -310,9 +309,6 @@ views:
       entity: switch.christmas_outdoor_lights
       tap_action:
         action: toggle
-        service: switch.toggle
-        service_data:
-          entity_id: switch.christmas_outdoor_lights
 
 - icon: mdi:pot-mix
   title: Kitchen
