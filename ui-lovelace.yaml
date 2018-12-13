@@ -297,16 +297,16 @@ views:
           background-color: rgb(54, 65, 78)
           opacity: 0.8
 
-
-    - type: entity-button
-      entity: switch.christmas_tree_lights
-      tap_action: call-service
-      service: switch.toggle
-      service_data:
-        entity_id: switch.christmas_tree_lights
-    - type: entity-button
-      entity: switch.christmas_outdoor_lights
-      tap_action: toggle
+    - type: horizontal-stack
+      cards:
+        - type: entity-button
+          icon: pine-tree
+          entity: switch.christmas_tree_lights
+          tap_action: toggle
+        - type: entity-button
+          icon: home
+          entity: switch.christmas_outdoor_lights
+          tap_action: toggle
 
 - icon: mdi:pot-mix
   title: Kitchen
