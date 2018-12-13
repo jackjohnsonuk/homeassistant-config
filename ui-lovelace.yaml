@@ -304,12 +304,15 @@ views:
         - type: call-service
           name: Christmas Tree Lights
           action_name: Toggle Lights
-          service: light.toggle
+          service: switch.toggle
           service_data:
             entity: switch.christmas_tree_lights
-          name: Christmas Outdoor Lights
-        - entity: switch.christmas_outdoor_lights
-          name: Christmas Outdoor Lights
+        - type: call-service
+          name: Christmas Tree Lights
+          action_name: Toggle Lights
+          service: switch.toggle
+          service_data:
+            entity: switch.christmas_outdoor_lights
 
 
 - icon: mdi:pot-mix
