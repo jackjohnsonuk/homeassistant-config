@@ -297,11 +297,17 @@ views:
           background-color: rgb(54, 65, 78)
           opacity: 0.8
 
-    - type: glance
+    - type: entities
       title: Christmas Lights
+      show_header_toogle: true
       entities:
-        - entity: switch.christmas_tree_lights
+        - type: call-service
           name: Christmas Tree Lights
+          action_name: Toggle Lights
+          service: light.toggle
+          service_data:
+            entity: switch.christmas_tree_lights
+          name: Christmas Outdoor Lights
         - entity: switch.christmas_outdoor_lights
           name: Christmas Outdoor Lights
 
