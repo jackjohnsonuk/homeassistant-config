@@ -28,16 +28,15 @@ homeassistant:
     ## Christmas
     ################################################
 
-    # switch.scentsy_bedroom:
-    #   <<: *expose
-    #   friendly_name: Bedroom Scentsy
-    #   entity_picture: /local/scentsy-logo.png
+    switch.christmas_tree_lights:
+      <<: *expose
+      friendly_name: Christmas Tree Lights
+      icon: /local/christmas_tree.png
 
-    # switch.scentsy_living_room:
-    #   <<: *expose
-    #   friendly_name: Living Room Scentsy
-    #   entity_picture: /local/scentsy-logo.png
-
+    switch.christmas_outdoor_lights:
+      <<: *expose
+      friendly_name: Christmas Outdoor Lights
+      icon: /local/christmas_house.png
 
 
 

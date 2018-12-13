@@ -299,14 +299,30 @@ views:
 
     - type: horizontal-stack
       cards:
-        - type: entity-button
-          icon: pine-tree
+        - type: picture-entity
           entity: switch.christmas_tree_lights
           tap_action: toggle
-        - type: entity-button
-          icon: home
+          state_image:
+            "on": /local/christmas_tree_on.jpg
+            "off": /local/christmas_tree_off.jpg
+        - type: picture-entity
           entity: switch.christmas_outdoor_lights
           tap_action: toggle
+          state_image:
+            "on": /local/christmas_house_on.jpg
+            "off": /local/christmas_house_off.jpg
+
+        # - type: entity-button
+        #   entity: switch.christmas_tree_lights
+        # - type: picture-entity
+        #   entity: switch.christmas_tree_lights
+        #   state_image:
+        #     "on": /local/christmas_tree_on.jpg
+        #     "off": /local/christmas_tree_off.jpg        
+        # - type: entity-button
+        #   icon: home
+        #   entity: switch.christmas_outdoor_lights
+        #   tap_action: toggle
 
 - icon: mdi:pot-mix
   title: Kitchen
