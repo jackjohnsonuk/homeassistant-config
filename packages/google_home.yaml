@@ -170,6 +170,11 @@ google_assistant:
       name: "Front Room Main Light"
       room: Front Room
 
+    switch.christmas_tree_lights:
+      expose: true
+      name: "Christmas Tree"
+      room: Front Room
+
       ################################################
       ## Google Assistant - circulation light
       ################################################
