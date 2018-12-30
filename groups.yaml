@@ -187,7 +187,6 @@ family:
   entities:
    - sensor.jack_status
    - sensor.lara_status
-   - device_tracker.tile_keys
 
       #################################################################
       ## Last Motion Sensor Card
