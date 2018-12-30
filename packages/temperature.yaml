@@ -137,7 +137,7 @@ automation:
       ## Eco Mode Off
       #################################################################
 
-- alias: Heating Eco Mode On
+- alias: Heating Eco Mode Off
   trigger:
    - platform: state
      entity_id: group.family
@@ -160,12 +160,12 @@ automation:
   trigger:
    - platform: state
      entity_id: group.family
-     to: 'home'
+     from: 'home'
   action:
    - service: climate.set_away_mode
      data:
        entity_id: climate.kitchen
-       operation_mode: 'true'
+       operation_mode: 'false'
    - service: climate.set_operation_mode
      data:
        entity_id: climate.kitchen
