@@ -1,103 +1,103 @@
-################################################################
-## Packages / Bin Pickup
-################################################################
+# ################################################################
+# ## Packages / Bin Pickup
+# ################################################################
 
-################################################
-## Customize
-################################################
+# ################################################
+# ## Customize
+# ################################################
 
-homeassistant:
-  customize:
-    ################################################
-    ## Node Anchors
-    ################################################
+# homeassistant:
+#   customize:
+#     ################################################
+#     ## Node Anchors
+#     ################################################
 
-    package.node_anchors:
-      customize: &customize
-        package: 'Bin Pickup'
+#     package.node_anchors:
+#       customize: &customize
+#         package: 'Bin Pickup'
 
-      expose: &expose
-        <<: *customize
-        hidden: false
+#       expose: &expose
+#         <<: *customize
+#         hidden: false
 
-      not-expose: &not-expose
-        <<: *customize
-        hidden: true
-
-
-    ################################################
-    ## Bin Pickup
-    ################################################
-
-    sensor.rubbish_pickup_day:
-      <<: *customize
-      entity_picture: /local/Green_Bin.png
-
-    sensor.recycling_pickup_day:
-      <<: *customize
-      entity_picture: /local/Blue_Bin.png
+#       not-expose: &not-expose
+#         <<: *customize
+#         hidden: true
 
 
-################################################
-## Bin Pickup - Sensor's
-################################################
+#     ################################################
+#     ## Bin Pickup
+#     ################################################
 
-sensor:
+#     sensor.rubbish_pickup_day:
+#       <<: *customize
+#       entity_picture: /local/Green_Bin.png
 
-      #################################################################
-      ##   Green Bin
-      #################################################################
+#     sensor.recycling_pickup_day:
+#       <<: *customize
+#       entity_picture: /local/Blue_Bin.png
 
-- platform: template
-  sensors:
-    rubbish_pickup_day:
-      friendly_name: Rubbish Pickup Day
-      value_template: >
-        {% set whatpickupweek = strptime(states.calendar.rubbish_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%U") %}
-        {% set pickupday = strptime(states.calendar.rubbish_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A") %}
-        {% if whatpickupweek > now().strftime("%U") %}
-          {{ strptime(states.calendar.rubbish_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %d %b") }}
-        {% elif pickupday == now().strftime("%A") %}
-          - TODAY -
-        {% elif pickupday == (as_timestamp(now()) + (86400)) | timestamp_custom("%A",true) %}
-          TOMORROW
-        {% else %}
-          {{ pickupday }}
-        {% endif %}
 
-      #################################################################
-      ##   Blue Bin
-      #################################################################
+# ################################################
+# ## Bin Pickup - Sensor's
+# ################################################
 
-- platform: template
-  sensors:
-    recycling_pickup_day:
-      friendly_name: Recycling Pickup Day
-      value_template: >
-        {% set whatpickupweek = strptime(states.calendar.recycling_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%U") %}
-        {% set pickupday = strptime(states.calendar.recycling_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A") %}
-        {% if whatpickupweek > now().strftime("%U") %}
-          {{ strptime(states.calendar.recycling_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %d %b") }}
-        {% elif pickupday == now().strftime("%A") %}
-          - TODAY -
-        {% elif pickupday == (as_timestamp(now()) + (86400)) | timestamp_custom("%A",true) %}
-          TOMORROW
-        {% else %}
-          {{ pickupday }}
-        {% endif %}
+# sensor:
 
-################################################
-## Bin Pickup - Group
-################################################
+#       #################################################################
+#       ##   Green Bin
+#       #################################################################
 
-group:
+# - platform: template
+#   sensors:
+#     rubbish_pickup_day:
+#       friendly_name: Rubbish Pickup Day
+#       value_template: >
+#         {% set whatpickupweek = strptime(states.calendar.rubbish_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%U") %}
+#         {% set pickupday = strptime(states.calendar.rubbish_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A") %}
+#         {% if whatpickupweek > now().strftime("%U") %}
+#           {{ strptime(states.calendar.rubbish_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %d %b") }}
+#         {% elif pickupday == now().strftime("%A") %}
+#           - TODAY -
+#         {% elif pickupday == (as_timestamp(now()) + (86400)) | timestamp_custom("%A",true) %}
+#           TOMORROW
+#         {% else %}
+#           {{ pickupday }}
+#         {% endif %}
 
-      #################################################################
-      ##  Bin Card
-      #################################################################
+#       #################################################################
+#       ##   Blue Bin
+#       #################################################################
 
-  bins:
-    name: Bins
-    entities:
-      - sensor.rubbish_pickup_day
-      - sensor.recycling_pickup_day
+# - platform: template
+#   sensors:
+#     recycling_pickup_day:
+#       friendly_name: Recycling Pickup Day
+#       value_template: >
+#         {% set whatpickupweek = strptime(states.calendar.recycling_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%U") %}
+#         {% set pickupday = strptime(states.calendar.recycling_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A") %}
+#         {% if whatpickupweek > now().strftime("%U") %}
+#           {{ strptime(states.calendar.recycling_day.attributes.start_time, "%Y-%m-%d %H:%M:%S").strftime("%A %d %b") }}
+#         {% elif pickupday == now().strftime("%A") %}
+#           - TODAY -
+#         {% elif pickupday == (as_timestamp(now()) + (86400)) | timestamp_custom("%A",true) %}
+#           TOMORROW
+#         {% else %}
+#           {{ pickupday }}
+#         {% endif %}
+
+# ################################################
+# ## Bin Pickup - Group
+# ################################################
+
+# group:
+
+#       #################################################################
+#       ##  Bin Card
+#       #################################################################
+
+#   bins:
+#     name: Bins
+#     entities:
+#       - sensor.rubbish_pickup_day
+#       - sensor.recycling_pickup_day

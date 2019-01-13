@@ -1,499 +1,499 @@
-resources:
-  - url: /local/bignumber-card.js?v=0.0.1
-    type: js
-  - url: /local/monster-card.js?v=0.2.3
-    type: js
-  - url: /local/gauge-card.js?v=0.2.0
-    type: js
-  - url: /local/last-motion-card.js?v=0.0.1
-    type: js
-  - url: /local/card-tracker.js?v=0.0.1
-    type: js
-  - url: /local/useful-markdown-card.js?v=54a046
-    type: js
+# resources:
+#   - url: /local/bignumber-card.js?v=0.0.1
+#     type: js
+#   - url: /local/monster-card.js?v=0.2.3
+#     type: js
+#   - url: /local/gauge-card.js?v=0.2.0
+#     type: js
+#   - url: /local/last-motion-card.js?v=0.0.1
+#     type: js
+#   - url: /local/card-tracker.js?v=0.0.1
+#     type: js
+#   - url: /local/useful-markdown-card.js?v=54a046
+#     type: js
 
-name: Orchard Cottages
-views:
-- icon: mdi:home
-  title: Home
-  id: home
-  cards:
+# name: Orchard Cottages
+# views:
+# - icon: mdi:home
+#   title: Home
+#   id: home
+#   cards:
 
-    # - type: picture-elements
-    #   image: /local/hatheme3.jpg
-    #   elements:
-    #     - type: state-label
-    #       entity: sensor.time
-    #       style:
-    #         top: 8%
-    #         left: 10%
-    #         color: rgb(249, 251, 255)
-    #         text-shadow: 2px 2px DarkSlateGrey
-    #         font-family: Trebuchet MS
-    #         font-weight: bold
-    #         pointer-events: none
-    #         text-rendering: optimizeLegibility
-    #         -moz-osx-font-smoothing: grayscale
-    #         font-smoothing: antialiased
-    #         -webkit-font-smoothing: antialiased
+#     # - type: picture-elements
+#     #   image: /local/hatheme3.jpg
+#     #   elements:
+#     #     - type: state-label
+#     #       entity: sensor.time
+#     #       style:
+#     #         top: 8%
+#     #         left: 10%
+#     #         color: rgb(249, 251, 255)
+#     #         text-shadow: 2px 2px DarkSlateGrey
+#     #         font-family: Trebuchet MS
+#     #         font-weight: bold
+#     #         pointer-events: none
+#     #         text-rendering: optimizeLegibility
+#     #         -moz-osx-font-smoothing: grayscale
+#     #         font-smoothing: antialiased
+#     #         -webkit-font-smoothing: antialiased
             
-    #     - type: state-icon
-    #       entity: sensor.outside_temp
-    #       style:
-    #         top: 7.8%
-    #         left: 80%
-    #         pointer-events: none
-    #         max-width: 24px
-    #         max-height: 24px
-    #         color: rgb(249, 251, 255)
+#     #     - type: state-icon
+#     #       entity: sensor.outside_temp
+#     #       style:
+#     #         top: 7.8%
+#     #         left: 80%
+#     #         pointer-events: none
+#     #         max-width: 24px
+#     #         max-height: 24px
+#     #         color: rgb(249, 251, 255)
             
-    #     - type: state-label
-    #       entity: sensor.outside_temp
-    #       style:
-    #         top: 8%
-    #         left: 90%
-    #         color: rgb(249, 251, 255)
-    #         font-family: Trebuchet MS
-    #         font-weight: bold
-    #         text-shadow: 2px 2px DarkSlateGrey
-    #         text-rendering: optimizeLegibility
-    #         -moz-osx-font-smoothing: grayscale
-    #         font-smoothing: antialiased
-    #         -webkit-font-smoothing: antialiased
+#     #     - type: state-label
+#     #       entity: sensor.outside_temp
+#     #       style:
+#     #         top: 8%
+#     #         left: 90%
+#     #         color: rgb(249, 251, 255)
+#     #         font-family: Trebuchet MS
+#     #         font-weight: bold
+#     #         text-shadow: 2px 2px DarkSlateGrey
+#     #         text-rendering: optimizeLegibility
+#     #         -moz-osx-font-smoothing: grayscale
+#     #         font-smoothing: antialiased
+#     #         -webkit-font-smoothing: antialiased
             
-    #     - type: state-label
-    #       entity: sensor.time_of_day
-    #       style:
-    #         top: 40%
-    #         left: 50%
-    #         color: rgb(249, 251, 255)
-    #         font-size: 200%
-    #         pointer-events: none
-    #         text-shadow: 2px 2px DarkSlateGrey
-    #         font-family: Trebuchet MS
-    #         font-style: oblique
-    #         font-weight: 400
-    #         text-rendering: optimizeLegibility
-    #         -moz-osx-font-smoothing: grayscale
-    #         font-smoothing: antialiased
-    #         -webkit-font-smoothing: antialiased
+#     #     - type: state-label
+#     #       entity: sensor.time_of_day
+#     #       style:
+#     #         top: 40%
+#     #         left: 50%
+#     #         color: rgb(249, 251, 255)
+#     #         font-size: 200%
+#     #         pointer-events: none
+#     #         text-shadow: 2px 2px DarkSlateGrey
+#     #         font-family: Trebuchet MS
+#     #         font-style: oblique
+#     #         font-weight: 400
+#     #         text-rendering: optimizeLegibility
+#     #         -moz-osx-font-smoothing: grayscale
+#     #         font-smoothing: antialiased
+#     #         -webkit-font-smoothing: antialiased
             
-    #     - type: state-label
-    #       entity: sensor.outside_alerts
-    #       style:
-    #         top: 52%
-    #         left: 50%
-    #         color: rgb(249, 251, 255)
-    #         font-family: Trebuchet MS
-    #         font-style: oblique
-    #         text-shadow: 2px 2px DarkSlateGrey
-    #         font-size: 120%
-    #         pointer-events: none
-    #         font-weight: 400
-    #         text-rendering: optimizeLegibility
-    #         -moz-osx-font-smoothing: grayscale
-    #         font-smoothing: antialiased
-    #         -webkit-font-smoothing: antialiased
+#     #     - type: state-label
+#     #       entity: sensor.outside_alerts
+#     #       style:
+#     #         top: 52%
+#     #         left: 50%
+#     #         color: rgb(249, 251, 255)
+#     #         font-family: Trebuchet MS
+#     #         font-style: oblique
+#     #         text-shadow: 2px 2px DarkSlateGrey
+#     #         font-size: 120%
+#     #         pointer-events: none
+#     #         font-weight: 400
+#     #         text-rendering: optimizeLegibility
+#     #         -moz-osx-font-smoothing: grayscale
+#     #         font-smoothing: antialiased
+#     #         -webkit-font-smoothing: antialiased
 
 
-    - type: picture-glance
-      title: Outdoors
-      image:
-      camera_image: camera.front_door
-      entities:
-        - camera.front_door
-        - binary_sensor.motion_front_door
-        - light.garden_light
-        - binary_sensor.front_door
+#     - type: picture-glance
+#       title: Outdoors
+#       image:
+#       camera_image: camera.front_door
+#       entities:
+#         - camera.front_door
+#         - binary_sensor.motion_front_door
+#         - light.garden_light
+#         - binary_sensor.front_door
 
-    - type: picture-glance
-      title: Kitchen
-      image:
-      navigation_path: /lovelace/kitchen
-      camera_image: camera.kitchen
-      entities:
-        - camera.kitchen
-        - binary_sensor.motion_kitchen
-        - input_select.dishwasher_status
-        - climate.kitchen
+#     - type: picture-glance
+#       title: Kitchen
+#       image:
+#       navigation_path: /lovelace/kitchen
+#       camera_image: camera.kitchen
+#       entities:
+#         - camera.kitchen
+#         - binary_sensor.motion_kitchen
+#         - input_select.dishwasher_status
+#         - climate.kitchen
 
-    - type: picture-glance
-      title: Living Room
-      image:
-      navigation_path: /lovelace/living_room
-      camera_image: camera.living_room
-      entities:
-        - camera.living_room
-        - binary_sensor.motion_living_room
-        - group.living_room_lights
-        - switch.living_room_scentsy_relay
+#     - type: picture-glance
+#       title: Living Room
+#       image:
+#       navigation_path: /lovelace/living_room
+#       camera_image: camera.living_room
+#       entities:
+#         - camera.living_room
+#         - binary_sensor.motion_living_room
+#         - group.living_room_lights
+#         - switch.living_room_scentsy_relay
 
-    - type: picture-glance
-      title: Front Room
-      image:
-      navigation_path: /lovelace/front_room
-      camera_image: camera.front_room
-      entities:
-        - camera.front_room
-        - binary_sensor.motion_front_room
-        - light.front_room_main_light
+#     - type: picture-glance
+#       title: Front Room
+#       image:
+#       navigation_path: /lovelace/front_room
+#       camera_image: camera.front_room
+#       entities:
+#         - camera.front_room
+#         - binary_sensor.motion_front_room
+#         - light.front_room_main_light
 
-    - type: picture-glance
-      image: https://images2.roomstogo.com/is/image/roomstogo/br_rm_belmar_black_pan~Belmar-Black-5-Pc-Queen-Bedroom.jpeg?$pdp_gallery_945$
-      title: Bedroom
-      navigation_path: /lovelace/bedroom
-      entities:
-        - binary_sensor.motion_bedroom
-        - switch.power_bedroom_humidifier
-        - switch.scentsy_bedroom
-        - light.bedroom_main_light
+#     - type: picture-glance
+#       image: https://images2.roomstogo.com/is/image/roomstogo/br_rm_belmar_black_pan~Belmar-Black-5-Pc-Queen-Bedroom.jpeg?$pdp_gallery_945$
+#       title: Bedroom
+#       navigation_path: /lovelace/bedroom
+#       entities:
+#         - binary_sensor.motion_bedroom
+#         - switch.power_bedroom_humidifier
+#         - switch.scentsy_bedroom
+#         - light.bedroom_main_light
 
-    # - type: custom:gauge-card
-    #   title: Outside Temp
-    #   entity: sensor.plant_outdoor_temperature
-    #   min: -5
-    #   max: 35
-    #   severity:
-    #     normal: -5
-    #     green: 15
-    #     red: 25
+#     # - type: custom:gauge-card
+#     #   title: Outside Temp
+#     #   entity: sensor.plant_outdoor_temperature
+#     #   min: -5
+#     #   max: 35
+#     #   severity:
+#     #     normal: -5
+#     #     green: 15
+#     #     red: 25
 
-    - type: weather-forecast
-      entity: weather.yahoo_home
+#     - type: weather-forecast
+#       entity: weather.yahoo_home
 
-# "zones"
-# outdoor
-# kitchen
-# living Room
-# front Room
-# bedroom
-# spare Room
-# Circulation areas
+# # "zones"
+# # outdoor
+# # kitchen
+# # living Room
+# # front Room
+# # bedroom
+# # spare Room
+# # Circulation areas
 
-    - type: entities
-      title: Home
-      entities:
-        - sensor.last_motion
-        - sensor.jack_home_to_work
-        - sensor.jack_status
-        - sensor.lara_status
+#     - type: entities
+#       title: Home
+#       entities:
+#         - sensor.last_motion
+#         - sensor.jack_home_to_work
+#         - sensor.jack_status
+#         - sensor.lara_status
         
-    - type: custom:useful-markdown-card
-      content: >
-        Last motion was detected in the [[ sensor.last_motion.state ]].
+#     - type: custom:useful-markdown-card
+#       content: >
+#         Last motion was detected in the [[ sensor.last_motion.state ]].
         
 
 
-    # - type: custom:last-motion-card
-    #   title: Last Motion Card
-    #   entity: sensor.last_motion
+#     # - type: custom:last-motion-card
+#     #   title: Last Motion Card
+#     #   entity: sensor.last_motion
 
-    - type: glance
-      title: Birthdays
-      entities:
-        - entity: input_label.jack_birthday_days2go
-          name: Jack
-        - entity: input_label.lara_birthday_days2go
-          name: Lara
-        - entity: input_label.mollie_birthday_days2go
-          name: Mollie
-        - entity: input_label.kitten_birthday_days2go
-          name: Kittens
+#     - type: glance
+#       title: Birthdays
+#       entities:
+#         - entity: input_label.jack_birthday_days2go
+#           name: Jack
+#         - entity: input_label.lara_birthday_days2go
+#           name: Lara
+#         - entity: input_label.mollie_birthday_days2go
+#           name: Mollie
+#         - entity: input_label.kitten_birthday_days2go
+#           name: Kittens
 
-    - type: glance
-      title: Circulation Lights
-      entities:
-        - entity: light.hallway_light
-          name: Hall
-        - entity: light.pantry_lights
-          name: Pantry
-        - entity: light.bathroom_lights
-          name: Bath
-        - entity: light.garden_light
-          name: Garden
+#     - type: glance
+#       title: Circulation Lights
+#       entities:
+#         - entity: light.hallway_light
+#           name: Hall
+#         - entity: light.pantry_lights
+#           name: Pantry
+#         - entity: light.bathroom_lights
+#           name: Bath
+#         - entity: light.garden_light
+#           name: Garden
 
-    - type: entities
-      title: Climate
-      entities:
-        - climate.kitchen
-    # - type: media-control
-    #   entity: media_player.shed_speaker
+#     - type: entities
+#       title: Climate
+#       entities:
+#         - climate.kitchen
+#     # - type: media-control
+#     #   entity: media_player.shed_speaker
 
 
-    - type: picture-elements
-      image: /local/vacuum_card.jpg
-      elements:
-      - type: icon
-        icon: mdi:bell-ring
-        tap_action: call-service
-        entity: vacuum.xiaomi_vacuum_cleaner
-        service: vacuum.locate
-        style:
-          top: 80%
-          left: 80%
-          "--paper-item-icon-color": rgb(115, 122, 130)
+#     - type: picture-elements
+#       image: /local/vacuum_card.jpg
+#       elements:
+#       - type: icon
+#         icon: mdi:bell-ring
+#         tap_action: call-service
+#         entity: vacuum.xiaomi_vacuum_cleaner
+#         service: vacuum.locate
+#         style:
+#           top: 80%
+#           left: 80%
+#           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: icon
-        tap_action: call-service
-        icon: mdi:home
-        entity: vacuum.xiaomi_vacuum_cleaner
-        service: vacuum.return_to_base
-        style:
-          top: 80%
-          left: 60%
-          "--paper-item-icon-color": rgb(115, 122, 130)
+#       - type: icon
+#         tap_action: call-service
+#         icon: mdi:home
+#         entity: vacuum.xiaomi_vacuum_cleaner
+#         service: vacuum.return_to_base
+#         style:
+#           top: 80%
+#           left: 60%
+#           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: icon
-        icon: mdi:play-pause
-        tap_action: call-service
-        entity: vacuum.xiaomi_vacuum_cleaner
-        service: vacuum.start_pause
-        style:
-          top: 80%
-          left: 40%
-          "--paper-item-icon-color": rgb(115, 122, 130)
+#       - type: icon
+#         icon: mdi:play-pause
+#         tap_action: call-service
+#         entity: vacuum.xiaomi_vacuum_cleaner
+#         service: vacuum.start_pause
+#         style:
+#           top: 80%
+#           left: 40%
+#           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: icon
-        icon: mdi:stop
-        tap_action: call-service
-        entity: vacuum.xiaomi_vacuum_cleaner
-        service: vacuum.stop
-        style:
-          top: 80%
-          left: 20%
-          "--paper-item-icon-color": rgb(115, 122, 130)
+#       - type: icon
+#         icon: mdi:stop
+#         tap_action: call-service
+#         entity: vacuum.xiaomi_vacuum_cleaner
+#         service: vacuum.stop
+#         style:
+#           top: 80%
+#           left: 20%
+#           "--paper-item-icon-color": rgb(115, 122, 130)
 
-      - type: state-label
-        entity: sensor.vacuum_status
-        style:
-          top: 10%
-          left: 5%
-          color: rgb(255, 255, 255)
-          transform: translate(0%,-50%)
-          pointer-events: none
-          text-shadow: 1px 1px black
-          font-family: Trebuchet MS
-          font-size: 90%
-          font-weight: bold
-          border-left-style: solid
-          border-color: rgb(34, 154, 210)
-          background-color: rgb(54, 65, 78)
-          opacity: 0.8
+#       - type: state-label
+#         entity: sensor.vacuum_status
+#         style:
+#           top: 10%
+#           left: 5%
+#           color: rgb(255, 255, 255)
+#           transform: translate(0%,-50%)
+#           pointer-events: none
+#           text-shadow: 1px 1px black
+#           font-family: Trebuchet MS
+#           font-size: 90%
+#           font-weight: bold
+#           border-left-style: solid
+#           border-color: rgb(34, 154, 210)
+#           background-color: rgb(54, 65, 78)
+#           opacity: 0.8
 
-      - type: state-label
-        entity: sensor.vacuum_battery
-        style:
-          top: 10%
-          right: 5%
-          color: rgb(255, 255, 255)
-          transform: translate(0%,-50%)
-          pointer-events: none
-          text-shadow: 1px 1px black
-          font-family: Trebuchet MS
-          font-size: 90%
-          font-weight: bold
-          border-right-style: solid
-          border-color: rgb(34, 154, 210)
-          background-color: rgb(54, 65, 78)
-          opacity: 0.8
+#       - type: state-label
+#         entity: sensor.vacuum_battery
+#         style:
+#           top: 10%
+#           right: 5%
+#           color: rgb(255, 255, 255)
+#           transform: translate(0%,-50%)
+#           pointer-events: none
+#           text-shadow: 1px 1px black
+#           font-family: Trebuchet MS
+#           font-size: 90%
+#           font-weight: bold
+#           border-right-style: solid
+#           border-color: rgb(34, 154, 210)
+#           background-color: rgb(54, 65, 78)
+#           opacity: 0.8
 
-    - type: horizontal-stack
-      cards:
-        - type: picture-entity
-          entity: switch.christmas_tree_lights
-          tap_action: toggle
-          state_image:
-            "on": /local/christmas_tree_on.jpg
-            "off": /local/christmas_tree_off.jpg
-        - type: picture-entity
-          entity: switch.christmas_outdoor_lights
-          tap_action: toggle
-          state_image:
-            "on": /local/christmas_house_on.jpg
-            "off": /local/christmas_house_off.jpg
+#     - type: horizontal-stack
+#       cards:
+#         - type: picture-entity
+#           entity: switch.christmas_tree_lights
+#           tap_action: toggle
+#           state_image:
+#             "on": /local/christmas_tree_on.jpg
+#             "off": /local/christmas_tree_off.jpg
+#         - type: picture-entity
+#           entity: switch.christmas_outdoor_lights
+#           tap_action: toggle
+#           state_image:
+#             "on": /local/christmas_house_on.jpg
+#             "off": /local/christmas_house_off.jpg
 
-        # - type: entity-button
-        #   entity: switch.christmas_tree_lights
-        # - type: picture-entity
-        #   entity: switch.christmas_tree_lights
-        #   state_image:
-        #     "on": /local/christmas_tree_on.jpg
-        #     "off": /local/christmas_tree_off.jpg        
-        # - type: entity-button
-        #   icon: home
-        #   entity: switch.christmas_outdoor_lights
-        #   tap_action: toggle
+#         # - type: entity-button
+#         #   entity: switch.christmas_tree_lights
+#         # - type: picture-entity
+#         #   entity: switch.christmas_tree_lights
+#         #   state_image:
+#         #     "on": /local/christmas_tree_on.jpg
+#         #     "off": /local/christmas_tree_off.jpg        
+#         # - type: entity-button
+#         #   icon: home
+#         #   entity: switch.christmas_outdoor_lights
+#         #   tap_action: toggle
 
-- icon: mdi:pot-mix
-  title: Kitchen
-  id: kitchen
-  cards:
-    - type: vertical-stack
-      cards:
-        - type: picture-entity
-          title: Kitchen Camera
-          entity: camera.kitchen
-          camera-image: camera.kitchen
-          show_info: false
-        - type: entities
-          title: Motion
-          entities:
-            - binary_sensor.motion_kitchen
-    - type: media-control
-      entity: media_player.kitchen_speaker
-    - type: entities
-      title: Dishwasher
-      entities:
-        - input_select.dishwasher_status
-    - type: picture
-      image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-      navigation_path: /lovelace/home/
+# - icon: mdi:pot-mix
+#   title: Kitchen
+#   id: kitchen
+#   cards:
+#     - type: vertical-stack
+#       cards:
+#         - type: picture-entity
+#           title: Kitchen Camera
+#           entity: camera.kitchen
+#           camera-image: camera.kitchen
+#           show_info: false
+#         - type: entities
+#           title: Motion
+#           entities:
+#             - binary_sensor.motion_kitchen
+#     - type: media-control
+#       entity: media_player.kitchen_speaker
+#     - type: entities
+#       title: Dishwasher
+#       entities:
+#         - input_select.dishwasher_status
+#     - type: picture
+#       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+#       navigation_path: /lovelace/home/
 
-- icon: mdi:sofa
-  title: Living Room
-  id: living_room
-  cards:
-    - type: vertical-stack
-      cards:
-        - type: picture-entity
-          title: Living Room Camera
-          entity: camera.living_room
-          camera-image: camera.living_room
-          show_info: false
-        - type: entities
-          title: Motion
-          entities:
-            - binary_sensor.motion_under_stairs_cupboard
-            - binary_sensor.motion_living_room
-    - type: entities
-      title: Lights
-      entities:
-        - light.living_room_lamp
-        - light.living_room_main_light
-        - light.living_room_side_lights
-    - type: entity-button
-      entity: switch.scentsy_living_room
-    - type: media-control
-      entity: media_player.living_room_speaker
-    # - type: media-control
-    #   entity: media_player.living_room_fire_tv
-    - type: media-control
-      entity: media_player.living_room_tv
-    - type: picture
-      image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-      navigation_path: /lovelace/home/
+# - icon: mdi:sofa
+#   title: Living Room
+#   id: living_room
+#   cards:
+#     - type: vertical-stack
+#       cards:
+#         - type: picture-entity
+#           title: Living Room Camera
+#           entity: camera.living_room
+#           camera-image: camera.living_room
+#           show_info: false
+#         - type: entities
+#           title: Motion
+#           entities:
+#             - binary_sensor.motion_under_stairs_cupboard
+#             - binary_sensor.motion_living_room
+#     - type: entities
+#       title: Lights
+#       entities:
+#         - light.living_room_lamp
+#         - light.living_room_main_light
+#         - light.living_room_side_lights
+#     - type: entity-button
+#       entity: switch.scentsy_living_room
+#     - type: media-control
+#       entity: media_player.living_room_speaker
+#     # - type: media-control
+#     #   entity: media_player.living_room_fire_tv
+#     - type: media-control
+#       entity: media_player.living_room_tv
+#     - type: picture
+#       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+#       navigation_path: /lovelace/home/
 
-- icon: mdi:television
-  title: Front Room
-  id: front_room
-  cards:
-    - type: vertical-stack
-      cards:
-        - type: picture-entity
-          title: Front Room Camera
-          entity: camera.front_room
-          camera-image: camera.front_room
-          show_info: false
-        - type: entities
-          title: Motion
-          entities:
-            - binary_sensor.motion_front_room
-    - type: media-control
-      entity: media_player.front_room_speaker
-    # - type: media-control
-    #   entity: media_player.front_room_tv
-    - type: entities
-      title: Lights
-      entities:
-        - light.front_room_main_light
-    - type: picture
-      image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-      navigation_path: /lovelace/home/
+# - icon: mdi:television
+#   title: Front Room
+#   id: front_room
+#   cards:
+#     - type: vertical-stack
+#       cards:
+#         - type: picture-entity
+#           title: Front Room Camera
+#           entity: camera.front_room
+#           camera-image: camera.front_room
+#           show_info: false
+#         - type: entities
+#           title: Motion
+#           entities:
+#             - binary_sensor.motion_front_room
+#     - type: media-control
+#       entity: media_player.front_room_speaker
+#     # - type: media-control
+#     #   entity: media_player.front_room_tv
+#     - type: entities
+#       title: Lights
+#       entities:
+#         - light.front_room_main_light
+#     - type: picture
+#       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+#       navigation_path: /lovelace/home/
 
-- icon: mdi:hotel
-  title: Bedroom
-  id: bedroom
-  cards:
-    # - type: media-control
-    #   entity: media_player.bedroom_fire_tv
-    - type: media-control
-      entity: media_player.bedroom_tv
-    - type: media-control
-      entity: media_player.bedroom_speaker
-    - type: entities
-      title: Bedroom
-      entities:
-        - light.bedroom_main_light
-        - light.jack_bedside_light
-        - light.lara_bedside_light
-        - binary_sensor.motion_bedroom
-        - switch.power_bedroom_humidifier
-        - switch.scentsy_bedroom
-    - type: entities
-      title: Bedisde Lights
-      entities:
-        - light.jack_bedside_light
-        - light.lara_bedside_light
-    - type: entities
-      title: Dressing Room
-      entities:
-        - light.dressing_room
-        - binary_sensor.motion_dressing_room
-    - type: picture
-      image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-      navigation_path: /lovelace/home/
+# - icon: mdi:hotel
+#   title: Bedroom
+#   id: bedroom
+#   cards:
+#     # - type: media-control
+#     #   entity: media_player.bedroom_fire_tv
+#     - type: media-control
+#       entity: media_player.bedroom_tv
+#     - type: media-control
+#       entity: media_player.bedroom_speaker
+#     - type: entities
+#       title: Bedroom
+#       entities:
+#         - light.bedroom_main_light
+#         - light.jack_bedside_light
+#         - light.lara_bedside_light
+#         - binary_sensor.motion_bedroom
+#         - switch.power_bedroom_humidifier
+#         - switch.scentsy_bedroom
+#     - type: entities
+#       title: Bedisde Lights
+#       entities:
+#         - light.jack_bedside_light
+#         - light.lara_bedside_light
+#     - type: entities
+#       title: Dressing Room
+#       entities:
+#         - light.dressing_room
+#         - binary_sensor.motion_dressing_room
+#     - type: picture
+#       image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+#       navigation_path: /lovelace/home/
 
-- icon: mdi:settings
-  title: Settings
-  id: settings
-  cards:
+# - icon: mdi:settings
+#   title: Settings
+#   id: settings
+#   cards:
 
-  - type: custom:card-tracker
-    entity: sensor.custom_card_tracker
+#   - type: custom:card-tracker
+#     entity: sensor.custom_card_tracker
     
-  - type: custom:monster-card
-    card:
-      type: entities
-      title: Battery Status
-    filter:
-      include:
-        - attributes:
-            device_class: battery
-      exclude:
-        - entity_id: "sensor.battery_presence_sensor_lara_car"
+#   - type: custom:monster-card
+#     card:
+#       type: entities
+#       title: Battery Status
+#     filter:
+#       include:
+#         - attributes:
+#             device_class: battery
+#       exclude:
+#         - entity_id: "sensor.battery_presence_sensor_lara_car"
 
-  - type: custom:monster-card
-    card:
-      type: entities
-      title: Motion Sensor Status
-    filter:
-      include:
-        - attributes:
-            device_class: motion
+#   - type: custom:monster-card
+#     card:
+#       type: entities
+#       title: Motion Sensor Status
+#     filter:
+#       include:
+#         - attributes:
+#             device_class: motion
 
 
-  - type: custom:monster-card
-    card:
-      type: entities
-      title: Door and Window Status
-    filter:
-      include:
-        - attributes:
-            device_class: window
-        - attributes:
-            device_class: door
+#   - type: custom:monster-card
+#     card:
+#       type: entities
+#       title: Door and Window Status
+#     filter:
+#       include:
+#         - attributes:
+#             device_class: window
+#         - attributes:
+#             device_class: door
 
-  - type: custom:monster-card
-    card:
-      type: entities
-      title: Things that are broken
-    filter:
-      include:
-        - state: "unknown"
-      exclude:
-        - entity_id: group.*
+#   - type: custom:monster-card
+#     card:
+#       type: entities
+#       title: Things that are broken
+#     filter:
+#       include:
+#         - state: "unknown"
+#       exclude:
+#         - entity_id: group.*
 
-  - type: picture
-    image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
-    navigation_path: /lovelace/home/
+#   - type: picture
+#     image: https://images.pexels.com/photos/235975/pexels-photo-235975.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940
+#     navigation_path: /lovelace/home/
 

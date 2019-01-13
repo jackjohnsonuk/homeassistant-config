@@ -18,14 +18,14 @@ conversation:
 history:
 logbook:
 sun:
-custom_updater:
-  track:
-    - components
-    - cards
-    - python_scripts
-  show_installable: True
-  component_urls:
-    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
+# custom_updater:
+#   track:
+#     - components
+#     - cards
+#     - python_scripts
+#   show_installable: True
+#   component_urls:
+#     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
 
 
 mqtt:
@@ -63,9 +63,9 @@ device_tracker:
 ifttt:
   key: !secret ifttt
 
-influxdb:
-  host: 192.168.1.124
-  port: 8086
+# influxdb:
+#   host: 192.168.1.124
+#   port: 8086
 
 
 #sonos
@@ -74,9 +74,9 @@ influxdb:
 #    scan_interval:  40
 
 
-google:
-  client_id: !secret google_id
-  client_secret: !secret google_secret
+# google:
+#   client_id: !secret google_id
+#   client_secret: !secret google_secret
 
 
 group: !include groups.yaml
