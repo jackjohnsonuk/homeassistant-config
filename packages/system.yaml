@@ -55,15 +55,15 @@ sensor:
       ## System Monitor
       #################################################################
 
-  - platform: systemmonitor
-    resources:
-      - type: disk_free
-        arg: /
-      - type: memory_use_percent
-      - type: memory_use
-      - type: memory_free
-      - type: processor_use
-      - type: last_boot
+  # - platform: systemmonitor
+  #   resources:
+  #     - type: disk_free
+  #       arg: /
+  #     - type: memory_use_percent
+  #     - type: memory_use
+  #     - type: memory_free
+  #     - type: processor_use
+  #     - type: last_boot
 
 
       ################################################
@@ -80,19 +80,19 @@ sensor:
 ## System - group
 ################################################
 
-group:
-      #################################################################
-      ## System Group
-      #################################################################
+# group:
+#       #################################################################
+#       ## System Group
+#       #################################################################
 
-  system_monitor:
-    entities:
-      - sensor.disk_free_
-      - sensor.memory_use_percent
-      - sensor.memory_use
-      - sensor.memory_free
-      - sensor.processor_use
-      - sensor.last_boot
+#   system_monitor:
+#     entities:
+#       - sensor.disk_free_
+#       - sensor.memory_use_percent
+#       - sensor.memory_use
+#       - sensor.memory_free
+#       - sensor.processor_use
+#       - sensor.last_boot
 
 ################################################
 ## System - MQTT

@@ -67,12 +67,10 @@ binary_sensor:
 - platform: mqtt
   name: "Door Sensor Front Door"
   state_topic: "smartthings/Door Sensor - Front Door/contact/state"
-  command_topic: "smartthings/Door Sensor - Front Door/contact/state"
   device_class: door
   payload_on: "open"
   payload_off: "closed"
-  retain: true
-
+   
       #################################################################
       ## Door Sensor - Bathroom
       #################################################################
@@ -80,11 +78,9 @@ binary_sensor:
 - platform: mqtt
   name: "Door Sensor Bathroom"
   state_topic: "smartthings/Door Sensor - Bathroom/contact/state"
-  command_topic: "smartthings/Door Sensor - Bathroom/contact/state"
   device_class: door
   payload_on: "open"
   payload_off: "closed"
-  retain: true
 
       #################################################################
       ## Door Sensor - Dressing Room Window
@@ -93,11 +89,9 @@ binary_sensor:
 - platform: mqtt
   name: "Door Sensor Dressing Room Window"
   state_topic: "smartthings/Door Sensor - Dressing Room Window/contact/state"
-  command_topic: "smartthings/Door Sensor - Dressing Room Window/contact/state"
   device_class: window
   payload_on: "open"
   payload_off: "closed"
-  retain: true
 
 ################################################
 ## Door Sensor - Automation's

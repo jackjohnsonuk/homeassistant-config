@@ -18,25 +18,25 @@ conversation:
 history:
 logbook:
 sun:
-# custom_updater:
-#   track:
-#     - components
-#     - cards
-#     - python_scripts
-#   show_installable: True
-#   component_urls:
-#     - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
+custom_updater:
+  track:
+    - components
+    - cards
+    - python_scripts
+  show_installable: True
+  component_urls:
+    - https://raw.githubusercontent.com/pnbruckner/homeassistant-config/master/custom_components.json
 
 
-mqtt:
-  discovery: true
-  discovery_prefix: homeassistant
+# mqtt:
+#   discovery: true
+#   discovery_prefix: homeassistant
 
 http:
   # ssl_certificate: !secret ssl_certificate
   # ssl_key: !secret ssl_key
   api_password: !secret http_password
-  # base_url: !secret http_base_url
+  base_url: !secret http_base_url
   # login_attempts_threshold: 3
 
 
@@ -44,21 +44,22 @@ http:
 discovery:
  ignore:
   - sabnzbd
+  - songpal
 
 tts:
   - platform: google
 
-device_tracker:
-  - platform: owntracks
-    max_gps_accuracy: 200
-    waypoints: True
-    waypoint_whitelist:
-      - Jack
+# device_tracker:
+#   - platform: owntracks
+#     max_gps_accuracy: 200
+#     waypoints: True
+#     waypoint_whitelist:
+#       - Jack
 
-  - platform: nmap_tracker
-    hosts: !secret nmap
-    exclude:
-      - !secret nmap_exclude
+  # - platform: nmap_tracker
+  #   hosts: !secret nmap
+  #   exclude:
+  #     - !secret nmap_exclude
 
 ifttt:
   key: !secret ifttt
@@ -74,9 +75,9 @@ ifttt:
 #    scan_interval:  40
 
 
-# google:
-#   client_id: !secret google_id
-#   client_secret: !secret google_secret
+google:
+  client_id: !secret google_id
+  client_secret: !secret google_secret
 
 
 group: !include groups.yaml

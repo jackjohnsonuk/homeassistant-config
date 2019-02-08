@@ -49,11 +49,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Under Stairs Cupboard"
   state_topic: "smartthings/Motion - Under Stairs/motion/state"
-  command_topic: "smartthings/Motion - Under Stairs/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Bedroom
@@ -62,11 +60,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Bedroom"
   state_topic: "smartthings/Motion - Bedroom/motion/state"
-  command_topic: "smartthings/Motion - Bedroom/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Hallway
@@ -75,11 +71,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Hallway"
   state_topic: "smartthings/Motion - Hallway/motion/state"
-  command_topic: "smartthings/Motion - Hallway/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Dressing Room
@@ -88,11 +82,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Dressing Room"
   state_topic: "smartthings/Motion - Dressing Room/motion/state"
-  command_topic: "smartthings/Motion - Dressing Room/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Bathroom - Test
@@ -101,11 +93,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Bathroom"
   state_topic: "smartthings/Motion - Bathroom/motion/state"
-  command_topic: "smartthings/Motion - Bathroom/motion/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
 
 
@@ -150,8 +140,7 @@ automation:
 - alias: Hallway motion
   trigger:
    - platform: state
-     entity_id: binary_sensor.motion_hallway
-     to: 'on'
+     entity_id: binary_sensor.motion_hallway_motion
   action:
    - service: light.turn_on
      entity_id: light.hallway_light
@@ -211,10 +200,10 @@ automation:
     condition: and
     conditions:
       - condition: sun
-        before: sunset
-        before_offset: "-01:30:00"
+        after: sunset
+        after_offset: "-01:00:00"
       - condition: sun
-        after: sunrise
+        before: sunrise
   action:
    - service: light.turn_on
      entity_id: light.dressing_room

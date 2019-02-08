@@ -36,48 +36,48 @@ homeassistant:
 ## tablet - sensor
 ################################################
 
-sensor:
-      #################################################################
-      ## tablet
-      #################################################################
+# sensor:
+#       #################################################################
+#       ## tablet
+#       #################################################################
 
-  - platform: rest
-    name: Tablet_Bedroom
-    json_attributes:
-      - batteryLevel
-      - kioskMode
-      - screenBrightness
-      - motionDetectorState
-      - maintenanceMode
-      - appFreeMemory
-      - appUsedMemory
-      - totalFreeMemory
-      - totalUsedMemory
-      - hostname4
-      - ip4
-      - mac
-      - locationLatitude
-      - locationLongitude
-      - locationAltitude
-      - startUrl
-      - currentPage
-    resource: !secret bedroom_rest
-    value_template: '{{ value_json.isScreenOn }}'
+#   - platform: rest
+#     name: Tablet_Bedroom
+#     json_attributes:
+#       - batteryLevel
+#       - kioskMode
+#       - screenBrightness
+#       - motionDetectorState
+#       - maintenanceMode
+#       - appFreeMemory
+#       - appUsedMemory
+#       - totalFreeMemory
+#       - totalUsedMemory
+#       - hostname4
+#       - ip4
+#       - mac
+#       - locationLatitude
+#       - locationLongitude
+#       - locationAltitude
+#       - startUrl
+#       - currentPage
+#     resource: !secret bedroom_rest
+#     value_template: '{{ value_json.isScreenOn }}'
 
-################################################
-## tablet - switch
-################################################
+# ################################################
+# ## tablet - switch
+# ################################################
 
-switch:
-      #################################################################
-      ## tablet screen
-      #################################################################
+# switch:
+#       #################################################################
+#       ## tablet screen
+#       #################################################################
 
-  - platform: command_line
-    switches:
-      tablet_bedroom_screen:
-        command_on: !secret tablet_screen_on
-        command_off: !secret tablet_screen_off
-        command_state: !secret tablet_screen_state
-        value_template: '{{ value == "on" }}'
-        friendly_name: Bedroom Tablet Screen
+#   - platform: command_line
+#     switches:
+#       tablet_bedroom_screen:
+#         command_on: !secret tablet_screen_on
+#         command_off: !secret tablet_screen_off
+#         command_state: !secret tablet_screen_state
+#         value_template: '{{ value == "on" }}'
+#         friendly_name: Bedroom Tablet Screen

@@ -40,6 +40,10 @@ homeassistant:
       <<: *customize
       friendly_name: "Lounge Camera"
 
+    camera.bedroom:
+      <<: *customize
+      friendly_name: "Bedroom Camera"
+
     ################################################
     ## Blue Iris - Groups
     ################################################
@@ -145,6 +149,12 @@ camera:
   password: !secret camera_pass
   authentication: basic
 
+- platform: mjpeg
+  mjpeg_url: !secret blueiris_bedroom_url
+  name: Bedroom
+  username: !secret camera_user
+  password: !secret camera_pass
+  authentication: basic
 
 ################################################
 ## Blue Iris - Binary Sensor
@@ -243,11 +253,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Living Room"
   state_topic: "blueiris/living_room/state"
-  command_topic: "blueiris/living_room/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Front Door Motion
@@ -256,11 +264,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Front Door"
   state_topic: "blueiris/front_door/state"
-  command_topic: "blueiris/front_door/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Front Room Motion
@@ -269,11 +275,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Front Room"
   state_topic: "blueiris/front_room/state"
-  command_topic: "blueiris/front_room/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
       #################################################################
       ## Motion Sensor - Kitchen Motion
@@ -282,11 +286,9 @@ binary_sensor:
 - platform: mqtt
   name: "Motion Kitchen"
   state_topic: "blueiris/kitchen/state"
-  command_topic: "blueiris/kitchen/state"
   device_class: motion
   payload_on: "active"
   payload_off: "inactive"
-  retain: true
 
 
     #############################

@@ -1,104 +1,104 @@
-################################################################
-## Packages / Miflora
-################################################################
+# ################################################################
+# ## Packages / Miflora
+# ################################################################
 
-################################################
-## Customize
-################################################
+# ################################################
+# ## Customize
+# ################################################
 
-homeassistant:
-  customize:
-    ################################################
-    ## Node Anchors
-    ################################################
+# homeassistant:
+#   customize:
+#     ################################################
+#     ## Node Anchors
+#     ################################################
 
-    package.node_anchors:
-      customize: &customize
-        package: 'MiFlora'
+#     package.node_anchors:
+#       customize: &customize
+#         package: 'MiFlora'
 
-      expose: &expose
-        <<: *customize
-        hidden: false
+#       expose: &expose
+#         <<: *customize
+#         hidden: false
 
-      not-expose: &not-expose
-        <<: *customize
-        hidden: true
+#       not-expose: &not-expose
+#         <<: *customize
+#         hidden: true
 
-    ################################################
-    ## MiFlora
-    ################################################
+#     ################################################
+#     ## MiFlora
+#     ################################################
 
-    # vacuum.xiaomi_vacuum_cleaner:
-    #   <<: *customize
-    #   friendly_name: "Bob"
+#     # vacuum.xiaomi_vacuum_cleaner:
+#     #   <<: *customize
+#     #   friendly_name: "Bob"
 
-################################################
-## MiFlora - Json Sensor Values
-################################################
+# ################################################
+# ## MiFlora - Json Sensor Values
+# ################################################
 
-sensor:
+# sensor:
 
-      #################################################################
-      ## MiFlora - api pass
-      #################################################################
+#       #################################################################
+#       ## MiFlora - api pass
+#       #################################################################
 
-  - platform: mqtt
-    state_topic: 'miflora/outdoor_plant'
-    name: 'Plant Outdoor Battery'
-    force_update: true
-    device_class: battery
-    unit_of_measurement: '%'
-    value_template: '{{ value_json.battery }}'
+#   - platform: mqtt
+#     state_topic: 'miflora/outdoor_plant'
+#     name: 'Plant Outdoor Battery'
+#     force_update: true
+#     device_class: battery
+#     unit_of_measurement: '%'
+#     value_template: '{{ value_json.battery }}'
 
-  - platform: mqtt
-    state_topic: 'miflora/outdoor_plant'
-    name: 'Plant Outdoor Conductivity'
-    force_update: true
-    unit_of_measurement: 'µS/cm'
-    value_template: '{{ value_json.conductivity }}'
+#   - platform: mqtt
+#     state_topic: 'miflora/outdoor_plant'
+#     name: 'Plant Outdoor Conductivity'
+#     force_update: true
+#     unit_of_measurement: 'µS/cm'
+#     value_template: '{{ value_json.conductivity }}'
 
-  - platform: mqtt
-    state_topic: 'miflora/outdoor_plant'
-    name: 'Plant Outdoor Moisture'
-    force_update: true
-    unit_of_measurement: '%'
-    value_template: '{{ value_json.moisture }}'
+#   - platform: mqtt
+#     state_topic: 'miflora/outdoor_plant'
+#     name: 'Plant Outdoor Moisture'
+#     force_update: true
+#     unit_of_measurement: '%'
+#     value_template: '{{ value_json.moisture }}'
 
-  - platform: mqtt
-    state_topic: 'miflora/outdoor_plant'
-    name: 'Plant Outdoor Temperature'
-    force_update: true
-    unit_of_measurement: '°C'
-    value_template: '{{ value_json.temperature }}'
+#   - platform: mqtt
+#     state_topic: 'miflora/outdoor_plant'
+#     name: 'Plant Outdoor Temperature'
+#     force_update: true
+#     unit_of_measurement: '°C'
+#     value_template: '{{ value_json.temperature }}'
 
-  - platform: mqtt
-    state_topic: 'miflora/outdoor_plant'
-    name: 'Plant Outdoor Brightness'
-    force_update: true
-    unit_of_measurement: 'lux'
-    value_template: '{{ value_json.brightness }}'
+#   - platform: mqtt
+#     state_topic: 'miflora/outdoor_plant'
+#     name: 'Plant Outdoor Brightness'
+#     force_update: true
+#     unit_of_measurement: 'lux'
+#     value_template: '{{ value_json.brightness }}'
 
 
 
-################################################
-## MiFlora - plant
-################################################
+# ################################################
+# ## MiFlora - plant
+# ################################################
 
-plant:
+# plant:
 
-      #################################################################
-      ## MiFlora - plant
-      #################################################################
+#       #################################################################
+#       ## MiFlora - plant
+#       #################################################################
 
- Outdoor Plant:
-    sensors:
-      moisture: sensor.plant_outdoor_moisture
-      battery: sensor.plant_outdoor_battery
-      temperature: sensor.plant_outdoor_temperature
-      conductivity: sensor.plant_outdoor_conductivity
-      brightness: sensor.plant_outdoor_brightness
-    min_moisture: 25
-    max_moisture: 60
-    min_battery: 17
-    min_conductivity: 150
-    min_temperature: 9
+#  Outdoor Plant:
+#     sensors:
+#       moisture: sensor.plant_outdoor_moisture
+#       battery: sensor.plant_outdoor_battery
+#       temperature: sensor.plant_outdoor_temperature
+#       conductivity: sensor.plant_outdoor_conductivity
+#       brightness: sensor.plant_outdoor_brightness
+#     min_moisture: 25
+#     max_moisture: 60
+#     min_battery: 17
+#     min_conductivity: 150
+#     min_temperature: 9

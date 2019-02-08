@@ -79,11 +79,9 @@ binary_sensor:
 - platform: mqtt
   name: "Door Sensor Dishwasher"
   state_topic: "smartthings/Door Sensor - Dishwasher/contact/state"
-  command_topic: "smartthings/Door Sensor - Dishwasher/contact/state"
   device_class: door
   payload_on: "open"
   payload_off: "closed"
-  retain: true
 
 
 ################################################

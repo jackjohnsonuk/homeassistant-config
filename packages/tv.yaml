@@ -48,18 +48,17 @@ media_player:
       #################################################################
 
 - platform: braviatv
-  host: 192.168.1.128
+  host: 192.168.1.57
   name: Living Room TV
 
 #       #################################################################
 #       ## TV - Living Room Fire TV
 #       #################################################################
 
-# - platform: firetv
-#   device: Living_Room
-#   name: Living Room Fire TV
-#   host: 192.168.1.157
-#   port: 5556
+- platform: firetv
+  name: Living Room Fire TV
+  host: 192.168.1.55
+  adbkey: "/config/android/adbkey"
 
       #################################################################
       ## TV - Front Room TV
@@ -74,20 +73,16 @@ media_player:
 #       #################################################################
 
 # - platform: firetv
-#   device: Front_Room
 #   name: Front Room Fire TV
 #   host: 192.168.1.157
-#   port: 5556
 
 #       #################################################################
 #       ## TV - Bedroom Fire TV
 #       #################################################################
 
 # - platform: firetv
-#   device: Bedroom
 #   name: Bedroom Fire TV
-#   host: 192.168.1.157
-#   port: 5556
+#   host: 192.168.1.56
 
       #################################################################
       ## Media Player - Bedroom TV

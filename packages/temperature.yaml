@@ -110,21 +110,21 @@ script:
       ###  Set Nest Away
       ##############################################################################
 
-  set_nest_away:
-    sequence:
-      - service: nest.set_mode
-        data:
-          home_mode: away
+  # set_nest_away:
+  #   sequence:
+  #     - service: nest.set_mode
+  #       data:
+  #         home_mode: away
 
       ##############################################################################
       ###  Set Nest Home
       ##############################################################################
 
-  set_nest_home:
-    sequence:
-      - service: nest.set_mode
-        data:
-          home_mode: home
+  # set_nest_home:
+  #   sequence:
+  #     - service: nest.set_mode
+  #       data:
+  #         home_mode: home
 
 ##############################################################################
 ###  Temperature - Automations
@@ -143,10 +143,6 @@ automation:
      entity_id: group.family
      to: 'home'
   action:
-   - service: climate.set_away_mode
-     data:
-       entity_id: climate.kitchen
-       operation_mode: 'false'
    - service: climate.set_operation_mode
      data:
        entity_id: climate.kitchen
@@ -160,12 +156,8 @@ automation:
   trigger:
    - platform: state
      entity_id: group.family
-     from: 'home'
+     to: 'not_home'
   action:
-   - service: climate.set_away_mode
-     data:
-       entity_id: climate.kitchen
-       operation_mode: 'false'
    - service: climate.set_operation_mode
      data:
        entity_id: climate.kitchen

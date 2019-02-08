@@ -65,7 +65,7 @@ automation:
 
 - alias: Occupancy - Living turn off after 2 min of no motion
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/2'
     seconds: 00
   condition:
@@ -118,7 +118,7 @@ automation:
 
 - alias: Occupancy - front_room turn off after 2 min of no motion
   trigger:
-    platform: time
+    platform: time_pattern
     minutes: '/2'
     seconds: 00
   condition:

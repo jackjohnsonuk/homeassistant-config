@@ -36,9 +36,6 @@ homeassistant:
       friendly_name: Current Temperature
       <<: *expose
 
-    weather.yahoo_home:
-      friendly_name: Home
-      <<: *expose
 
 ################################################
 ## Weather - Weather
@@ -54,13 +51,9 @@ weather:
   api_key: !secret dark_sky_api
   units: uk2
   name: darksky_home
+  mode: daily
 
-      #################################################################
-      ## Yahoo Weather
-      #################################################################
 
-- platform: yweather
-  name: yahoo_home
 ################################################
 ## Weather - Sensor's
 ################################################
@@ -105,7 +98,7 @@ sensor:
     - temperature
     - precip_probability
     - wind_speed
-    - temperature_min
+    - temperature_low
 
       #################################################################
       ## History Sensor

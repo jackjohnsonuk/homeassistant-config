@@ -297,6 +297,15 @@ device_tracker:
     max_update_wait:
       minutes: 30
 
+  ################################################
+  ## traccar
+  ################################################
+
+  # - platform: traccar
+  #   host: !secret traccar_ip
+  #   username: !secret traccar_username
+  #   password: !secret traccar_password
+
 ################################################
 ## automation
 ################################################

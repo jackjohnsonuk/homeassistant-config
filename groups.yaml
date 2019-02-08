@@ -185,8 +185,8 @@ living_room_motion:
 family:
   name: Family
   entities:
-   - sensor.jack_status
-   - sensor.lara_status
+   - device_tracker.jack
+   - device_tracker.lara
 
       #################################################################
       ## Last Motion Sensor Card

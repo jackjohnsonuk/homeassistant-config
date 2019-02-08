@@ -340,6 +340,7 @@ group:
     name: Front Room Lights
     entities:
       - light.front_room_main_light
+      - light.front_room_lamp
 
       #################################################################
       ## Living Room Light Card
@@ -348,7 +349,6 @@ group:
   Living_room_lights:
     name: Living Room Lights
     entities:
-      - light.living_room_lamp
       - light.living_room_main_light
       - light.living_room_side_lights
 
