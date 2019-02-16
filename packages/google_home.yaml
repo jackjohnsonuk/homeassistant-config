@@ -162,17 +162,36 @@ google_assistant:
       room: Bedroom
 
       ################################################
-      ## Google Assistant - front room
+      ## Google Assistant - shed
       ################################################
 
-    light.front_room_main_light:
+    switch.smart_plug_1_relay:
       expose: true
-      name: "Front Room Main Light"
+      name: "Shed Heater"
+      room: Shed
+
+    switch.smart_plug_2_relay:
+      expose: true
+      name: "Air Cleaner"
+      room: Shed
+
+    switch.smart_plug_3_relay:
+      expose: true
+      name: "Shed Flood Light"
+      room: Shed
+
+     ################################################
+      ## Google Assistant - shed
+      ################################################
+
+    light.front_room_lamp:
+      expose: true
+      name: "Front Room Lamp"
       room: Front Room
 
-    switch.christmas_tree_lights:
+    light.front_room_main_light_2:
       expose: true
-      name: "Christmas Tree"
+      name: "Front Room Light"
       room: Front Room
 
       ################################################
@@ -211,10 +230,10 @@ google_assistant:
         - Livingroom Light
         - Living Room Light
 
-    # light.living_room_side_lights:
-    #   expose: true
-    #   name: "Living Room Side Lights"
-    #   room: Living Room
+    light.living_room_side_lights:
+      expose: true
+      name: "Living Room Side Lights"
+      room: Living Room
 
 
 ################################################
