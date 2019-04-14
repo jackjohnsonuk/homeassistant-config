@@ -7,3 +7,6 @@ script:
   - hass -c . --script check_config
 before_install:
   - mv travis_secrets.yaml secrets.yaml
+  - mv travis_adbkey adbkey
+  - mv travis_adbkey.pub adbkey.pub
+
