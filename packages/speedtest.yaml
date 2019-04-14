@@ -32,13 +32,13 @@ homeassistant:
 ## Speedtest - Sensor's
 ################################################
 
-sensor:
+speedtestdotnet:
 
       #################################################################
       ## Speedtest.net
       #################################################################
-
-- platform: speedtest
+  scan_interval:
+    minutes: 30
   monitored_conditions:
     - ping
     - download

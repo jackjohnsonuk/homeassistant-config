@@ -121,36 +121,76 @@ camera:
       ## Blue Iris Cameras
       #################################################################
 
-- platform: mjpeg
-  mjpeg_url: !secret blueiris_living_room_url
+# - platform: mjpeg
+#   mjpeg_url: !secret blueiris_living_room_url
+#   name: Living Room
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+
+- platform: generic
+  still_image_url: !secret blueiris_living_room_still
+  stream_source: !secret blueiris_living_room_stream
   name: Living Room
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
 
-- platform: mjpeg
-  mjpeg_url: !secret blueiris_kitchen_url
+# - platform: mjpeg
+#   mjpeg_url: !secret blueiris_kitchen_url
+#   name: Kitchen
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+
+- platform: generic
+  still_image_url: !secret blueiris_kitchen_still
+  stream_source: !secret blueiris_kitchen_stream
   name: Kitchen
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
 
-- platform: mjpeg
-  mjpeg_url: !secret blueiris_front_room_url
+# - platform: mjpeg
+#   mjpeg_url: !secret blueiris_front_room_url
+#   name: Front Room
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+
+- platform: generic
+  still_image_url: !secret blueiris_front_room_still
+  stream_source: !secret blueiris_front_room_stream
   name: Front Room
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
 
-- platform: mjpeg
-  mjpeg_url: !secret blueiris_front_door_url
+# - platform: mjpeg
+#   mjpeg_url: !secret blueiris_front_door_url
+#   name: Front Door
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+
+- platform: generic
+  still_image_url: !secret blueiris_front_door_still
+  stream_source: !secret blueiris_front_door_stream
   name: Front Door
   username: !secret camera_user
   password: !secret camera_pass
   authentication: basic
 
-- platform: mjpeg
-  mjpeg_url: !secret blueiris_bedroom_url
+# - platform: mjpeg
+#   mjpeg_url: !secret blueiris_bedroom_url
+#   name: Bedroom
+#   username: !secret camera_user
+#   password: !secret camera_pass
+#   authentication: basic
+
+- platform: generic
+  still_image_url: !secret blueiris_bedroom_still
+  stream_source: !secret blueiris_bedroom_stream
   name: Bedroom
   username: !secret camera_user
   password: !secret camera_pass

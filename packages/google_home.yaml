@@ -114,7 +114,18 @@ google_assistant:
     ################################################
 
   entity_config:
-    
+     
+      ################################################
+      ## Google Assistant - bathroom
+      ################################################
+
+    vacuum.xiaomi_vacuum_cleaner:
+      name: "Bob"
+      expose: true
+      aliases:
+        - Vacuum
+      room: Kitchen
+
       ################################################
       ## Google Assistant - bathroom
       ################################################
@@ -177,7 +188,10 @@ google_assistant:
 
     switch.smart_plug_3_relay:
       expose: true
-      name: "Shed Flood Light"
+      name: "Shed FloodLight"
+      aliases:
+        - Shed Flood Light
+        - Shed Light
       room: Shed
 
      ################################################
@@ -240,40 +254,36 @@ google_assistant:
 ## Google Home - Device Tracker
 ################################################
 
-device_tracker:
+googlehome:
 
 
       #################################################################
       ## Kitchen Google Assistant
       #################################################################
 
-- platform: googlehome
-  host: 192.168.1.50
+  devices:
+    - host: 192.168.1.50
 
       #################################################################
       ## Bedroom Google Assistant
       #################################################################
 
-- platform: googlehome
-  host: 192.168.1.51
+    - host: 192.168.1.51
 
       #################################################################
       ## Front Room Google Assistant
       #################################################################
 
-- platform: googlehome
-  host: 192.168.1.52
+    - host: 192.168.1.52
 
       #################################################################
       ## Living Room Google Assistant
       #################################################################
 
-- platform: googlehome
-  host: 192.168.1.54
+    - host: 192.168.1.54
 
       #################################################################
       ## Shed Google Assistant
       #################################################################
 
-- platform: googlehome
-  host: 192.168.1.53
+    - host: 192.168.1.53
