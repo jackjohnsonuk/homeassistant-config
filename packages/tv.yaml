@@ -55,7 +55,7 @@ media_player:
 #       ## TV - Living Room Fire TV
 #       #################################################################
 
-- platform: firetv
+- platform: androidtv
   name: Living Room Fire TV
   host: 192.168.1.55
   adbkey: "/config/android/adbkey"
