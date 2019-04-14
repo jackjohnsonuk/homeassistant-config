@@ -15,6 +15,5 @@ google_calendars.yaml
 !media_player
 !device_tracker
 !life360
-!android
-adbkey
-adbkey.pub
+!travis_adbkey
+!travis_adbkey.pub
